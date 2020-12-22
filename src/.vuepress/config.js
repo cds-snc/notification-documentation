@@ -46,7 +46,6 @@ module.exports = {
         selectText: 'Languages',
         label: 'English',
         ariaLabel: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
@@ -77,7 +76,6 @@ module.exports = {
         selectText: 'Langues',
         label: 'Français',
         ariaLabel: 'Langues',
-        editLinkText: 'Modifier cette page sur GitHub',
         serviceWorker: {
           updatePopup: {
             message: "Du nouveau contenu est disponible.",
