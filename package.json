@@ -1,0 +1,19 @@
+{
+  "name": "notify-docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "GC Notify | GC Notification",
+    "email": "cds-snc@tbs-sct.gc.ca"
+  },
+  "repository": "cds-snc/notification-documentation/notify-docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
