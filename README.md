@@ -1,4 +1,4 @@
-# GC Notify Documentation | Documentation pour GC Notification
+# GC Notify Technical Documentation
 
 This is the repository holding the documentation for GC Notify, https://notification.canada.ca.
 
@@ -15,7 +15,7 @@ The sidebar is defined in [`src/.vuepress/config.js`](src/.vuepress/config.js). 
 
 If you want to add pages or groups of pages, you should tweak the `sidebar` object.
 
-This example sidebar defines a menu for 3 pages: `callbacks.md`, `limits.md` and then `api.md` in the `en` folder. If you created a new Mardown file and want to see it in the menu, it should be added in this object.
+This example sidebar defines a menu for 3 pages: `callbacks.md`, `limits.md` and then `api.md` in the `en` folder. If you created a new Markdown file and want to see it in the menu, it should be added in this object.
 
 This example code also defines a group of pages, under the name "Clients" that is collapsable. The order of pages and their name works the same way.
 
