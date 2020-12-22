@@ -1,4 +1,4 @@
-# Technical documentation
+# Integrate with the API
 
 This documentation is for developers who want to integrate the GC Notify API with a web application or back office system.
 
