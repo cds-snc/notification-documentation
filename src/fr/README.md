@@ -1,3 +1,3 @@
-# Accueil
+# Commencez à utiliser l’API
 
-Documentation technique en français
+Vous pouvez intégrer l’API GC Notification à votre application web ou à votre système administratif afin d’envoyer des courriels ou des messages texte automatiquement.
