@@ -39,6 +39,8 @@ module.exports = {
     lastUpdated: false,
     nextLinks: false,
     prevLinks: false,
+    docsDir: 'src',
+    docsBranch: 'main',
     locales: {
       '/en/': {
         selectText: 'Languages',
