@@ -1,6 +1,6 @@
 # Callbacks
 
-Callbacks are when GOV.UK Notify sends `POST` requests to your service. You can get callbacks when:
+Callbacks are when GC Notify sends `POST` requests to your service. You can get callbacks when:
 
 - a text message or email you’ve sent is delivered or fails
 - your service receives a text message
@@ -10,11 +10,11 @@ Callbacks are when GOV.UK Notify sends `POST` requests to your service. You can 
 You must provide:
 
 - a URL where Notify will post the callback to
-- a bearer token which Notify will put in the authorisation header of the requests
+- a bearer token which GC Notify will put in the authorisation header of the requests
 
 To do this:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __Callbacks__.
 
