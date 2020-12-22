@@ -1,4 +1,4 @@
-# Get started using the API
+# Connecting to the API
 
 Integrate the GC Notify API with your web application or back office system to send email or text messages automatically by referring to this REST API documentation. This documentation is for developers interested in using the GC Notify API to send emails or text messages.
 
