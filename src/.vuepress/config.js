@@ -18,12 +18,12 @@ module.exports = {
     '/en/': {
       lang: 'en-CA',
       title: "Technical documentation",
-      description: 'Documentation for learning how to integrate directly with the GC Notify API'
+      description: 'Integrate directly with the GC Notify API'
     },
     '/fr/': {
       lang: 'fr-CA',
       title: 'Documentation technique',
-      description: 'Documentation pour en savoir plus sur comment intégrer directement l`API GC Notification'
+      description: 'Intégration directe à l`API GC Notification'
     }
   },
 
