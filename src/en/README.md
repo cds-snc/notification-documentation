@@ -1,3 +1,3 @@
 # Home
 
-English Homepage.
+Technical documentation in English.
