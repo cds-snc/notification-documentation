@@ -81,12 +81,12 @@ module.exports = {
         serviceWorker: {
           updatePopup: {
             message: "Du nouveau contenu est disponible.",
-            buttonText: "Rafraichir"
+            buttonText: "Actualiser"
           }
         },
         nav: [
-          { text: "GC Notification", link: 'https://notification.canada.ca' },
-          { text: "Nous joindre", link: 'https://notification.canada.ca/contact' },
+          { text: "GC Notification", link: 'https://notification.canada.ca?lang=fr' },
+          { text: "Nous joindre", link: 'https://notification.canada.ca/contact?lang=fr' },
         ],
         sidebar: {
           '/fr/': [
