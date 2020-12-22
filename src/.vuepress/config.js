@@ -1,11 +1,4 @@
-const { description } = require('../../package')
-
 module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
-
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
@@ -16,22 +9,21 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico"}],
   ],
 
   base: '/notification-documentation/',
 
   locales: {
-    // The key is the path for the locale to be nested under.
-    // As a special case, the default locale can use '/' as its path.
     '/en/': {
-      lang: 'en-CA', // this will be set as the lang attribute on <html>
+      lang: 'en-CA',
       title: "GC Notify's documentation",
-      description: 'Vue-powered Static Site Generator'
+      description: 'Documentation website for GC Notify'
     },
     '/fr/': {
       lang: 'fr-CA',
       title: 'Documentation de GC Notification',
-      description: 'Vue 驱动的静态网站生成器'
+      description: 'Site web de la documentation de GC Notification'
     }
   },
 
@@ -50,14 +42,9 @@ module.exports = {
     locales: {
       '/en/': {
         selectText: 'Languages',
-        // label for this locale in the language dropdown
         label: 'English',
-        // Aria Label for locale in the dropdown
         ariaLabel: 'Languages',
-        // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
-        // config for Service Worker
-        title: 'GC Notify',
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
@@ -88,14 +75,9 @@ module.exports = {
       },
       '/fr/': {
         selectText: 'Langues',
-        // label for this locale in the language dropdown
         label: 'Français',
-        // Aria Label for locale in the dropdown
         ariaLabel: 'Langues',
-        // text for the edit-on-github link
         editLinkText: 'Modifier cette page sur GitHub',
-        // config for Service Worker
-        title: 'Documentation de GC Notification',
         serviceWorker: {
           updatePopup: {
             message: "Du nouveau contenu est disponible.",
