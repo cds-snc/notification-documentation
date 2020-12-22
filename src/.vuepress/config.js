@@ -34,13 +34,12 @@ module.exports = {
    */
   themeConfig: {
     logo: 'https://assets.notification.canada.ca/static/gov-canada-en.svg',
-    repo: 'cds-snc/notification-documentation',
     editLinks: true,
     lastUpdated: false,
     nextLinks: false,
     prevLinks: false,
     docsDir: 'src',
-    docsBranch: false,
+    docsBranch: 'main',
     locales: {
       '/en/': {
         selectText: 'Languages',
@@ -54,8 +53,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "GC Notify", link: 'https://notification.canada.ca' },
-          { text: "Contact us", link: 'https://notification.canada.ca/contact' },
+          { text: "Back to GC Notify", link: 'https://notification.canada.ca' },
         ],
         sidebarDepth: 2,
         sidebar: {
@@ -83,8 +81,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "GC Notification", link: 'https://notification.canada.ca?lang=fr' },
-          { text: "Nous joindre", link: 'https://notification.canada.ca/contact?lang=fr' },
+          { text: "Retour à GC Notification", link: 'https://notification.canada.ca?lang=fr' },
         ],
         sidebar: {
           '/fr/': [
