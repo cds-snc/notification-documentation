@@ -1,12 +1,10 @@
 # Get message status
 
-## Get message status
-
 Message status depends on the type of message you have sent.
 
 You can only get the status of messages that are 7 days old or newer.
 
-### Status - email
+## Status - email
 
 |Status|Information|
 |:---|:---|
@@ -16,7 +14,7 @@ You can only get the status of messages that are 7 days old or newer.
 |Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between Notify and the provider.<br>You’ll have to try sending your messages again."|
 
 
-### Status - text message
+## Status - text message
 
 |Status|Information|
 |:---|:---|
@@ -27,31 +25,15 @@ You can only get the status of messages that are 7 days old or newer.
 |Delivered|The message was successfully delivered.|
 |Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message. This can happen if the phone number was wrong or if the network operator rejects the message. If you’re sure that these phone numbers are correct, you should [contact GOV.UK Notify support](https://www.notifications.service.gov.uk/support). If not, you should remove them from your database. You’ll still be charged for text messages that cannot be delivered."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s phone is off, has no signal, or their text message inbox is full. You can try to send the message again. You’ll still be charged for text messages to phones that are not accepting messages."<br>- `technical-failure` - "Your message was not sent because there was a problem between Notify and the provider.<br>You’ll have to try sending your messages again. You will not be charged for text messages that are affected by a technical failure."|
 
-### Status - letter
-
-|Status|information|
-|:---|:---|
-|Failed|The only failure status that applies to letters is `technical-failure`. GOV.UK Notify had an unexpected error while sending to our printing provider.|
-|Accepted|GOV.UK Notify has sent the letter to the provider to be printed.|
-|Received|The provider has printed and dispatched the letter.|
-
-### Status - precompiled letter
-
-|Status|information|
-|:---|:---|
-|Pending virus check|GOV.UK Notify has not completed a virus scan of the precompiled letter file.|
-|Virus scan failed|GOV.UK Notify found a potential virus in the precompiled letter file.|
-|Validation failed|Content in the precompiled letter file is outside the printable area. See the [GOV.UK Notify letter specification](https://www.notifications.service.gov.uk/using-notify/guidance/letter-specification) for more information.|
-
-### Get the status of one message
+## Get the status of one message
 
 ```
 GET /v2/notifications/{notification_id}
 ```
 
-#### Query parameters
+### Query parameters
 
-##### notification_id (required)
+#### notification_id (required)
 
 The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
 
@@ -64,7 +46,7 @@ You can filter the returned messages by including the following optional paramet
 - [`reference`](#get-the-status-of-multiple-messages-arguments-reference-optional)
 - [`older_than`](#older-than-optional)
 
-#### Response
+### Response
 
 If the request is successful, the response body is `json` and the status code is `200`:
 
@@ -97,7 +79,7 @@ If the request is successful, the response body is `json` and the status code is
 }
 ```
 
-#### Error codes
+### Error codes
 
 If the request is not successful, the response body is `json`, refer to the table below for details.
 
@@ -109,7 +91,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
 
 
-### Get the status of multiple messages
+## Get the status of multiple messages
 
 This API call returns one page of up to 250 messages and statuses. You can get either the most recent messages, or get older messages by specifying a particular notification ID in the `older_than` argument.
 
@@ -119,7 +101,7 @@ You can only get the status of messages that are 7 days old or newer.
 GET /v2/notifications
 ```
 
-##### All messages
+#### All messages
 
 This will return all your messages with statuses. They will display in pages of up to 250 messages each.
 
@@ -130,11 +112,11 @@ You can filter the returned messages by including the following optional argumen
 - [`reference`](#get-the-status-of-multiple-messages-arguments-reference-optional)
 - [`older_than`](#older-than-optional)
 
-#### Arguments
+### Arguments
 
 You can omit any of these arguments to ignore these filters.
 
-##### template_type (optional)
+#### template_type (optional)
 
 You can filter by:
 
@@ -142,7 +124,7 @@ You can filter by:
 * `sms`
 * `letter`
 
-##### status (optional)
+#### status (optional)
 
 You can filter by each:
 
@@ -153,7 +135,7 @@ You can filter by each:
 
 You can leave out this argument to ignore this filter.
 
-##### reference (optional)
+#### reference (optional)
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
@@ -161,7 +143,7 @@ An identifier you can create if necessary. This reference identifies a single no
 "reference": "STRING"
 ```
 
-##### older_than (optional)
+#### older_than (optional)
 
 Input the ID of a notification into this argument. If you use this argument, the method returns the next 250 received notifications older than the given ID.
 
@@ -173,11 +155,11 @@ If you leave out this argument, the method returns the most recent 250 notificat
 
 The client only returns notifications that are 7 days old or newer. If the notification specified in this argument is older than 7 days, the client returns an empty response.
 
-#### Response
+### Response
 
 If the request is successful, the response body is `json` and the status code is `200`.
 
-##### All messages
+#### All messages
 
 ```json
 {
@@ -217,7 +199,7 @@ If the request is successful, the response body is `json` and the status code is
 }
 ```
 
-#### Error codes
+### Error codes
 
 If the request is not successful, the response body is `json`, refer to the table below for details.
 
