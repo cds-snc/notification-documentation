@@ -69,7 +69,6 @@ module.exports = {
             '/en/api-keys',
             '/en/limits',
             '/en/callbacks',
-            '/en/limits',
             '/en/api-architecture',
             {
              title: 'Clients',
@@ -108,7 +107,6 @@ module.exports = {
             '/fr/api-keys',
             '/fr/limits',
             '/fr/callbacks',
-            '/fr/limits',
             '/fr/api-architecture',
           ]
         }
