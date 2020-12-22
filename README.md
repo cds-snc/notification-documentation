@@ -1,4 +1,4 @@
-# Documentation website for GC Notify | Documentation de GC Notification
+# GC Notify Technical Documentation | Documentation technique pour GC Notification
 
 This is the repository holding the documentation for GC Notify, https://notification.canada.ca.
 
