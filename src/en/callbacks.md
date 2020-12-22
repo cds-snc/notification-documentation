@@ -1,5 +1,7 @@
 # Callbacks
 
+A callback lets you receive messages from GC Notify to a URL you choose. 
+
 Callbacks are when GC Notify sends `POST` requests to your service. You can get callbacks when:
 
 - a text message or email you’ve sent is delivered or fails
@@ -10,7 +12,7 @@ Callbacks are when GC Notify sends `POST` requests to your service. You can get 
 You must provide:
 
 - a URL where Notify will post the callback to
-- a bearer token which GC Notify will put in the authorisation header of the requests
+- a bearer token, for security, which GC Notify will put in the authorisation header of the requests
 
 To do this:
 
@@ -20,15 +22,15 @@ To do this:
 
 ## Delivery receipts
 
-When you send an email or text message, Notify will send a receipt to your callback URL with the status of the message. This is an automated method to get the status of messages.
+When you send an email or text message, GC Notify will send a receipt to your callback URL to tell you if it was delivered or not. This is an automated method to get the status of messages.
 
-This functionality works with test API keys, but does not work with smoke testing phone numbers or email addresses.
+This functionality works with test API keys, but does not work with smoke testing email addresses or phone numbers.
 
 The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
 
 |Key | Description | Format|
 |:---|:---|:---|
-|`id` | Notify’s id for the status receipts | UUID|
+|`id` | GC Notify’s id for the status receipts | UUID|
 |`reference` | The reference sent by the service | 12345678|
 |`to` | The email address or phone number of the recipient | hello@gov.uk or 07700912345|
 |`status` | The status of the notification | `delivered`, `permanent-failure`, `temporary-failure` or `technical-failure`|
@@ -39,16 +41,16 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 
 ## Received text messages
 
-If your service receives text messages in Notify, Notify can forward them to your callback URL as soon as they arrive.
+If your service receives text messages in GC Notify, GC Notify can forward them to your callback URL as soon as they arrive.
 
-Contact the Notify team using the [support page](https://www.notifications.service.gov.uk/support) or [chat to us on Slack](https://ukgovernmentdigital.slack.com/messages/C0E1ADVPC) to request a unique number for text message replies.
+Contact the Notify team using the [Contact us page](https://www.notification.canada.ca/contact) to request a unique number for text message replies.
 
 The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
 
 |Key | Description | Format|
 |:---|:---|:---|
-|`id` | Notify’s id for the received message | UUID|
+|`id` | GC Notify’s id for the received message | UUID|
 |`source_number` | The phone number the message was sent from | 447700912345|
 |`destination_number` | The number the message was sent to (your number) | 07700987654|
-|`message` | The received message | Hello Notify!|
+|`message` | The received message | Hello GC Notify!|
 |`date_received` | The UTC datetime that the message was received by Notify | 2017-05-14T12:15:30.000000Z|
