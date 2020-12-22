@@ -1,3 +1,3 @@
-# Home
+# Get started using the API
 
-Technical documentation in English.
+Integrate the GC Notify API with your web application or back office system to send email or text messages automatically.
