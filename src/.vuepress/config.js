@@ -53,7 +53,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "GC Notify", link: 'https://notification.canada.ca' },
+          { text: "Back to GC Notify", link: 'https://notification.canada.ca' },
           { text: "Contact us", link: 'https://notification.canada.ca/contact' },
         ],
         sidebarDepth: 2,
@@ -83,7 +83,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "GC Notification", link: 'https://notification.canada.ca?lang=fr' },
+          { text: "Retour à GC Notification", link: 'https://notification.canada.ca?lang=fr' },
           { text: "Nous joindre", link: 'https://notification.canada.ca/contact?lang=fr' },
         ],
         sidebar: {
