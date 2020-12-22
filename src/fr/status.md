@@ -1,1 +1,1 @@
-# Get message status 
+# Obtenir l'état de messages
