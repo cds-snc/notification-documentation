@@ -18,12 +18,12 @@ module.exports = {
     '/en/': {
       lang: 'en-CA',
       title: "Technical documentation",
-      description: 'Learn about the GC Notify API'
+      description: 'Learn how to integrate directly with the GC Notify API'
     },
     '/fr/': {
       lang: 'fr-CA',
       title: 'Documentation technique',
-      description: 'En savoir plus sur l`API GC Notification'
+      description: 'En savoir plus sur comment intégrer directement l`API GC Notification'
     }
   },
 
@@ -61,9 +61,16 @@ module.exports = {
         sidebar: {
           '/en/': [
             '/en/',
+            '/en/api',
+            '/en/headers',
+            '/en/send-a-message',
+            '/en/get-message-status',
+            '/en/testing',
+            '/en/api-keys',
+            '/en/limits',
             '/en/callbacks',
             '/en/limits',
-            '/en/api',
+            '/en/api-architecture',
             {
              title: 'Clients',
              collapsable: true,
@@ -93,7 +100,16 @@ module.exports = {
         sidebar: {
           '/fr/': [
             '/fr/',
-            '/fr/api',
+            '/fr/api',           
+            '/fr/headers',
+            '/fr/send-a-message',
+            '/fr/get-message-status',
+            '/fr/testing',
+            '/fr/api-keys',
+            '/fr/limits',
+            '/fr/callbacks',
+            '/fr/limits',
+            '/fr/api-architecture',
           ]
         }
       },
