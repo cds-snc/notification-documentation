@@ -1,1 +1,1 @@
-# API Architecture
+# API architecture
