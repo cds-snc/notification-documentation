@@ -1,1 +1,1 @@
-# API keys FR
+# API keys
