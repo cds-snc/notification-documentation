@@ -17,13 +17,13 @@ module.exports = {
   locales: {
     '/en/': {
       lang: 'en-CA',
-      title: "Technical documentation (API)",
-      description: 'Learn how to integrate directly with the GC Notify API'
+      title: "Technical documentation",
+      description: 'Documentation for learning how to integrate directly with the GC Notify API'
     },
     '/fr/': {
       lang: 'fr-CA',
-      title: 'Documentation technique (API)',
-      description: 'En savoir plus sur comment intégrer directement l`API GC Notification'
+      title: 'Documentation technique',
+      description: 'Documentation pour en savoir plus sur comment intégrer directement l`API GC Notification'
     }
   },
 
