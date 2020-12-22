@@ -1,3 +1,7 @@
 # Technical documentation
 
-Integrate the GC Notify API with your web application or back office system to send email or text messages automatically. 
+This documentation is for developers who want to integrate the GC Notify API with a web application or back office system.
+
+Integrating the GC Notify API allows you to send email or text messages automatically. 
+
+
