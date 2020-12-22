@@ -93,6 +93,7 @@ module.exports = {
         sidebar: {
           '/fr/': [
             '/fr/',
+            '/fr/api',
           ]
         }
       },
