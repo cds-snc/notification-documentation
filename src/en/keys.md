@@ -1,16 +1,16 @@
-# API Keys
+# API keys
 
 There are three different types of API keys:
 
 - test
-- team and guest list
+- team and safelist
 - live
 
-When you set up a new service it will start in [trial mode](https://www.notifications.service.gov.uk/features/trial-mode). A service in trial mode can create test and team and guest list keys. You must have a live service to create a live key.
+When you set up a new service it will start in trial mode. A service in trial mode can create test and team and safelist keys. You must have a live service to create a live key.
 
 To create an API key:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __API keys__.
 1. Select __Create an API key__.
@@ -18,7 +18,7 @@ To create an API key:
 
 ## Test
 
-Use a test key to test the performance of your service and its integration with GOV.UK Notify.
+Use a test key to test the performance of your service and its integration with GC Notify.
 
 Messages sent using a test key:
 
@@ -26,7 +26,7 @@ Messages sent using a test key:
 - result in a delivered status
 - are not actually delivered to a recipient
 - do not appear on your dashboard
-- do not count against your text message and email allowances
+- do not count against your email and text message allowances
 
 To test failure responses with a test key, use the following numbers and addresses:
 
@@ -40,15 +40,15 @@ To test failure responses with a test key, use the following numbers and address
 
 You do not have to revoke test keys.
 
-## Team and guest list
+## Team and safelist
 
-A team and guest list key lets you send real messages to your team members and addresses/numbers on your guest list while your service is still in trial mode.
+A team and safelist key lets you send real messages to your team members and addresses/numbers on your safelist while your service is still in trial mode.
 
-You will get an error if you use these keys to send messages to anyone who is not on your team or your guest list.
+You will get an error if you use these keys to send messages to anyone who is not on your team or your safelist.
 
-Messages sent with a team and guest list key appear on your dashboard and count against your text message and email allowances.
+Messages sent with a team and safelist key appear on your dashboard and count against your email and text message allowances.
 
-You do not have to revoke team and guest list keys.
+You do not have to revoke team and safelist keys.
 
 ## Live
 
@@ -58,7 +58,7 @@ Messages sent with a live key appear on your dashboard and count against your te
 
 You should revoke and re-create these keys on a regular basis. To revoke a key:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __API keys__.
 1. Select __Revoke__ for the API key you want to revoke.
