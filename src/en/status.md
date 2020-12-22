@@ -1,6 +1,6 @@
-# Get message delivery status
+# Get message status
 
-Message delivery status depends on the type of message you have sent.
+Message status depends on the type of message you have sent.
 
 You can only get the status of messages that are 7 days old or newer.
 
