@@ -1,40 +1,22 @@
-# Connecting to the API
+# Integrating with the GC Notify API
 
-Integrate the GC Notify API with your web application or back office system to send email or text messages automatically by referring to this REST API documentation. This documentation is for developers interested in using the GC Notify API to send emails or text messages.
+Integrate the GC Notify API with your web application or back office system to send email or text messages automatically. 
 
 ## Base URL
 ```
-https://api.notifications.service.gov.uk
+https://api.notification.canada.ca
 ```
 
 ## Headers
 
 ### Authorisation header
 
-The authorisation header is an [API key](#api-keys) that is encoded using [JSON Web Tokens](https://jwt.io/). You must include an authorisation header.
+The authorisation header is an [API key](#api-keys). You must include an authorisation header.
 
-JSON Web Tokens have a standard header and a payload. The header consists of:
-
-```json
-{
-  "typ": "JWT",
-  "alg": "HS256"
-}
-```
-
-The payload consists of:
+The header consists of:
 
 ```json
-{
-  "iss": "26785a09-ab16-4eb0-8407-a37497a57506",
-  "iat": 1568818578
-}
-```
-
-JSON Web Tokens are encoded using a secret key with the following format:
-
-```
-3d844edf-8d35-48ac-975b-e847b4f122b0
+  “Authorization”: “apikey-v1 YOUR-SECRET-KEY”
 ```
 
 That secret key forms a part of your [API key](#api-keys), which follows the format `{key_name}-{iss-uuid}-{secret-key-uuid}`.
@@ -46,16 +28,6 @@ For example, if your API key is
 * your iss (your service id) is `26785a09-ab16-4eb0-8407-a37497a57506`
 * your secret key is `3d844edf-8d35-48ac-975b-e847b4f122b0`
 
-`iat` (issued at) is the current time in UTC in epoch seconds. The token expires within 30 seconds of the current time.
-
-Refer to the [JSON Web Tokens website](https://jwt.io/) for more information on encoding your authorisation header.
-
-When you have an encoded and signed token, add that token to a header as follows:
-
-```json
-"Authorization": "Bearer encoded_jwt_token"
-```
-
 ### Content header
 
 The content header is `application/json`:
@@ -66,7 +38,7 @@ The content header is `application/json`:
 
 ## Send a message
 
-You can use GOV.UK Notify to send text messages, emails and letters.
+You can use GC Notify to send emails and text messages.
 
 ### Send a text message
 
@@ -87,13 +59,13 @@ POST /v2/notifications/sms
 
 ##### phone_number (required)
 
-The phone number of the recipient of the text message. This can be a UK or international number.
+The phone number of the recipient of the text message.
 
 ##### template_id (required)
 
 To find the template ID:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://www.notifications.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
@@ -126,7 +98,7 @@ A unique identifier of the sender of the text message notification.
 
 To find the text message sender:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to  Notify](https://www.notification.canada.ca/sign-in).
 1. Go to the __Settings__ page.
 1. In the __Text Messages__ section, select __Manage__ on the __Text Message sender__ row.
 
