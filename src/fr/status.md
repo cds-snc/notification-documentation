@@ -1,1 +1,1 @@
-# Get message status FR 
+# Get message status 
