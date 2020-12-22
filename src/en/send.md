@@ -1,16 +1,14 @@
 # Send a message
 
-## Send a message
-
 You can use GC Notify to send emails and text messages.
 
-### Send a text message
+## Send a text message
 
 ```
 POST /v2/notifications/sms
 ```
 
-#### Request body
+### Request body
 
 ```json
 {
@@ -19,13 +17,13 @@ POST /v2/notifications/sms
 }
  ```
 
-#### Arguments
+### Arguments
 
-##### phone_number (required)
+#### phone_number (required)
 
 The phone number of the recipient of the text message.
 
-##### template_id (required)
+#### template_id (required)
 
 To find the template ID:
 
@@ -33,7 +31,7 @@ To find the template ID:
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
-##### personalisation (optional)
+#### personalisation (optional)
 
 If a template has placeholder fields for personalised information such as name or reference number, you must provide their values in a dictionary with key value pairs. For example:
 
@@ -46,7 +44,7 @@ If a template has placeholder fields for personalised information such as name o
 
 You can leave out this argument if a template does not have any placeholder fields for personalised information.
 
-##### reference (optional)
+#### reference (optional)
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
@@ -56,7 +54,7 @@ An identifier you can create if necessary. This reference identifies a single no
 
 You can leave out this argument if you do not have a reference.
 
-##### sms_sender_id (optional)
+#### sms_sender_id (optional)
 
 A unique identifier of the sender of the text message notification.
 
@@ -77,7 +75,7 @@ You can then either:
 
 You can leave out this argument if your service only has one text message sender, or if you want to use the default sender.
 
-#### Response
+### Response
 
 If the request is successful, the response body is `json` with a status code of `201`:
 
@@ -116,13 +114,13 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](#daily-limits) for the limit number|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notify was unable to process the request, resend your notification.|
 
-### Send an email
+## Send an email
 
 ```
 POST /v2/notifications/email
 ```
 
-#### Request body
+### Request body
 ```json
 {
   "email_address": "sender@something.com",
@@ -130,13 +128,13 @@ POST /v2/notifications/email
 }
 ```
 
-#### Arguments
+### Arguments
 
-##### email_address (required)
+#### email_address (required)
 
 The email address of the recipient.
 
-##### template_id (required)
+#### template_id (required)
 
 To find the template ID:
 
@@ -144,7 +142,7 @@ To find the template ID:
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
-##### personalisation (optional)
+#### personalisation (optional)
 
 If a template has placeholder fields for personalised information such as name or reference number, you need to provide their values in a dictionary with key value pairs. For example:
 
@@ -156,7 +154,7 @@ If a template has placeholder fields for personalised information such as name o
 ```
 You can leave out this argument if a template does not have any placeholder fields for personalised information.
 
-##### reference (optional)
+#### reference (optional)
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
@@ -165,7 +163,7 @@ An identifier you can create if necessary. This reference identifies a single no
 ```
 You can leave out this argument if you do not have a reference.
 
-##### email_reply_to_id (optional)
+#### email_reply_to_id (optional)
 
 This is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
 
@@ -185,20 +183,20 @@ For example:
 
 You can leave out this argument if your service only has one reply-to email address, or you want to use the default email address.
 
-### Send a file by email
+## Send a file by email
 
 To send a file by email, add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file.
 
 The links are unique and unguessable. GOV.UK Notify cannot access or decrypt your file.
 
-#### Add contact details to the file download page
+### Add contact details to the file download page
 
 1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
 1. Go to the __Settings__ page.
 1. In the __Email__ section, select __Manage__ on the __Send files by email__ row.
 1. Enter the contact details you want to use, and select __Save__.
 
-#### Add a placeholder to the template
+### Add a placeholder to the template
 
 1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
@@ -207,7 +205,7 @@ The links are unique and unguessable. GOV.UK Notify cannot access or decrypt you
 
 "Download your file at: ((link_to_file))"
 
-#### Upload your file
+### Upload your file
 
 You can upload PDF, CSV, .odt, .txt, .rtf and MS Word Document files. Your file must be smaller than 2MB. [Contact the GOV.UK Notify team](https://www.notifications.service.gov.uk/support/ask-question-give-feedback) if you need to send other file types.
 You’ll need to convert the file into a string that is base64 encoded.
@@ -222,7 +220,7 @@ Pass the encoded string into an object with a `file` key, and put that in the pe
 }
 ```
 
-##### CSV Files
+#### CSV Files
 
 Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is downloaded as a .csv file. For example:
 
@@ -234,7 +232,7 @@ Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is dow
 }
 ```
 
-#### Response
+### Response
 
 If the request to the client is successful, the client returns a `dict`:
 
@@ -256,7 +254,7 @@ If the request to the client is successful, the client returns a `dict`:
 }
 ```
 
-#### Error codes
+### Error codes
 
 If the request is not successful, the response body is `json`, refer to the table below for details.
 
@@ -273,7 +271,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](#daily-limits) for the limit number|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notify was unable to process the request, resend your notification.|
 
-### Send a letter
+## Send a letter
 
 When you add a new service it will start in [trial mode](https://www.notifications.service.gov.uk/features/trial-mode). You can only send letters when your service is live.
 
@@ -287,7 +285,7 @@ To send Notify a request to go live:
 POST /v2/notifications/letter
 ```
 
-#### Request body
+### Request body
 
 ```json
 {
@@ -300,7 +298,7 @@ POST /v2/notifications/letter
 }
 ```
 
-#### Arguments
+### Arguments
 
 ##### template_id (required)
 
@@ -310,7 +308,7 @@ To find the template ID:
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
-##### personalisation (required)
+#### personalisation (required)
 
 The personalisation argument always contains the following parameters for the letter recipient’s address:
 
@@ -352,7 +350,7 @@ An identifier you can create if necessary. This reference identifies a single no
 "reference":"STRING"
 ```
 
-#### Response
+### Response
 
 If the request is successful, the response body is `json` and the status code is `201`:
 
@@ -374,7 +372,7 @@ If the request is successful, the response body is `json` and the status code is
 }
 ```
 
-#### Error codes
+### Error codes
 
 If the request is not successful, the response body is json, refer to the table below for details.
 
@@ -391,12 +389,12 @@ If the request is not successful, the response body is json, refer to the table 
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](#daily-limits) for the limit number.|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notify was unable to process the request, resend your notification.|
 
-### Send a precompiled letter
+## Send a precompiled letter
 
 ```
 POST /v2/notifications/letter
 ```
-#### Request body
+### Request body
 
 ```json
 {
@@ -405,13 +403,13 @@ POST /v2/notifications/letter
 }
 ```
 
-#### Arguments
+### Arguments
 
-##### reference (required)
+#### reference (required)
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address.
 
-##### pdf_file (required)
+#### pdf_file (required)
 
 The precompiled letter must be a PDF file which meets [the GOV.UK Notify letter specification](https://www.notifications.service.gov.uk/using-notify/guidance/letter-specification). You’ll need to convert the file into a string that is base64 encoded.
 
@@ -419,7 +417,7 @@ The precompiled letter must be a PDF file which meets [the GOV.UK Notify letter 
 "content": "base64EncodedPDFFile"
 ```
 
-##### postage (optional)
+#### postage (optional)
 
 You can choose first or second class postage for your precompiled letter. Set the value to `first` for first class, or `second` for second class. If you do not pass in this argument, the postage will default to second class.
 
@@ -428,7 +426,7 @@ You can choose first or second class postage for your precompiled letter. Set th
 ```
 
 
-#### Response
+### Response
 
 If the request is successful, the response body is `json` and the status code is `201`:
 
@@ -440,7 +438,7 @@ If the request is successful, the response body is `json` and the status code is
 }
 ```
 
-#### Error codes
+### Error codes
 
 If the request is not successful, the response body is json, refer to the table below for details.
 
