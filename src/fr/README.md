@@ -1,3 +1,3 @@
 # Accueil
 
-Accueil de la documentation en français
+Documentation technique en français
