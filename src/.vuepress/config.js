@@ -61,9 +61,6 @@ module.exports = {
         sidebar: {
           '/en/': [
             '/en/',
-            '/en/headers',
-            '/en/send',
-            '/en/status',
             '/en/testing',
             '/en/keys',
             '/en/limits',
@@ -90,9 +87,6 @@ module.exports = {
         sidebar: {
           '/fr/': [
             '/fr/',
-            '/fr/headers',
-            '/fr/send',
-            '/fr/status',
             '/fr/testing',
             '/fr/keys',
             '/fr/limits',
