@@ -70,14 +70,6 @@ module.exports = {
             '/en/limits',
             '/en/callbacks',
             '/en/api-architecture',
-            {
-             title: 'Clients',
-             collapsable: true,
-             children: [
-              '/en/python',
-              '/en/java',
-             ]
-           }
           ]
         }
       },
