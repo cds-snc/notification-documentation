@@ -17,12 +17,12 @@ module.exports = {
   locales: {
     '/en/': {
       lang: 'en-CA',
-      title: "GC Notify technical documentation",
+      title: "Technical documentation",
       description: 'Learn about the GC Notify API'
     },
     '/fr/': {
       lang: 'fr-CA',
-      title: 'Documentation technique de GC Notification',
+      title: 'Documentation technique',
       description: 'En savoir plus sur l`API GC Notification'
     }
   },
@@ -54,7 +54,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "Back to GC Notify", link: 'https://notification.canada.ca' },
+          { text: "GC Notify", link: 'https://notification.canada.ca' },
           { text: "Contact us", link: 'https://notification.canada.ca/contact' },
         ],
         sidebarDepth: 2,
@@ -87,7 +87,7 @@ module.exports = {
           }
         },
         nav: [
-          { text: "Retour à GC Notification", link: 'https://notification.canada.ca' },
+          { text: "GC Notification", link: 'https://notification.canada.ca' },
           { text: "Nous joindre", link: 'https://notification.canada.ca/contact' },
         ],
         sidebar: {
