@@ -23,7 +23,7 @@ module.exports = {
     '/fr/': {
       lang: 'fr-CA',
       title: 'Documentation technique de GC Notification',
-      description: 'En savoir plus sur l&lsquo;API GC Notification'
+      description: 'En savoir plus sur l`API GC Notification'
     }
   },
 
@@ -87,8 +87,8 @@ module.exports = {
           }
         },
         nav: [
-          { text: "GC Notification's website", link: 'https://notification.canada.ca' },
-          { text: "Nous contacter", link: 'https://notification.canada.ca/contact' },
+          { text: "Retour à GC Notification", link: 'https://notification.canada.ca' },
+          { text: "Nous joindre", link: 'https://notification.canada.ca/contact' },
         ],
         sidebar: {
           '/fr/': [
