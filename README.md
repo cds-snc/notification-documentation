@@ -2,6 +2,9 @@
 
 This is the repository holding the technical documentation for GC Notify, https://notification.canada.ca.
 
+## Content 
+Content is based on [GOV.UK's Notify REST API Documentation](https://github.com/alphagov/notifications-tech-docs/tree/master/source/documentation) and [the Digital Transformation Agency in Australia's Notify Documentation](https://github.com/govau/notify/tree/master/docs/src/content).
+
 ## Documentation files
 This repository holds documentation in various Markdown files:
 - in English in [`src/en`](src/en)
