@@ -1,4 +1,4 @@
-# Testing
+# Integration testing
 
 All testing takes place in the production environment. There is no test environment for GC Notify.
 
