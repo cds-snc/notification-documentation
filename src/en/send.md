@@ -1,6 +1,6 @@
 # Send a message
 
-You can use GC Notify to send emails and text messages. This API allows you to send email or text message notifications to users and track their progress. You might send out notifications in response to user-generated events, like a receipt after they apply to your service or you might send out notifications as a reminder, when a payment is due.
+You can use GC Notify to send emails and text messages. These might be in response to a user-generated event, like a receipt after they apply to your service or as a reminder, when a payment is due.
 
 ## Getting ready
 
@@ -11,6 +11,19 @@ To create a template:
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page.
 1. Select __New template__.
+
+Once you've got a template ready, find the template ID associated with it. You'll need that ID to specify which template you want to use when you call the API.
+
+## Personalisation
+
+Personalisation allows you to change what shows up in a specific message as it gets sent out. You might use personalisation to:
+
+- Address a user by their name
+- Provide users with a specific link to click
+- Send a unique transaction number as a follow up
+- Give users a dynamically generated list of actions they need to take
+
+Your API call must include any fields that have been set up as personalisations.
 
 ## Send an email
 
