@@ -40,6 +40,7 @@ module.exports = {
     prevLinks: true,
     docsDir: 'src',
     docsBranch: 'main',
+    smoothScroll: true,
     locales: {
       '/en/': {
         selectText: 'Languages',
