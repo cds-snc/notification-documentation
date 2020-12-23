@@ -1,4 +1,4 @@
-# Send a message
+# Sending a message
 
 You can use GC Notify to send emails and text messages. These might be in response to a user-generated event, like a receipt after they apply to your service or as a reminder, when a payment is due.
 
@@ -25,7 +25,7 @@ Personalisation allows you to change what shows up in a specific message as it g
 
 Your API call must include any fields that have been set up as personalisations.
 
-## Send an email
+## Sending an email
 
 ```
 POST /v2/notifications/email
@@ -94,7 +94,7 @@ For example:
 
 You can leave out this argument if your service only has one reply-to email address, or you want to use the default email address.
 
-## Send a file by email
+## Sending a file by email
 
 To send a file by email, add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file.
 
@@ -182,7 +182,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](limits.md#daily-limits) for the limit number|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notify was unable to process the request, resend your notification.|
 
-## Send a text message
+## Sending a text message
 
 ```
 POST /v2/notifications/sms
