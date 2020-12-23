@@ -29,13 +29,3 @@
 1. GC Notify queries the database and retrieves the notification status.
 1. GC Notify sends the API response with the notification status to the service.
 1. The service receives the API response.
-
-## Getting received text messages
-
-![](./images/notify-architecture-received-text-messages-2020.png)
-1. Recipients send text messages.
-1. GC Notify receives the text messages.
-1. The service requests all or specific received text messages from GC Notify.
-1. GC Notify receives the request for received text messages.
-1. GC Notify sends the received text messages to the service.
-1. The service receives the received text messages.
