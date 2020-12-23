@@ -35,9 +35,9 @@ module.exports = {
   themeConfig: {
     logo: 'https://assets.notification.canada.ca/static/gov-canada-en.svg',
     editLinks: true,
-    lastUpdated: false,
-    nextLinks: false,
-    prevLinks: false,
+    lastUpdated: true,
+    nextLinks: true,
+    prevLinks: true,
     docsDir: 'src',
     docsBranch: 'main',
     locales: {
@@ -45,7 +45,8 @@ module.exports = {
         selectText: 'Languages',
         label: 'English',
         ariaLabel: 'Languages',
-        editLinkText: 'Edit this page on GitHub',	
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last updated',
         serviceWorker: {
           updatePopup: {
             message: "New content is available.",
@@ -75,7 +76,8 @@ module.exports = {
         selectText: 'Langues',
         label: 'Français',
         ariaLabel: 'Langues',
-        editLinkText: 'Modifier cette page sur GitHub',	
+        editLinkText: 'Modifier cette page sur GitHub',
+        lastUpdated: 'Dernière mise à jour ',
         serviceWorker: {
           updatePopup: {
             message: "Du nouveau contenu est disponible.",
@@ -107,7 +109,14 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          return new Date(timestamp).toLocaleDateString(lang)
+        }
+      },
+    ],
+    '@vuepress/back-to-top',
   ]
 }
