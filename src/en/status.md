@@ -1,8 +1,10 @@
 # Get message status
 
+You can use the GC Notify API to retrieve the status of one or more messages.
+
 Message status depends on the type of message you have sent.
 
-You can only get the status of messages that are 7 days old or newer.
+You can only get the status of messages that are up to 7 days old.
 
 ## Email status
 
@@ -26,6 +28,8 @@ You can only get the status of messages that are 7 days old or newer.
 |Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message. This can happen if the phone number was wrong or if the network operator rejects the message. If you’re sure that these phone numbers are correct, you should [contact GC Notify support](https://notification.canada.ca/contact). If not, you should remove them from your database. You’ll still be charged for text messages that cannot be delivered."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s phone is off, has no signal, or their text message inbox is full. You can try to send the message again. You’ll still be charged for text messages to phones that are not accepting messages."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider.<br>You’ll have to try sending your messages again. You will not be charged for text messages that are affected by a technical failure."|
 
 ## Get the status of one message
+
+You can use the GC Notify API to get a single message status.
 
 ```
 GET /v2/notifications/{notification_id}
@@ -92,6 +96,8 @@ If the request is not successful, the response body is `json`, refer to the tabl
 
 
 ## Get the status of multiple messages
+
+You can use the GC Notify API to find the status of multiple messages at the same time.
 
 This API call returns one page of up to 250 messages and statuses. You can get either the most recent messages, or get older messages by specifying a particular notification ID in the `older_than` argument.
 
