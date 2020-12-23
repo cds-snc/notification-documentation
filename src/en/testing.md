@@ -1,6 +1,6 @@
 # Testing
 
-All testing takes place in the production environment. There is no test environment for GC Notify.
+There is no test environment for GC Notify. All testing takes place in the production environment. 
 
 ## Smoke testing
 
