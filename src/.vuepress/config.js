@@ -12,6 +12,7 @@ module.exports = {
     ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico"}],
   ],
 
+  title: "GC Notify | GC Notification",
   base: '/notification-documentation/',
 
   locales: {
