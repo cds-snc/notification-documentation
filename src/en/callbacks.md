@@ -7,6 +7,8 @@ Callbacks are when GC Notify sends `POST` requests to your service. You can get 
 - a text message or email you’ve sent is delivered or fails
 - your service receives a text message
 
+You'll need to provide a bearer token, for security. We'll add this to the authorisation header of the callback request.
+
 ## Set up callbacks
 
 You must provide:
