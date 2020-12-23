@@ -62,8 +62,7 @@ module.exports = {
         sidebar: {
           '/en/': [
             '/en/',
-            '/en/baseurl',
-            '/en/headers',
+            '/en/start',
             '/en/send',
             '/en/status',
             '/en/retries',
@@ -93,8 +92,7 @@ module.exports = {
         sidebar: {
           '/fr/': [
             '/fr/',
-            '/fr/baseurl',
-            '/fr/headers',
+            '/fr/start',
             '/fr/send',
             '/fr/status',
             '/fr/retries',
