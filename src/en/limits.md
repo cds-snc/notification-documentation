@@ -18,10 +18,6 @@ There’s a limit to the number of messages you can send each day:
 
 These limits reset at midnight.
 
-::: tip Requesting a limit increase
-If the default limit does not fit your need, you can [contact us](https://github.com) to request a limit increase.
-:::
-
 ## Phone network limits
 
 If you repeatedly send text messages to the same number the phone networks will block them.
