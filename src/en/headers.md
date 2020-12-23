@@ -2,18 +2,35 @@
 
 ## Authorization header
 
-The authorization header is an [API key](#api-keys). You must include an authorization header.
+The authorization header is an [API key](keys.md). You must include an authorization header.
 
 The header consists of:
 
 ```json
-  “Authorization” = “apikey-v1 YOUR-SECRET-KEY”
+"Authorization": "ApiKey-v1 YOUR-SECRET-KEY"
 ```
 
-That secret key forms a part of your [API key](#api-keys), which follows the format `{key_name}-{iss-uuid}-{secret-key-uuid}`.
+That secret key forms a part of your [API key](keys.md), which follows the format `{key_name}-{iss-uuid}-{secret-key-uuid}`.
+
+For example, if your API key is
+`my_test_key-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e847b4f122b0`:
+
+* your API key name is `my_test_key`
+* your iss (your service ID) is `26785a09-ab16-4eb0-8407-a37497a57506`
+* your secret key is `3d844edf-8d35-48ac-975b-e847b4f122b0`
+
+Therefore, you would need to set the HTTP header to the following value:
+
+```json
+"Authorization": "ApiKey-v1 3d844edf-8d35-48ac-975b-e847b4f122b0"
+```
+
+Note that your secret key is the last 36 characters of your API key.
 
 ## Content header
+
 The content header is `application/json`:
+
 ```json
-"Content-type": "application/json"
+"Content-Type": "application/json"
 ```
