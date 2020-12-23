@@ -26,7 +26,7 @@ The email address of the recipient.
 
 To find the template ID:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
@@ -57,7 +57,7 @@ This is an email address specified by you to receive replies from your users. Yo
 
 To add a reply-to email address:
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Settings__ page.
 1. In the __Email__ section, select __Manage__ on the __Reply-to email addresses__ row.
 1. Select __Add reply-to address__.
@@ -79,14 +79,14 @@ The links are unique and unguessable. GOV.UK Notify cannot access or decrypt you
 
 ### Add contact details to the file download page
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Settings__ page.
 1. In the __Email__ section, select __Manage__ on the __Send files by email__ row.
 1. Enter the contact details you want to use, and select __Save__.
 
 ### Add a placeholder to the template
 
-1. [Sign in to GOV.UK Notify](https://www.notifications.service.gov.uk/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
 1. Select __Edit__.
 1. Add a placeholder to the email template using double brackets. For example:
@@ -184,7 +184,7 @@ The phone number of the recipient of the text message.
 
 To find the template ID:
 
-1. [Sign in to GC Notify](https://www.notifications.canada.ca/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
@@ -217,7 +217,7 @@ A unique identifier of the sender of the text message notification.
 
 To find the text message sender:
 
-1. [Sign in to  Notify](https://www.notification.canada.ca/sign-in).
+1. [Sign in to  Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Settings__ page.
 1. In the __Text Messages__ section, select __Manage__ on the __Text Message sender__ row.
 

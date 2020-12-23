@@ -10,7 +10,7 @@ When you set up a new service it will start in trial mode. A service in trial mo
 
 To create an API key:
 
-1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __API keys__.
 1. Select __Create an API key__.
@@ -58,7 +58,7 @@ Messages sent with a live key appear on your dashboard and count against your te
 
 You should revoke and re-create these keys on a regular basis. To revoke a key:
 
-1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __API keys__.
 1. Select __Revoke__ for the API key you want to revoke.

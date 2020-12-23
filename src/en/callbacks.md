@@ -16,7 +16,7 @@ You must provide:
 
 To do this:
 
-1. [Sign in to GC Notify](https://www.notification.canada.ca/sign-in).
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __Callbacks__.
 
@@ -43,7 +43,7 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 
 If your service receives text messages in GC Notify, GC Notify can forward them to your callback URL as soon as they arrive.
 
-Contact the Notify team using the [Contact us page](https://www.notification.canada.ca/contact) to request a unique number for text message replies.
+Contact the Notify team using the [Contact us page](https://notification.canada.ca/contact) to request a unique number for text message replies.
 
 The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
 
