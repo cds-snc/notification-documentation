@@ -121,4 +121,13 @@ module.exports = {
     ],
     '@vuepress/back-to-top',
   ]
+   [
+      'vuepress-plugin-container',
+      {
+        type: 'tip',
+        defaultTitle: {
+          '/': 'TIP',
+        },
+      },
+    ],
 }
