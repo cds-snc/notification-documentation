@@ -10,16 +10,16 @@ If you need to [smoke test](https://www.gov.uk/service-manual/technology/deployi
 
 |Phone number|
 |:---|
-|07700900000|
-|07700900111|
-|07700900222|
+|+1613253222|
+|+1613253222|
+|+16132532224|
 
 
 |Email address|
 |:---|
-|simulate-delivered@notifications.service.gov.uk|
-|simulate-delivered-2@notifications.service.gov.uk|
-|simulate-delivered-3@notifications.service.gov.uk|
+|simulate-delivered@notification.canada.ca|
+|simulate-delivered-2@notification.canada.ca|
+|simulate-delivered-3@notification.canada.ca|
 
 The smoke test phone numbers and email addresses will validate the request and simulate a successful response, but will not send a real message, produce a delivery receipt or persist the notification to the database.
 
