@@ -1,6 +1,6 @@
 # Send a message
 
-You can use GC Notify to send emails and text messages.
+You can use GC Notify to send emails and text messages. This API allows you to send email or text message notifications to users and track their progress. You might send out notifications in response to user-generated events, like a receipt after they apply to your service or you might send out notifications as a reminder, when a payment is due.
 
 ## Send an email
 
