@@ -4,7 +4,7 @@
 
 You’re limited to sending 3,000 messages per minute.
 
-This limit is calculated on a rolling basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
+This limit is calculated on a rolling basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`. To increase this limit, [contact us](https://www.notification.canada.ca/contact).
 
 ## Daily limits
 
@@ -12,11 +12,11 @@ There’s a limit to the number of messages you can send each day:
 
 |Service status|Type of API key|Daily limit|
 |:---|:---|:---|
-|Live|Team or live|250,000|
+|Live|Team or live|10,000|
 |Trial|Team|50|
 |Live or trial|Test|Unlimited|
 
-These limits reset at midnight.
+These limits reset at midnight. To adjust these limits, [contact us](https://www.notification.canada.ca/contact).
 
 ## Phone network limits
 
