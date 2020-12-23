@@ -38,19 +38,3 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 |`completed_at` | The last time the status was updated | `2017-05-14T12:15:30.000000Z` or nil|
 |`sent_at` | The time the notification was sent | `2017-05-14T12:15:30.000000Z` or nil|
 |`notification_type` | The notification type | `email` or `sms`|
-
-## Received text messages
-
-If your service receives text messages in GC Notify, GC Notify can forward them to your callback URL as soon as they arrive.
-
-Contact the Notify team using the [Contact us page](https://notification.canada.ca/contact) to request a unique number for text message replies.
-
-The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
-
-|Key | Description | Format|
-|:---|:---|:---|
-|`id` | GC Notify’s id for the received message | UUID|
-|`source_number` | The phone number the message was sent from | 447700912345|
-|`destination_number` | The number the message was sent to (your number) | 07700987654|
-|`message` | The received message | Hello GC Notify!|
-|`date_received` | The UTC datetime that the message was received by Notify | 2017-05-14T12:15:30.000000Z|
