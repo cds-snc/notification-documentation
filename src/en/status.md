@@ -35,16 +35,16 @@ GET /v2/notifications/{notification_id}
 
 #### notification_id (required)
 
-The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message-response).
+The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message).
 
 You can also find it by [signing in to GC Notify](https://notification.canada.ca/sign-in) and going to the __API integration__ page.
 
 You can filter the returned messages by including the following optional parameters in the URL:
 
-- [`template_type`](#template-type-optional)
+- [`template_type`](#template_type-optional)
 - [`status`](#status-optional)
-- [`reference`](#get-the-status-of-multiple-messages-arguments-reference-optional)
-- [`older_than`](#older-than-optional)
+- [`reference`](#get-the-status-of-multiple-messages)
+- [`older_than`](#older_than-optional)
 
 ### Response
 
@@ -87,7 +87,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Check the notification ID|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](#api-keys) for more information|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](keys.md) for more information|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
 
 
@@ -107,10 +107,10 @@ This will return all your messages with statuses. They will display in pages of 
 
 You can filter the returned messages by including the following optional arguments in the URL:
 
-- [`template_type`](#template-type-optional)
+- [`template_type`](#template_type-optional)
 - [`status`](#status-optional)
-- [`reference`](#get-the-status-of-multiple-messages-arguments-reference-optional)
-- [`older_than`](#older-than-optional)
+- [`reference`](#get-the-status-of-multiple-messages)
+- [`older_than`](#older_than-optional)
 
 ### Arguments
 
@@ -127,8 +127,8 @@ You can filter by:
 
 You can filter by each:
 
-* [email status](#status-email)
-* [text message status](#status-text-message)
+* [email status](#email-status)
+* [text message status](#text-message-status)
 
 You can leave out this argument to ignore this filter.
 
@@ -204,5 +204,5 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Check the notification ID|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](#api-keys) for more information|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](keys.md) for more information|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|

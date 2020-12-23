@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Lint links
+        run: npm run lint-links
+
       - name: Build website
         run: npm run build
 
