@@ -1,4 +1,4 @@
-# Sending a message
+# Send a message
 
 You can use GC Notify to send emails and text messages. These might be in response to a user-generated event, like a receipt after they apply to your service or as a reminder, when a payment is due.
 
