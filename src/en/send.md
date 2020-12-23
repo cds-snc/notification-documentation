@@ -44,7 +44,7 @@ You can leave out this argument if a template does not have any placeholder fiel
 
 #### reference (optional)
 
-An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
+An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or mailing address. For example:
 
 ```json
 "reference": "STRING"
@@ -75,7 +75,7 @@ You can leave out this argument if your service only has one reply-to email addr
 
 To send a file by email, add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file.
 
-The links are unique and unguessable. GOV.UK Notify cannot access or decrypt your file.
+The links are unique and unguessable. GC Notify cannot access or decrypt your file.
 
 ### Add contact details to the file download page
 
@@ -95,7 +95,7 @@ The links are unique and unguessable. GOV.UK Notify cannot access or decrypt you
 
 ### Upload your file
 
-You can upload PDF, CSV, .odt, .txt, .rtf and MS Word Document files. Your file must be smaller than 2MB. [Contact the GOV.UK Notify team](https://www.notifications.service.gov.uk/support/ask-question-give-feedback) if you need to send other file types.
+You can upload PDF, CSV, .odt, .txt, .rtf and MS Word Document files. Your file must be smaller than 2MB. [Contact the GC Notify team](https://notification.canada.ca/contact) if you need to send other file types.
 You’ll need to convert the file into a string that is base64 encoded.
 
 Pass the encoded string into an object with a `file` key, and put that in the personalisation argument. For example:
