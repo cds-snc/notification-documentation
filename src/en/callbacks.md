@@ -20,7 +20,14 @@ To do this:
 1. Go to the __API integration__ page.
 1. Select __Callbacks__.
 
-## Delivery receipts
+When creating a bearer token, you should:
+
+- Keep your bearer token secure
+- Change it if you have any reason to think it might no longer be trusted
+- Make sure that callbacks you receive from GC Notify contain your bearer token in the `Authorisation` header
+- Use a hashed value so that GC Notify doesn't hold the true token
+
+## Message delivery receipts
 
 When you send an email or text message, GC Notify will send a receipt to your callback URL to tell you if it was delivered or not. This is an automated method to get the status of messages.
 
