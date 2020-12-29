@@ -156,11 +156,11 @@ If the request to the client is successful, the client returns a `dict`:
     "body": "MESSAGE TEXT",
     "from_email": "SENDER EMAIL"
   },
-  "uri": "https://api.notifications.service.gov.uk/v2/notifications/740e5834-3a29-46b4-9a6f-16142fde533a",
+  "uri": "https://api.notification.canada.ca/v2/notifications/740e5834-3a29-46b4-9a6f-16142fde533a",
   "template": {
     "id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
     "version": 1,
-    "uri": "https://api.notifications.service.gov.uk/v2/template/f33517ff-2a88-4f6e-b855-c550268ce08a"
+    "uri": "https://api.notification.canada.ca/v2/template/f33517ff-2a88-4f6e-b855-c550268ce08a"
   }
 }
 ```
