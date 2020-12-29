@@ -1,4 +1,4 @@
-# S'intégrer à l'API
+# Intégrer l'API
 
 Cette documentation est destinée aux développeurs qui souhaitent intégrer l'API GC Notification à une application Web ou à un système administratif.
 
