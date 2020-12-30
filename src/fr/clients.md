@@ -8,7 +8,9 @@ L'API est également disponible en utilisants les clients suivants développés 
 * [Python](https://docs.notifications.service.gov.uk/python.html)
 * [Ruby](https://docs.notifications.service.gov.uk/ruby.html)
 
-## Avant d'intégrer l'API, vous devrez modifier votre point de terminaison 
+**Avant d'intégrer l'API**
+
+Vous devrez modifier votre point de terminaison :
 
 ```
 https://api.notification.canada.ca
