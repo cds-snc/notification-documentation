@@ -1,6 +1,6 @@
 # Available client libraries
 
-##Before integrating the API
+## Before integrating the API
 
 You will need to change your endpoint:
 
@@ -9,7 +9,7 @@ https://api.notification.canada.ca
 ```
 
 
-##GOV.UK clients
+## GOV.UK clients
 
 The API is also available using the following clients developed by [GOV.UK](https://www.notifications.service.gov.uk/):
 
