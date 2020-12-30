@@ -70,18 +70,7 @@ module.exports = {
             '/en/limits',
             '/en/callbacks',
             '/en/architecture',
-              {
-       title: 'Other client libraries',
-       collapsable: true,
-       children: [
-           '/en/java',
-           '/en/net',
-           '/en/node',
-           '/en/php',
-           '/en/python',
-           '/en/ruby',
-          ]
-        }
+            '/en/clients',
           ]
         }
       },
@@ -111,18 +100,7 @@ module.exports = {
             '/fr/limits',
             '/fr/callbacks',
             '/fr/architecture',
-              {
-       title: 'Autres bibliothèques client',
-       collapsable: true,
-       children: [
-           '/fr/java',
-           '/fr/net',
-           '/fr/node',
-           '/fr/php',
-           '/fr/python',
-           '/fr/ruby',
-          ]
-        }            
+            '/fr/clients',
           ]
         }
       },
