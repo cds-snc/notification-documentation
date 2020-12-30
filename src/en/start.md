@@ -1,7 +1,5 @@
 # Getting started
 
-Integrate directly with the GC Notify REST API
-
 ## Base URL
 
 ```
