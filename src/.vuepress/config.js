@@ -70,6 +70,18 @@ module.exports = {
             '/en/limits',
             '/en/callbacks',
             '/en/architecture',
+              {
+       title: 'API client libraries',
+       collapsable: true,
+       children: [
+           '/en/java',
+           '/en/net',
+           '/en/node',
+           '/en/php',
+           '/en/python',
+           '/en/ruby',
+          ]
+        }
           ]
         }
       },
@@ -99,6 +111,18 @@ module.exports = {
             '/fr/limits',
             '/fr/callbacks',
             '/fr/architecture',
+              {
+       title: 'Bibliothèques clients de l`API',
+       collapsable: true,
+       children: [
+           '/fr/java',
+           '/fr/net',
+           '/fr/node',
+           '/fr/php',
+           '/fr/python',
+           '/fr/ruby',
+          ]
+        }            
           ]
         }
       },
