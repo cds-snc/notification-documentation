@@ -1,4 +1,4 @@
-# Bibliothèques client disponibles
+# Bibliothèques client
 
 ## Avant d'intégrer l'API
 
