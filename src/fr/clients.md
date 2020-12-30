@@ -1,6 +1,6 @@
 # Autres bibliothèques client
 
-The API is also available using the following clients developed by [GOV.UK](https://www.notifications.service.gov.uk/):
+L'API est également disponible en utilisants les clients suivants développés par [GOV.UK](https://www.notifications.service.gov.uk/) :
 * [Java](https://docs.notifications.service.gov.uk/java.html)
 * [.NET](https://docs.notifications.service.gov.uk/net.html)
 * [NodeJS](https://docs.notifications.service.gov.uk/node.html)
@@ -8,7 +8,7 @@ The API is also available using the following clients developed by [GOV.UK](http
 * [Python](https://docs.notifications.service.gov.uk/python.html)
 * [Ruby](https://docs.notifications.service.gov.uk/ruby.html)
 
-## Before integrating the API, you will need to change your endpoint
+## Avant d'intégrer l'API, vous devrez modifier votre point de terminaison 
 
 ```
 https://api.notification.canada.ca
