@@ -71,7 +71,7 @@ module.exports = {
             '/en/callbacks',
             '/en/architecture',
               {
-       title: 'API client libraries',
+       title: 'Other client libraries',
        collapsable: true,
        children: [
            '/en/java',
@@ -112,7 +112,7 @@ module.exports = {
             '/fr/callbacks',
             '/fr/architecture',
               {
-       title: 'Bibliothèques clients de l`API',
+       title: 'Autres bibliothèques client',
        collapsable: true,
        children: [
            '/fr/java',
