@@ -1,4 +1,4 @@
-# Available client libraries
+# Client libraries
 
 ## Before integrating the API
 
