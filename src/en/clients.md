@@ -1,6 +1,6 @@
 # Client libraries
 
-## Before integrating the API
+### Before integrating the API
 
 You will need to change the API endpoint when creating a client.
 
@@ -60,7 +60,7 @@ client = Notifications::Client.new(api_key, "https://api.notification.canada.ca"
 
 </code-group>
 
-## GOV.UK Notify clients
+### Available GOV.UK Notify clients
 
 GC Notify was based on the UK government's notification system. Therefore, the API is also available using the following clients developed by [GOV.UK](https://www.notifications.service.gov.uk/):
 
