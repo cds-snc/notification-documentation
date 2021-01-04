@@ -16,8 +16,8 @@ If you need to smoke test your integration with GC Notify on a regular basis, yo
 
 |Phone number|
 |:---|
-|+1613253222|
-|+1613253222|
+|+16132532222|
+|+16132532223|
 |+16132532224|
 
 The smoke test email addresses and phone numbers will validate the request and simulate a successful response, but will not send a real message, produce a delivery receipt or persist the notification to the database.
