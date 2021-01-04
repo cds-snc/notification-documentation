@@ -39,6 +39,7 @@ jobs:
         rm /tmp/aws
     - name: Build
       run: |
+        docker pull $DOCKER_SLUG:latest
         docker build \
           --cache-from $DOCKER_SLUG:latest \
           -t $DOCKER_SLUG:latest \
