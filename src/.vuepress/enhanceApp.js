@@ -12,3 +12,14 @@ export default ({
 }) => {
   // ...apply enhancements for the site.
 }
+
+// Temporary fix for code blocks not showing up after
+// a reload
+// https://github.com/vuejs/vuepress/issues/2711
+import Vue from 'vue'
+import CodeBlock from "@theme/global-components/CodeBlock"
+import CodeGroup from "@theme/global-components/CodeGroup"
+
+// Register the Vue global component
+Vue.component(CodeBlock)
+Vue.component(CodeGroup)
