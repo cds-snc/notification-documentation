@@ -57,6 +57,7 @@ require 'notifications/client'
 client = Notifications::Client.new(api_key, "https://api.notification.canada.ca")
 ```
 </code-block>
+
 </code-group>
 
 ## GOV.UK Notify clients
