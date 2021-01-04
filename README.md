@@ -1,4 +1,4 @@
-# GC Notify technical documentation
+# GC Notify documentation
 
 This is the repository holding the technical documentation for GC Notify, https://notification.canada.ca.
 
