@@ -41,7 +41,7 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 |:---|:---|:---|
 |`id` | GC Notify’s id for the status receipts | UUID|
 |`reference` | The reference sent by the service | 12345678|
-|`to` | The email address or phone number of the recipient | hello@gov.uk or 07700912345|
+|`to` | The email address or phone number of the recipient | hello@canada.ca or 01234567890|
 |`status` | The status of the notification | `delivered`, `permanent-failure`, `temporary-failure` or `technical-failure`|
 |`created_at` | The time the service sent the request | `2017-05-14T12:15:30.000000Z`|
 |`completed_at` | The last time the status was updated | `2017-05-14T12:15:30.000000Z` or nil|
