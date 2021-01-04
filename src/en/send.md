@@ -2,7 +2,7 @@
 
 You can use GC Notify to send emails and text messages. These might be in response to a user-generated event, like a receipt after they apply to your service, or as a reminder when a payment is due.
 
-## Getting ready
+**What you'll need:**
 
 To send a message with GC Notify, you'll need to set up a template in the user interface. 
 
@@ -14,16 +14,12 @@ To create a template:
 
 Once you've got a template ready, find the template ID associated with it. You'll need that ID to specify which template you want to use when you call the API.
 
-## Personalisation
-
-Personalisation allows you to change what shows up in a specific message as it gets sent out. You might use personalisation to:
+Your API call must also include any fields that have been set up as personalisations. Personalisation allows you to change what shows up in a specific message as it gets sent out. You might use personalisation to:
 
 - Address a user by their name
 - Provide users with a specific link to click
 - Send a unique transaction number as a follow up
 - Give users a dynamically generated list of actions they need to take
-
-Your API call must include any fields that have been set up as personalisations.
 
 ## Sending an email
 
