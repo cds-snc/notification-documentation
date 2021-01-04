@@ -45,7 +45,7 @@ POST /v2/notifications/email
 
 The email address of the recipient.
 
-#### template_id (required)
+**to template_id (required)**
 
 To find the template ID:
 
@@ -53,7 +53,7 @@ To find the template ID:
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
-#### personalisation (optional)
+**personalisation (optional)**
 
 If a template has placeholder fields for personalised information such as name or reference number, you need to provide their values in a dictionary with key value pairs. For example:
 
@@ -65,7 +65,7 @@ If a template has placeholder fields for personalised information such as name o
 ```
 You can leave out this argument if a template does not have any placeholder fields for personalised information.
 
-#### reference (optional)
+**reference (optional)**
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or mailing address. For example:
 
@@ -74,7 +74,7 @@ An identifier you can create if necessary. This reference identifies a single no
 ```
 You can leave out this argument if you do not have a reference.
 
-#### email_reply_to_id (optional)
+**email_reply_to_id (optional)**the 
 
 This is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
 
@@ -131,7 +131,7 @@ Pass the encoded string into an object with a `file` key, and put that in the pe
 }
 ```
 
-#### CSV Files
+**CSV files**
 
 Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is downloaded as a .csv file. For example:
 
@@ -143,7 +143,7 @@ Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is dow
 }
 ```
 
-### Response
+**Response**
 
 If the request to the client is successful, the client returns a `dict`:
 
@@ -199,11 +199,11 @@ POST /v2/notifications/sms
 
 ### Arguments
 
-#### phone_number (required)
+**phone_number (required)**
 
 The phone number of the recipient of the text message.
 
-#### template_id (required)
+**template_id (required)**
 
 To find the template ID:
 
@@ -211,7 +211,7 @@ To find the template ID:
 1. Go to the __Templates__ page and select the relevant template.
 1. Select __Copy template ID to clipboard__.
 
-#### personalisation (optional)
+**personalisation (optional)**
 
 If a template has placeholder fields for personalised information such as name or reference number, you must provide their values in a dictionary with key value pairs. For example:
 
@@ -224,7 +224,7 @@ If a template has placeholder fields for personalised information such as name o
 
 You can leave out this argument if a template does not have any placeholder fields for personalised information.
 
-#### reference (optional)
+**reference (optional)**
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
@@ -234,7 +234,7 @@ An identifier you can create if necessary. This reference identifies a single no
 
 You can leave out this argument if you do not have a reference.
 
-#### sms_sender_id (optional)
+**sms_sender_id (optional)**
 
 A unique identifier of the sender of the text message notification.
 
@@ -280,7 +280,7 @@ If you are using the [test API key](keys.md#test), all your messages will come b
 
 All messages sent using the [team and safelist](keys.md#team-and-safelist) or [live](keys.md#live) keys will appear on your dashboard.
 
-#### Error codes
+**Error codes**
 
 If the request is not successful, the response body is `json`, refer to the table below for details.
 
