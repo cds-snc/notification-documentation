@@ -7,7 +7,7 @@ https://api.notification.canada.ca
 ```
 ## Headers
 
-### Authorisation header
+**Authorisation header**
 
 The authorisation header is an [API key](keys.md). You must include an authorisation header.
 
@@ -34,7 +34,7 @@ Therefore, you would need to set the HTTP header to the following value:
 
 Note that your secret key is the last 36 characters of your API key.
 
-### Content header
+**Content header**
 
 The content header is `application/json`:
 
