@@ -58,7 +58,7 @@ module.exports = {
         nav: [
           { text: "Back to GC Notify", link: 'https://notification.canada.ca' },
         ],
-        sidebarDepth: 2,
+        sidebarDepth: 1,
         sidebar: {
           '/en/': [
             '/en/',
@@ -89,6 +89,7 @@ module.exports = {
         nav: [
           { text: "Retour à GC Notification", link: 'https://notification.canada.ca?lang=fr' },
         ],
+        sidebarDepth: 1,
         sidebar: {
           '/fr/': [
             '/fr/',
