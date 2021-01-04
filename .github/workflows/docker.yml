@@ -57,4 +57,4 @@ jobs:
     #     kubectl set image deployment.apps/documentation documentation=$DOCKER_SLUG:${GITHUB_SHA::7} -n=notification-canada-ca --kubeconfig=$HOME/.kube/config
     - uses: cds-snc/notification-pr-bot@master
       env:
-        TOKEN: ${{ secrets.TOKEN }}
+        TOKEN: ${{ secrets.PR_BOT_TOKEN }}
