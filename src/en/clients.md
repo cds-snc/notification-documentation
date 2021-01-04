@@ -3,7 +3,7 @@
 GC Notify was based on the UK government's notification system. Therefore, the API is also available using the clients developed by [GOV.UK](https://www.notifications.service.gov.uk/).
 
 
-__Before integrating the API__
+### Before integrating the API
 
 You will need to change the API endpoint when creating a client.
 
@@ -63,7 +63,7 @@ client = Notifications::Client.new(api_key, "https://api.notification.canada.ca"
 
 </code-group>
 
-__GOV.UK Notify clients__
+### GOV.UK Notify clients
 
 * [Java](https://docs.notifications.service.gov.uk/java.html)
 * [.NET](https://docs.notifications.service.gov.uk/net.html)
