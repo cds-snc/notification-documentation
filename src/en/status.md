@@ -37,7 +37,7 @@ GET /v2/notifications/{notification_id}
 
 ### Query parameters
 
-**notification_id (required)**
+#### notification_id (required)
 
 The ID of the notification. You can find the notification ID in the response to the [original notification method call](#get-the-status-of-one-message).
 
@@ -107,7 +107,7 @@ You can only get the status of messages that are 7 days old or newer.
 GET /v2/notifications
 ```
 
-**All messages**
+#### All messages
 
 This will return all your messages with statuses. They will display in pages of up to 250 messages each.
 
@@ -122,14 +122,14 @@ You can filter the returned messages by including the following optional argumen
 
 You can omit any of these arguments to ignore these filters.
 
-**template_type (optional)**
+#### template_type (optional)
 
 You can filter by:
 
 * `email`
 * `sms`
 
-**status (optional)**
+#### status (optional)
 
 You can filter by each:
 
@@ -138,7 +138,7 @@ You can filter by each:
 
 You can leave out this argument to ignore this filter.
 
-**reference (optional)**
+#### reference (optional)
 
 An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
@@ -146,7 +146,7 @@ An identifier you can create if necessary. This reference identifies a single no
 "reference": "STRING"
 ```
 
-**older_than (optional)**
+#### older_than (optional)
 
 Input the ID of a notification into this argument. If you use this argument, the method returns the next 250 received notifications older than the given ID.
 
@@ -162,7 +162,7 @@ The client only returns notifications that are 7 days old or newer. If the notif
 
 If the request is successful, the response body is `json` and the status code is `200`.
 
-**All messages**
+#### All messages
 
 ```json
 {
