@@ -76,6 +76,7 @@ module.exports = {
             '/en/keys',
             '/en/limits',
             '/en/callbacks',
+                ]
     {
      title: 'Collapsible menu',
      collapsable: true,
