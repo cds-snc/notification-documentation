@@ -13,7 +13,7 @@ module.exports = {
   ],
 
   title: "GC Notify | GC Notification",
-  base: '/notification-documentation/',
+  base: process.env.PUBLIC_URL || null,
 
   locales: {
     '/en/': {

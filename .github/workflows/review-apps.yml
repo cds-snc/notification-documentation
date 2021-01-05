@@ -1,14 +1,14 @@
-name: "Deploy on master"
-
+name: 'Deploy review app'
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, edited, closed, synchronize]
 
 jobs:
-  build-and-deploy:
+  review-app:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -26,14 +26,10 @@ jobs:
       - name: Lint links
         run: npm run lint-links
 
-      - name: Build website
-        run: PUBLIC_URL="/notification-documentation/" npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: build -> deploy storybook
+        uses: sauloxd/review-apps@v1.3.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./src/.vuepress/dist
-          user_name: 'actions-user'
-          user_email: 'actions@github.com'
-          force_orphan: true
+          build-cmd: 'npm run build'
+          branch: 'gh-pages'
+          dist: 'src/.vuepress/dist'
+          slug: 'review-apps'
