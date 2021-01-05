@@ -2,7 +2,7 @@ let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
 
 if (publicUrl) {
-  let baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
+  baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
 }
 
 module.exports = {
