@@ -1,3 +1,5 @@
+const baseURL = (process.env.PUBLIC_URL.endsWith("/") ? process.env.PUBLIC_URL : process.env.PUBLIC_URL + "/")
+
 module.exports = {
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -13,7 +15,7 @@ module.exports = {
   ],
 
   title: "GC Notify | GC Notification",
-  base: process.env.PUBLIC_URL || null,
+  base: baseURL || null,
 
   locales: {
     '/en/': {

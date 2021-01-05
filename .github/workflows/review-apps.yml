@@ -26,7 +26,7 @@ jobs:
       - name: Lint links
         run: npm run lint-links
 
-      - name: build -> deploy storybook
+      - name: Build and deploy review app
         uses: sauloxd/review-apps@v1.3.3
         with:
           build-cmd: 'npm run build'
