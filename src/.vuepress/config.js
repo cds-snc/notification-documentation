@@ -1,4 +1,9 @@
-const baseURL = (process.env.PUBLIC_URL.endsWith("/") ? process.env.PUBLIC_URL : process.env.PUBLIC_URL + "/")
+let baseURL = null
+const publicUrl = process.env.PUBLIC_URL
+
+if (publicUrl) {
+  let baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
+}
 
 module.exports = {
   /**
