@@ -78,7 +78,14 @@ module.exports = {
             '/en/callbacks',
             '/en/architecture',
             '/en/clients',
-          ]
+    {
+     title: 'Collapsible menu',
+     collapsable: true,
+     children: [
+      '/en/start',
+      '/en/send',
+     ]
+   }
         }
       },
       '/fr/': {
