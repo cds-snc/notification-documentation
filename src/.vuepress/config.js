@@ -1,10 +1,8 @@
 let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
-
 if (publicUrl) {
   baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
 }
-
 module.exports = {
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -18,10 +16,8 @@ module.exports = {
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico"}],
   ],
-
   title: "GC Notify | GC Notification",
   base: baseURL || null,
-
   locales: {
     '/en/': {
       lang: 'en-CA',
@@ -34,7 +30,6 @@ module.exports = {
       description: 'Intégration directe à l`API GC Notification'
     }
   },
-
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -78,7 +73,8 @@ module.exports = {
             '/en/callbacks',
             '/en/architecture',
             '/en/clients',
-           ]
+          ]
+        }
       },
       '/fr/': {
         selectText: 'Langues',
@@ -113,7 +109,6 @@ module.exports = {
       },
     },
   },
-
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
