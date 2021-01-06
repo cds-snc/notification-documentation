@@ -26,6 +26,16 @@ jobs:
       - name: Lint links
         run: npm run lint-links
 
+      - name: Comment PR
+        if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+        uses: actions/github-script@v3.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
+            const body = 'A review app will be deployed. Get the URL by going to https://cds-snc.github.io/notification-documentation/';
+            github.issues.createComment({ issue_number, owner, repo, body });
+
       - name: Build and deploy review app
         uses: sauloxd/review-apps@v1.3.3
         with:
