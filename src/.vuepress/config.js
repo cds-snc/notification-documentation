@@ -76,15 +76,9 @@ module.exports = {
             '/en/keys',
             '/en/limits',
             '/en/callbacks',
+            '/en/architecture',
+            '/en/clients',
            ]
-    {
-     title: 'Collapsible menu',
-     collapsable: true,
-     children: [
-      '/en/architecture',
-      '/en/clients',
-     ]
-   }
       },
       '/fr/': {
         selectText: 'Langues',
