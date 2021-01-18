@@ -2,7 +2,7 @@
   <ParentLayout>
     <template #sidebar-top>
       <div class="back-to-notify">
-        <NavLink :item='{"link": backToLink, "text": backToText}' />
+        <ParentNavLink :item='{"link": backToLink, "text": backToText}' v-if="backToText" />
       </div>
     </template>
   </ParentLayout>
@@ -10,13 +10,13 @@
 
 <script>
 import ParentLayout from '@parent-theme/layouts/Layout.vue'
-import NavLink from '@parent-theme/components/NavLink.vue'
+import ParentNavLink from '@parent-theme/components/NavLink.vue'
 
 export default {
   name: 'Layout',
   components: {
     ParentLayout,
-    NavLink,
+    ParentNavLink,
   },
   computed: {
     backToLink() {
