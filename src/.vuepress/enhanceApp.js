@@ -17,8 +17,8 @@ export default ({
 // a reload
 // https://github.com/vuejs/vuepress/issues/2711
 import Vue from 'vue'
-import CodeBlock from "@theme/global-components/CodeBlock"
-import CodeGroup from "@theme/global-components/CodeGroup"
+import CodeBlock from "@parent-theme/global-components/CodeBlock"
+import CodeGroup from "@parent-theme/global-components/CodeGroup"
 
 // Register the Vue global component
 Vue.component(CodeBlock)
