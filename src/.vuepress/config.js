@@ -49,6 +49,8 @@ module.exports = {
         selectText: 'Languages',
         label: 'English',
         ariaLabel: 'Languages',
+        backToNotifyLink: 'https://notification.canada.ca',
+        backToNotifyText: 'Back to GC Notify',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last updated',
         serviceWorker: {
@@ -59,7 +61,6 @@ module.exports = {
         },
         nav: [
           { text: "Français", link: '/fr/' },
-          { text: "Back to GC Notify", link: 'https://notification.canada.ca' },
         ],
         sidebarDepth: 1,
         sidebar: {
@@ -81,6 +82,8 @@ module.exports = {
         selectText: 'Langues',
         label: 'Français',
         ariaLabel: 'Langues',
+        backToNotifyLink: 'https://notification.canada.ca?lang=fr',
+        backToNotifyText: 'Retour à GC Notification',
         editLinkText: 'Modifier cette page sur GitHub',
         lastUpdated: 'Dernière mise à jour ',
         serviceWorker: {
@@ -91,7 +94,6 @@ module.exports = {
         },
         nav: [
           { text: "English", link: '/en/' },
-          { text: "Retour à GC Notification", link: 'https://notification.canada.ca?lang=fr' },
         ],
         sidebarDepth: 1,
         sidebar: {
