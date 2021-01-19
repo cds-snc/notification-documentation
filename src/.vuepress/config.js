@@ -11,7 +11,6 @@ module.exports = {
    */
   head: [
     ['meta', { name: 'robots', content: 'noindex' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico"}],
