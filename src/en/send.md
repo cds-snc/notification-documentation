@@ -37,7 +37,7 @@ POST /v2/notifications/email
 
 ### Arguments
 
-#### email_address (required)
+**email_address (required)**
 
 The email address of the recipient.
 
@@ -70,7 +70,7 @@ An identifier you can create if necessary. This reference identifies a single no
 ```
 You can leave out this argument if you do not have a reference.
 
-**email_reply_to_id (optional)**the 
+**email_reply_to_id (optional)** 
 
 This is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
 
