@@ -35,7 +35,7 @@ Lorsque vous envoyez un courriel ou un message texte, GC Notification envoie un 
 
 Cette fonctionnalité fonctionne avec les clés API de test, mais ne fonctionne pas avec les adresses de courriel ou les numéros de téléphone de test de détection de fumée.
 
-Le message de fonction de rappel est formaté dans JSON. Toutes les valeurs sont des chaînes. Voici la clé, la description et le format des arguments du message de fonction de rappel :
+Le message de fonction de rappel est formaté en JSON. Toutes les valeurs sont des chaînes de caractères. Voici la clé, la description et le format des arguments du message de la fonction de rappel :
 
 |Clé | Description | Format|
 |:---|:---|:---|
