@@ -7,7 +7,7 @@ Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à vot
 - un courriel ou un message texte que vous avez envoyé est livré ou échoue
 - votre service reçoit un message texte
 
-Vous devrez fournir un jeton du porteur, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête d’autorisation de la demande de rappel.
+Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête d’autorisation de la demande de rappel.
 
 ## Configurer des fonctions de rappel
 
