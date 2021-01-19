@@ -2,7 +2,7 @@
 
 Une fonction de rappel vous permet de recevoir des messages de GC Notification à une adresse URL de votre choix. 
 
-Les rappels sont lorsque GC Notification envoie des demandes "POST" à votre service. Vous pouvez obtenir des rappels dans les cas suivants :
+Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels dans les cas suivants :
 
 - un courriel ou un message texte que vous avez envoyé est livré ou échoue
 - votre service reçoit un message texte
