@@ -1,1 +1,293 @@
 # Envoyer un message
+
+Vous pouvez utiliser GC Notification pour envoyer des courriels et des messages texte. Il peut s’agir d’une réponse à un événement généré par l’utilisateur, comme un reçu après qu’ils demandent votre service, ou comme un rappel lorsqu’un paiement est attendu.
+
+**Ce dont vous aurez besoin :**
+
+Pour envoyer un message à l’aide de GC Notification, vous devez configurer un gabarit dans l’interface utilisateur. 
+
+Pour créer un gabarit :
+
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. Accédez à la page __Gabarits__.
+1. Sélectionnez __Nouveau gabarit__.
+
+Une fois le gabarit prêt, recherchez l’ID de gabarit associé. Vous aurez besoin de cet ID pour indiquer le gabarit que vous voulez utiliser lorsque vous appelez l’API.
+
+Votre appel à l'API doit également inclure tous les champs qui ont été configurés comme des personnalisations. La personnalisation vous permet de modifier ce qui apparaît dans un message précis lors de son envoi. Vous pouvez utiliser la personnalisation pour :
+
+- Vous adresser à un utilisateur par son nom
+- Fournir aux utilisateurs un lien précis sur lequel cliquer
+- Envoyer un numéro de transaction unique comme suivi
+- Donner aux utilisateurs une liste dynamique des mesures qu’ils doivent prendre
+
+Votre appel d’API doit inclure tous les champs configurés comme personnalisations.
+
+## Envoyer un courriel
+
+```
+POST /v2/notifications/email
+```
+
+### Corps de la demande
+```json
+{
+  "email_address": "expéditeur@quelquechose.com",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a"
+}
+```
+
+### Arguments
+
+**email_address (obligatoire)**
+
+Adresse de courriel du destinataire.
+
+**template_id (obligatoire)**
+
+Pour rechercher l’ID de gabarit :
+
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
+1. Sélectionnez __Copier template ID dans le presse-pappier__.
+
+**personnalisation (facultatif)**
+
+Si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
+
+```json
+"personalisation": {
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+}
+```
+Vous pouvez ignorer cet argument si un gabarit ne comporte pas de champs réservés pour les renseignements personnalisés.
+
+**référence (facultatif)**
+
+Identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
+
+```json
+"reference": "STRING"
+```
+Vous pouvez ignorer cet argument si vous n’avez pas de référence.
+
+**email_response_to_id (facultatif)**
+
+Il s’agit d’une adresse de courriel que vous avez indiquée pour recevoir les réponses de vos utilisateurs. Vous devez ajouter au moins une adresse de courriel de réponse avant que votre service puisse être en ligne.
+
+Pour ajouter une adresse de courriel de réponse :
+
+1. [Ouvrez une session dans GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Settings__ (Paramètres).
+1. Dans la section __Email__ (Adresse de courriel), sélectionnez __Manage__ (Gérer) à la ligne __Reply-to email addresses__ (Adresses de courriel de réponse).
+1. Sélectionnez __Add reply-to address__ (Ajouter l’adresse de réponse).
+1. Entrez l’adresse de courriel que vous souhaitez utiliser, puis sélectionnez __Add__ (Ajouter). 
+
+Par exemple :
+
+```json
+"email_reply_to_id": "8e222534-7f05-4972-86e3-17c5d9f894e2"
+```
+
+Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse de courriel de réponse ou si vous voulez utiliser l’adresse de courriel par défaut.
+
+## Envoyer un fichier par courriel
+
+Pour envoyer un fichier par courriel, ajoutez un espace réservé au gabarit, puis téléchargez un fichier. L’espace réservé contient un lien sécurisé pour télécharger le fichier.
+
+Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas accéder votre fichier ou le déchiffrer.
+
+### Ajouter les coordonnées à la page de téléchargement du fichier
+
+1. [Ouvrez une session dans GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Settings__ (Paramètres).
+1. Dans la section __Email__, sélectionnez __Manage__ à la ligne __Send files by email__ (Envoyer des fichiers par courriel).
+1. Entrez les coordonnées que vous souhaitez utiliser et sélectionnez __Save__ (Enregistrer).
+
+### Ajouter un espace réservé au gabarit
+
+1. [Ouvrez une session dans GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Gabarits__ et sélectionnez le gabarit de courriel approprié.
+1. Sélectionnez __Modifier__.
+1. Ajoutez un espace réservé au gabarit de courriel à l’aide de parenthèses doubles. Par exemple :
+
+"Téléchargez votre fichier à : ((link_to_file))"
+
+### Télécharger votre fichier
+
+Vous pouvez télécharger des fichiers PDF, CSV, .odt, .txt, .rtf et MS Word. La taille de votre fichier doit être inférieure à 2 Mo. [Communiquez avec l’équipe de GC Notification](https://notification.canada.ca/contact) si vous devez envoyer d’autres types de fichiers.
+Vous devrez convertir le fichier en chaîne codée base64.
+
+Passez la chaîne encodée dans un objet avec une clé "file", et mettez-la dans l’argument de personnalisation. Par exemple :
+
+```json
+"personalisation":{
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+  "link_to_file": {"file": "file as base64 encoded string"}
+}
+```
+
+#### Fichiers CSV
+
+Les téléchargements pour les fichiers CSV doivent définir l’indicateur “is_csv” comme “true” pour s’assurer qu’il est téléchargé en tant que fichier .csv. Par exemple :
+
+```json
+"personalisation":{
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+  "link_to_file": {"file": "CSV file as base64 encoded string", "is_csv": true}
+}
+```
+
+### Réponse
+
+Si la demande au client est acceptée, le client renvoie un "dict" :
+
+```json
+{
+  "id": "740e5834-3a29-46b4-9a6f-16142fde533a",
+  "reference": "STRING",
+  "content": {
+    "subject": "TEXTE DE L’OBJET",
+    "body" : "TEXTE DU MESSAGE",
+    "from_email" : "ADRESSE DE COURRIEL DE L’EXPÉDITEUR"
+  },
+  "uri": "https://api.notification.canada.ca/v2/notifications/740e5834-3a29-46b4-9a6f-16142fde533a",
+  "template": {
+    "id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+    "version": 1,
+    "uri": "https://api.notification.canada.ca/v2/template/f33517ff-2a88-4f6e-b855-c550268ce08a"
+  }
+}
+```
+
+### Codes d’erreur
+
+Si la demande a été refusée, le corps de la réponse est “json”, consultez le tableau ci-dessous pour plus de détails.
+
+|status_code|message|Comment réparer|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Impossible d’envoyer à ce destinataire à l’aide d’une clé API d’équipe uniquement"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
+|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Impossible d’envoyer cette notification à ce destinataire lorsque le service est en mode d’essai`<br>`}]`|Votre service ne peut pas envoyer cette notification en [mode d’essai]|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message" : "Type de fichier non pris en charge '(TYPE DE FICHIER)'. Les types pris en charge sont les suivants : '(TYPES AUTORISÉS)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .doc, .docx, .rtf ou .odt|
+|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Le fichier n’a pas réussi l’analyse antivirus"`<br>`}]`|Le fichier contient un virus|
+|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "L’envoi de fichiers par courriel n’a pas été configuré – ajoutez les coordonnées de votre service"`<br>`}]`|Voir comment [ajouter les coordonnées à la page de téléchargement de fichier](#add-contact-details-to-the-file-download-page)|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
+|`429`|`[{`<br>`"erreur": "RateLimitError",`<br>`"message": "Dépassement du débit maximal pour le type de clé TEAM/TEST/LIVE de 3000 requêtes par 60 secondes"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md#rate-limits) pour plus de renseignements|
+|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md#daily-limits) pour le nombre maximal|
+|`500`|`[{`<br>`"erreur": "Exception",`<br>`"message": "Erreur interne du serveur"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+
+## Envoyer un message texte
+
+```
+POST /v2/notifications/sms
+```
+
+### Corps de la demande
+
+```json
+{
+  "phone_number": "+447900900123",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a"
+}
+ ```
+
+### Arguments
+
+#### phone_number (obligatoire)
+
+Numéro de téléphone du destinataire du message texte.
+
+#### template_id (obligatoire)
+
+Pour rechercher l’ID de gabarit :
+
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
+1. Sélectionnez__Copy template ID to clipboard__ (ID de gabarit à copier dans le presse-papiers).
+
+#### personnalisation (facultatif)
+
+Si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
+
+```json
+"personalisation": {
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+}
+```
+
+Vous pouvez ignorer cet argument si un gabarit ne comporte pas de champs réservés pour les renseignements personnalisés.
+
+#### référence (facultatif)
+
+Identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
+
+```json
+"reference": "STRING"
+```
+
+Vous pouvez ignorer cet argument si vous n’avez pas de référence.
+
+#### sms_sender_id (facultatif)
+
+Identificateur unique de l’expéditeur de la notification par message texte.
+
+Pour rechercher l’expéditeur du message texte :
+
+1. [Ouvrez une session dans GC Notification](https://notification.canada.ca/sign-in).
+1. Accédez à la page __Settings__ (Paramètres).
+1. Dans la section __Text Messages__ (Messages texte), sélectionnez __Manage__ à la ligne __Text Message sender__ (Expéditeur du message texte).
+
+Ensuite, vous pouvez soit :
+
+- copier l’ID de l’expéditeur que vous souhaitez utiliser et le coller dans la méthode
+- sélectionner __Change__ (Changer) pour modifier l’expéditeur par défaut que le service utilisera, et sélectionnez __Save__.
+
+```json
+"sms_sender_id": "8e222534-7f05-4972-86e3-17c5d9f894e2"
+```
+
+Vous pouvez ignorer cet argument si votre service n’a qu’un seul expéditeur de message texte, ou si vous voulez utiliser l’expéditeur par défaut.
+
+### Réponse
+
+Si la demande est acceptée, le corps de la réponse est "json" avec un code de statut de "201" :
+
+```json
+{
+  "id": "740e5834-3a29-46b4-9a6f-16142fde533a",
+  "reference": "STRING",
+  "content": {
+    "body" : "TEXTE DU MESSAGE",
+    "from_number": "EXPÉDITEUR"
+  },
+  "uri": "https://api.notifications.service.gov.uk/v2/notifications/740e5834-3a29-46b4-9a6f-16142fde533a",
+  "template": {
+    "id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+    "version": 1,
+    "uri": "https://api.notifications.service.gov.uk/v2/template/ceb50d92-100d-4b8b-b559-14fa3b091cd"
+  }
+}
+```
+
+Si vous utilisez la [clé API de test](keys.md#test), tous vos messages reviendront avec le statut "livré".
+
+Tous les messages envoyés à l’aide des clés [équipe et liste fiable](keys.md#team-and-safelist) ou [en direct](keys.md#live) apparaîtront sur votre tableau de bord.
+
+#### Codes d’erreur
+
+Si la demande a été refusée, le corps de la réponse est “json”, consultez le tableau ci-dessous pour plus de détails.
+
+|status_code|message|Comment réparer|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Impossible d’envoyer à ce destinataire à l’aide d’une clé API d’équipe uniquement"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
+|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Impossible d’envoyer cette notification à ce destinataire lorsque le service est en mode d’essai – voir https://www.notifications.service.gov.uk/trial-mode"`<br>`}]`|Votre service ne peut pas envoyer cette notification en [mode d’essai](https://www.notifications.service.gov.uk/features/using-notify#trial-mode)|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
+|`429`|`[{`<br>`"erreur": "RateLimitError",`<br>`"message": "Dépassement du débit maximal pour le type de clé TEAM/TEST/LIVE de 3000 requêtes par 60 secondes"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md#rate-limits) pour plus de renseignements|
+|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md#daily-limits) pour le nombre maximal|
+|`500`|`[{`<br>`"erreur": "Exception",`<br>`"message": "Erreur interne du serveur"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
