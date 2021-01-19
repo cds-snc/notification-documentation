@@ -46,4 +46,4 @@ Le message de fonction de rappel est formaté en JSON. Toutes les valeurs sont d
 |`created_at` | Heure à laquelle le service a envoyé la demande | `2017-05-14T12:15:30.000000Z`|
 |`completed_at` | Dernière mise à jour de l’état | `2017-05-14T12:15:30.000000Z` ou nul|
 |`sent_at` | Heure d’envoi de la notification | `2017-05-14T12:15:30.000000Z` ou nul|
-|`notification_type` | Type de notification | `email` or `sms`|
+|`notification_type` | Type de notification | `email` ou `sms`|
