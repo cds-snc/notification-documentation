@@ -122,7 +122,7 @@ $navbar-horizontal-padding = 1.5rem
     color $textColor
     position relative
   .site-subtitle
-    font-size 1.2rem
+    font-size 1.6rem
     font-weight 600
     color $textColor
   .links
