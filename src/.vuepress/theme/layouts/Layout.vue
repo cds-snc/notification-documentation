@@ -30,8 +30,12 @@ export default {
 </script>
 <style lang="stylus">
 .back-to-notify
+  margin-top 1rem
   padding 1em 0 1em 1.5em
   border-bottom 1px solid $borderColor
   a
     color $textColor
+@media (max-width: $MQMobile)
+  .back-to-notify
+    margin-top 0
 </style>
