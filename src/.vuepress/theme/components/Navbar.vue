@@ -18,6 +18,11 @@
         class="site-name"
         :class="{ 'can-hide': $site.themeConfig.logo }"
       >{{ $siteTitle }}</div>
+      <div
+        v-if="siteSubTitle"
+        ref="siteSubTitle"
+        class="site-subtitle"
+      >{{ siteSubTitle }}</div>
     </RouterLink>
 
     <div
@@ -65,7 +70,11 @@ export default {
 
     isAlgoliaSearch () {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
+    },
+
+    siteSubTitle () {
+      return this.$themeLocaleConfig.siteSubtitle
+    },
   },
 
   mounted () {
@@ -107,11 +116,15 @@ $navbar-horizontal-padding = 1.5rem
     margin-right 0.8rem
     vertical-align top
   .site-name
-    padding-top 1rem
-    font-size 1.3rem
+    padding-top .5rem
+    font-size .8rem
     font-weight 600
     color $textColor
     position relative
+  .site-subtitle
+    font-size 1.2rem
+    font-weight 600
+    color $textColor
   .links
     padding-left 1.5rem
     box-sizing border-box
