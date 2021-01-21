@@ -20,7 +20,7 @@ Si vous devez effectuer un test de détection de la fumée de votre intégration
 |+16132532223|
 |+16132532224|
 
-Les adresses de courriel et les numéros de téléphone du test de détection de fumée valident la demande et simulent une réponse réussie, mais n’envoient pas de message réel, ne produisent pas d’accusé de réception ou ne maintiennent pas la notification à la base de données.
+Les adresses courriel et les numéros de téléphone du test de détection de fumée valident la demande et simulent une réponse réussie, mais n’envoient pas de message réel, ne produisent pas d’accusé de réception ou ne maintiennent pas la notification à la base de données.
 
 Vous pouvez utiliser ces numéros et adresses de test de détection de fumée avec n’importe quel [type de clé API](keys.md).
 
