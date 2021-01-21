@@ -2,14 +2,14 @@
 
 Une fonction de rappel vous permet de recevoir des messages de GC Notification à une adresse URL de votre choix. Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels lorsqu'un courriel ou un message texte que vous avez envoyé est livré ou échoue.
 
-Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête d’autorisation de la demande de rappel.
+Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête `Authorization` de la demande de rappel.
 
 ## Configurer des fonctions de rappel
 
 Vous devez fournir :
 
 - une adresse URL de destination vers laquelle GC Notification effectuera une requête HTTP
-- un jeton `Bearer`, pour des raisons de sécurité, que GC Notification placera dans l’en-tête d’autorisation des demandes
+- un jeton `Bearer`, pour des raisons de sécurité, que GC Notification placera dans l’en-tête `Authorization` des demandes
 
 Pour ce faire :
 
