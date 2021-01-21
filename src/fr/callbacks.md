@@ -21,7 +21,7 @@ Lors de la création d’un jeton `Bearer`, vous devez :
 
 - garder votre jeton `Bearer` sécurisé
 - le changer si vous avez une raison de penser qu’on ne peut plus lui faire confiance
-- Assurez-vous que les fonctions de rappel que vous recevez de GC Notification contiennent votre jeton `Bearer` dans l’en-tête `Authorisation`
+- Assurez-vous que les fonctions de rappel que vous recevez de GC Notification contiennent votre jeton `Bearer` dans l’en-tête `Authorization`
 - utiliser une valeur hachée pour que GC Notification ne contienne pas le vrai jeton
 
 ## Accusés de réception de message
