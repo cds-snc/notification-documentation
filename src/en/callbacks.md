@@ -2,14 +2,14 @@
 
 A callback lets you receive messages from GC Notify to a URL you choose. Callbacks are when GC Notify sends `POST` requests to your service. You can get callbacks when a text message or email you’ve sent is delivered or fails.
 
-You'll need to provide a bearer token, for security. We'll add this to the authorisation header of the callback request.
+You'll need to provide a bearer token, for security. We'll add this to the authorization header of the callback request.
 
 ## Set up callbacks
 
 You must provide:
 
-- a URL where GC Notify will post the callback to
-- a bearer token, for security, which GC Notify will put in the authorisation header of the requests
+- a URL where Notify will post the callback to
+- a bearer token, for security, which GC Notify will put in the authorization header of the requests
 
 To do this:
 
@@ -21,7 +21,7 @@ When creating a bearer token, you should:
 
 - Keep your bearer token secure
 - Change it if you have any reason to think it might no longer be trusted
-- Make sure that callbacks you receive from GC Notify contain your bearer token in the `Authorisation` header
+- Make sure that callbacks you receive from GC Notify contain your bearer token in the `Authorization` header
 - Use a hashed value so that GC Notify doesn't hold the true token
 
 ## Message delivery receipts
