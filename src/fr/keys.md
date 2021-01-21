@@ -19,10 +19,10 @@ Pour créer une clé API :
 
 Utilisez une clé de test pour tester la performance de votre service et son intégration avec GC Notification.
 
-Messages envoyés à l’aide d’une clé de test :
+Les messages envoyés à l’aide d’une clé de test :
 
-- générer des réponses réalistes
-- obtenir un état de livraison
+- génèrent des réponses réalistes
+- permettent d'obtenir un état de livraison
 - ne sont pas réellement livrés à un destinataire
 - n’apparaissent pas sur votre tableau de bord
 - ne comptent pas sur vos allocations de courriels et de messages texte
