@@ -4,7 +4,7 @@
 
 ![](../en/images/notify-architecture-email-2020.png)
 1. Le service envoie une notification par courriel à GC Notification.
-1. GC Notification le courriel au fournisseur.
+1. GC Notification envoie le courriel au fournisseur.
 1. Le fournisseur livre le courriel au destinataire.
 1. Le destinataire reçoit le courriel et envoie un accusé de réception au fournisseur.
 1. Le fournisseur envoie l’accusé de réception à GC Notification.
