@@ -7,14 +7,14 @@ https://api.notification.canada.ca
 ```
 ## Headers
 
-**Authorisation header**
+**Authorization header**
 
-The authorisation header is an [API key](keys.md). You must include an authorisation header.
+The authorization header is an [API key](keys.md). You must include an authorization header.
 
 The header consists of:
 
 ```json
-"Authorisation": "ApiKey-v1 YOUR-SECRET-KEY"
+"Authorization": "ApiKey-v1 YOUR-SECRET-KEY"
 ```
 
 That secret key forms a part of your [API key](keys.md), which follows the format `{key_name}-{iss-uuid}-{secret-key-uuid}`.
@@ -29,7 +29,7 @@ For example, if your API key is
 Therefore, you would need to set the HTTP header to the following value:
 
 ```json
-"Authorisation": "ApiKey-v1 3d844edf-8d35-48ac-975b-e847b4f122b0"
+"Authorization": "ApiKey-v1 3d844edf-8d35-48ac-975b-e847b4f122b0"
 ```
 
 Note that your secret key is the last 36 characters of your API key.
