@@ -1,11 +1,6 @@
 # Callbacks
 
-A callback lets you receive messages from GC Notify to a URL you choose. 
-
-Callbacks are when GC Notify sends `POST` requests to your service. You can get callbacks when:
-
-- a text message or email you’ve sent is delivered or fails
-- your service receives a text message
+A callback lets you receive messages from GC Notify to a URL you choose. Callbacks are when GC Notify sends `POST` requests to your service. You can get callbacks when a text message or email you’ve sent is delivered or fails.
 
 You'll need to provide a bearer token, for security. We'll add this to the authorisation header of the callback request.
 
