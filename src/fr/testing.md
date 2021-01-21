@@ -33,4 +33,4 @@ Vous ne pouvez pas utiliser les adresses de courriel ou les numéros de téléph
 
 ## Autres essais
 
-Utilisez une [clé API de test](keys.md#test) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que détection de fumée. Vous n’avez pas besoin d’un compte de test GC Notification précis.
+Utilisez une [clé API de test](keys.md) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que détection de fumée. Vous n’avez pas besoin d’un compte de test GC Notification précis.
