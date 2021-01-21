@@ -1,7 +1,7 @@
 name: 'Deploy review app'
 on:
   pull_request:
-    types: [opened, edited, closed, synchronize]
+    types: [opened, closed, synchronize]
 
 jobs:
   review-app:
