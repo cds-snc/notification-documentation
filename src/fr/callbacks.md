@@ -17,7 +17,7 @@ Pour ce faire :
 1. Allez à la page __Intégration API__.
 1. Sélectionnez __Fonctions de rappel__.
 
-Lors de la création d’un jeton du porteur, vous devez :
+Lors de la création d’un jeton `Bearer`, vous devez :
 
 - garder votre jeton `Bearer` sécurisé
 - le changer si vous avez une raison de penser qu’on ne peut plus lui faire confiance
