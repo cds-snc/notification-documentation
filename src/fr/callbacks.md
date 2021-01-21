@@ -13,7 +13,7 @@ Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajou
 Vous devez fournir :
 
 - une adresse URL de destination vers laquelle GC Notification effectuera une requête HTTP
-- un jeton du porteur, pour des raisons de sécurité, que GC Notification placera dans l’en-tête d’autorisation des demandes
+- un jeton `Bearer`, pour des raisons de sécurité, que GC Notification placera dans l’en-tête d’autorisation des demandes
 
 Pour ce faire :
 
