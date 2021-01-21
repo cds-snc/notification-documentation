@@ -6,8 +6,6 @@ There is no test environment for GC Notify. All testing takes place in the produ
 
 If you need to smoke test your integration with GC Notify on a regular basis, you should use the following smoke test email addresses and phone numbers.
 
-<div style="height:1px;font-size:1px;">&nbsp;</div>
-
 |Email address|
 |:---|
 |simulate-delivered@notification.canada.ca|
