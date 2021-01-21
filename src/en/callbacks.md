@@ -8,7 +8,7 @@ You'll need to provide a bearer token, for security. We'll add this to the autho
 
 You must provide:
 
-- a URL where Notify will post the callback to
+- a URL where GC Notify will post the callback to
 - a bearer token, for security, which GC Notify will put in the authorisation header of the requests
 
 To do this:
