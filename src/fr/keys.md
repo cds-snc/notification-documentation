@@ -53,7 +53,7 @@ Vous n’êtes pas obligé de révoquer les clés d’équipe et de liste de con
 
 Vous ne pouvez créer des clés en fonction qu’une fois votre service est activé. Vous pouvez utiliser des clés en fonction pour envoyer des messages à n’importe qui.
 
-Les messages envoyés avec une clé en direct apparaissent sur votre tableau de bord et comptent sur vos allocations de courriels et de messages texte.
+Les messages envoyés avec une clé en fonction apparaissent sur votre tableau de bord et comptent sur vos allocations de courriels et de messages texte.
 
 Vous devez révoquer et recréer régulièrement ces clés. Pour révoquer une clé :
 
