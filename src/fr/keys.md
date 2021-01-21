@@ -11,7 +11,7 @@ Lorsque vous configurez un nouveau service, il démarrera en mode d’essai. Un 
 Pour créer une clé API :
 
 1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Allez à la page __Intégrer l'API__.
+1. Allez à la page __Intégration API__.
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Créer une clé API__.
 
@@ -58,7 +58,7 @@ Les messages envoyés avec une clé en fonction apparaissent sur votre tableau d
 Vous devez révoquer et recréer régulièrement ces clés. Pour révoquer une clé :
 
 1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Allez à la page __Intégrer l'API__.
+1. Allez à la page __Intégration API__.
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Révoquer___ pour la clé API que vous voulez révoquer.
 
