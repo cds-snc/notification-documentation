@@ -44,6 +44,7 @@ module.exports = {
     smoothScroll: true,
     locales: {
       '/en/': {
+        logo: 'https://assets.notification.canada.ca/static/gov-canada-en.svg',
         selectText: 'Languages',
         label: 'English',
         ariaLabel: 'Languages',
@@ -78,6 +79,7 @@ module.exports = {
         }
       },
       '/fr/': {
+        logo: 'https://assets.notification.canada.ca/static/gov-canada-fr.svg',
         selectText: 'Langues',
         label: 'Français',
         ariaLabel: 'Langues',

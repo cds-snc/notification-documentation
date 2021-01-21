@@ -7,16 +7,16 @@
       class="home-link"
     >
       <img
-        v-if="$site.themeConfig.logo"
+        v-if="logo"
         class="logo"
-        :src="$withBase($site.themeConfig.logo)"
+        :src="$withBase(logo)"
         :alt="$siteTitle"
       >
       <div
         v-if="$siteTitle"
         ref="siteName"
         class="site-name"
-        :class="{ 'can-hide': $site.themeConfig.logo }"
+        :class="{ 'can-hide': logo }"
       >{{ $siteTitle }}</div>
       <div
         v-if="siteSubTitle"
@@ -74,6 +74,10 @@ export default {
 
     siteSubTitle () {
       return this.$themeLocaleConfig.siteSubtitle
+    },
+
+    logo () {
+      return this.$themeLocaleConfig.logo || this.$site.themeConfig.logo
     },
   },
 
