@@ -11,8 +11,8 @@ Vous ne pouvez obtenir que l’état des messages qui ont jusqu’à 7 jours.
 |État|Renseignements|
 |:---|:---|
 |Créé|GC Notification a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
-|Envoi|GC Notification a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. GC Notification attend les renseignements de livraison.|
-|Livré|Le message a été livré avec succès.|
+|Envoi en cours|GC Notification a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. GC Notification attend les renseignements de livraison.|
+|Livraison réussie|Le message a été livré avec succès.|
 |Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message, car l’adresse de courriel était inexacte. Vous devez supprimer ces adresses de courriel de votre base de données."<br>- `temporary-failure` - "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire lorsque la boîte de réception du destinataire est pleine. Vous pouvez essayer de renvoyer le message."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre GC Notification et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages."|
 
 
@@ -21,10 +21,10 @@ Vous ne pouvez obtenir que l’état des messages qui ont jusqu’à 7 jours.
 |État|Renseignements|
 |:---|:---|
 |Créé|GC Notification a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
-|Envoi|GC Notification a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. GC Notification attend les renseignements de livraison.|
+|Envoi en cours|GC Notification a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. GC Notification attend les renseignements de livraison.|
 |En attente|GC Notification attend plus de renseignements sur la livraison.<br>GC Notification a reçu un rappel du fournisseur, mais l’appareil du destinataire n’a pas encore répondu. Un autre rappel du fournisseur détermine l’état final de la notification.|
 |Envoyé / Envoyé à l’international|Le message a été envoyé à un numéro international. Dans certains pays, les réseaux mobiles ne fournissent plus de renseignements sur la livraison. L’API client GC Notification renvoie cet état comme étant "envoyé". L’application cliente GC Notification retourne cet état comme “Envoyé à un numéro international”.|
-|Livré|Le message a été livré avec succès.|
+|Livraison réussie|Le message a été livré avec succès.|
 |Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire si le numéro de téléphone était inexact ou si l’opérateur réseau rejette le message. Si vous êtes certain que ces numéros de téléphone sont exacts, vous devriez [communiquer avec le soutien de GC Notification](https://notification.canada.ca/contact). Dans le cas contraire, vous devez les supprimer de votre base de données. Vous serez toujours facturé pour les messages texte qui ne peuvent pas être livrés."<br>- `temporary-failure` - "Le fournisseur n’a pas pu livrer le message. Cela peut se produire lorsque le téléphone du destinataire est éteint, qu’il n’a pas de signal ou que sa boîte de réception de message texte est pleine. Vous pouvez essayer de renvoyer le message. On vous facturera quand même les messages texte aux téléphones qui ne reçoivent pas de messages."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre GC Notification et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages. Vous ne serez pas facturé pour les messages texte touchés par une défaillance technique."|
 
 ## Obtenir l’état d’un message
