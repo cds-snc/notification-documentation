@@ -29,7 +29,7 @@ Vous pouvez effectuer un test de détection de fumée sur toutes les fonctions c
 - Pour obtenir l’état d’un message
 - Pour obtenir l’état de tous les messages
 
-Vous ne pouvez pas utiliser les adresses de courriel ou les numéros de téléphone de test de détection de fumée avec ces fonctions, car ils retournent un faux 'notification_ID'. Si vous devez tester ces fonctions, utilisez une clé API de test et tout autre numéro de téléphone ou adresse de courriel.
+Vous ne pouvez pas utiliser les adresses de courriel ou les numéros de téléphone de test de détection de fumée avec ces fonctions, car ils retournent un faux `notification_ID`. Si vous devez tester ces fonctions, utilisez une clé API de test et tout autre numéro de téléphone ou adresse de courriel.
 
 ## Autres essais
 
