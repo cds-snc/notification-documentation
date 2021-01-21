@@ -30,7 +30,7 @@ Lors de la création d’un jeton du porteur, vous devez :
 
 ## Accusés de réception de message
 
-Lorsque vous envoyez un courriel ou un message texte, GC Notification envoie un accusé réception à votre adresse URL de rappel pour vous dire s’il a été livré ou non. Il s’agit d’une méthode automatisée pour obtenir l’état des messages.
+Lorsque vous envoyez un courriel ou un message texte, GC Notification envoie un accusé de réception à votre adresse URL de rappel pour vous dire s’il a été livré ou non. Il s’agit d’une méthode automatisée pour obtenir l’état des messages.
 
 Cette fonctionnalité fonctionne avec les clés API de test, mais ne fonctionne pas avec les adresses de courriel ou les numéros de téléphone de test de détection de fumée.
 
