@@ -5,7 +5,6 @@ Une fonction de rappel vous permet de recevoir des messages de GC Notification �
 Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels dans les cas suivants :
 
 - un courriel ou un message texte que vous avez envoyé est livré ou échoue
-- votre service reçoit un message texte
 
 Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête d’autorisation de la demande de rappel.
 
