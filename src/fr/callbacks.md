@@ -1,10 +1,6 @@
 # Fonctions de rappel
 
-Une fonction de rappel vous permet de recevoir des messages de GC Notification à une adresse URL de votre choix. 
-
-Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels dans les cas suivants :
-
-- un courriel ou un message texte que vous avez envoyé est livré ou échoue
+Une fonction de rappel vous permet de recevoir des messages de GC Notification à une adresse URL de votre choix. Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels lorsqu'un courriel ou un message texte que vous avez envoyé est livré ou échoue.
 
 Vous devrez fournir un jeton `Bearer`, pour des raisons de sécurité. Nous ajouterons ceci à l’en-tête d’autorisation de la demande de rappel.
 
@@ -17,8 +13,8 @@ Vous devez fournir :
 
 Pour ce faire :
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in).
-1. Allez à la page __Intégrer l'API__.
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. Allez à la page __Intégration API__.
 1. Sélectionnez __Fonctions de rappel__.
 
 Lors de la création d’un jeton du porteur, vous devez :
@@ -34,7 +30,7 @@ Lorsque vous envoyez un courriel ou un message texte, GC Notification envoie un 
 
 Cette fonctionnalité fonctionne avec les clés API de test, mais ne fonctionne pas avec les adresses de courriel ou les numéros de téléphone de test de détection de fumée.
 
-Le message de fonction de rappel est formaté en JSON. Toutes les valeurs sont des chaînes de caractères. Voici la clé, la description et le format des arguments du message de la fonction de rappel :
+Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs sont des chaînes de caractères. Voici la clé, la description et le format des arguments du message de la fonction de rappel :
 
 |Clé | Description | Format|
 |:---|:---|:---|
