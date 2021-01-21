@@ -1,6 +1,6 @@
 # Callbacks
 
-Callbacks can automate the production of a delivery receipt or persist the notification to your database.
+Callbacks can automate the production of a delivery receipt or persist the status of a notification to your database.
 
 A callback lets you receive messages about the state of notifications from GC Notify to a URL you choose. Callbacks are when GC Notify sends `POST` requests to your system. You can get callbacks when a text message or email you’ve sent is delivered or fails.
 
