@@ -1,6 +1,6 @@
 # Fonctions de rappel
 
-Les fonctions de rappels peuvent automatiser la production d'un accusé de réception ou maintenier la notification à votre base de données.
+Les fonctions de rappels peuvent automatiser la production d'un accusé de réception ou maintenir l'état d'une notification dans votre base de données.
 
 Une fonction de rappel vous permet de recevoir des messages sur l'état des notifications de GC Notification à une adresse URL de votre choix. Les rappels sont lorsque GC Notification envoie des requêtes HTTP `POST` à votre service. Vous pouvez obtenir des rappels lorsqu'un courriel ou un message texte que vous avez envoyé est livré ou échoue.
 
