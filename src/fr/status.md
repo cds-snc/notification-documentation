@@ -113,7 +113,7 @@ Vous pouvez filtrer les messages retournés en incluant les arguments facultatif
 
 Vous pouvez omettre n’importe lequel de ces arguments pour ignorer ces filtres.
 
-#### template_type (facultatif)
+#### Type de gabarit (facultatif)
 
 Vous pouvez filtrer par :
 
