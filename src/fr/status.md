@@ -141,7 +141,7 @@ Identificateur que vous pouvez créer au besoin. Cette référence identifie une
 
 #### older_than (facultatif)
 
-Entrez l’ID d’une notification dans cet argument. Si vous utilisez cet argument, la méthode renvoie les prochaines 250 notifications reçues plus anciennes que l’ID donné.
+Si vous spécifiez le filtre `older_than`, la méthode renvoie les 250 notifications reçues plus anciennes que l’ID de notification donné.
 
 ```
 "older_than":"740e5834-3a29-46b4-9a6f-16142fde533a"
