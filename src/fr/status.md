@@ -149,7 +149,7 @@ Entrez l’ID d’une notification dans cet argument. Si vous utilisez cet argum
 
 Si vous ignorez cet argument, la méthode renvoie les 250 notifications les plus récentes.
 
-Le client ne retourne que les notifications qui ont 7 jours ou plus. Si la notification indiquée dans cet argument est de plus de 7 jours, le client renvoie une réponse vide.
+Le client ne retourne que les notifications envoyées lors des 7 derniers jours. Si la notification indiquée dans cet argument a été envoyée il y a plus de 7 jours, le client renvoie une réponse vide.
 
 ### Réponse
 
