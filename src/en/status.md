@@ -172,14 +172,7 @@ If the request is successful, the response body is `json` and the status code is
       "reference": "STRING", # optional string - client reference
       "email_address": "sender@something.com",  # required string for emails
       "phone_number": "+447900900123",  # required string for text messages
-      "line_1": "ADDRESS LINE 1", # required string for letter
-      "line_2": "ADDRESS LINE 2", # required string for letter
-      "line_3": "ADDRESS LINE 3", # optional string for letter
-      "line_4": "ADDRESS LINE 4", # optional string for letter
-      "line_5": "ADDRESS LINE 5", # optional string for letter
-      "line_6": "ADDRESS LINE 6", # optional string for letter
-      "postcode": "STRING", # required for string letter, must be a real UK postcode
-      "type": "sms / letter / email", # required string
+      "type": "email / sms", # required string
       "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
       "template": {
         "version": 1
