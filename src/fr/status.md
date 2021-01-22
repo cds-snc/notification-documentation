@@ -4,7 +4,7 @@ Vous pouvez utiliser l’API GC Notification pour récupérer l’état d’un o
 
 L’état du message dépend du type de message que vous avez envoyé.
 
-Vous ne pouvez obtenir que l’état des messages qui ont jusqu’à 7 jours.
+Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant les 7 derniers jours. La retention des données peut être configurée pour être entre 3 et 90 jours, soit au niveau du service, soit au niveau de la notification.
 
 ## État du courriel
 
