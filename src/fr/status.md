@@ -23,9 +23,9 @@ Vous ne pouvez obtenir que l’état des messages qui ont jusqu’à 7 jours.
 |Créé|GC Notification a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
 |Envoi en cours|GC Notification a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. GC Notification attend les renseignements de livraison.|
 |En attente|GC Notification attend plus de renseignements sur la livraison.<br>GC Notification a reçu un rappel du fournisseur, mais l’appareil du destinataire n’a pas encore répondu. Un autre rappel du fournisseur détermine l’état final de la notification.|
-|Envoyé / Envoyé à l’international|Le message a été envoyé à un numéro international. Dans certains pays, les réseaux mobiles ne fournissent plus de renseignements sur la livraison. L’API client GC Notification renvoie cet état comme étant "envoyé". L’application cliente GC Notification retourne cet état comme “Envoyé à un numéro international”.|
+|Envoyé / Envoyé à l’international|Le message a été envoyé à un numéro international. Dans certains pays, les réseaux mobiles ne fournissent plus de renseignements sur la livraison. L’API client GC Notification renvoie cet état comme étant `sent`. L’application cliente GC Notification retourne cet état comme `Sent to an international number`.|
 |Livraison réussie|Le message a été livré avec succès.|
-|Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire si le numéro de téléphone était inexact ou si l’opérateur réseau rejette le message. Si vous êtes certain que ces numéros de téléphone sont exacts, vous devriez [communiquer avec le soutien de GC Notification](https://notification.canada.ca/contact). Dans le cas contraire, vous devez les supprimer de votre base de données. Vous serez toujours facturé pour les messages texte qui ne peuvent pas être livrés."<br>- `temporary-failure` - "Le fournisseur n’a pas pu livrer le message. Cela peut se produire lorsque le téléphone du destinataire est éteint, qu’il n’a pas de signal ou que sa boîte de réception de message texte est pleine. Vous pouvez essayer de renvoyer le message. On vous facturera quand même les messages texte aux téléphones qui ne reçoivent pas de messages."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre GC Notification et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages. Vous ne serez pas facturé pour les messages texte touchés par une défaillance technique."|
+|Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire si le numéro de téléphone était inexact ou si l’opérateur réseau rejette le message. Si vous êtes certain que ces numéros de téléphone sont exacts, vous devriez [communiquer avec nous](https://notification.canada.ca/contact?lang=fr). Dans le cas contraire, vous devez les supprimer de votre base de données. Vous serez toujours facturé pour les messages texte qui ne peuvent pas être livrés."<br>- `temporary-failure` - "Le fournisseur n’a pas pu livrer le message. Cela peut se produire lorsque le téléphone du destinataire est éteint, qu’il n’a pas de signal ou que sa boîte de réception de message texte est pleine. Vous pouvez essayer de renvoyer le message. On vous facturera quand même les messages texte aux téléphones qui ne reçoivent pas de messages."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre GC Notification et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages. Vous ne serez pas facturé pour les messages texte touchés par une défaillance technique."|
 
 ## Obtenir l’état d’un message
 
@@ -39,20 +39,20 @@ GET /v2/notifications/{notification_id}
 
 #### notification_id (obligatoire)
 
-L’ID de la notification. Vous pouvez trouver l’ID de notification dans la réponse à l’[appel de méthode de notification initiale](#get-the-status-of-one-message).
+L’ID de la notification. Vous pouvez trouver l’ID de notification dans la réponse à l’appel de méthode de notification initiale.
 
-Vous pouvez également le trouver en [vous connectant à GC Notification](https://notification.canada.ca/sign-in) et en accédant à la page __API Integration__.
+Vous pouvez également le trouver en [vous connectant à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et en accédant à la page __Integration API__.
 
 Vous pouvez filtrer les messages retournés en incluant les paramètres facultatifs suivants dans l’adresse URL :
 
-- [`template_type`](#template_type-optional)
-- [`status`](#status-optional)
-- [`reference`](#get-the-status-of-multiple-messages)
-- [`older_than`](#older_than-optional)
+- `template_type`
+- `status`
+- `reference`
+- `older_than`
 
 ### Réponse
 
-Si la demande est acceptée, le corps de la réponse est "json" et le code d’état est "201" :
+Si la demande est acceptée, le corps de la réponse est `json` et le code d’état est `200` :
 
 ```json
 {
@@ -85,11 +85,11 @@ Si la demande est acceptée, le corps de la réponse est "json" et le code d’�
 
 ### Codes d’erreur
 
-Si la demande a été refusée, le corps de la réponse est “json”, consultez le tableau ci-dessous pour plus de détails.
+Si la demande a été refusée, le corps de la réponse est `json`, consultez le tableau ci-dessous pour plus de détails.
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]|Vérifiez l’ID de notification|
+|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]`|Vérifiez l’ID de notification|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
 |`404`|`[{`<br>`"error" : "NoResultFound",`<br>`"message": "Aucun résultat trouvé"`<br>`}]`|Vérifiez l’ID de notification|
@@ -113,10 +113,10 @@ Cela retournera tous vos messages avec des états. Chaque page contiendra jusqu�
 
 Vous pouvez filtrer les messages retournés en incluant les arguments facultatifs suivants dans l’adresse URL :
 
-- [`template_type`](#template_type-optional)
-- [`status`](#status-optional)
-- [`reference`](#get-the-status-of-multiple-messages)
-- [`older_than`](#older_than-optional)
+- `template_type`
+- `status`
+- `reference`
+- `older_than`
 
 ### Arguments
 
@@ -126,15 +126,15 @@ Vous pouvez omettre n’importe lequel de ces arguments pour ignorer ces filtres
 
 Vous pouvez filtrer par :
 
-* "adresse de courriel"
-* “sms”
+* `email`
+* `sms`
 
 ### état (facultatif)
 
 Vous pouvez filtrer par chaque :
 
-* [email status](#email-status)
-* [text message status](#text-message-status)
+* état du courriel
+* état du message texte
 
 Vous pouvez ignorer cet argument pour ignorer ce filtre.
 
@@ -160,7 +160,7 @@ Le client ne retourne que les notifications qui ont 7 jours ou plus. Si la notif
 
 ### Réponse
 
-Si la demande est acceptée, le corps de la réponse est "json" et le code d’état est "201".
+Si la demande est acceptée, le corps de la réponse est `json` et le code d’état est `200`.
 
 #### Tous les messages
 
@@ -204,11 +204,11 @@ Si la demande est acceptée, le corps de la réponse est "json" et le code d’�
 
 ### Codes d’erreur
 
-Si la demande a été refusée, le corps de la réponse est “json”, consultez le tableau ci-dessous pour plus de détails.
+Si la demande a été refusée, le corps de la réponse est `json`, consultez le tableau ci-dessous pour plus de détails.
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]|Vérifiez l’ID de notification|
+|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]`|Vérifiez l’ID de notification|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
 |`404`|`[{`<br>`"error" : "NoResultFound",`<br>`"message": "Aucun résultat trouvé"`<br>`}]`|Vérifiez l’ID de notification|
