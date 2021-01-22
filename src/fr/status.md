@@ -94,7 +94,7 @@ Vous pouvez utiliser l’API de GC Notification pour rechercher simultanément l
 
 Cet appel d’API renvoie une page d’un maximum de 250 messages et états. Vous pouvez obtenir les messages les plus récents ou obtenir des messages plus anciens en indiquant un ID de notification particulier dans l’argument `older_than`.
 
-Vous ne pouvez obtenir que l’état des messages qui ont jusqu’à 7 jours.
+Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant les 7 derniers jours. La retention des données peut être configurée pour être entre 3 et 90 jours, soit au niveau du service, soit au niveau de la notification.
 
 ```
 GET /v2/notifications
