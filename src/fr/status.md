@@ -15,7 +15,6 @@ Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant 
 |Livraison réussie|Le message a été livré avec succès.|
 |Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message, car l’adresse de courriel était inexacte. Vous devez supprimer ces adresses de courriel de votre base de données."<br>- `temporary-failure` - "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire lorsque la boîte de réception du destinataire est pleine. Vous pouvez essayer de renvoyer le message."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre GC Notification et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages."|
 
-
 ## État du message texte
 
 |État|Renseignements|
@@ -82,11 +81,10 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]`|Vérifiez l’ID de notification|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
-|`404`|`[{`<br>`"error" : "NoResultFound",`<br>`"message": "Aucun résultat trouvé"`<br>`}]`|Vérifiez l’ID de notification|
-
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Vérifiez l’ID de notification|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](keys.md)|
+|`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Vérifiez l’ID de notification|
 
 ## Obtenir l’état de plusieurs messages
 
@@ -165,7 +163,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
       "référence": "STRING", # chaîne facultative – référence client
       "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
       "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
-      "type" : "email/sms", # chaîne obligatoire
+      "type" : "email / sms", # chaîne obligatoire
       "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
       "template": {
         "version": 1
@@ -194,7 +192,7 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error" : "ValidationError",`<br>`"message" : "L’ID n’est pas un UUID valide"`<br>`}]`|Vérifiez l’ID de notification|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
-|`404`|`[{`<br>`"error" : "NoResultFound",`<br>`"message": "Aucun résultat trouvé"`<br>`}]`|Vérifiez l’ID de notification|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Vérifiez l’ID de notification|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](keys.md)|
+|`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Vérifiez l’ID de notification|
