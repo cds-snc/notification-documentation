@@ -175,7 +175,7 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
 |`429`|`[{`<br>`"erreur": "RateLimitError",`<br>`"message": "Dépassement du débit maximal pour le type de clé TEAM/TEST/LIVE de 3000 requêtes par 60 secondes"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md) pour plus de renseignements|
-|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md#daily-limits) pour le nombre maximal|
+|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md) pour le nombre maximal|
 |`500`|`[{`<br>`"erreur": "Exception",`<br>`"message": "Erreur interne du serveur"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
 
 ## Envoyer un message texte
