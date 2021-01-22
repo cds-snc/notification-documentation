@@ -60,7 +60,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
   "reference": "STRING", # chaîne facultative
   "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
   "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
-  "type" : "sms / letter / email", # chaîne obligatoire
+  "type" : "email / sms", # chaîne obligatoire
   "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
   "template": {
     "Version": 1
