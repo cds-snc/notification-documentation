@@ -172,14 +172,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
       "référence": "STRING", # chaîne facultative – référence client
       "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
       "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
-      "line_1" : "LIGNE D’ADRESSE 1", # chaîne obligatoire pour une lettre
-      "line_2" : "LIGNE D’ADRESSE 2", # chaîne obligatoire pour une lettre
-      "line_3" : "LIGNE D’ADRESSE 3", # chaîne facultative pour une lettre
-      "line_4" : "LIGNE D’ADRESSE 4", # chaîne facultative pour une lettre
-      "line_5" : "LIGNE D’ADRESSE 5", # chaîne facultative pour une lettre
-      "line_6" : "LIGNE D’ADRESSE 6", # chaîne facultative pour une lettre
-      "postcode" : "STRING", # obligatoire pour la lettre à chaîne, doit être un vrai code postal britannique
-      "type" : "sms / letter / email", # chaîne obligatoire
+      "type" : "email/sms", # chaîne obligatoire
       "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
       "template": {
         "version": 1
