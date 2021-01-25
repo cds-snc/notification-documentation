@@ -19,7 +19,7 @@ Si vous devez effectuer un test de détection de la fumée de votre intégration
 
 Les adresses courriel et les numéros de téléphone du test de détection de fumée valident la demande et simulent une réponse réussie, mais n’envoient pas de message réel, ne produisent pas d’accusé de réception ou ne stockent pas la notification dans la base de données.
 
-Vous pouvez utiliser ces numéros et adresses de test de détection de fumée avec n’importe quel [type de clé API](keys.md).
+Vous pouvez utiliser ces numéros et adresses de test de détection de fumée avec n’importe quel [type de clé API](cles.md).
 
 Vous pouvez effectuer un test de détection de fumée sur toutes les fonctions client de l’API de GC Notification sauf dans les cas suivants :
 
@@ -30,4 +30,4 @@ Vous ne pouvez pas utiliser les adresses de courriel ou les numéros de téléph
 
 ## Autres essais
 
-Utilisez une [clé API de test](keys.md) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que de détection de fumée. Vous n’avez pas besoin d’un compte de test GC Notification autre que votre compte habituel.
+Utilisez une [clé API de test](cles.md) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que de détection de fumée. Vous n’avez pas besoin d’un compte de test GC Notification autre que votre compte habituel.

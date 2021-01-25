@@ -9,7 +9,7 @@ https://api.notification.canada.ca
 
 **En-tête `Authorization`**
 
-L’en-tête `Authorization` est une [clé API](keys.md). Vous devez inclure un en-tête d’autorisation.
+L’en-tête `Authorization` est une [clé API](cles.md). Vous devez inclure un en-tête d’autorisation.
 
 L’en-tête comprend :
 
@@ -17,7 +17,7 @@ L’en-tête comprend :
 "Authorization": "ApiKey-v1 VOTRE-CLÉ-SECRÈTE"
 ```
 
-Cette clé secrète fait partie de votre [clé API](keys.md), qui suit le format `{nom_clé}-{iss-uuid}-{clé-secrète-uuid}`.
+Cette clé secrète fait partie de votre [clé API](cles.md), qui suit le format `{nom_clé}-{iss-uuid}-{clé-secrète-uuid}`.
 
 Par exemple, si votre clé API est
 `ma_clé_test-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e84 7b4f122b0`:

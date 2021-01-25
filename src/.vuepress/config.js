@@ -102,13 +102,13 @@ module.exports = {
         sidebar: {
           '/fr/': [
             '/fr/',
-            '/fr/start',
-            '/fr/send',
-            '/fr/status',
-            '/fr/testing',
-            '/fr/keys',
-            '/fr/limits',
-            '/fr/callbacks',
+            '/fr/commencer',
+            '/fr/envoyer',
+            '/fr/etat',
+            '/fr/essai',
+            '/fr/cles',
+            '/fr/limites',
+            '/fr/rappel',
             '/fr/architecture',
             '/fr/clients',
           ]
