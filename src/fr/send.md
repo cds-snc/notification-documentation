@@ -92,16 +92,15 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ## Envoyer un fichier par courriel
 
-Pour envoyer un fichier par courriel, ajoutez un espace réservé au gabarit, puis téléchargez un fichier. L’espace réservé contient un lien sécurisé pour télécharger le fichier.
+Pour activer cette fonctionnalité, [communiquez avec nous](http://notification.canada.ca/contact?lang=fr).
+
+Pour envoyer un fichier par courriel, ajoutez un espace réservé au gabarit, puis téléversez un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
 
 Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas accéder votre fichier ou le déchiffrer.
 
 ### Ajouter les coordonnées à la page de téléchargement du fichier
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Accédez à la page __Paramètres__.
-1. Dans la section __Courriel__, sélectionnez __Configurer__ à la ligne __Envoyer des fichiers par courriel__.
-1. Entrez les coordonnées que vous souhaitez utiliser et sélectionnez __Enregistrer__.
+Pour activer cette fonctionnalité, [communiquez avec nous](http://notification.canada.ca/contact?lang=fr).
 
 ### Ajouter un espace réservé au gabarit
 
@@ -195,21 +194,21 @@ POST /v2/notifications/sms
 
 ### Arguments
 
-**phone_number (obligatoire)**
+**Numéro de téléphone (obligatoire)**
 
-Numéro de téléphone du destinataire du message texte.
+`phone_number` est le numéro de téléphone du destinataire du message texte.
 
-**template_id (obligatoire)**
+**ID du gabarit (obligatoire)**
 
-Pour rechercher l’ID de gabarit :
+Pour rechercher `template_id` (l’ID du gabarit) :
 
 1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
 1. Sélectionnez __Copier template ID dans le presse-pappier__.
 
-**personnalisation (facultatif)**
+**Personnalisation (facultatif)**
 
-Si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
+Utilisez `personalisation` si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
 
 ```json
 "personalisation": {
@@ -220,9 +219,9 @@ Si un gabarit comporte des champs réservés pour des renseignements personnalis
 
 Vous pouvez ignorer cet argument si un gabarit ne comporte pas de champs réservés pour les renseignements personnalisés.
 
-**référence (facultatif)**
+**Référence (facultatif)**
 
-Identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
+`reference` est un identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
 
 ```json
 "reference": "STRING"
@@ -230,9 +229,9 @@ Identificateur que vous pouvez créer au besoin. Cette référence identifie une
 
 Vous pouvez ignorer cet argument si vous n’avez pas de référence.
 
-**sms_sender_id (facultatif)**
+**Expéditeur du message texte (facultatif)**
 
-Identificateur unique de l’expéditeur de la notification par message texte.
+`sms_sender_id` est un identificateur unique de l’expéditeur de la notification par message texte.
 
 Pour rechercher l’expéditeur du message texte :
 
