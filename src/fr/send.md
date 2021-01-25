@@ -167,16 +167,16 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Impossible d’envoyer à ce destinataire à l’aide d’une clé API d’équipe uniquement"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
-|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Impossible d’envoyer cette notification à ce destinataire lorsque le service est en mode d’essai`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message" : "Type de fichier non pris en charge '(TYPE DE FICHIER)'. Les types pris en charge sont les suivants : '(TYPES AUTORISÉS)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt
-|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Le fichier n’a pas réussi l’analyse antivirus"`<br>`}]`|Le fichier contient un virus|
-|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "L’envoi de fichiers par courriel n’a pas été configuré – ajoutez les coordonnées de votre service"`<br>`}]`|Voir comment ajouter les coordonnées à la page de téléchargement de fichier|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
-|`429`|`[{`<br>`"erreur": "RateLimitError",`<br>`"message": "Dépassement du débit maximal pour le type de clé TEAM/TEST/LIVE de 3000 requêtes par 60 secondes"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md) pour plus de renseignements|
-|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md) pour le nombre maximal|
-|`500`|`[{`<br>`"erreur": "Exception",`<br>`"message": "Erreur interne du serveur"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir comment ajouter les coordonnées à la page de téléchargement de fichier|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](keys.md)|
+|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 3000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md) pour plus de renseignements|
+|`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limits.md) pour le nombre maximal|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
 
 ## Envoyer un message texte
 
@@ -282,10 +282,10 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Impossible d’envoyer à ce destinataire à l’aide d’une clé API d’équipe uniquement"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
-|`400`|`[{`<br>`"erreur": "BadRequestError",`<br>`"message": "Impossible d’envoyer cette notification à ce destinataire lorsque le service est en mode d’essai"`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error : Votre horloge système doit être précise dans les 30 secondes"`<br>`}]`|Vérifiez votre horloge système|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne clé API. Consultez les [clés API](keys.md) pour plus de renseignements|
-|`429`|`[{`<br>`"erreur": "RateLimitError",`<br>`"message": "Dépassement du débit maximal pour le type de clé TEAM/TEST/LIVE de 3000 requêtes par 60 secondes"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md) pour plus de renseignements|
-|`429`|`[{`<br>`"erreur": "TooManyRequestError",`<br>`"message": "Dépassement des limites d’envoi (NOMBRE MAXIMAL) pour aujourd’hui"`<br>`}]`|Reportez-vous à [limites du service](limits.md) pour le nombre maximal|
-|`500`|`[{`<br>`"erreur": "Exception",`<br>`"message": "Erreur interne du serveur"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Utiliser le bon type de [clé API](keys.md)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode"`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne [clé API](keys.md).|
+|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 3000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limits.md) pour plus de renseignements|
+|`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limits.md) pour le nombre maximal|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
