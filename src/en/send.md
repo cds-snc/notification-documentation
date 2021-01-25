@@ -92,7 +92,7 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ## Sending a file by email
 
-To turn on this feature, [contact us](http://notification.canada.ca/contact).
+To turn on this feature, [contact us](https://notification.canada.ca/contact).
 
 To send a file by email, you'll need to add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file. 
 
@@ -100,7 +100,7 @@ The links are unique and unguessable. GC Notify cannot access or decrypt your fi
 
 ### Add contact details to the file download page
 
-To turn on this feature, [contact us](http://notification.canada.ca/contact).
+To turn on this feature, [contact us](https://notification.canada.ca/contact).
 
 ### Add a placeholder to the template
 
