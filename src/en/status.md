@@ -116,14 +116,14 @@ You can omit any of these arguments to ignore these filters.
 
 #### template_type (optional)
 
-You can filter by:
+If you specify `template_type`, you can filter by:
 
 * `email`
 * `sms`
 
 #### status (optional)
 
-You can filter by each:
+If you specify `status`, you can filter by each:
 
 * email status
 * text message status
@@ -132,7 +132,7 @@ You can leave out this argument to ignore this filter.
 
 #### reference (optional)
 
-An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
+If you specify a `reference`, you can filter results by that value, an identifier that you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
 ```json
 "reference": "STRING"
@@ -140,7 +140,7 @@ An identifier you can create if necessary. This reference identifies a single no
 
 #### older_than (optional)
 
-Input the ID of a notification into this argument. If you use this argument, the method returns the next 250 received notifications older than the given ID.
+Input the ID of a notification into this argument. If you use this `older_than` argument, the method returns the next 250 received notifications older than the given ID.
 
 ```
 "older_than":"740e5834-3a29-46b4-9a6f-16142fde533a"
