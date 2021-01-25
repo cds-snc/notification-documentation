@@ -92,16 +92,15 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ## Sending a file by email
 
+To turn on this feature, [contact us](http://notification.canada.ca/contact).
+
 To send a file by email, add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file.
 
 The links are unique and unguessable. GC Notify cannot access or decrypt your file.
 
 ### Add contact details to the file download page
 
-1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
-1. Go to the __Settings__ page.
-1. In the __Email__ section, select __Manage__ on the __Send files by email__ row.
-1. Enter the contact details you want to use, and select __Save__.
+To turn on this feature, [contact us](http://notification.canada.ca/contact).
 
 ### Add a placeholder to the template
 
@@ -197,11 +196,11 @@ POST /v2/notifications/sms
 
 **phone_number (required)**
 
-The phone number of the recipient of the text message.
+The `phone_number` of the recipient of the text message.
 
 **template_id (required)**
 
-To find the template ID:
+To find the `template_id`:
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant template.
@@ -209,7 +208,7 @@ To find the template ID:
 
 **personalisation (optional)**
 
-If a template has placeholder fields for personalised information such as name or reference number, you must provide their values in a dictionary with key value pairs. For example:
+Use `personalisation` if a template has placeholder fields for personalised information such as name or reference number, you must provide their values in a dictionary with key value pairs. For example:
 
 ```json
 "personalisation": {
@@ -222,7 +221,7 @@ You can leave out this argument if a template does not have any placeholder fiel
 
 **reference (optional)**
 
-An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
+`reference` is an identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
 ```json
 "reference": "STRING"
@@ -232,7 +231,7 @@ You can leave out this argument if you do not have a reference.
 
 **sms_sender_id (optional)**
 
-A unique identifier of the sender of the text message notification.
+`sms_sender_id` is a unique identifier of the sender of the text message notification.
 
 To find the text message sender:
 
