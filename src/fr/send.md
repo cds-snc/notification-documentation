@@ -188,7 +188,7 @@ POST /v2/notifications/sms
 
 ```json
 {
-  "phone_number": "+447900900123",
+  "phone_number": "+19021234567",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a"
 }
  ```
