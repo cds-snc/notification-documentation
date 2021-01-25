@@ -4,7 +4,7 @@ You can use the GC Notify API to retrieve the status of one or more messages.
 
 Message status depends on the type of message you have sent.
 
-You can only get the status of messages that are up to 7 days old.
+You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
 
 ## Email status
 
@@ -14,7 +14,6 @@ You can only get the status of messages that are up to 7 days old.
 |Sending|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
 |Delivered|The message was successfully delivered.|
 |Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider.<br>You’ll have to try sending your messages again."|
-
 
 ## Text message status
 
@@ -60,14 +59,7 @@ If the request is successful, the response body is `json` and the status code is
   "reference": "STRING", # optional string
   "email_address": "sender@something.com",  # required string for emails
   "phone_number": "+447900900123",  # required string for text messages
-  "line_1": "ADDRESS LINE 1", # required string for letter
-  "line_2": "ADDRESS LINE 2", # required string for letter
-  "line_3": "ADDRESS LINE 3", # required string for letter
-  "line_4": "ADDRESS LINE 4", # optional string for letter
-  "line_5": "ADDRESS LINE 5", # optional string for letter
-  "line_6": "ADDRESS LINE 6", # optional string for letter
-  "line_7": "ADDRESS LINE 7", # optional string for letter
-  "type": "sms / letter / email", # required string
+  "type": "email / sms", # required string
   "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
   "template": {
     "Version": 1
@@ -91,7 +83,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Check the notification ID|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](keys.md) for more information|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API key](keys.md)|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
 
 
@@ -101,7 +93,7 @@ You can use the GC Notify API to find the status of multiple messages at the sam
 
 This API call returns one page of up to 250 messages and statuses. You can get either the most recent messages, or get older messages by specifying a particular notification ID in the `older_than` argument.
 
-You can only get the status of messages that are 7 days old or newer.
+You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
 
 ```
 GET /v2/notifications
@@ -124,14 +116,14 @@ You can omit any of these arguments to ignore these filters.
 
 #### template_type (optional)
 
-You can filter by:
+If you specify `template_type`, you can filter by:
 
 * `email`
 * `sms`
 
 #### status (optional)
 
-You can filter by each:
+If you specify `status`, you can filter by each:
 
 * email status
 * text message status
@@ -140,7 +132,7 @@ You can leave out this argument to ignore this filter.
 
 #### reference (optional)
 
-An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
+If you specify a `reference`, you can filter results by that value, an identifier that you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or postal address. For example:
 
 ```json
 "reference": "STRING"
@@ -148,7 +140,7 @@ An identifier you can create if necessary. This reference identifies a single no
 
 #### older_than (optional)
 
-Input the ID of a notification into this argument. If you use this argument, the method returns the next 250 received notifications older than the given ID.
+Input the ID of a notification into this argument. If you use this `older_than` argument, the method returns the next 250 received notifications older than the given ID.
 
 ```
 "older_than":"740e5834-3a29-46b4-9a6f-16142fde533a"
@@ -203,5 +195,5 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Check the notification ID|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
-|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct API key. Refer to [API keys](keys.md) for more information|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API key](keys.md)|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
