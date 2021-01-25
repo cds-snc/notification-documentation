@@ -115,29 +115,29 @@ Vous pouvez omettre n’importe lequel de ces arguments pour ignorer ces filtres
 
 #### Type de gabarit (facultatif)
 
-Vous pouvez filtrer par :
+Si vous spécifiez le filtre `template_type`, vous pouvez filtrer par :
 
 * `email`
 * `sms`
 
-### état (facultatif)
+### État (facultatif)
 
-Vous pouvez filtrer par chaque :
+Si vous spécifiez le filtre `status`, vous pouvez filtrer par chaque :
 
 * état du courriel
 * état du message texte
 
 Vous pouvez ignorer cet argument pour ignorer ce filtre.
 
-#### référence (facultatif)
+#### Référence (facultatif)
 
-Identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
+Si vous spécifiez le filtre `reference`, vous pouvez filtrer les résultats par la valeur `reference`, un identificateur que vous pouvez créer au besoin lors de l'envoi des notifications. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
 
 ```json
 "reference": "STRING"
 ```
 
-#### older_than (facultatif)
+#### Plus ancien que (facultatif)
 
 Si vous spécifiez le filtre `older_than`, la méthode renvoie les 250 notifications reçues plus anciennes que l’ID de notification donné.
 
