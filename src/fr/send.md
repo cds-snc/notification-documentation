@@ -100,7 +100,7 @@ Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas ac
 
 ### Ajouter les coordonnées à la page de téléchargement du fichier
 
-Pour activer cette fonctionnalité, [communiquez avec nous](http://notification.canada.ca/contact?lang=fr).
+Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
 
 ### Ajouter un espace réservé au gabarit
 
