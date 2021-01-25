@@ -39,11 +39,11 @@ POST /v2/notifications/email
 
 **email_address (required)**
 
-The email address of the recipient.
+The `email_address` of the recipient.
 
-**to template_id (required)**
+**template_id (required)**
 
-To find the template ID:
+To find the `template_id`:
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant template.
@@ -51,7 +51,7 @@ To find the template ID:
 
 **personalisation (optional)**
 
-If a template has placeholder fields for personalised information such as name or reference number, you need to provide their values in a dictionary with key value pairs. For example:
+Use `personalisation` if a template has placeholder fields for personalised information such as name or reference number, you need to provide their values in a dictionary with key value pairs. For example:
 
 ```json
 "personalisation": {
@@ -63,7 +63,7 @@ You can leave out this argument if a template does not have any placeholder fiel
 
 **reference (optional)**
 
-An identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or mailing address. For example:
+`reference` is an identifier you can create if necessary. This reference identifies a single notification or a batch of notifications. It must not contain any personal information such as name or mailing address. For example:
 
 ```json
 "reference": "STRING"
@@ -72,7 +72,7 @@ You can leave out this argument if you do not have a reference.
 
 **email_reply_to_id (optional)** 
 
-This is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
+`email_reply_to_id` is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
 
 To add a reply-to email address:
 
@@ -94,7 +94,7 @@ You can leave out this argument if your service only has one reply-to email addr
 
 To turn on this feature, [contact us](http://notification.canada.ca/contact).
 
-To send a file by email, add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file.
+To send a file by email, you'll need to add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file. 
 
 The links are unique and unguessable. GC Notify cannot access or decrypt your file.
 
