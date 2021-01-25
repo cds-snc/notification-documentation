@@ -37,21 +37,21 @@ POST /v2/notifications/email
 
 ### Arguments
 
-**email_address (obligatoire)**
+**Adresse courriel (obligatoire)**
 
-Adresse de courriel du destinataire.
+`email_address` est l'adresse de courriel du destinataire.
 
-**template_id (obligatoire)**
+**ID du gabarit (obligatoire)**
 
-Pour rechercher l’ID de gabarit :
+Pour rechercher `template_id` (ID du gabarit) :
 
 1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
 1. Sélectionnez __Copier template ID dans le presse-pappier__.
 
-**personnalisation (facultatif)**
+**Personnalisation (facultatif)**
 
-Si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
+Utilisez `personalisation` si un gabarit comporte des champs réservés pour des renseignements personnalisés comme le nom ou le numéro de référence, vous devez fournir leurs valeurs dans un dictionnaire avec des paires de valeurs clés. Par exemple :
 
 ```json
 "personalisation": {
@@ -61,18 +61,18 @@ Si un gabarit comporte des champs réservés pour des renseignements personnalis
 ```
 Vous pouvez ignorer cet argument si un gabarit ne comporte pas de champs réservés pour les renseignements personnalisés.
 
-**référence (facultatif)**
+**Référence (facultatif)**
 
-Identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
+`reference` est un identificateur que vous pouvez créer au besoin. Cette référence identifie une seule notification ou un lot de notifications. Il ne doit contenir aucun renseignement personnel comme le nom ou l’adresse postale. Par exemple :
 
 ```json
 "reference": "STRING"
 ```
 Vous pouvez ignorer cet argument si vous n’avez pas de référence.
 
-**email_reply_to_id (facultatif)**
+**ID de l'adresse courriel de réponse (facultatif)**
 
-Il s’agit d’une adresse de courriel que vous avez indiquée pour recevoir les réponses de vos utilisateurs. Vous devez ajouter au moins une adresse de courriel de réponse avant que votre service puisse être activé.
+`email_reply_to_id` est une adresse de courriel que vous avez indiquée pour recevoir les réponses de vos utilisateurs. Vous devez ajouter au moins une adresse de courriel de réponse avant que votre service puisse être activé.
 
 Pour ajouter une adresse de courriel de réponse :
 
@@ -94,7 +94,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 Pour activer cette fonctionnalité, [communiquez avec nous](http://notification.canada.ca/contact?lang=fr).
 
-Pour envoyer un fichier par courriel, ajoutez un espace réservé au gabarit, puis téléversez un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
+Pour envoyer un fichier par courriel, vous aurez à ajoutez un espace réservé au gabarit, puis téléversez un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
 
 Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas accéder votre fichier ou le déchiffrer.
 
