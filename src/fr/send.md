@@ -56,7 +56,7 @@ Si un gabarit comporte des champs réservés pour des renseignements personnalis
 ```json
 "personalisation": {
   "first_name": "Amala",
-  "application_date": "2018-01-01",
+  "application_date": "2018-01-01"
 }
 ```
 Vous pouvez ignorer cet argument si un gabarit ne comporte pas de champs réservés pour les renseignements personnalisés.
