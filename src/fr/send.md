@@ -92,7 +92,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ## Envoyer un fichier par courriel
 
-Pour activer cette fonctionnalité, [communiquez avec nous](http://notification.canada.ca/contact?lang=fr).
+Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
 
 Pour envoyer un fichier par courriel, vous aurez à ajoutez un espace réservé au gabarit, puis téléversez un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
 
