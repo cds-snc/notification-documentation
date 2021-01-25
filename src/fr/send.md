@@ -274,7 +274,7 @@ Si la demande est acceptée, le corps de la réponse est `json` avec un code de 
 
 Si vous utilisez la [clé API de test](keys.md), tous vos messages reviendront avec le statut "livré".
 
-Tous les messages envoyés à l’aide des clés équipe et liste de confiance ou en fonction apparaîtront sur votre tableau de bord.
+Tous les messages envoyés à l’aide des clés équipe et liste de confiance ou en fonction apparaîtront dans votre tableau de bord.
 
 ### Codes d’erreur
 
