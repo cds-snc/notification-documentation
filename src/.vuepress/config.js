@@ -39,6 +39,7 @@ module.exports = {
     lastUpdated: true,
     nextLinks: true,
     prevLinks: true,
+    docsRepo: 'cds-snc/notification-documentation',
     docsDir: 'src',
     docsBranch: 'main',
     smoothScroll: true,

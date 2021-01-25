@@ -1,3 +1,7 @@
+---
+editLink: false
+---
+
 # Integrate the API
 
 This documentation is for developers who want to integrate the GC Notify application programming interface (API) with their department's web application or back office system.
