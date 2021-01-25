@@ -94,7 +94,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
 
-Pour envoyer un fichier par courriel, vous aurez à ajoutez un espace réservé au gabarit, puis téléversez un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
+Pour envoyer un fichier par courriel, vous aurez à ajouter un espace réservé au gabarit, puis téléverser un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
 
 Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas accéder votre fichier ou le déchiffrer.
 
