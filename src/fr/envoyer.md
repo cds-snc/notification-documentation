@@ -122,7 +122,9 @@ Passez la chaîne encodée dans un objet avec une clé `file`, et mettez-la dans
 "personalisation":{
   "first_name": "Amala",
   "application_date": "2018-01-01",
-  "link_to_file": {"file": "file as base64 encoded string"}
+  "link_to_file": {
+    "file": "file as base64 encoded string"
+  }
 }
 ```
 
@@ -134,7 +136,10 @@ Les téléchargements pour les fichiers CSV doivent définir l’indicateur `is_
 "personalisation":{
   "first_name": "Amala",
   "application_date": "2018-01-01",
-  "link_to_file": {"file": "CSV file as base64 encoded string", "is_csv": true}
+  "link_to_file": {
+    "file": "CSV file as base64 encoded string",
+    "is_csv": true
+  }
 }
 ```
 
