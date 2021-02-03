@@ -6,7 +6,7 @@ Il existe trois types de clés API différents :
 - équipe et liste de confiance
 - en fonction
 
-Lorsque vous configurez un nouveau service, il démarrera en mode d’essai. Un service en mode d’essai peut créer des clés de test, d’équipe et de liste de confiance. Vous devez disposer d’un service activé pour créer une clé en fonction.
+Lorsque vous configurez un nouveau service, il démarrera en mode d’essai. Un service en mode d’essai peut créer des __clés de test__ ou __des clés d’équipe et de liste de confiance__. Vous devez disposer d’un service activé pour créer une __clé en fonction__.
 
 Pour créer une clé API :
 
