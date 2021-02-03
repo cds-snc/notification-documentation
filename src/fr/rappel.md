@@ -34,7 +34,7 @@ Cette fonctionnalité fonctionne avec les clés API de test, mais ne fonctionne 
 
 Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs sont des chaînes de caractères. Voici la clé, la description et le format des arguments du message de la fonction de rappel :
 
-|Clé | Description | Format|
+|Clé | Description | Format de la chaîne|
 |:---|:---|:---|
 |`id` | ID de GC Notification pour les accusés d’état  | UUID|
 |`reference` | Référence envoyée par le service | 12345678|
