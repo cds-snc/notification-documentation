@@ -6,7 +6,7 @@ There are three different types of API keys:
 - team and safelist
 - live
 
-When you set up a new service it will start in trial mode. A service in trial mode can create test and team and safelist keys. You must have a live service to create a live key.
+When you set up a new service it will start in trial mode. A service in trial mode can create either __test__ or __team and safelist__ keys. You must have a live service to create a __live key__.
 
 To create an API key:
 
