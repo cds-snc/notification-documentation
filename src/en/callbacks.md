@@ -34,7 +34,7 @@ This functionality works with test API keys, but does not work with smoke testin
 
 The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
 
-|Key string | Description | Format|
+|Key | Description | String format|
 |:---|:---|:---|
 |`id` | GC Notify’s id for the status receipts | UUID|
 |`reference` | The reference sent by the service | 12345678|
