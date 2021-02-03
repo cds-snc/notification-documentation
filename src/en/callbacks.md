@@ -2,7 +2,7 @@
 
 Callbacks can automate the production of a delivery receipt or persist the status of a notification to your database.
 
-A callback lets you receive messages about the state of notifications from GC Notify to a URL you choose. Callbacks are when GC Notify sends `POST` requests to your system. You can get callbacks when a text message or email you’ve sent is delivered or fails.
+A callback lets you receive messages about the state of notifications from GC Notify to a URL you choose. Callbacks are when GC Notify sends `POST` requests to your system. You can get callbacks when an email or text message you’ve sent is delivered or fails.
 
 You'll need to provide a `Bearer` token, for security. We'll add this to the authorization header of the callback request.
 
@@ -34,7 +34,7 @@ This functionality works with test API keys, but does not work with smoke testin
 
 The callback message is formatted in JSON. All of the values are strings. The key, description and format of the callback message arguments will be:
 
-|Key | Description | Format|
+|Key string | Description | Format|
 |:---|:---|:---|
 |`id` | GC Notify’s id for the status receipts | UUID|
 |`reference` | The reference sent by the service | 12345678|
