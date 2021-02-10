@@ -2,7 +2,7 @@
 
 ## Envoyer un courriel
 
-![](./fr/images/Courriel.png)
+![](./images/Courriel.png)
 1. Le service envoie une notification par courriel à GC Notification.
 1. GC Notification envoie le courriel au fournisseur.
 1. Le fournisseur livre le courriel au destinataire.
@@ -13,7 +13,7 @@
 
 ## Envoyer un message texte
 
-![](./fr/images/Texto.png)
+![](./images/Texto.png)
 1. Le service envoie une notification par message texte à GC Notification.
 1. GC Notification envoie le message texte au fournisseur.
 1. Le fournisseur livre le message texte au destinataire.
@@ -24,7 +24,7 @@
 
 ## Obtenir l’état d’un message
 
-![](./fr/images/Etat.png)
+![](./images/Etat.png)
 1. Le service demande un état de notification à GC Notification.
 1. GC Notification interroge la base de données et extrait l’état de notification.
 1. GC Notification envoie la réponse API avec l’état de notification au service.
