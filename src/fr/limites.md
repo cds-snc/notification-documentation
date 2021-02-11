@@ -2,7 +2,7 @@
 
 ## Nombres limites
 
-Vous êtes limité à envoyer 3 000 messages par minute.
+Vous êtes limité à envoyer 1 000 messages par minute.
 
 Cette limite est calculée sur une base continue, par type de clé API. Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitError`.
 
