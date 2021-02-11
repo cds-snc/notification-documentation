@@ -178,7 +178,7 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir comment ajouter les coordonnées à la page de téléchargement de fichier|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
-|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 3000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
+|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
 
@@ -290,6 +290,6 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode"`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne [clé API](cles.md).|
-|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 3000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
+|`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
