@@ -92,7 +92,10 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ## Sending a file by email
 
-To turn on this feature, [contact us](https://notification.canada.ca/contact).
+::: warning Enabling this feature
+
+Sending files by email is not enabled by default. To turn on this feature, [contact us](https://notification.canada.ca/contact).
+:::
 
 To send a file by email, you'll need to add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file. 
 
@@ -113,7 +116,12 @@ To turn on this feature, [contact us](https://notification.canada.ca/contact).
 
 ### Upload your file
 
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB. [Contact us](https://notification.canada.ca/contact) if you need to send other file types.
+::: tip File types and size requirements
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB.
+
+[Contact us](https://notification.canada.ca/contact) if you need to send other file types.
+:::
+
 You’ll need to convert the file into a string that is base64 encoded.
 
 Pass the encoded string into an object with a `file` key, and put that in the personalisation argument. For example:
