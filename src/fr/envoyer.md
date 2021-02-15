@@ -92,7 +92,10 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ## Envoyer un fichier par courriel
 
-Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+::: warning Activer cette fonctionnalité
+
+Cette fonctionnalité n’est pas activée par défaut. Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+:::
 
 Pour envoyer un fichier par courriel, vous aurez à ajouter un espace réservé au gabarit, puis téléverser un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
 
@@ -113,7 +116,12 @@ Pour activer cette fonctionnalité, [communiquez avec nous](https://notification
 
 ### Téléverser votre fichier
 
-Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier doit être inférieure à 10 Mo. [Communiquez avec nous](https://notification.canada.ca/contact?lang=fr) si vous devez envoyer d’autres types de fichiers.
+::: tip Types de fichiers et prérequis de taille
+Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier doit être inférieure à 10 Mo.
+
+[Communiquez avec nous](https://notification.canada.ca/contact?lang=fr) si vous devez envoyer d’autres types de fichiers.
+:::
+
 Vous devrez convertir le fichier en chaîne codée base64.
 
 Passez la chaîne encodée dans un objet avec une clé `file`, et mettez-la dans l’argument de personnalisation. Par exemple :
