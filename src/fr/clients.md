@@ -1,6 +1,6 @@
 # Bibliothèques client
 
-GC Notification est basé sur le système de notification du gouvernement britannique. Par conséquent, l'API est également disponible en utilisant les clients développés par [GOV.UK](https://www.notifications.service.gov.uk/) (disponible en anglais seulement).
+[GC Notification](https://notification.canada.ca/?lang=fr) est basé sur le système de notification du gouvernement britannique. Par conséquent, l'API est également disponible en utilisant les clients développés par [GOV.UK](https://www.notifications.service.gov.uk/) (disponible en anglais seulement).
 
 ## Avant d'intégrer l'API
 

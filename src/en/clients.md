@@ -1,6 +1,6 @@
 # Client libraries
 
-GC Notify was based on the UK government's notification system. Therefore, the API is also available using the clients developed by [GOV.UK](https://www.notifications.service.gov.uk/).
+[GC Notify](https://notification.canada.ca/) was based on the UK government's notification system. Therefore, the API is also available using the clients developed by [GOV.UK](https://www.notifications.service.gov.uk/).
 
 
 ### Before integrating the API
