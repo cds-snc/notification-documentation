@@ -1,4 +1,4 @@
-# Intégrer l'API
+# Intégrer l’API
 
 Cette documentation s’adresse aux développeurs qui souhaitent intégrer l’interface de programmation d’application (API) de GC Notification à l’application Web ou au système administratif de leur ministère.
 
