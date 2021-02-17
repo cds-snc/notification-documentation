@@ -4,9 +4,9 @@ Il existe trois types de clés API différents :
 
 - test
 - équipe et liste de confiance
-- en fonction
+- active
 
-Lorsque vous configurez un nouveau service, il démarrera en mode d’essai. Un service en mode d’essai peut créer des __clés de test__ ou __des clés d’équipe et de liste de confiance__. Vous devez disposer d’un service activé pour créer une __clé en fonction__.
+Lorsque vous configurez un nouveau service, il démarrera en mode d’essai. Un service en mode d’essai peut créer des __clés de test__ ou __des clés d’équipe et de liste de confiance__. Vous devez disposer d’un service activé pour créer une __clé active__.
 
 Pour créer une clé API :
 
@@ -49,11 +49,11 @@ Les messages envoyés avec une clé d’équipe et de liste de confiance apparai
 
 Vous n’êtes pas obligé de révoquer les clés d’équipe et de liste de confiance.
 
-## En fonction
+## Active
 
-Vous ne pouvez créer des clés en fonction qu’une fois votre service est activé. Vous pouvez utiliser des clés en fonction pour envoyer des messages à n’importe qui.
+Vous ne pouvez créer des clés active qu’une fois votre service est activé. Vous pouvez utiliser des clés actives pour envoyer des messages à n’importe qui.
 
-Les messages envoyés avec une clé en fonction apparaissent sur votre tableau de bord et comptent sur vos allocations de courriels et de messages texte.
+Les messages envoyés avec une clé active apparaissent sur votre tableau de bord et comptent sur vos allocations de courriels et de messages texte.
 
 Vous devez révoquer et recréer régulièrement ces clés. Pour révoquer une clé :
 
