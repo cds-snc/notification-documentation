@@ -66,17 +66,29 @@ module.exports = {
         sidebarDepth: 1,
         sidebar: {
           '/en/': [
-            '/en/',
-            '/en/start',
-            '/en/send',
-            '/en/status',
-            '/en/testing',
-            '/en/keys',
-            '/en/limits',
-            '/en/callbacks',
-            '/en/architecture',
-            '/en/clients',
-          ]
+            {
+              title: 'Technical documentation',
+              children: [
+                '/en/',
+                '/en/start',
+                '/en/send',
+                '/en/status',
+                '/en/testing',
+                '/en/keys',
+                '/en/limits',
+                '/en/callbacks',
+                '/en/architecture',
+                '/en/clients',
+              ]
+            },
+            {
+              title: 'Content guidance',
+              children: [
+                '/en/content',
+                '/en/content-two',
+              ]
+            },
+          ],
         }
       },
       '/fr/': {
