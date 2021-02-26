@@ -40,3 +40,26 @@ sidebar: {
   ]
 }
 ```
+
+## Local Deployment Using Docker
+A `Dockerfile` is provided to anyone that wants to leverage docker for deploying a webserver `nginx` for serving the documentation content
+Below are the prerequisites and how to launch the webserver to serve the notification-documentation content
+
+**Prerequisites**
+- Install docker from https://www.docker.com/
+
+**Instructions**
+1. Launch a terminal and nativate to the notification-documentation project root directory
+2. Build the container with a tag, an example is listed below
+```commandline
+docker build -t cds/notification-documentation:0.1 .
+```
+3. Check that the image has been built successfully
+```commandline
+docker images
+```
+4. Launch the image on your local machine, the example below serves the pages at port 8000
+```commandline
+docker run -p 8000:80 cds/notification-documentation:0.1
+```
+5. Open up a web browser and navigate to http://localhost:8000 to view the content
