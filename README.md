@@ -40,3 +40,35 @@ sidebar: {
   ]
 }
 ```
+## Local deployment using VuePress
+For quick editing and hot reload a light-weight solution is to use VuePress. Listed below are instructions to run a local server for viewing the documentation content. 
+1. Download packages and their dependencies
+```commandline
+npm install
+```
+2. Run the VuePress
+```commandline
+npm run dev
+```
+
+## Local deployment using Docker
+A [`Dockerfile`](Dockerfile) is provided to anyone that wants to leverage Docker for deploying a webserver `nginx` for serving the documentation content.
+
+**Prerequisites**
+- Install Docker from https://www.docker.com
+
+**Instructions**
+1. Launch a terminal and navigate to the notification-documentation project root directory
+2. Build the container with a tag, an example is listed below
+```commandline
+docker build -t cds/notification-documentation:0.1 .
+```
+3. Check that the image has been built successfully
+```commandline
+docker images
+```
+4. Launch the image on your local machine, the example below serves the pages at port 8000
+```commandline
+docker run -p 8000:80 cds/notification-documentation:0.1
+```
+5. Open up a web browser and navigate to http://localhost:8000 to view the content

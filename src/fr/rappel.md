@@ -38,7 +38,7 @@ Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs son
 |:---|:---|:---|
 |`id` | ID de GC Notification pour les accusés d’état  | UUID|
 |`reference` | Référence envoyée par le service | 12345678|
-|`to` | L’adresse de courriel ou numéro de téléphone du destinataire | hello@gov.uk ou 07700912345|
+|`to` | L’adresse de courriel ou numéro de téléphone du destinataire | hello@canada.ca ou 01234567890|
 |`status` | État de la notification | `delivered`, `permanent-failure`, `temporary-failure` ou `technical-failure`|
 |`created_at` | Heure à laquelle le service a envoyé la demande | `2017-05-14T12:15:30.000000Z`|
 |`completed_at` | Dernière mise à jour de l’état | `2017-05-14T12:15:30.000000Z` ou nul|
