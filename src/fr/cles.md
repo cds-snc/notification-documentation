@@ -1,6 +1,6 @@
 # Clés API
 
-Il existe trois types de clés API différentes :
+Il existe trois types de clés API différents :
 
 - test
 - équipe et liste de confiance
