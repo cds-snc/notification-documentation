@@ -51,7 +51,7 @@ You do not have to revoke team and safelist keys.
 
 ## Live
 
-You can only create live keys once your service is live. You can use live keys to send messages to anyone.
+You can only create live keys once your service is live. You can use live keys to send messages to anyone. Request to go live in settings.
 
 Messages sent with a live key appear on your dashboard and count against your text message and email allowances.
 
