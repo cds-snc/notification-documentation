@@ -18,7 +18,7 @@ Il y a une limite au nombre de messages que vous pouvez envoyer chaque jour :
 
 Ces limites sont réinitialisées à minuit.
 
-Pour demander une augmentation de la limite, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+Vous pouvez activer votre service dans les paramètres. Pour demander une augmentation de la limite, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
 
 ## Limites du réseau téléphonique
 
