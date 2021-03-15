@@ -51,7 +51,7 @@ Vous n’êtes pas obligé de révoquer les clés d’équipe et de liste de con
 
 ## Active
 
-Vous ne pouvez créer des clés active qu’une fois votre service est activé. Vous pouvez utiliser des clés actives pour envoyer des messages à n’importe qui.
+Vous ne pouvez créer des clés active qu’une fois votre service est activé. Vous pouvez utiliser des clés actives pour envoyer des messages à n’importe qui. Activez votre service dans les paramètres.
 
 Les messages envoyés avec une clé active apparaissent sur votre tableau de bord et comptent sur vos allocations de courriels et de messages texte.
 

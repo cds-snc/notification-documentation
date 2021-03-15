@@ -18,7 +18,7 @@ There’s a limit to the number of messages you can send each day:
 
 These limits reset at midnight.
 
-To request a limit increase, [contact us](https://www.notification.canada.ca/contact).
+You can request to go live in settings. To request a limit increase, [contact us](https://www.notification.canada.ca/contact).
 
 ## Phone network limits
 
