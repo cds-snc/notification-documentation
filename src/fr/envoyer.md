@@ -127,11 +127,12 @@ Vous devrez convertir le fichier en chaîne codée base64.
 Passez la chaîne encodée dans un objet avec une clé `file`, et mettez-la dans l’argument de personnalisation. Par exemple :
 
 ```json
-"personalisation":{
+"personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
   "link_to_file": {
-    "file": "file as base64 encoded string"
+    "file": "fichier CSV encodé dans une chaîne de caractères en base64",
+    "filename": "nom_de_votre_fichier.pdf"
   }
 }
 ```
@@ -141,11 +142,12 @@ Passez la chaîne encodée dans un objet avec une clé `file`, et mettez-la dans
 Les téléchargements pour les fichiers CSV doivent définir l’indicateur `is_csv` comme `true` pour s’assurer qu’il est téléchargé en tant que fichier .csv. Par exemple :
 
 ```json
-"personalisation":{
+"personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
   "link_to_file": {
-    "file": "CSV file as base64 encoded string",
+    "file": "fichier CSV encodé dans une chaîne de caractères en base64",
+    "filename": "nom_de_votre_csv.csv",
     "is_csv": true
   }
 }

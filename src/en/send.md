@@ -127,11 +127,12 @@ You’ll need to convert the file into a string that is base64 encoded.
 Pass the encoded string into an object with a `file` key, and put that in the personalisation argument. For example:
 
 ```json
-"personalisation":{
+"personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
   "link_to_file": {
-    "file": "file as base64 encoded string"
+    "file": "file as base64 encoded string",
+    "filename": "your_custom_filename.pdf"
   }
 }
 ```
@@ -141,11 +142,12 @@ Pass the encoded string into an object with a `file` key, and put that in the pe
 Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is downloaded as a .csv file. For example:
 
 ```json
-"personalisation":{
+"personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
   "link_to_file": {
     "file": "CSV file as base64 encoded string",
+    "filename": "your_csv_filename.csv",
     "is_csv": true
   }
 }
