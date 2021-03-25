@@ -97,34 +97,69 @@ You can leave out this argument if your service only has one reply-to email addr
 Sending files by email is not enabled by default. To turn on this feature, [contact us](https://notification.canada.ca/contact).
 :::
 
-To send a file by email, you'll need to add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file. 
+### File types and size requirements
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB.
 
-The links are unique and unguessable. GC Notify cannot access or decrypt your file.
+[Contact us](https://notification.canada.ca/contact) if you need to send other file types.
+
+
+### Sending methods
+You can send files in two ways on Notify:
+
+1. directly attached to emails
+1. through a unique link to a web interface. Links are unique and unguessable.
+
+You are able to control how files are delivered to recipients on every
+API call. GC Notify cannot access or decrypt your files.
+
+::: tip Choosing the appropriate sending method
+
+People are generally more used to files directly attached to emails. With that in mind, it's not uncommon to see attachments being blocked by security rules or some email providers. Use the unique link method to prevent your attachments from being blocked.
+
+We encourage you to perform tests before choosing a sending method.
+
+:::
 
 ### Add contact details to the file download page
 
 To turn on this feature, [contact us](https://notification.canada.ca/contact).
 
-### Add a placeholder to the template
+### Add a placeholder to the template (optional)
+
+::: tip Only relevant if using unique links
+
+Adding a placeholder in your template is only needed if you’re sending files with a unique link. You do not need to add a placeholder if you’re sending files as direct attachments.
+
+:::
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
 1. Select __Edit__.
 1. Add a placeholder to the email template using double brackets. For example:
 
-"Download your file at: ((link_to_file))"
+```
+You can [now download your application](((link_to_file))).
+```
 
 ### Upload your file
 
-::: tip File types and size requirements
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB.
+In order to send files, you need to pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
-[Contact us](https://notification.canada.ca/contact) if you need to send other file types.
-:::
+You’ll need to specify:
 
-You’ll need to convert the file into a string that is base64 encoded.
+- `file`: convert the file into a string that is base64 encoded. Example: `Q2FuYWRh` (`Canada` encoded in base64)
+- `filename`: the filename of the file you are sending. Example: `application.pdf`
+- `sending_method`: specify how you want to send this file. `attach` for the direct attachment method, `link` to generate a unique download link
 
-Pass the encoded string into an object with a `file` key, and put that in the personalisation argument. For example:
+For example, if you have a template with two placeholders and want to use the unique link method.
+
+```
+Hello ((first_name)),
+
+We received your application on ((application_date)).
+
+You can [now download your application](((link_to_file))).
+```
 
 ```json
 "personalisation": {
@@ -132,23 +167,30 @@ Pass the encoded string into an object with a `file` key, and put that in the pe
   "application_date": "2018-01-01",
   "link_to_file": {
     "file": "file as base64 encoded string",
-    "filename": "your_custom_filename.pdf"
+    "filename": "your_custom_filename.pdf",
+    "sending_method": "link"
   }
 }
 ```
 
-**CSV files**
+If you are using the direct attachment method:
 
-Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is downloaded as a .csv file. For example:
+```
+Hello ((first_name)),
+
+We received your application on ((application_date)).
+
+You will your application attached.
+```
 
 ```json
 "personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
-  "link_to_file": {
-    "file": "CSV file as base64 encoded string",
-    "filename": "your_csv_filename.csv",
-    "is_csv": true
+  "application_file": {
+    "file": "file as base64 encoded string",
+    "filename": "your_custom_filename.pdf",
+    "sending_method": "attach"
   }
 }
 ```
