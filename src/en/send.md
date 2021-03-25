@@ -180,7 +180,7 @@ Hello ((first_name)),
 
 We received your application on ((application_date)).
 
-You will your application attached.
+You will find your application attached.
 ```
 
 ```json
