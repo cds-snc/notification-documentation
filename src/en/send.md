@@ -98,9 +98,7 @@ Sending files by email is an API-only feature. To turn on this feature, [contact
 :::
 
 ### File types and size requirements
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files.
-
-The maximum email size including content and attachments must be smaller than 10MB. The unique link method does not factor into calculated email size.
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your email including the file must be smaller than 10MB.
 
 [Contact us](https://notification.canada.ca/contact) if you need to send other file types.
 
@@ -122,10 +120,6 @@ Before choosing a sending method, perform tests to see what works best for your 
 
 :::
 
-### Add contact details to the file download page
-
-To turn on this feature, [contact us](https://notification.canada.ca/contact).
-
 ### Upload your file
 
 To send files, pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
@@ -134,7 +128,7 @@ You’ll need to specify:
 
 - `file`: convert the file into a string that is base64 encoded. Example: `Q2FuYWRh` (`Canada` encoded in base64)
 - `filename`: the filename of the file you are sending. Example: `service_name_applicant_name.pdf`
-- `sending_method`: specify how you want to send this file. `attach` for the direct attachment method, `link` to generate a unique link
+- `sending_method`: specify how you want to send this file. Either `attach` for the direct attachment method or `link` to generate a unique link
 
 #### If you’re sending files as direct attachments
 
