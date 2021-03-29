@@ -94,20 +94,22 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ::: warning Enabling this feature
 
-Sending files by email is not enabled by default. To turn on this feature, [contact us](https://notification.canada.ca/contact).
+Sending files by email is an API-only feature. To turn on this feature, [contact us](https://notification.canada.ca/contact).
 :::
 
 ### File types and size requirements
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB.
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files.
+
+The maximum email size including content and attachments must be smaller than 10MB. The unique link method does not factor into calculated email size.
 
 [Contact us](https://notification.canada.ca/contact) if you need to send other file types.
 
-
 ### Sending methods
+
 You can send files in two ways on GC Notify:
 
 1. directly attached to emails
-1. through a private link to a web interface
+1. through a unique link to a web interface
 
 You are able to control how files are delivered to recipients on every
 API call. GC Notify cannot access or decrypt your files.
@@ -124,13 +126,50 @@ Before choosing a sending method, perform tests to see what works best for your 
 
 To turn on this feature, [contact us](https://notification.canada.ca/contact).
 
-### Add a placeholder to the template (optional)
+### Upload your file
 
-::: tip Only relevant if using unique links
+To send files, pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
-Adding a placeholder in your template is only needed if you’re sending files with a unique link. You do not need to add a placeholder if you’re sending files as direct attachments.
+You’ll need to specify:
 
-:::
+- `file`: convert the file into a string that is base64 encoded. Example: `Q2FuYWRh` (`Canada` encoded in base64)
+- `filename`: the filename of the file you are sending. Example: `service_name_applicant_name.pdf`
+- `sending_method`: specify how you want to send this file. `attach` for the direct attachment method, `link` to generate a unique link
+
+#### If you’re sending files as direct attachments
+
+Specify `attach` as `sending_method`.
+
+For example:
+
+**Template**
+```
+Hello ((first_name)),
+
+We received your application on ((application_date)).
+
+You will find your application attached.
+```
+
+**HTTP parameters**
+```json
+"personalisation": {
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+  "application_file": {
+    "file": "file as base64 encoded string",
+    "filename": "your_custom_filename.pdf",
+    "sending_method": "attach"
+  }
+}
+```
+
+#### If you’re sending files with unique links
+
+1. Add a placeholder to the email template
+1. Send HTTP requests, specify `link` as `sending_method`
+
+**Add a placeholder to the template**
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
@@ -141,18 +180,9 @@ Adding a placeholder in your template is only needed if you’re sending files w
 You can [now download your application](((link_to_file))).
 ```
 
-### Upload your file
+For example:
 
-To send files, pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
-
-You’ll need to specify:
-
-- `file`: convert the file into a string that is base64 encoded. Example: `Q2FuYWRh` (`Canada` encoded in base64)
-- `filename`: the filename of the file you are sending. Example: `application.pdf`
-- `sending_method`: specify how you want to send this file. `attach` for the direct attachment method, `link` to generate a unique download link
-
-For example, if you have a template with two placeholders and want to use the unique link method.
-
+**Template**
 ```
 Hello ((first_name)),
 
@@ -161,6 +191,7 @@ We received your application on ((application_date)).
 You can [now download your application](((link_to_file))).
 ```
 
+**HTTP parameters**
 ```json
 "personalisation": {
   "first_name": "Amala",
@@ -169,28 +200,6 @@ You can [now download your application](((link_to_file))).
     "file": "file as base64 encoded string",
     "filename": "your_custom_filename.pdf",
     "sending_method": "link"
-  }
-}
-```
-
-If you are using the direct attachment method:
-
-```
-Hello ((first_name)),
-
-We received your application on ((application_date)).
-
-You will find your application attached.
-```
-
-```json
-"personalisation": {
-  "first_name": "Amala",
-  "application_date": "2018-01-01",
-  "application_file": {
-    "file": "file as base64 encoded string",
-    "filename": "your_custom_filename.pdf",
-    "sending_method": "attach"
   }
 }
 ```
