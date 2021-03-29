@@ -104,19 +104,19 @@ You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Mic
 
 
 ### Sending methods
-You can send files in two ways on Notify:
+You can send files in two ways on GC Notify:
 
 1. directly attached to emails
-1. through a unique link to a web interface. Links are unique and unguessable.
+1. through a private link to a web interface
 
 You are able to control how files are delivered to recipients on every
 API call. GC Notify cannot access or decrypt your files.
 
-::: tip Choosing the appropriate sending method
+::: tip Choosing a sending method
 
-People are generally more used to files directly attached to emails. With that in mind, it's not uncommon to see attachments being blocked by security rules or some email providers. Use the unique link method to prevent your attachments from being blocked.
+People generally expect files to be directly attached to emails. With that in mind, it's not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked.
 
-We encourage you to perform tests before choosing a sending method.
+Before choosing a sending method, perform tests to see what works best for your use case.
 
 :::
 
@@ -143,7 +143,7 @@ You can [now download your application](((link_to_file))).
 
 ### Upload your file
 
-In order to send files, you need to pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
+To send files, pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
 You’ll need to specify:
 
