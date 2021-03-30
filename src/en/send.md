@@ -114,7 +114,7 @@ API call. GC Notify cannot access or decrypt your files.
 
 ::: tip Choosing a sending method
 
-People generally expect files to be directly attached to emails. With that in mind, it's not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked.
+People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked.
 
 Before choosing a sending method, perform tests to see what works best for your use case.
 
@@ -228,9 +228,15 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Use the correct type of [API key](keys.md)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Your service cannot send this notification in trial mode. You can request to go live in settings.|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type. You can only upload .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt files|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type. You can only upload .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf or .odt files|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|The file contains a virus|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|See how to add contact details to the file download page|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|See [how to send files by email](#sending-a-file-by-email)|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API keys](keys.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Refer to [API rate limits](limits.md#rate-limits) for more information|
