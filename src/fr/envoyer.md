@@ -112,7 +112,7 @@ Il est possible de téléverser des fichiers de deux manières sur GC Notificati
 
 ::: tip Choisir une méthode d’envoi
 
-Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées.
+Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées. Les fichiers envoyés par le biais d’un lien unique seront supprimés un an après l’envoi du message.
 
 Avant de choisir une méthode d’envoi, effectuez des tests pour vérifier la méthode la plus propice pour vous.
 
@@ -230,7 +230,7 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel) |
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Indiquer soit `attach` pour une pièce jointe ou `link` pour un lien unique comme méthode d'envoi|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Précisez le nom du fichier que vous envoyez|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|La méthode d'envoi précisée doit être soit `attach` pour une pièce jointe ou `link` pour un lien unique|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|Le fichier doit être converti en une chaîne de caractères encodée en base64|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|Le nom du fichier doit comporter au moins 3 caractères|

@@ -114,7 +114,7 @@ API call. GC Notify cannot access or decrypt your files.
 
 ::: tip Choosing a sending method
 
-People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked.
+People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked. Linked files will expire 1 year after the message has been sent.
 
 Before choosing a sending method, perform tests to see what works best for your use case.
 
