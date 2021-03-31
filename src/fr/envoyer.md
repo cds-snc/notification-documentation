@@ -100,7 +100,7 @@ Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activ
 ### Types de fichiers et prérequis de taille
 Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier et de votre courriel doit être inférieure à 10 Mo.
 
-[Communiquez avec nous](https://notification.canada.ca/contact?lang=fr) si vous devez envoyer d’autres types de fichiers.
+Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr) .
 
 ### Méthodes d’envoi
 
@@ -229,12 +229,12 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel) |
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Indiquer soit `attach` pour une pièce jointe ou `link` pour un lien unique comme méthode d'envoi|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|La méthode d'envoi précisée doit être soit `attach` pour une pièce jointe ou `link` pour un lien unique|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|Le fichier doit être converti en une chaîne de caractères encodée en base64|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|Le nom du fichier doit comporter au moins 3 caractères|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|Le nom du fichier doit comporter moins de 250 caractères|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
