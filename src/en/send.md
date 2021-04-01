@@ -122,7 +122,7 @@ Before choosing a sending method, perform tests to see what works best for your 
 
 ### Upload your file
 
-To send files, pass a dictionary of arguments in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
+To send files, pass a dictionary in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
 You’ll need to specify:
 
@@ -168,10 +168,8 @@ You will find your application attached.
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
 1. Select __Edit__.
-1. Add a placeholder to the email template using double brackets. For example:
+1. Add a placeholder to the email template using double brackets. For example: `((link to file))`
 
-```
-You can [now download your application](((link_to_file))).
 ```
 
 For example:
