@@ -168,8 +168,10 @@ You will find your application attached.
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
 1. Select __Edit__.
-1. Add a placeholder to the email template using double brackets. For example: `((link to file))`
+1. Add a placeholder to the email template using double brackets. For example: `((link_to_file))`
 
+```
+You can [now download your application](((link_to_file))).
 ```
 
 For example:

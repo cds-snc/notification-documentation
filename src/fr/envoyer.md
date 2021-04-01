@@ -168,6 +168,9 @@ Vous trouverez votre demande en pièce jointe.
 1. Sélectionnez __Modifier__.
 1. Ajoutez un espace réservé au gabarit de courriel à l’aide de parenthèses doubles. Par exemple : `((lien_vers_fichier))`
 
+```
+Vous pouvez télécharger [votre document](((lien_vers_fichier))).
+```
 
 Par exemple :
 
