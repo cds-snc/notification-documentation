@@ -8,6 +8,13 @@ Vous devrez modifier votre point de terminaison :
 
 <Content :page-key="$site.pages.find(p => p.relativePath === 'en/_api_endpoints.md').key"/>
 
+::: warning Différences de fonctionnalités à considérer
+
+- [L'envoi de fichiers par courriel est différent avec GC Notification](envoyer.md#envoyer-un-fichier-par-courriel)
+- L'envoi de lettres n'est pas disponible
+- La réception de messages texte n'est pas disponible
+:::
+
 ## Clients de GOV.UK
 
 * [Java](https://docs.notifications.service.gov.uk/java.html) (disponible en anglais seulement)

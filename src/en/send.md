@@ -94,61 +94,106 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ::: warning Enabling this feature
 
-Sending files by email is not enabled by default. To turn on this feature, [contact us](https://notification.canada.ca/contact).
+Sending files by email is an API-only feature. To turn on this feature, [contact us](https://notification.canada.ca/contact).
 :::
 
-To send a file by email, you'll need to add a placeholder to the template then upload a file. The placeholder will contain a secure link to download the file. 
+### File types and size requirements
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your email including the file must be smaller than 10MB.
 
-The links are unique and unguessable. GC Notify cannot access or decrypt your file.
+If you need to send other file types, [contact us](https://notification.canada.ca/contact).
 
-### Add contact details to the file download page
+### Sending methods
 
-To turn on this feature, [contact us](https://notification.canada.ca/contact).
+You can send files in two ways on GC Notify:
 
-### Add a placeholder to the template
+1. directly attached to emails
+1. through a unique link to a web interface
+
+You are able to control how files are delivered to recipients on every
+API call. GC Notify cannot access or decrypt your files.
+
+::: tip Choosing a sending method
+
+People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked. Linked files will expire 1 year after the message has been sent.
+
+Before choosing a sending method, perform tests to see what works best for your use case.
+
+:::
+
+### Upload your file
+
+To send files, pass a dictionary in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
+
+You’ll need to specify:
+
+- `file`: convert the file into a string that is base64 encoded. Example: `Q2FuYWRh` (`Canada` encoded in base64)
+- `filename`: the filename of the file you are sending. Example: `service_name_applicant_name.pdf`
+- `sending_method`: specify how you want to send this file. Either `attach` for the direct attachment method or `link` to generate a unique link
+
+#### If you’re sending files as direct attachments
+
+Specify `attach` as `sending_method`.
+
+For example:
+
+**Template**
+```
+Hello ((first_name)),
+
+We received your application on ((application_date)).
+
+You will find your application attached.
+```
+
+**HTTP parameters**
+```json
+"personalisation": {
+  "first_name": "Amala",
+  "application_date": "2018-01-01",
+  "application_file": {
+    "file": "file as base64 encoded string",
+    "filename": "your_custom_filename.pdf",
+    "sending_method": "attach"
+  }
+}
+```
+
+#### If you’re sending files with unique links
+
+1. Add a placeholder to the email template
+1. Send HTTP requests, specify `link` as `sending_method`
+
+**Add a placeholder to the template**
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __Templates__ page and select the relevant email template.
 1. Select __Edit__.
-1. Add a placeholder to the email template using double brackets. For example:
+1. Add a placeholder to the email template using double brackets. For example: `((link_to_file))`
 
-"Download your file at: ((link_to_file))"
+```
+You can [now download your application](((link_to_file))).
+```
 
-### Upload your file
+For example:
 
-::: tip File types and size requirements
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your file must be smaller than 10MB.
+**Template**
+```
+Hello ((first_name)),
 
-[Contact us](https://notification.canada.ca/contact) if you need to send other file types.
-:::
+We received your application on ((application_date)).
 
-You’ll need to convert the file into a string that is base64 encoded.
+You can [now download your application](((link_to_file))).
+```
 
-Pass the encoded string into an object with a `file` key, and put that in the personalisation argument. For example:
-
+**HTTP parameters**
 ```json
 "personalisation": {
   "first_name": "Amala",
   "application_date": "2018-01-01",
   "link_to_file": {
     "file": "file as base64 encoded string",
-    "filename": "your_custom_filename.pdf"
-  }
-}
-```
-
-**CSV files**
-
-Uploads for CSV files should set the `is_csv` flag as `true` to ensure it is downloaded as a .csv file. For example:
-
-```json
-"personalisation": {
-  "first_name": "Amala",
-  "application_date": "2018-01-01",
-  "link_to_file": {
-    "file": "CSV file as base64 encoded string",
-    "filename": "your_csv_filename.csv",
-    "is_csv": true
+    "filename": "your_custom_filename.pdf",
+    "sending_method": "link"
   }
 }
 ```
@@ -183,9 +228,15 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Use the correct type of [API key](keys.md)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Your service cannot send this notification in trial mode. You can request to go live in settings.|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type. You can only upload .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt files|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type. You can only upload .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf or .odt files|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|The file contains a virus|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|See how to add contact details to the file download page|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Specify either `attach` or `link` as a sending method|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Specify a filename for the file you are sending|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|The sending method specified must be either `attach` or `link`|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|The file must be converted to a string that is base64 encoded|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|File name must be at least 3 characters|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|File name must be less than 250 characters|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API keys](keys.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Refer to [API rate limits](limits.md#rate-limits) for more information|

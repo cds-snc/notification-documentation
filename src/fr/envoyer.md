@@ -94,61 +94,104 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ::: warning Activer cette fonctionnalité
 
-Cette fonctionnalité n’est pas activée par défaut. Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
 :::
 
-Pour envoyer un fichier par courriel, vous aurez à ajouter un espace réservé au gabarit, puis téléverser un fichier. L’espace réservé contient un lien sécurisé pour téléverser le fichier.
+### Types de fichiers et prérequis de taille
+Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier et de votre courriel doit être inférieure à 10 Mo.
 
-Les liens sont uniques et impossibles à deviner. GC Notification ne peut pas accéder votre fichier ou le déchiffrer.
+Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr) .
 
-### Ajouter les coordonnées à la page de téléchargement du fichier
+### Méthodes d’envoi
 
-Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+Il est possible de téléverser des fichiers de deux manières sur GC Notification :
 
-### Ajouter un espace réservé au gabarit
+1. en tant que pièce jointe
+1. en tant que lien unique vers une interface web
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Accédez à la page __Gabarits__ et sélectionnez le gabarit de courriel approprié.
-1. Sélectionnez __Modifier__.
-1. Ajoutez un espace réservé au gabarit de courriel à l’aide de parenthèses doubles. Par exemple :
 
-"Téléchargez votre fichier à : ((link_to_file))"
+::: tip Choisir une méthode d’envoi
+
+Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées. Les fichiers envoyés par le biais d’un lien unique seront supprimés un an après l’envoi du message.
+
+Avant de choisir une méthode d’envoi, effectuez des tests pour vérifier la méthode la plus propice pour vous.
+
+:::
 
 ### Téléverser votre fichier
 
-::: tip Types de fichiers et prérequis de taille
-Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier doit être inférieure à 10 Mo.
+Pour téléverser des fichiers, passez un dictionnaire de paramètres dans la clé `personalisation`. Renseignez ce paramètre dans la clé associée à votre champ réservé dans votre gabarit, ou utilisez un nom de votre choix.
 
-[Communiquez avec nous](https://notification.canada.ca/contact?lang=fr) si vous devez envoyer d’autres types de fichiers.
-:::
+Vous devrez renseigner :
 
-Vous devrez convertir le fichier en chaîne codée base64.
+- `file` : convertissez votre fichier en chaîne de caractères encodée en base64. Exemple : `Q2FuYWRh` (`Canada` encodé en base64)
+- `filename` : le nom de votre fichier que vous envoyez. Exemple : `nom_service_nom_personne.pdf`
+- `sending_method` : la méthode d’envoi pour ce fichier. Indiquez soit `attach` pour la méthode d’envoi par pièce jointe ou `link` pour la méthode d’envoi par lien unique
 
-Passez la chaîne encodée dans un objet avec une clé `file`, et mettez-la dans l’argument de personnalisation. Par exemple :
+#### Si vous envoyez des fichiers en tant que pièce jointe
 
+Spécifiez `attach` en tant que `sending_method`.
+
+Par exemple :
+
+**Gabarit**
+```
+Bonjour ((nom)),
+
+Nous avons reçu vos document le ((date)).
+
+Vous trouverez votre demande en pièce jointe.
+```
+
+**Paramètres HTTP**
 ```json
 "personalisation": {
-  "first_name": "Amala",
-  "application_date": "2018-01-01",
-  "link_to_file": {
-    "file": "fichier CSV encodé dans une chaîne de caractères en base64",
-    "filename": "nom_de_votre_fichier.pdf"
+  "nom": "Amala",
+  "date": "2018-01-01",
+  "fichier": {
+    "file": "fichier encodé en base64",
+    "filename": "votre_nom_de_fichier.pdf",
+    "sending_method": "attach"
   }
 }
 ```
 
-**Fichiers CSV**
+#### Si vous envoyez des fichiers en tant que liens uniques
 
-Les téléchargements pour les fichiers CSV doivent définir l’indicateur `is_csv` comme `true` pour s’assurer qu’il est téléchargé en tant que fichier .csv. Par exemple :
+1. Ajouter un espace réservé dans votre gabarit
+1. Envoyez des requêtes HTTP, spécifiez `link` en tant que `sending_method`
 
+**Ajouter un espace réservé au gabarit**
+
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. Accédez à la page __Gabarits__ et sélectionnez le gabarit de courriel approprié.
+1. Sélectionnez __Modifier__.
+1. Ajoutez un espace réservé au gabarit de courriel à l’aide de parenthèses doubles. Par exemple : `((lien_vers_fichier))`
+
+```
+Vous pouvez télécharger [votre document](((lien_vers_fichier))).
+```
+
+Par exemple :
+
+**Gabarit**
+```
+Bonjour ((nom)),
+
+Nous avons reçu vos document le ((date)).
+
+Vous pouvez télécharger [votre document](((lien_vers_fichier))).
+```
+
+**Paramètres HTTP**
 ```json
 "personalisation": {
-  "first_name": "Amala",
-  "application_date": "2018-01-01",
-  "link_to_file": {
-    "file": "fichier CSV encodé dans une chaîne de caractères en base64",
-    "filename": "nom_de_votre_csv.csv",
-    "is_csv": true
+  "nom": "Amala",
+  "date": "2018-01-01",
+  "lien_vers_fichier": {
+    "file": "fichier encodé en base64",
+    "filename": "votre_nom_de_fichier.pdf",
+    "sending_method": "link"
   }
 }
 ```
@@ -185,7 +228,13 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai. Activez votre service dans les paramètres.|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir comment ajouter les coordonnées à la page de téléchargement de fichier|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel) |
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Indiquer soit `attach` pour une pièce jointe ou `link` pour un lien unique comme méthode d'envoi|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Précisez le nom du fichier que vous envoyez|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|La méthode d'envoi précisée doit être soit `attach` pour une pièce jointe ou `link` pour un lien unique|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "(key) : Incorrect padding : Error decoding base64 field"`<br>`}]`|Le fichier doit être converti en une chaîne de caractères encodée en base64|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too short"`<br>`}]`|Le nom du fichier doit comporter au moins 3 caractères|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|Le nom du fichier doit comporter moins de 250 caractères|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
