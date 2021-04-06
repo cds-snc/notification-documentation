@@ -107,7 +107,7 @@ If you need to send other file types, [contact us](https://notification.canada.c
 You can send files in two ways on GC Notify:
 
 1. directly attached to emails
-1. through a unique link to a web interface
+1. with a unique link to download from the email
 
 You are able to control how files are delivered to recipients on every
 API call. GC Notify cannot access or decrypt your files.
@@ -158,7 +158,7 @@ You will find your application attached.
 }
 ```
 
-#### If you’re sending files with unique links
+#### If you’re sending files as unique links
 
 1. Add a placeholder to the email template
 1. Send HTTP requests, specify `link` as `sending_method`
