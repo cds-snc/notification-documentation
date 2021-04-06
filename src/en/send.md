@@ -106,7 +106,7 @@ If you need to send other file types, [contact us](https://notification.canada.c
 
 You can send files in two ways on GC Notify:
 
-1. directly attached to emails
+1. directly attached to the email
 1. with a unique link to download from the email
 
 You are able to control how files are delivered to recipients on every
