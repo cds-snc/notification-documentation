@@ -106,8 +106,8 @@ Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](http
 
 Il est possible de téléverser des fichiers de deux manières sur GC Notification :
 
-1. en tant que pièce jointe
-1. en tant que lien unique vers une interface web
+1. en tant que pièce jointe au courriel
+1. en tant que lien unique pour télécharger du courriel
 
 
 ::: tip Choisir une méthode d’envoi
@@ -128,7 +128,7 @@ Vous devrez renseigner :
 - `filename` : le nom de votre fichier que vous envoyez. Exemple : `nom_service_nom_personne.pdf`
 - `sending_method` : la méthode d’envoi pour ce fichier. Indiquez soit `attach` pour la méthode d’envoi par pièce jointe ou `link` pour la méthode d’envoi par lien unique
 
-#### Si vous envoyez des fichiers en tant que pièce jointe
+#### Si vous envoyez des fichiers en tant que pièces jointes
 
 Spécifiez `attach` en tant que `sending_method`.
 
