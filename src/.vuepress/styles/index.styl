@@ -18,3 +18,17 @@ tr
 .custom-block.warning
   .custom-block-title
     color darken(#ffe564, 70%)
+
+/**
+ * For accessibility reason and respecting user's custom font size 
+ * configuration, the font-size properties are unset from vuepress
+ * defaults set at a hardcoded value of 16px. 
+ *
+ * Hence, visually impaired users with custom font sizes will see 
+ * the website proper to their browser's custom configuration.
+ */
+body
+    font-size: unset
+
+.sidebar
+    font-size: unset
