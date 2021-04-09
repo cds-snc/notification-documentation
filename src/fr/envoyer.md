@@ -94,7 +94,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ::: warning Activer cette fonctionnalité
 
-Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 :::
 
 ### Types de fichiers et prérequis de taille
@@ -228,7 +228,6 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai. Activez votre service dans les paramètres.|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Send files by email has not been set up - add contact details for your service"`<br>`}]`|Voir [comment envoyer un fichier par courriel](#envoyer-un-fichier-par-courriel) |
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Indiquer soit `attach` pour une pièce jointe ou `link` pour un lien unique comme méthode d'envoi|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Précisez le nom du fichier que vous envoyez|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "personalisation (key) is not one of [attach, link]"`<br>`}]`|La méthode d'envoi précisée doit être soit `attach` pour une pièce jointe ou `link` pour un lien unique|
