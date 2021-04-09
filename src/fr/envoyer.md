@@ -94,7 +94,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ::: warning Activer cette fonctionnalité
 
-Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
+Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 :::
 
 ### Types de fichiers et prérequis de taille
