@@ -61,6 +61,7 @@ If the request is successful, the response body is `json` and the status code is
   "phone_number": "+447900900123",  # required string for text messages
   "type": "email / sms", # required string
   "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
+  "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
   "template": {
     "Version": 1
     "id": "f33517ff-2a88-4f6e-b855-c550268ce08a" # required string - template ID
@@ -166,6 +167,7 @@ If the request is successful, the response body is `json` and the status code is
       "phone_number": "+447900900123",  # required string for text messages
       "type": "email / sms", # required string
       "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
+      "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
       "template": {
         "version": 1
         "id": 'f33517ff-2a88-4f6e-b855-c550268ce08a' # required string - template ID
