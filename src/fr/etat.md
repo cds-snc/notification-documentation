@@ -61,6 +61,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
   "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
   "type" : "email / sms", # chaîne obligatoire
   "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
+  "provider_response": "STRING", # chaîne facultative - ne sera pas nulle si seulement le statut est une erreur technique
   "template": {
     "Version": 1
     "id": "f33517ff-2a88-4f6e-b855-c550268ce08a" # chaîne obligatoire – ID de modèle
@@ -165,6 +166,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
       "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
       "type" : "email / sms", # chaîne obligatoire
       "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
+      "provider_response": "STRING", # chaîne facultative - ne sera pas nulle si seulement le statut est une erreur technique
       "template": {
         "version": 1
         "id": 'f33517ff-2a88-4f6e-b855-c550268ce08a' # chaîne obligatoire – ID de modèle
