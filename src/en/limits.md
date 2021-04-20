@@ -2,9 +2,9 @@
 
 ## Rate limits
 
-You’re limited to doing 1,000 API requests per minute.
+You’re GC Notify service is limited to doing 1,000 API requests per minute.
 
-This limit is calculated on a rolling basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
+This limit is calculated on a rolling average basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
 
 ::: tip Adjusting the API rate limit
 
@@ -36,9 +36,9 @@ The daily limit can be changed if you need. To request a limit increase, [contac
 
 If you repeatedly send text messages to the same number the phone networks will block them.
 
-There’s an hourly limit of:
+To prevent spamming there is an hourly limit of:
 
-- 20 messages with the same content
-- 100 messages with any content
+- 20 messages with the same content to the same recipient
+- 100 messages with any content to the same recipient
 
-Your messages may not be delivered if you exceed these limits.
+Your messages may not be delivered if you exceed these limits and your service may be blocked by phone carriers. 
