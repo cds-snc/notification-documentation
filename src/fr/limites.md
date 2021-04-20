@@ -18,7 +18,7 @@ Il y a une limite au nombre de messages que vous pouvez envoyer chaque jour :
 
 |État du service|Type de clé d’API|Limite quotidienne|
 |:---|:---|:---|
-|Activé|Équipe ou activé|10 000|
+|Activé|Équipe ou activé|En fonction de vos besoins|
 |En mode d’essai|Équipe|50|
 |Activé ou en mode d'essai|Test|Illimité|
 
