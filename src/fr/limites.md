@@ -2,7 +2,7 @@
 
 ## Limites d’appels à l’API
 
-Vous êtes limité à envoyer 1 000 requêtes HTTP par minute.
+Votre service GC Notification peut envoyer 1 000 requêtes HTTP par minute.
 
 Cette limite est calculée sur une base continue, par type de clé API. Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitError`.
 
@@ -36,9 +36,9 @@ Votre limite d’envoi quotdienne peut être modifiée en fonction de vos besoin
 
 Si vous envoyez plusieurs fois des messages texte au même numéro, les réseaux téléphoniques les bloqueront.
 
-Il y a une limite horaire de :
+Pour prévenir le risque de spam, il y a une limite horaire de :
 
-- 20 messages avec le même contenu
-- 100 messages avec tout contenu
+- 20 messages avec le même contenu au même destinataire
+- 100 messages avec tout contenu au même destinataire
 
-Vos messages peuvent ne pas être livrés si vous dépassez ces limites.
+Vos messages peuvent ne pas être livrés si vous dépassez ces limites et votre service pourrait être bloqué par les opérateurs de télécommunications.
