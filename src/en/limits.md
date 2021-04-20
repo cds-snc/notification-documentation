@@ -2,7 +2,7 @@
 
 ## Rate limits
 
-You’re GC Notify service is limited to doing 1,000 API requests per minute.
+Your GC Notify service is limited to doing 1,000 API requests per minute.
 
 This limit is calculated on a rolling average basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
 
