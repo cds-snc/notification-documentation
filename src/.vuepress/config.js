@@ -133,7 +133,11 @@ module.exports = {
             },
             {
               title: "Conseils pour de meilleurs notifications",
-              children: ["/en/redaction", "/en/format", "/en/personalisation"],
+              children: [
+                "/fr/redaction",
+                "/fr/format",
+                "/fr/personalisation"
+              ],
             },
           ],
         },
