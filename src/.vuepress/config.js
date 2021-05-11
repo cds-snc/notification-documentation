@@ -68,7 +68,7 @@ module.exports = {
         sidebar: {
           '/en/': [
             {
-              title: 'API documentation'
+              title: 'Integrating the API'
               children: [
                '/en/',
                '/en/start',
@@ -83,7 +83,7 @@ module.exports = {
              ]
             },
             {
-              title: 'Guidance'
+              title: 'Guidance for better notifications'
               children: [
               '/en/write',
               '/en/format',
@@ -116,7 +116,7 @@ module.exports = {
         sidebar: {
           '/fr/': [
           {
-           title: 'Documentation API'
+           title: 'Intégration API'
            children: [
             '/fr/',
             '/fr/commencer',
@@ -131,7 +131,7 @@ module.exports = {
              ]
             },
             {
-            title: 'Guides'
+            title: 'Conseils pour de meilleurs notifications'
             children: [
              '/en/redaction',
              '/en/format',
