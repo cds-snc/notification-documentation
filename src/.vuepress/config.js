@@ -116,7 +116,7 @@ module.exports = {
         sidebar: {
           '/fr/': [
           {
-           title: 'API documentation'
+           title: 'Documentation API'
            children: [
             '/fr/',
             '/fr/commencer',
