@@ -67,19 +67,32 @@ module.exports = {
         sidebarDepth: 1,
         sidebar: {
           '/en/': [
-            '/en/',
-            '/en/start',
-            '/en/send',
-            '/en/status',
-            '/en/testing',
-            '/en/keys',
-            '/en/limits',
-            '/en/callbacks',
-            '/en/architecture',
-            '/en/clients',
+            {
+              title: 'API documentation'
+              children: [
+               '/en/',
+               '/en/start',
+               '/en/send',
+               '/en/status',
+               '/en/testing',
+               '/en/keys',
+               '/en/limits',
+               '/en/callbacks',
+               '/en/architecture',
+               '/en/clients',
+             ]
+            },
+            {
+              title: 'Guidance'
+              children: [
+              '/en/write',
+              '/en/format',
+              '/en/personalise',
           ]
         }
       },
+    },
+  },
       '/fr/': {
         logo: 'https://assets.notification.canada.ca/static/gov-canada-fr.svg',
         selectText: 'Langues',
@@ -102,6 +115,9 @@ module.exports = {
         sidebarDepth: 1,
         sidebar: {
           '/fr/': [
+          {
+           title: 'API documentation'
+           children: [
             '/fr/',
             '/fr/commencer',
             '/fr/envoyer',
@@ -112,6 +128,14 @@ module.exports = {
             '/fr/rappel',
             '/fr/architecture',
             '/fr/clients',
+             ]
+            },
+            {
+            title: 'Guides'
+            children: [
+             '/en/redaction',
+             '/en/format',
+             '/en/personalisation',
           ]
         }
       },
