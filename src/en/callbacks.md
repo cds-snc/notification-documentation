@@ -45,3 +45,12 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 |`completed_at` | The last time the status was updated | `2017-05-14T12:15:30.000000Z` or nil|
 |`sent_at` | The time the notification was sent | `2017-05-14T12:15:30.000000Z` or nil|
 |`notification_type` | The notification type | `email` or `sms`|
+
+
+::: warning Multiple receipts for a notification
+
+You might receive multiple callbacks for one notification. For example, the receiving mail server might accept the email (triggering a delivery notification), but after processing the email, the receiving mail server might determine that the email actually results in a bounce (triggering a bounce notification).
+
+Callbacks are sent in the order they are received.
+
+:::
