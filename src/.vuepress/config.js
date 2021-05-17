@@ -132,9 +132,8 @@ module.exports = {
             {
               title: "Préparation de messages",
               children: [
-                "/fr/personnalisation"
+                "/fr/personnalisation",
                 "/fr/format",
-                
               ],
             },
           ],
