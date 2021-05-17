@@ -19,7 +19,8 @@ Pour ajouter du texte conditionnel facultatif, utilisez deux points d'interrogat
 Par exemple :
 ```
 Bonjour, 
-Vous pouvez vous inscrire au programme dès maintenant. ((moinsde18ans??Veuillez faire signer votre demande par un parent ou un tuteur.))
+Vous pouvez vous inscrire au programme dès maintenant. 
+((moinsde18ans??Veuillez faire signer votre demande par un parent ou un tuteur.))
 ```
 
 Lorsque vous enverrez votre message, vous devrez indiquer si le destinataire remplit la condition par 'oui' afin d'afficher le texte conditionnel. Vous pouvez le faire manuellement ou bien téléverser une liste de destinataires avec une colonne qui indique la condition.
