@@ -90,7 +90,7 @@ module.exports = {
             },
             {
               title: "Preparing messages",
-              children: ["/en/format", "/en/personalise"],
+              children: ["/en/personalise", "/en/format"],
             },
           ],
         },
@@ -132,8 +132,9 @@ module.exports = {
             {
               title: "Préparation de messages",
               children: [
-                "/fr/format",
                 "/fr/personalisation"
+                "/fr/format",
+                
               ],
             },
           ],
