@@ -59,7 +59,7 @@ module.exports = {
         selectText: "Languages",
         label: "English",
         ariaLabel: "Languages",
-        siteSubtitle: "API documentation",
+        siteSubtitle: "Documentation",
         backToNotifyLink: "https://notification.canada.ca",
         backToNotifyText: "Back to GC Notify",
         editLinkText: "Edit this page on GitHub",
@@ -90,7 +90,7 @@ module.exports = {
               ],
             },
             {
-              title: "Guidance for better notifications",
+              title: "Preparing messages",
               children: ["/en/write", "/en/format", "/en/personalise"],
             },
           ],
@@ -101,7 +101,7 @@ module.exports = {
         selectText: "Langues",
         label: "Français",
         ariaLabel: "Langues",
-        siteSubtitle: "Documentation API",
+        siteSubtitle: "Documentation",
         backToNotifyLink: "https://notification.canada.ca?lang=fr",
         backToNotifyText: "Retour à GC Notification",
         editLinkText: "Modifier cette page sur GitHub",
@@ -132,7 +132,7 @@ module.exports = {
               ],
             },
             {
-              title: "Conseils pour de meilleurs notifications",
+              title: "Préparation de messages",
               children: [
                 "/fr/redaction",
                 "/fr/format",
