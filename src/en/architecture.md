@@ -1,4 +1,4 @@
-# API architecture
+# Architecture diagrams
 
 ## Sending an email
 
