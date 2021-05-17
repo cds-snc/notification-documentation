@@ -1,6 +1,6 @@
 # Formatting emails
 
-Us this guide to write email message teemplates. Make sure to send yourself a test message before sending to recipients to ensure the formatting looks good.
+Use this guide to write email message teemplates. Make sure to send yourself a test message before sending to recipients to ensure the formatting looks good.
 
 ## Titles
 
