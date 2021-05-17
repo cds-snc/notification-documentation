@@ -78,7 +78,6 @@ module.exports = {
               title: "Integrating the API",
               children: [
                 "/en/",
-                "/en/start",
                 "/en/send",
                 "/en/status",
                 "/en/testing",
@@ -120,7 +119,6 @@ module.exports = {
               title: "Intégration API",
               children: [
                 "/fr/",
-                "/fr/commencer",
                 "/fr/envoyer",
                 "/fr/etat",
                 "/fr/essai",
