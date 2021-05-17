@@ -1,4 +1,4 @@
-# Personalisation de messages
+# Personnalisation de messages
 
 ## Variables
 
