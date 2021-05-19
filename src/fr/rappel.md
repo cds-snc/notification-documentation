@@ -48,8 +48,8 @@ Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs son
 
 ::: warning Plusieurs fonctions de rappel pour une notification
 
-Vous pouvez recevoir plusieurs plusieurs fonctions de rappel pour une notification. Par exemple, il est possible que le serveur destinataire de courriel accepte le courriel (envoyant une fonction de rappel de livraison réussie), mais après avoir traité le courriel, le serveur courriel peut déterminer qu’en réalité ce courriel résulte en un échec (envoyant une fonction de rappel d’échec).
+Vous pouvez recevoir plusieurs fonctions de rappel pour une seule notification envoyée. Par exemple, il est possible que le serveur de messagerie destinataire accepte le courriel (envoyant une fonction de rappel de livraison réussie), mais après avoir traité le courriel, le serveur de messagerie peut déterminer qu’en réalité ce courriel retourne un échec (envoyant une fonction de rappel d’échec).
 
-Les fonction de rappel sont envoyées dans l’ordre où elles sont reçues.
+Les fonctions de rappel sont envoyées dans l’ordre où elles sont reçues.
 
 :::

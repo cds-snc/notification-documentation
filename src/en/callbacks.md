@@ -49,7 +49,7 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 
 ::: warning Multiple callbacks for a notification
 
-You might receive multiple callbacks for one notification. For example, the receiving mail server might accept the email (triggering a delivery notification), but after processing the email, the receiving mail server might determine that the email actually results in a bounce (triggering a bounce notification).
+You might receive multiple callbacks for one sent notification. For example, the receiving mail server might accept the email (triggering a delivery notification), but after processing the email, the receiving mail server might determine that the email actually results in a bounce (triggering a bounce notification).
 
 Callbacks are sent in the order they are received.
 
