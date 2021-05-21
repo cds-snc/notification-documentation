@@ -45,3 +45,11 @@ Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs son
 |`completed_at` | Dernière mise à jour de l’état | `2017-05-14T12:15:30.000000Z` ou nul|
 |`sent_at` | Heure d’envoi de la notification | `2017-05-14T12:15:30.000000Z` ou nul|
 |`notification_type` | Type de notification | `email` ou `sms`|
+
+::: warning Plusieurs fonctions de rappel pour une notification
+
+Vous pouvez recevoir plusieurs fonctions de rappel pour une seule notification envoyée. Par exemple, il est possible que le serveur de messagerie destinataire accepte le courriel (envoyant une fonction de rappel de livraison réussie), mais après avoir traité le courriel, le serveur de messagerie peut déterminer qu’en réalité ce courriel retourne un échec (envoyant une fonction de rappel d’échec).
+
+Les fonctions de rappel sont envoyées dans l’ordre où elles sont reçues.
+
+:::
