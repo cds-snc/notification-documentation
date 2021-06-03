@@ -28,4 +28,4 @@
 1. The service requests a notification status from GC Notify.
 1. GC Notify queries the database and retrieves the notification status.
 1. GC Notify sends the API response with the notification status to the service.
-1. The service receives the API response.
+1. The service receives the API response...
