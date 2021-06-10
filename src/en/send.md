@@ -41,13 +41,7 @@ POST /v2/notifications/email
 
 The `email_address` of the recipient.
 
-**template_id (required)**
-
-To find the `template_id`:
-
-1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
-1. Go to the __Templates__ page and select the relevant template.
-1. Select __Copy template ID to clipboard__.
+<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
 
 **personalisation (optional)**
 
@@ -72,7 +66,7 @@ You can leave out this argument if you do not have a reference.
 
 **email_reply_to_id (optional)** 
 
-`email_reply_to_id` is an email address specified by you to receive replies from your users. You must add at least one reply-to email address before your service can go live.
+`email_reply_to_id` is an email address specified by you to receive replies from your users.
 
 To add a reply-to email address:
 
@@ -255,7 +249,7 @@ POST /v2/notifications/sms
   "phone_number": "+19021234567",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a"
 }
- ```
+```
 
 ### Arguments
 
@@ -263,13 +257,7 @@ POST /v2/notifications/sms
 
 The `phone_number` of the recipient of the text message.
 
-**template_id (required)**
-
-To find the `template_id`:
-
-1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
-1. Go to the __Templates__ page and select the relevant template.
-1. Select __Copy template ID to clipboard__.
+<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
 
 **personalisation (optional)**
 
@@ -352,4 +340,146 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API key](keys.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Refer to [API rate limits](limits.md) for more information|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](limits.md) for the limit number|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request, resend your notification.|
+
+
+## Sending notifications in bulk
+
+```
+POST /v2/notifications/bulk
+```
+
+Send a batch of notifications, up to 50,000 recipients at a time, for a single template. You can schedule to send notifications up to 4 days in the future.
+
+### Request body
+
+```json
+{
+  "name": "My bulk name",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+  "rows": [
+    ["email address", "name"],
+    ["alice@example.com", "Alice"],
+    ["bob@example.com", "Bob"]
+  ],
+  "scheduled_for": "2021-06-08T15:15:00", # optional string
+  "sender_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # optional string
+}
+```
+
+### Arguments
+
+**name (required)**
+
+The `name` of your bulk sending. Used to identify this batch of notifications later on.
+
+<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
+
+**rows (required)**
+
+An array of arrays. The first line is the header and should include at least `email address` if you're sending an email template or `phone number` if you're sending a text message template. The other column headers should match placeholder fields of your template.
+
+The following lines should be your recipients' details and should match the order of column headers. You can have between 1 and 50,000 recipients.
+
+#### Optional arguments
+
+**scheduled_for (optional)**
+
+If you want to send your batch of notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Example: `2021-06-08T15:15:00` (UTC time).
+
+**sender_id (optional)**
+
+If you want to use a specific reply-to email address when sending a batch of emails, you can specify a reply-to email address ID.
+
+To find your reply-to email address ID:
+
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
+1. Go to the __Settings__ page.
+1. In the __Email__ section, select __Reply-to email addresses__
+1. Copy the ID of the reply-to email address you want to use
+
+By default, GC Notify will use your default reply-to email address if you don't specify one, or none if you didn't set up one.
+
+**csv (optional)**
+
+If you prefer to pass the content of CSV files instead of rows in the `rows` argument, you can do so. Pass the full content of your CSV file in a key named `csv`. Do not include the `rows` argument.
+
+For example
+
+```json
+{
+  "name": "My bulk name",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+  "csv": "email address,name\nalice@example.com,Alice"
+}
+```
+
+
+### Response
+
+::: warning Response timeout
+If you specify a response timeout when calling this endpoint, make sure it is set to 15 seconds. The GC Notify API could take a few seconds to validate your request and save the payload if you submit a large batch.
+:::
+
+If the request is successful, the response body is `json` with a status code of `201`:
+
+```json
+{
+   "data":{
+      "api_key":{
+         "id":"de1fafa2-fb2a-49c5-9b9a-8400727ecd29",
+         "key_type":"team",
+         "name":"Test"
+      },
+      "archived":false,
+      "created_at":"2021-06-10T17:14:15.341308+00:00",
+      "created_by":{
+         "id":"6af522d0-2915-4e52-83a3-3690455a5fe6",
+         "name":"Notify service user"
+      },
+      "id":"0ea216ae-4b03-46b7-ab44-893ae85104f5",
+      "job_status":"pending",
+      "notification_count":3,
+      "original_file_name":"My bulk name",
+      "processing_finished":null,
+      "processing_started":null,
+      "scheduled_for":null,
+      "sender_id":null,
+      "service":"afa2be3b-1250-430f-a70f-28a1a9d49dfa",
+      "service_name":{
+         "name":"Test service"
+      },
+      "template":"659a214f-dfec-4882-9242-fea0bd502a09",
+      "template_version":4,
+      "updated_at":null
+   }
+}
+```
+
+You can follow the progression of your batch of notifications from the GC Notify web interface.
+
+If you scheduled your batch in the future, you can cancel it from the web interface.
+
+### Error codes
+
+If the request is not successful, the response body is `json`, refer to the table below for details.
+
+|status_code|message|How to fix|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You should specify either rows or csv"`<br>`}]`|Pass data through `rows` or `csv`|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "name is a required property"`<br>`}]`|Specify the `name` property|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Check that you pass a datetime in the future|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Check that you pass datetime at most 4 days in the future|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template not found"`<br>`}]`|Update template ID|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template has been deleted"`<br>`}]`|Create a new template and update its ID|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Service is not allowed to send emails"`<br>`}]`|Turn on email sending in settings|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Missing column headers: name"`<br>`}]`|Add the missing column header|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Duplicate column headers: name, NAME"`<br>`}]`|Remove the duplicate column headers|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Too many rows. Maximum number of rows allowed is 50000"`<br>`}]`|Pass less than 50,000 rows|
+|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Request to go live or use [a live API key](keys.md)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Add more team members, update your safelist or request to go live|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Remove rows in excess, try again tomorrow or request a limit increase|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Make sure rows don't have missing values|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request, resend your notification.|
