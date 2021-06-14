@@ -27,7 +27,7 @@ Votre appel à l'API doit également inclure tous les champs qui ont été confi
 POST /v2/notifications/email
 ```
 
-### Corps de la demande
+### Corps de la requête
 ```json
 {
   "email_address": "expéditeur@quelquechose.com",
@@ -35,19 +35,14 @@ POST /v2/notifications/email
 }
 ```
 
-### Arguments
+### Paramètres
 
 **Adresse courriel (obligatoire)**
 
 `email_address` est l'adresse de courriel du destinataire.
 
-**ID du gabarit (obligatoire)**
+<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
 
-Pour rechercher `template_id` (ID du gabarit) :
-
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
-1. Sélectionnez __Copier template ID dans le presse-pappier__.
 
 **Personnalisation (facultatif)**
 
@@ -220,7 +215,7 @@ Si la demande au client est acceptée, le client renvoie un `dict` :
 
 ### Codes d’erreur
 
-Si la demande a été refusée, le corps de la réponse est “json”, consultez le tableau ci-dessous pour plus de détails.
+Si la demande a été refusée, le corps de la réponse est `json`, consultez le tableau ci-dessous pour plus de détails.
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
@@ -246,28 +241,22 @@ Si la demande a été refusée, le corps de la réponse est “json”, consulte
 POST /v2/notifications/sms
 ```
 
-### Corps de la demande
+### Corps de la requête
 
 ```json
 {
   "phone_number": "+19021234567",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a"
 }
- ```
+```
 
-### Arguments
+### Paramètres
 
 **Numéro de téléphone (obligatoire)**
 
 `phone_number` est le numéro de téléphone du destinataire du message texte.
 
-**ID du gabarit (obligatoire)**
-
-Pour rechercher `template_id` (l’ID du gabarit) :
-
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
-1. Accédez à la page __Gabarits__ et sélectionnez le gabarit approprié.
-1. Sélectionnez __Copier template ID dans le presse-pappier__.
+<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
 
 **Personnalisation (facultatif)**
 
@@ -350,4 +339,148 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne [clé API](cles.md).|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+
+
+## Envoyer des notifications en masse
+
+```
+POST /v2/notifications/bulk
+```
+
+Envoyer des notifications en masse, jusqu'à 50 000 destinataires en une fois, pour un unique gabarit. Vous pouvez programmer l'envoi de notifications jusqu'à 4 jours en avance.
+
+### Corps de la requête
+
+```json
+{
+  "name": "Nom de l'envoi en masse",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+  "rows": [
+    ["email address", "nom"],
+    ["alice@example.com", "Alice"],
+    ["bob@example.com", "Bob"]
+  ],
+  "scheduled_for": "2021-06-08T15:15:00", # chaîne facultative
+  "sender_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # chaîne facultative
+}
+```
+
+### Paramètres
+
+**nom (obligatoire)**
+
+`name` est le nom de votre envoi en masse. Il est utilisé pour identifier votre envoi.
+
+<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
+
+**lignes (obligatoire)**
+
+`rows` est une liste de listes. La première ligne est l'en-tête et doit comprendre au moins `email address` si vous envoyez un gabarit de courriel ou `phone number` si vous envoyez un gabarit de message texte. Les autres colonnes doivent correspondre aux champs réservés pour des renseignements personnalisés de votre gabarit.
+
+Les lignes suivantes doivent inclure les informations de vos destinataires et doivent correspondre à l'ordre des colonnes de l'en-tête. Vous pouvez avoir entre 1 et 50 000 destinataires.
+
+#### Paramètres optionnels
+
+**envoi programmé (optionnel)**
+
+`scheduled_for` peut être renseigné si vous souhaitez envoyer des notifications dans le futur, vous pouvez spécifier une date et une heure jusqu'à 4 jours dans le futur au [format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601). Exemple: `2021-06-08T15:15:00` (heure UTC).
+
+**identifiant de l'expéditeur (optionnel)**
+
+`sender_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer son identifiant.
+
+Pour trouver l'identifiant de votre addresse courriel pour recevoir les réponses :
+
+1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. Allez dans la page __Paramètres__.
+1. Dans la section __Courriel__, sélectionnez __Adresses courriel de réponse__
+1. Copiez l'identifiant de l'adresse que vous souhaitez utiliser
+
+Par défaut, GC Notification utilisera votre adresse de courriel de réponse par défaut si vous n'en spécifiez pas, ou aucune si vous n'avez pas configuré cette fonctionnalité.
+
+**csv (optionnel)**
+
+`csv` peut être renseigné si vous préférez passer le contenu d'un fichier CSV plutôt que des lignes dans le paramètre `rows`. Passez le contenu complet de votre fichier CSV dans une clé nommée `csv`. Ne passez pas le paramètre `rows`.
+
+Par exemple :
+
+```json
+{
+  "name": "Nom de l'envoi en masse",
+  "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
+  "csv": "email address,nom\nalice@example.com,Alice"
+}
+```
+
+
+### Réponse
+
+::: warning Délai d'attente de la réponse
+
+Si vous spécifiez un délai d'attente de la réponse lors de votre appel HTTP, assurez-vous qu'il soit défini à 15 secondes. L'API GC Notification pourrait prendre quelques secondes pour valider votre requête et sauvegarder vos paramètres si votre envoi en masse comporte beaucoup de destinataires.
+
+:::
+
+Si la demande est acceptée, le corps de la réponse est `json` avec un code de statut de `201` :
+
+```json
+{
+   "data":{
+      "api_key":{
+         "id":"de1fafa2-fb2a-49c5-9b9a-8400727ecd29",
+         "key_type":"team",
+         "name":"Clé test"
+      },
+      "archived":false,
+      "created_at":"2021-06-10T17:14:15.341308+00:00",
+      "created_by":{
+         "id":"6af522d0-2915-4e52-83a3-3690455a5fe6",
+         "name":"Notify service user"
+      },
+      "id":"0ea216ae-4b03-46b7-ab44-893ae85104f5",
+      "job_status":"pending",
+      "notification_count":3,
+      "original_file_name":"Nom de l'envoi en masse",
+      "processing_finished":null,
+      "processing_started":null,
+      "scheduled_for":null,
+      "sender_id":null,
+      "service":"afa2be3b-1250-430f-a70f-28a1a9d49dfa",
+      "service_name":{
+         "name":"Test service"
+      },
+      "template":"659a214f-dfec-4882-9242-fea0bd502a09",
+      "template_version":4,
+      "updated_at":null
+   }
+}
+```
+
+Vous pouvez suivre la progression de votre envoi en message depuis l'interface de GC Notification.
+
+Si vous avez programmé votre envoi, vous pouvez l'annuler depuis l'interface web.
+
+### Codes d’erreur
+
+Si la demande a été refusée, le corps de la réponse est `json`, consultez le tableau ci-dessous pour plus de détails.
+
+|Code HTTP|message|Comment réparer|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You should specify either rows or csv"`<br>`}]`|Passez les données au moyen de `rows` ou `csv`|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "name is a required property"`<br>`}]`|Spécifiez le paramètre `name`|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Vérifiez que vous passez une date future|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Vérifiez que votre date est au plus 4 jours dans le futur|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template not found"`<br>`}]`|Mettez à jour l'identifiant de gabarit|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template has been deleted"`<br>`}]`|Créez un nouveau gabarit et renseignez son identifiant|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Service is not allowed to send emails"`<br>`}]`|Activez l'envoi de courriels dans les Paramètres|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Missing column headers: name"`<br>`}]`|Ajoutez l'en-tête manquant|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Duplicate column headers: name, NAME"`<br>`}]`|Retirez l'en-tête en doublon|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Too many rows. Maximum number of rows allowed is 50000"`<br>`}]`|Renseignez moins de 50 000 lignes|
+|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Demandez à activer votre service dans les Paramètres ou utilisez une [clé d'API active](cles.md)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Ajoutez des membres de votre équipe, mettez à jour votre liste de confiance ou demandez à activer votre service|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Retirez les lignes en surplus, essayez à nouveau demain ou demander une augmentation de limites|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Assurez-vous que les lignes n'ont pas de valeurs manquantes|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
