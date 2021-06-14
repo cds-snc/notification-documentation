@@ -349,13 +349,13 @@ If the request is not successful, the response body is `json`, refer to the tabl
 POST /v2/notifications/bulk
 ```
 
-Send a batch of notifications, up to 50,000 recipients at a time, for a single template. You can schedule to send notifications up to 4 days in the future.
+Send a batch of notifications, up to 50,000 recipients at a time, for a single template. You can schedule to send notifications up to 4 days in advance.
 
 ### Request body
 
 ```json
 {
-  "name": "My bulk name",
+  "name": "Bulk send name",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
   "rows": [
     ["email address", "name"],
@@ -371,13 +371,13 @@ Send a batch of notifications, up to 50,000 recipients at a time, for a single t
 
 **name (required)**
 
-The `name` of your bulk sending. Used to identify this batch of notifications later on.
+The `name` of your bulk sending job. Used to identify this batch of notifications later on.
 
 <Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
 
 **rows (required)**
 
-An array of arrays. The first line is the header and should include at least `email address` if you're sending an email template or `phone number` if you're sending a text message template. The other column headers should match placeholder fields of your template.
+An array of arrays. The first line is the header and should include at least `email address` if you're sending an email template or `phone number` if you're sending a text message template. The other column headers should match the placeholder fields (personalised variables) of your template.
 
 The following lines should be your recipients' details and should match the order of column headers. You can have between 1 and 50,000 recipients.
 
@@ -408,7 +408,7 @@ For example
 
 ```json
 {
-  "name": "My bulk name",
+  "name": "Bulk send name",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
   "csv": "email address,name\nalice@example.com,Alice"
 }
@@ -440,7 +440,7 @@ If the request is successful, the response body is `json` with a status code of 
       "id":"0ea216ae-4b03-46b7-ab44-893ae85104f5",
       "job_status":"pending",
       "notification_count":3,
-      "original_file_name":"My bulk name",
+      "original_file_name":"Bulk send name",
       "processing_finished":null,
       "processing_started":null,
       "scheduled_for":null,
@@ -471,15 +471,15 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Check that you pass a datetime in the future|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Check that you pass datetime at most 4 days in the future|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Check that you pass a valid [ISO 8601 datetime](https://en.wikipedia.org/wiki/ISO_8601)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template not found"`<br>`}]`|Update template ID|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Template has been deleted"`<br>`}]`|Create a new template and update its ID|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Service is not allowed to send emails"`<br>`}]`|Turn on email sending in settings|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Service is not allowed to send emails"`<br>`}]`|Turn on email sending in Settings|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Missing column headers: name"`<br>`}]`|Add the missing column header|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Duplicate column headers: name, NAME"`<br>`}]`|Remove the duplicate column headers|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Too many rows. Maximum number of rows allowed is 50000"`<br>`}]`|Pass less than 50,000 rows|
-|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Request to go live or use [a live API key](keys.md)|
+|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Request to go live in Settings or use [a live API key](keys.md)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Add more team members, update your safelist or request to go live|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Remove rows in excess, try again tomorrow or request a limit increase|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Make sure rows don't have missing values|
-|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request, resend your notification.|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request. Re-send your notification.|
