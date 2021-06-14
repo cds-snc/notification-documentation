@@ -349,7 +349,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 POST /v2/notifications/bulk
 ```
 
-Send a batch of notifications, up to 50,000 recipients at a time, for a single template. You can schedule to send notifications up to 4 days in advance.
+Send notifications in bulk, up to 50,000 recipients at a time, for a single template. You can schedule to send notifications up to 4 days in advance.
 
 ### Request body
 
@@ -371,7 +371,7 @@ Send a batch of notifications, up to 50,000 recipients at a time, for a single t
 
 **name (required)**
 
-The `name` of your bulk sending job. Used to identify this batch of notifications later on.
+The `name` of your bulk sending job. Used to identify this bulk of notifications later on.
 
 <Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
 
@@ -385,11 +385,11 @@ The following lines should be your recipients' details and should match the orde
 
 **scheduled_for (optional)**
 
-If you want to send your batch of notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Example: `2021-06-08T15:15:00` (UTC time).
+If you want to send notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Example: `2021-06-08T15:15:00` (UTC time).
 
 **sender_id (optional)**
 
-If you want to use a specific reply-to email address when sending a batch of emails, you can specify a reply-to email address ID.
+If you want to use a specific reply-to email address when sending emails, you can specify a reply-to email address ID.
 
 To find your reply-to email address ID:
 
@@ -456,7 +456,7 @@ If the request is successful, the response body is `json` with a status code of 
 }
 ```
 
-You can follow the progression of your batch of notifications from the GC Notify web interface.
+You can follow the progression of your bulk sending job from the GC Notify web interface.
 
 If you scheduled your batch in the future, you can cancel it from the web interface.
 
