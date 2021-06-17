@@ -377,7 +377,7 @@ The `name` of your bulk sending job. Used to identify this bulk of notifications
 
 **rows (required)**
 
-An array of arrays. The first line is the header and should include at least `email address` if you're sending an email template or `phone number` if you're sending a text message template. The other column headers should match the placeholder fields (personalised variables) of your template.
+`rows` is an array of arrays. The first line is the header and should include at least `email address` if you're sending an email template or `phone number` if you're sending a text message template. The other column headers should match the placeholder fields (personalised variables) of your template.
 
 The following lines should be your recipients' details and should match the order of column headers. You can have between 1 and 50,000 recipients.
 
@@ -385,7 +385,7 @@ The following lines should be your recipients' details and should match the orde
 
 **scheduled_for (optional)**
 
-If you want to send notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Example: `2021-06-08T15:15:00` (UTC time).
+If you want to send notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For example: `2021-06-08T15:15:00` (UTC time).
 
 **sender_id (optional)**
 
@@ -404,7 +404,7 @@ By default, GC Notify will use your default reply-to email address if you don't 
 
 If you prefer to pass the content of CSV files instead of rows in the `rows` argument, you can do so. Pass the full content of your CSV file in a key named `csv`. Do not include the `rows` argument.
 
-For example
+For example:
 
 ```json
 {
@@ -418,7 +418,7 @@ For example
 ### Response
 
 ::: warning Response timeout
-If you specify a response timeout when calling this endpoint, make sure it is set to 15 seconds. The GC Notify API could take a few seconds to validate your request and save the payload if you submit a large batch.
+If you specify a response timeout when calling this endpoint, make sure it is set to 15 seconds. The GC Notify API could take a few seconds to validate your request and save the payload if you submit a large bulk sending job with many recipients.
 :::
 
 If the request is successful, the response body is `json` with a status code of `201`:

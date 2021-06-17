@@ -342,19 +342,19 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
 
 
-## Envoyer des notifications en masse
+## Envoyer des notifications de masse
 
 ```
 POST /v2/notifications/bulk
 ```
 
-Envoyer des notifications en masse, jusqu'à 50 000 destinataires en une fois, pour un unique gabarit. Vous pouvez programmer l'envoi de notifications jusqu'à 4 jours en avance.
+Envoyer des notifications de masse, jusqu'à 50 000 destinataires à la fois, pour un gabarit unique. Vous pouvez programmer l'envoi de notifications jusqu'à 4 jours à l'avance.
 
 ### Corps de la requête
 
 ```json
 {
-  "name": "Nom de l'envoi en masse",
+  "name": "Nom de l'envoi de masse",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
   "rows": [
     ["email address", "nom"],
@@ -370,7 +370,7 @@ Envoyer des notifications en masse, jusqu'à 50 000 destinataires en une fois, p
 
 **nom (obligatoire)**
 
-`name` est le nom de votre envoi en masse. Il est utilisé pour identifier votre envoi.
+`name` est le nom de votre envoi de masse. Il est utilisé pour identifier votre envoi.
 
 <Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
 
@@ -384,13 +384,13 @@ Les lignes suivantes doivent inclure les informations de vos destinataires et do
 
 **envoi programmé (optionnel)**
 
-`scheduled_for` peut être renseigné si vous souhaitez envoyer des notifications dans le futur, vous pouvez spécifier une date et une heure jusqu'à 4 jours dans le futur au [format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601). Exemple: `2021-06-08T15:15:00` (heure UTC).
+`scheduled_for` peut être renseigné si vous souhaitez envoyer des notifications dans le futur, vous pouvez spécifier une date et une heure jusqu'à 4 jours dans le futur au [format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601). Par exemple : `2021-06-08T15:15:00` (heure UTC).
 
 **identifiant de l'expéditeur (optionnel)**
 
-`sender_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer son identifiant.
+`sender_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer l'identifiant de l'adresse courriel de réponse. 
 
-Pour trouver l'identifiant de votre addresse courriel pour recevoir les réponses :
+Pour trouver l'identifiant de votre addresse courriel de réponse :
 
 1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
 1. Allez dans la page __Paramètres__.
@@ -407,7 +407,7 @@ Par exemple :
 
 ```json
 {
-  "name": "Nom de l'envoi en masse",
+  "name": "Nom de l'envoi de masse",
   "template_id": "f33517ff-2a88-4f6e-b855-c550268ce08a",
   "csv": "email address,nom\nalice@example.com,Alice"
 }
@@ -418,7 +418,7 @@ Par exemple :
 
 ::: warning Délai d'attente de la réponse
 
-Si vous spécifiez un délai d'attente de la réponse lors de votre appel HTTP, assurez-vous qu'il soit défini à 15 secondes. L'API GC Notification pourrait prendre quelques secondes pour valider votre requête et sauvegarder vos paramètres si votre envoi en masse comporte beaucoup de destinataires.
+Si vous spécifiez un délai d'attente de la réponse lors de votre appel HTTP, assurez-vous qu'il soit défini à 15 secondes. L'API GC Notification pourrait prendre quelques secondes pour valider votre requête et sauvegarder vos paramètres si votre envoi de masse comporte beaucoup de destinataires.
 
 :::
 
@@ -441,7 +441,7 @@ Si la demande est acceptée, le corps de la réponse est `json` avec un code de 
       "id":"0ea216ae-4b03-46b7-ab44-893ae85104f5",
       "job_status":"pending",
       "notification_count":3,
-      "original_file_name":"Nom de l'envoi en masse",
+      "original_file_name":"Nom de l'envoi de masse",
       "processing_finished":null,
       "processing_started":null,
       "scheduled_for":null,
@@ -457,9 +457,9 @@ Si la demande est acceptée, le corps de la réponse est `json` avec un code de 
 }
 ```
 
-Vous pouvez suivre la progression de votre envoi en message depuis l'interface de GC Notification.
+Vous pouvez suivre la progression de votre envoi de masse dans l'interface de GC Notification.
 
-Si vous avez programmé votre envoi, vous pouvez l'annuler depuis l'interface web.
+Si vous avez programmé votre envoi, vous pouvez l'annuler dans l'interface web.
 
 ### Codes d’erreur
 
@@ -479,8 +479,8 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Missing column headers: name"`<br>`}]`|Ajoutez l'en-tête manquant|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Duplicate column headers: name, NAME"`<br>`}]`|Retirez l'en-tête en doublon|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Too many rows. Maximum number of rows allowed is 50000"`<br>`}]`|Renseignez moins de 50 000 lignes|
-|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Demandez à activer votre service dans les Paramètres ou utilisez une [clé d'API active](cles.md)|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Ajoutez des membres de votre équipe, mettez à jour votre liste de confiance ou demandez à activer votre service|
+|`400`|`[{`<br>`{"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because you used a team and safelist API key."`<br>`}]`|Demandez d'activer votre service dans les Paramètres ou utilisez une [clé d'API active](cles.md)|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Ajoutez des membres à votre équipe, mettez à jour votre liste de confiance ou demandez d'activer votre service|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Retirez les lignes en surplus, essayez à nouveau demain ou demander une augmentation de limites|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Assurez-vous que les lignes n'ont pas de valeurs manquantes|
-|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande. Renvoyez votre notification.|
