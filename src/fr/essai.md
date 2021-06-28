@@ -5,6 +5,7 @@ Il n’y a pas d’environnement d’essai pour GC Notification. Tous les essais
 ## Test de détection de fumée
 
 Si vous devez effectuer un test de détection de la fumée de votre intégration avec GC Notification régulièrement, vous devriez utiliser les adresses de courriel et numéros de téléphone suivants pour le test de détection de fumée.
+
 |Adresse de courriel|
 |:---|
 |simulate-delivered@notification.canada.ca|
