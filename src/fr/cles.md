@@ -31,8 +31,8 @@ Pour tester les réponses d’échec avec une clé de test, utilisez les numéro
 
 |Numéro de téléphone/adresse de courriel|Réponse|
 |:---|:---|
-|07700900003|`temporary-failure`|
-|07700900002|`permanent-failure`|
+|+15149301633|`temporary-failure`|
+|+15149301632|`permanent-failure`|
 |temp-fail@simulator.notify|`temporary-failure`|
 |perm-fail@simulator.notify|`permanent-failure`|
 |tout autre numéro ou adresse valide|`delivered`|
