@@ -1,0 +1,13 @@
+{
+  "fix-bulk-upload-property": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "350b9ab4e2b4737c2fc5b4f719a9571d1b9eac37",
+        "updatedAt": "2021-07-22T19:37:00.452Z",
+        "href": "review-apps/fix-bulk-upload-property/350b9a",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/87"
+      }
+    ]
+  }
+}
