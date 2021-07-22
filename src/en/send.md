@@ -363,7 +363,7 @@ Send notifications in bulk, up to 50,000 recipients at a time, for a single temp
     ["bob@example.com", "Bob"]
   ],
   "scheduled_for": "2021-06-08T15:15:00", # optional string
-  "sender_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # optional string
+  "reply_to_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # optional string
 }
 ```
 
@@ -387,7 +387,7 @@ The following lines should be your recipients' details and should match the orde
 
 If you want to send notifications in the future, you can specify a datetime up to 4 days in the future, in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). For example: `2021-06-08T15:15:00` (UTC time).
 
-**sender_id (optional)**
+**reply_to_id (optional)**
 
 If you want to use a specific reply-to email address when sending emails, you can specify a reply-to email address ID.
 
@@ -444,12 +444,12 @@ If the request is successful, the response body is `json` with a status code of 
       "processing_finished":null,
       "processing_started":null,
       "scheduled_for":null,
-      "sender_id":null,
+      "sender_id":"f025b1a9-63af-43e8-b969-627bfe544bba",
       "service":"afa2be3b-1250-430f-a70f-28a1a9d49dfa",
       "service_name":{
          "name":"Test service"
       },
-      "template":"659a214f-dfec-4882-9242-fea0bd502a09",
+      "template":"f33517ff-2a88-4f6e-b855-c550268ce08a",
       "template_version":4,
       "updated_at":null
    }
