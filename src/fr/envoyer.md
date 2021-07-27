@@ -362,7 +362,7 @@ Envoyer des notifications de masse, jusqu'à 50 000 destinataires à la fois, po
     ["bob@example.com", "Bob"]
   ],
   "scheduled_for": "2021-06-08T15:15:00", # chaîne facultative
-  "sender_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # chaîne facultative
+  "reply_to_id": "f025b1a9-63af-43e8-b969-627bfe544bba" # chaîne facultative
 }
 ```
 
@@ -388,7 +388,7 @@ Les lignes suivantes doivent inclure les informations de vos destinataires et do
 
 **identifiant de l'expéditeur (optionnel)**
 
-`sender_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer l'identifiant de l'adresse courriel de réponse. 
+`reply_to_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer l'identifiant de l'adresse courriel de réponse. 
 
 Pour trouver l'identifiant de votre addresse courriel de réponse :
 
@@ -445,12 +445,12 @@ Si la demande est acceptée, le corps de la réponse est `json` avec un code de 
       "processing_finished":null,
       "processing_started":null,
       "scheduled_for":null,
-      "sender_id":null,
+      "sender_id":"f025b1a9-63af-43e8-b969-627bfe544bba",
       "service":"afa2be3b-1250-430f-a70f-28a1a9d49dfa",
       "service_name":{
          "name":"Test service"
       },
-      "template":"659a214f-dfec-4882-9242-fea0bd502a09",
+      "template":"f33517ff-2a88-4f6e-b855-c550268ce08a",
       "template_version":4,
       "updated_at":null
    }
