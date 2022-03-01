@@ -11,6 +11,7 @@ Vous devrez modifier votre point de terminaison :
 ::: warning Différences de fonctionnalités à considérer
 
 - [L'envoi de fichiers par courriel est différent avec GC Notification](envoyer.md#envoyer-un-fichier-par-courriel)
+- La notification de masse n'est pas directement prise en charge par les clients de GOV.UK. Il est toutefois possible d'en utiliser un si celui-ci prend en charge la personnalisation du chemin de l'adresse HTTP
 - L'envoi de lettres n'est pas disponible
 - La réception de messages texte n'est pas disponible
 :::

@@ -12,6 +12,7 @@ You will need to change the API endpoint when creating a client.
 ::: warning Feature differences to keep in mind
 
 - [Sending files by email is different with GC Notify](send.md#sending-a-file-by-email)
+- Sending bulk notifications through the GOV.UK Notify clients is not directly supported. You can still use one if the client supports customization of the URL endpoint
 - Sending letters is not available
 - Receiving text messages is not available
 :::
