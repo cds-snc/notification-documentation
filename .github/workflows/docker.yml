@@ -71,3 +71,11 @@ jobs:
     - uses: cds-snc/notification-pr-bot@master
       env:
         TOKEN: ${{ steps.notify-pr-bot.outputs.token }} 
+
+    - name: Generate docker SBOM
+      uses: cds-snc/security-tools/.github/actions/generate-sbom@14ab23f07437d642594c56003db1f4bd34e54bbb # renovate: tag=v1
+      with:
+        dependency_track_api_key: ${{ secrets.DEPENDENCY_TRACK_API_KEY }}
+        docker_image: $DOCKER_SLUG:${GITHUB_SHA::7}
+        project_name: notification-documentation/docker
+        project_type: docker
