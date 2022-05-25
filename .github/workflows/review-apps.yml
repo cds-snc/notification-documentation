@@ -37,7 +37,7 @@ jobs:
             github.issues.createComment({ issue_number, owner, repo, body });
 
       - name: Build and deploy review app
-        uses: sauloxd/review-apps@v1.3.3
+        uses: sauloxd/review-apps@v2.0.0
         with:
           build-cmd: 'npm run build'
           branch: 'gh-pages'
