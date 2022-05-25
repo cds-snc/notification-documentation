@@ -39,7 +39,12 @@ jobs:
       - name: Build and deploy review app
         uses: sauloxd/review-apps@v2.0.0
         with:
-          build-cmd: 'npm run build'
-          branch: 'gh-pages'
-          dist: 'src/.vuepress/dist'
-          slug: 'review-apps'
+          branch: "gh-pages"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          apps: |
+            {
+              "review-apps": {
+                "build": "npm run build",
+                "dist": "src/.vuepress/dist"
+              }
+            }
