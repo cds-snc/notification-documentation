@@ -92,9 +92,15 @@ Sending files by email is an API-only feature. To turn on this feature, [sign in
 :::
 
 ### File types and size requirements
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. Your email including the file must be smaller than 10MB.
+
+You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. A maximum of 10 file attachments are allowed within one email notification. ~Your email including the file must be smaller than 10MB~.
 
 If you need to send other file types, [contact us](https://notification.canada.ca/contact).
+
+::: warning Temporary restriction on overall files size
+
+Due to a recent infrastructure changes, the current maximum sizes for all files and content within an email notification must be smaller than 6MB.
+:::
 
 ### Sending methods
 

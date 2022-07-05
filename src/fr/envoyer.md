@@ -93,9 +93,15 @@ Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activ
 :::
 
 ### Types de fichiers et prérequis de taille
-Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. La taille de votre fichier et de votre courriel doit être inférieure à 10 Mo.
+
+Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. Un maximum de 10 pièces jointes est autorisé par courriel. ~La taille de votre fichier et de votre courriel doit être inférieure à 10 Mo~.
 
 Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr) .
+
+::: warning Restriction temporaire sur la taille des fichiers
+
+En raison de récents changements d'infrastructure, la taille maximale actuelle de tous les fichiers et du contenu du courriel doit être inférieure à 6 Mo.
+:::
 
 ### Méthodes d’envoi
 
