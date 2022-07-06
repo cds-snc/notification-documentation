@@ -99,7 +99,7 @@ If you need to send other file types, [contact us](https://notification.canada.c
 
 ::: warning Temporary restriction on overall files size
 
-Due to a recent infrastructure changes, the current maximum sizes for all files and content within an email notification must be smaller than 6MB.
+Due to a recent infrastructure change, the current maximum size for all files and content within an email notification must be smaller than 6MB.
 :::
 
 ### Sending methods
