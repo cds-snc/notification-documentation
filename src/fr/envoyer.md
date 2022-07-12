@@ -221,7 +221,7 @@ Si la demande au client est acceptée, le client renvoie un `dict` :
 
 ### Codes d’erreur
 
-Si la demande a été refusée, le corps de la réponse est `json`, consultez le tableau ci-dessous pour plus de détails.
+Si la demande a été refusée, le corps de la réponse est `json`. Consultez le tableau ci-dessous pour plus de détails.
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
