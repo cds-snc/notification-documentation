@@ -100,7 +100,7 @@ Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](http
 
 ::: warning Restriction temporaire sur la taille des fichiers
 
-En raison d'un récent changement d'infrastructure, la taille maximale actuelle de tous les fichiers et du contenu du courriel doit être inférieure à 6 Mo.
+En raison d'un récent changement dans notre infrastructure, la taille maximale actuelle de tous les fichiers et du contenu d'un courriel doit être inférieure à 6 Mo.
 :::
 
 ### Méthodes d’envoi
