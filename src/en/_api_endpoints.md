@@ -11,7 +11,7 @@ NotificationClient client = new NotificationClient(apiKey, "https://api.notifica
 ```vbnet
 using Notify.Client;
 
-var client = new NotificationClient(apiKey, "https://api.notification.canada.ca");
+var client = new NotificationClient("https://api.notification.canada.ca", apiKey);
 ```
 </code-block>
 
