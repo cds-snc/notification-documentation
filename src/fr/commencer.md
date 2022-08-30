@@ -26,11 +26,11 @@ Par exemple, si votre clé API est
 * votre ISS (votre ID de service) est `26785a09-ab16-4eb0-8407-a37497a57506`
 * votre clé secrète est `3d844edf-8d35-48ac-975b-e847b4f122b0`
 
-::: tip NOUVEAU: Inclure la clé API entière lors de l'appel de l'API
+::: tip NOUVEAU: Inclure la clé API entière lorsque vous appelez l'API
 &nbsp;
 :::
 
-Vous devez fournir la clé entière dans l’en-tête HTTP lors de l'appel de l'API :
+Vous devez fournir la clé entière dans l’en-tête HTTP lorsque vous appelez l'API :
 
 ```json
 "Authorization": "ApiKey-v1 3d844edf-8d35-48ac-975b-e847b4f122b0"
