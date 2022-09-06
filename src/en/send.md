@@ -110,11 +110,13 @@ You can send files in two ways on GC Notify:
 1. with a unique link to download from the email
 
 You are able to control how files are delivered to recipients on every
-API call. GC Notify cannot access or decrypt your files.
+API call.
+
+To protect privacy, GC Notify deletes the file’s contents after 7 days. After that time, recipients will not be able to access the file, whether you send it as an attachment or a link. 
 
 ::: tip Choosing a sending method
 
-People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked. Linked files will expire 1 year after the message has been sent.
+People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked. 
 
 Before choosing a sending method, perform tests to see what works best for your use case.
 
