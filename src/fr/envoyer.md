@@ -110,10 +110,11 @@ Il est possible de téléverser des fichiers de deux manières sur GC Notificati
 1. en tant que pièce jointe au courriel
 1. en tant que lien unique pour télécharger du courriel
 
+Afin de protéger la confidentialité des utilisateurs, Notification GC supprime le contenu du fichier après 7 jours. Une fois les 7 jours écoulés, les destinataires n’auront plus accès au fichier, qu’il ait été envoyé sous forme de lien ou de pièce jointe.
 
 ::: tip Choisir une méthode d’envoi
 
-Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées. Les fichiers envoyés par le biais d’un lien unique seront supprimés un an après l’envoi du message.
+Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées. 
 
 Avant de choisir une méthode d’envoi, effectuez des tests pour vérifier la méthode la plus propice pour vous.
 
