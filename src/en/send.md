@@ -84,43 +84,38 @@ For example:
 
 You can leave out this argument if your service only has one reply-to email address, or you want to use the default email address.
 
-## Sending a file by email
+## Sending files by email is an API-only feature
 
-::: warning Enabling this feature
+To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
 
-Sending files by email is an API-only feature. To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
-:::
+### File types
 
-### File types and size requirements
+You can upload .pdf, .csv, .jpeg, .png, .odt, .txt, .rtf, as well as Microsoft Excel and Microsoft Word files. If you need to send other file types, [contact us](https://notification.canada.ca/contact).
 
-You can upload PDF, CSV, .jpeg, .png, .odt, .txt, .rtf,  Microsoft Excel and Microsoft Word Document files. A maximum of 10 file attachments are allowed within one email notification. ~~Your email including the file must be smaller than 10MB~~.
+### File quantity and size
 
-If you need to send other file types, [contact us](https://notification.canada.ca/contact).
+GC Notify allows a maximum of 10 file attachments per email notification.
 
-::: warning Temporary restriction on overall file size
+The email’s size, including accompanying files, cannot exceed 6MB.
 
-Due to a recent infrastructure change, the current maximum size for all files and content within an email notification must be smaller than 6MB.
-:::
+### You can send files in 2 ways
 
-### Sending methods
+1. Directly attached to the email (attachment mode).
+1. As a unique link, to download from the email (link mode).
 
-You can send files in two ways on GC Notify:
+You control the sending method on every API call.
 
-1. directly attached to the email
-1. with a unique link to download from the email
+### Attachments are generally preferable
 
-You are able to control how files are delivered to recipients on every
-API call.
+If you use link mode, GC Notify needs to encrypt and store the file. For privacy reasons, we delete the file after 7 days. After deletion, recipients get a 404 “File not found” error when they select the link.
 
-To protect privacy, GC Notify deletes the file’s contents after 7 days. After that time, recipients will not be able to access the file, whether you send it as an attachment or a link. 
+In contrast, recipients can access attachments indefinitely, if permitted by their email provider. They may also be more familiar with receiving files as attachments.
 
-::: tip Choosing a sending method
+### In some situations, there may be advantages to link mode
 
-People generally expect files to be directly attached to emails. With that in mind, it’s not uncommon to see attachments being blocked by security rules or email providers. Use the unique link method to prevent your attachments from being blocked. 
+Some email providers and security rules block attachments. For example, government departments may restrict attachments for internal communication.  
 
-Before choosing a sending method, perform tests to see what works best for your use case.
-
-:::
+Before choosing a sending method, perform tests to check what works best for your use case. You can also [contact us](https://notification.canada.ca/contact).
 
 ### Upload your file
 

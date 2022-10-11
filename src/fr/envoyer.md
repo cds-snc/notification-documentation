@@ -85,40 +85,38 @@ Par exemple :
 
 Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse de courriel de réponse ou si vous voulez utiliser l’adresse de courriel par défaut.
 
-## Envoyer un fichier par courriel
+## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
 
-::: warning Activer cette fonctionnalité
+Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 
-Cette fonctionnalité n’est disponible que par le biais de l’API. Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
-:::
+### Types de fichiers
 
-### Types de fichiers et prérequis de taille
+Vous pouvez téléverser des fichiers aux formats .pdf, .csv, .jpeg, .png, .odt, .txt, .rtf, Microsoft Excel et Microsoft Word. Si vous avez besoin d’envoyer des fichiers de formats différents, veuillez nous contacter.
 
-Vous pouvez téléverser des fichiers PDF, CSV, .jpeg, .png, .odt, .txt, .rtf, et des fichiers Microsoft Excel et Microsoft Word. Un maximum de 10 pièces jointes est autorisé par courriel. ~~La taille de votre fichier et de votre courriel doit être inférieure à 10 Mo~~.
+### Nombre de fichiers et volume des fichiers
 
-Si vous devez envoyer d’autres types de fichiers, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr) .
+GC Notification impose une limite de dix pièces jointes par notification courriel.
 
-::: warning Restriction temporaire sur la taille des fichiers
+Le volume du courriel, pièces jointes comprises, ne peut excéder 6 Mo.
 
-En raison d'un récent changement dans notre infrastructure, la taille maximale actuelle de tous les fichiers et du contenu d'un courriel doit être inférieure à 6 Mo.
-:::
+### Vous pouvez envoyer vos fichiers de deux façons différentes
 
-### Méthodes d’envoi
+1. En les joignant directement au courriel (pièce jointe)
+1. Sous la forme d’un lien unique permettant un téléchargement depuis le courriel (lien)
 
-Il est possible de téléverser des fichiers de deux manières sur GC Notification :
+Vous avez le choix de la méthode d’envoi pour chaque appel d’API.
 
-1. en tant que pièce jointe au courriel
-1. en tant que lien unique pour télécharger du courriel
+### L’envoi sous forme de pièce jointe est généralement préférable
 
-Afin de protéger la confidentialité des utilisateurs, Notification GC supprime le contenu du fichier après 7 jours. Une fois les 7 jours écoulés, les destinataires n’auront plus accès au fichier, qu’il ait été envoyé sous forme de lien ou de pièce jointe.
+Si vous optez pour un envoi sous forme de lien, GC Notification devra chiffrer et stocker le fichier. Nous supprimons les fichiers correspondants au bout de sept jours pour des raisons de confidentialité. Les destinataires qui cliqueraient sur le lien après cette période se verraient indiquer une erreur 404, ce qui signifie que le fichier est introuvable.
 
-::: tip Choisir une méthode d’envoi
+À l’inverse, l’accès aux pièces jointes n’est pas limité dans le temps, à condition que le fournisseur de courriel des destinataires le permette. Il est également possible que les destinataires aient davantage l’habitude de recevoir des fichiers sous la forme de pièces jointes.
 
-Il est plus commun de recevoir des pièces jointes plutôt que des liens uniques. Toutefois, il n’est pas rare que des pièces jointes soient bloquées par des règles de sécurité ou par certains fournisseurs de comptes de courriel. Utilisez la méthode d’envoi de lien unique pour éviter que vos pièces jointes soient bloquées. 
+### Dans certaines situations, l’envoi sous forme de lien peut présenter des avantages
 
-Avant de choisir une méthode d’envoi, effectuez des tests pour vérifier la méthode la plus propice pour vous.
+Certains fournisseurs de courriel et certaines règles de sécurité représentent des obstacles à l’envoi de pièces jointes. Il se peut par exemple que les ministères du gouvernement interdisent les pièces jointes dans le cadre de la communication interne.  
 
-:::
+Avant de choisir votre méthode d’envoi, effectuez des tests afin de vérifier quelle méthode se prête le mieux à votre cas. Vous pouvez également [nous contacter](https://notification.canada.ca/contact?lang=fr).
 
 ### Téléverser votre fichier
 
