@@ -86,7 +86,7 @@ You can leave out this argument if your service only has one reply-to email addr
 
 ## Sending files by email is an API-only feature
 
-::: warning Enabling this feature
+::: warning
 
 To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
 :::
