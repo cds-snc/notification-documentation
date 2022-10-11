@@ -87,7 +87,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
 
-::: warning
+::: warning &nbsp;
 
 Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 :::
