@@ -108,8 +108,6 @@ The email’s size, including accompanying files, cannot exceed 6MB.
 
 You control the sending method on every API call.
 
-To protect privacy, GC Notify deletes the file’s contents after 7 days. After that time, recipients will not be able to access the file, whether you send it as an attachment or a link.
-
 ### Attachments are generally preferable
 
 If you use link mode, GC Notify needs to encrypt and store the file. For privacy reasons, we delete the file after 7 days. After deletion, recipients get a 404 “File not found” error when they select the link.
