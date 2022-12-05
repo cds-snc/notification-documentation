@@ -7,13 +7,13 @@ jobs:
   review-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@e2f20e631ae6d7dd3b768f56a5d2af784dd54791 # v2
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -28,7 +28,7 @@ jobs:
 
       - name: Comment PR
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
-        uses: actions/github-script@v3.1.0
+        uses: actions/github-script@47f7cf65b5ced0830a325f705cad64f2f58dddf7 # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -37,7 +37,7 @@ jobs:
             github.issues.createComment({ issue_number, owner, repo, body });
 
       - name: Build and deploy review app
-        uses: sauloxd/review-apps@v2.0.0
+        uses: sauloxd/review-apps@2564cf8a5e834c2813ace9af70dd7411f81433e4 # v2.0.0
         with:
           branch: "gh-pages"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
