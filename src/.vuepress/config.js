@@ -13,9 +13,9 @@ module.exports = {
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico"}],
+    ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico" }],
   ],
-  title: "GC Notify | GC Notification",
+  title: "GC Notify | Notification GC",
   base: baseURL || null,
   locales: {
     '/en/': {
@@ -25,8 +25,8 @@ module.exports = {
     },
     '/fr/': {
       lang: 'fr-CA',
-      title: 'GC Notification',
-      description: 'Intégration directe à l`API GC Notification'
+      title: 'Notification GC',
+      description: 'Intégration directe à l`API Notification GC'
     }
   },
   /**
@@ -87,7 +87,7 @@ module.exports = {
         ariaLabel: 'Langues',
         siteSubtitle: 'Documentation API',
         backToNotifyLink: 'https://notification.canada.ca?lang=fr',
-        backToNotifyText: 'Retour à GC Notification',
+        backToNotifyText: 'Retour à Notification GC',
         editLinkText: 'Modifier cette page sur GitHub',
         lastUpdated: 'Dernière mise à jour ',
         serviceWorker: {
