@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "authors": {
-    "name": "GC Notify | GC Notification",
+    "name": "GC Notify | Notification GC",
     "email": "cds-snc@tbs-sct.gc.ca"
   },
   "repository": "cds-snc/notification-documentation/notify-docs",

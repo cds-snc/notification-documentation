@@ -1,10 +1,10 @@
 # Mise à l’essai
 
-Il n’y a pas d’environnement d’essai pour GC Notification. Tous les essais ont lieu dans l’environnement de production. 
+Il n’y a pas d’environnement d’essai pour Notification GC. Tous les essais ont lieu dans l’environnement de production. 
 
 ## Test de détection de fumée
 
-Si vous devez effectuer un test de détection de la fumée de votre intégration avec GC Notification régulièrement, vous devriez utiliser les adresses de courriel et numéros de téléphone suivants pour le test de détection de fumée.
+Si vous devez effectuer un test de détection de la fumée de votre intégration avec Notification GC régulièrement, vous devriez utiliser les adresses de courriel et numéros de téléphone suivants pour le test de détection de fumée.
 
 |Adresse de courriel|
 |:---|
@@ -22,7 +22,7 @@ Les adresses courriel et les numéros de téléphone du test de détection de fu
 
 Vous pouvez utiliser ces numéros et adresses de test de détection de fumée avec n’importe quel [type de clé API](cles.md).
 
-Vous pouvez effectuer un test de détection de fumée sur toutes les fonctions client de l’API de GC Notification sauf dans les cas suivants :
+Vous pouvez effectuer un test de détection de fumée sur toutes les fonctions client de l’API de Notification GC sauf dans les cas suivants :
 
 - Pour obtenir l’état d’un message
 - Pour obtenir l’état de tous les messages
@@ -31,4 +31,4 @@ Vous ne pouvez pas utiliser les adresses de courriel ou les numéros de téléph
 
 ## Autres essais
 
-Utilisez une [clé API de test](cles.md) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que de détection de fumée. Vous n’avez pas besoin d’un compte de test GC Notification autre que votre compte habituel.
+Utilisez une [clé API de test](cles.md) pour effectuer des tests autres que de détection de fumée, comme les tests de performance ou d’intégration. Vous pouvez utiliser n’importe quelle adresse de courriel ou numéro de téléphone de test autre que de détection de fumée. Vous n’avez pas besoin d’un compte de test Notification GC autre que votre compte habituel.

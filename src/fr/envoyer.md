@@ -1,14 +1,14 @@
 # Envoyer un message
 
-Vous pouvez utiliser GC Notification pour envoyer des courriels et des messages texte. Il peut s’agir d’une réponse à un événement généré par l’utilisateur, comme un reçu après qu’ils demandent votre service, ou comme un rappel lorsqu’un paiement est attendu.
+Vous pouvez utiliser Notification GC pour envoyer des courriels et des messages texte. Il peut s’agir d’une réponse à un événement généré par l’utilisateur, comme un reçu après qu’ils demandent votre service, ou comme un rappel lorsqu’un paiement est attendu.
 
 **Ce dont vous aurez besoin :**
 
-Pour envoyer un message à l’aide de GC Notification, vous devez configurer un gabarit dans l’interface utilisateur. 
+Pour envoyer un message à l’aide de Notification GC, vous devez configurer un gabarit dans l’interface utilisateur. 
 
 Pour créer un gabarit :
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Gabarits__.
 1. Sélectionnez __Nouveau gabarit__.
 
@@ -71,7 +71,7 @@ Vous pouvez ignorer cet argument si vous n’avez pas de référence.
 
 Pour ajouter une adresse de courriel de réponse :
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Paramètres__.
 1. Dans la section __Courriel__, sélectionnez __Configurer__ à la ligne __Adresses courriel de réponse__.
 1. Sélectionnez __Ajouter une adresse courriel de réponse__.
@@ -87,7 +87,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 
 ## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
 
-Pour activer cette fonctionnalité, [connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
+Pour activer cette fonctionnalité, [connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 
 ### Types de fichiers
 
@@ -95,7 +95,7 @@ Vous pouvez téléverser des fichiers aux formats .pdf, .csv, .jpeg, .png, .odt,
 
 ### Nombre de fichiers et volume des fichiers
 
-GC Notification impose une limite de dix pièces jointes par notification courriel.
+Notification GC impose une limite de dix pièces jointes par notification courriel.
 
 Le volume du courriel, pièces jointes comprises, ne peut excéder 6 Mo.
 
@@ -108,7 +108,7 @@ Vous avez le choix de la méthode d’envoi pour chaque appel d’API.
 
 ### L’envoi sous forme de pièce jointe est généralement préférable
 
-Si vous optez pour un envoi sous forme de lien, GC Notification devra chiffrer et stocker le fichier. Nous supprimons les fichiers correspondants au bout de sept jours pour des raisons de confidentialité. Les destinataires qui cliqueraient sur le lien après cette période se verraient indiquer une erreur 404, ce qui signifie que le fichier est introuvable.
+Si vous optez pour un envoi sous forme de lien, Notification GC devra chiffrer et stocker le fichier. Nous supprimons les fichiers correspondants au bout de sept jours pour des raisons de confidentialité. Les destinataires qui cliqueraient sur le lien après cette période se verraient indiquer une erreur 404, ce qui signifie que le fichier est introuvable.
 
 À l’inverse, l’accès aux pièces jointes n’est pas limité dans le temps, à condition que le fournisseur de courriel des destinataires le permette. Il est également possible que les destinataires aient davantage l’habitude de recevoir des fichiers sous la forme de pièces jointes.
 
@@ -163,7 +163,7 @@ Vous trouverez votre demande en pièce jointe.
 
 **Ajouter un espace réservé au gabarit**
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Gabarits__ et sélectionnez le gabarit de courriel approprié.
 1. Sélectionnez __Modifier__.
 1. Ajoutez un espace réservé au gabarit de courriel à l’aide de parenthèses doubles. Par exemple : `((lien_vers_fichier))`
@@ -238,7 +238,7 @@ Si la demande a été refusée, le corps de la réponse est `json`. Consultez le
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
-|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande, renvoyez votre notification.|
 
 ## Envoyer un message texte
 
@@ -292,7 +292,7 @@ Vous pouvez ignorer cet argument si vous n’avez pas de référence.
 
 Pour rechercher l’expéditeur du message texte :
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Accédez à la page __Paramètres__.
 1. Dans la section __Messages texte__, sélectionnez __Configurer__ à la ligne __Expéditeurs de messages texte__.
 
@@ -344,7 +344,7 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne [clé API](cles.md).|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
-|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande, renvoyez votre notification.|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande, renvoyez votre notification.|
 
 
 ## Envoyer des notifications de masse
@@ -397,12 +397,12 @@ Les lignes suivantes doivent inclure les informations de vos destinataires et do
 
 Pour trouver l'identifiant de votre addresse courriel de réponse :
 
-1. [Connectez-vous à GC Notification](https://notification.canada.ca/sign-in?lang=fr).
+1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Allez dans la page __Paramètres__.
 1. Dans la section __Courriel__, sélectionnez __Adresses courriel de réponse__
 1. Copiez l'identifiant de l'adresse que vous souhaitez utiliser
 
-Par défaut, GC Notification utilisera votre adresse de courriel de réponse par défaut si vous n'en spécifiez pas, ou aucune si vous n'avez pas configuré cette fonctionnalité.
+Par défaut, Notification GC utilisera votre adresse de courriel de réponse par défaut si vous n'en spécifiez pas, ou aucune si vous n'avez pas configuré cette fonctionnalité.
 
 **csv (optionnel)**
 
@@ -423,7 +423,7 @@ Par exemple :
 
 ::: warning Délai d'attente de la réponse
 
-Si vous spécifiez un délai d'attente de la réponse lors de votre appel HTTP, assurez-vous qu'il soit défini à 15 secondes. L'API GC Notification pourrait prendre quelques secondes pour valider votre requête et sauvegarder vos paramètres si votre envoi de masse comporte beaucoup de destinataires.
+Si vous spécifiez un délai d'attente de la réponse lors de votre appel HTTP, assurez-vous qu'il soit défini à 15 secondes. L'API Notification GC pourrait prendre quelques secondes pour valider votre requête et sauvegarder vos paramètres si votre envoi de masse comporte beaucoup de destinataires.
 
 :::
 
@@ -462,7 +462,7 @@ Si la demande est acceptée, le corps de la réponse est `json` avec un code de 
 }
 ```
 
-Vous pouvez suivre la progression de votre envoi de masse dans l'interface de GC Notification.
+Vous pouvez suivre la progression de votre envoi de masse dans l'interface de Notification GC.
 
 Si vous avez programmé votre envoi, vous pouvez l'annuler dans l'interface web.
 
@@ -488,4 +488,4 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You cannot send to these recipients because your service is in trial mode. You can only send to members of your team and your safelist."`<br>`}]`|Ajoutez des membres à votre équipe, mettez à jour votre liste de confiance ou demandez d'activer votre service|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Retirez les lignes en surplus, essayez à nouveau demain ou demander une augmentation de limites|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Assurez-vous que les lignes n'ont pas de valeurs manquantes|
-|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notification n’a pas pu traiter la demande. Renvoyez votre notification.|
+|`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande. Renvoyez votre notification.|

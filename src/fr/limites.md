@@ -2,7 +2,7 @@
 
 ## Limites d’appels à l’API
 
-Votre service GC Notification peut envoyer 1 000 requêtes HTTP par minute.
+Votre service Notification GC peut envoyer 1 000 requêtes HTTP par minute.
 
 Cette limite est calculée sur une base continue, par type de clé API. Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitError`.
 
