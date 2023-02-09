@@ -219,7 +219,23 @@ If the request to the client is successful, the client returns a `dict`:
 
 ### Error codes
 
-If the request is not successful, the response body is `json`. Refer to the table below for details.
+If the request is not successful, the response body is `json` with the key `status_code` containing the integer status code and the key `errors` containing an array of objects each of which has keys `error` and `message`. Refer to the table below for status codes and example error objects. Example error response:
+
+```json
+{
+  "errors": [
+    {
+      "error": "BadRequestError",
+      "message": "The error message."
+    },
+    {
+      "error": "ValidationError",
+      "message": "The error message."
+    },
+  ],
+  "status_code": 400
+}
+```
 
 |status_code|message|How to fix|
 |:---|:---|:---|
@@ -333,7 +349,7 @@ All messages sent using the team and safelist or live keys will appear on your d
 
 ### Error codes
 
-If the request is not successful, the response body is `json`, refer to the table below for details.
+If the request is not successful, the response body is `json` with the key `status_code` containing the integer status code and the key `errors` containing an array of objects each of which has keys `error` and `message`. Refer to the table below for status codes and example error objects. See the example error response above.
 
 |status_code|message|How to fix|
 |:---|:---|:---|
@@ -465,7 +481,7 @@ If you scheduled your batch in the future, you can cancel it from the web interf
 
 ### Error codes
 
-If the request is not successful, the response body is `json`, refer to the table below for details.
+If the request is not successful, the response body is `json` with the key `status_code` containing the integer status code and the key `errors` containing an array of objects each of which has keys `error` and `message`. Refer to the table below for status codes and example error objects. See the example error response above.
 
 |status_code|message|How to fix|
 |:---|:---|:---|
