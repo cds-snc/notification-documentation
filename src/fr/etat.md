@@ -101,7 +101,7 @@ GET /v2/notifications
 
 #### Tous les messages
 
-Cela retournera tous vos messages avec des états. Chaque page contiendra jusqu’à 250 messages.
+Cela retournera vos messages avec des états. Le type de clé API que vous utilisez pour effectuer des requêtes vers ce point de terminaison de l'API est important (c'est-à-dire Équipe, Test ou Active). Ce type sera assorti au type de clé API qui a créé vos messages. Si vous effectuez une requête avec une clé API Active, seuls les messages créés par des clés API Active seront renvoyés. Chaque page contiendra jusqu’à 250 messages.
 
 Vous pouvez filtrer les messages retournés en incluant les arguments facultatifs suivants dans l’adresse URL :
 
