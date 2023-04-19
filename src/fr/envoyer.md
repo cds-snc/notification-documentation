@@ -24,8 +24,8 @@ Votre appel à l'API doit également inclure tous les champs qui ont été confi
 ## Vérifiez l’état du message, corrigez et envoyez à nouveau**
 
 Si vous obtenez pour vos requêtes HTTP:
-1. une erreur de classe 4** correspondant à une requête invalide; ou
-1. une erreur de classe 5** correspondant à un échec du serveur,
+1. une erreur de classe 4xx correspondant à une requête invalide; ou
+1. une erreur de classe 5xx correspondant à un échec du serveur,
 
 Notification GC traite ces erreurs comme des demandes non traitées. Pour que Notification GC puisse réessayer jusqu’à ce que l’envoi soit effectué, les demandes doivent obtenir un succès de classe 2**.
 Limitez les requêtes à l’API de Notification GC à 1 000 par minute. Si vous dépassez ce nombre, vous obtiendrez une erreur 429.
