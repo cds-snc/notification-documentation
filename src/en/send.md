@@ -219,7 +219,10 @@ If the request to the client is successful, the client returns a `dict`:
 
 ### Error codes
 
-If the request is not successful, the response body is `json` with the key `status_code` containing the integer status code and the key `errors` containing an array of objects each of which has keys `error` and `message`. Refer to the table below for status codes and example error objects. Example error response:
+If the request fails, the response body is `json` with the following keys:
+- `status_code` with the integer status code
+- `errors` with an array of objects. Each object has 2 more keys, one  labeled `error` and the other labeled `message`.
+The table below gives status codes and example error objects.
 
 ```json
 {
