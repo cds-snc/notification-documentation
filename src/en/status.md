@@ -102,7 +102,7 @@ GET /v2/notifications
 
 #### All messages
 
-This will return all your messages with statuses. They will display in pages of up to 250 messages each.
+This will return your messages with statuses. The type of API key you use to make requests to this endpoint is important (i.e. Team, Test, or Live). This type will be matched with the type of API key that created your messages. If you make a request with a Live API key, only messages created by Live API keys will be returned. They will display in pages of up to 250 messages each.
 
 You can filter the returned messages by including the following optional arguments in the URL:
 
