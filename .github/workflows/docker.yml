@@ -79,7 +79,7 @@ jobs:
         app_id: ${{ secrets.NOTIFY_PR_BOT_APP_ID }}
         private_key: ${{ secrets.NOTIFY_PR_BOT_PRIVATE_KEY }}
 
-    - uses: cds-snc/notification-pr-bot@master
+    - uses: cds-snc/notification-pr-bot@main
       env:
         TOKEN: ${{ steps.notify-pr-bot.outputs.token }} 
 
