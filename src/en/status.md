@@ -7,13 +7,13 @@ Message status depends on the type of message you have sent.
 You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
 
 ## Email status
-
 |Status|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
 |Sending|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
+|Sent|GC Notify has received delivery information from the provider that indicates the message was successfully delivered to the recipient|
 |Delivered|The message was successfully delivered.|
-|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider.<br>You’ll have to try sending your messages again."|
+|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider.<br>- `virus-scan-failed` - "Your message was not sent because a virus was detected in an attachment of the message. You'll have to check the contents of attachments and try sending the messages again."<br>You’ll have to try sending your messages again."|
 
 ## Text message status
 
@@ -166,7 +166,8 @@ If the request is successful, the response body is `json` and the status code is
       "email_address": "sender@something.com",  # required string for emails
       "phone_number": "+447900900123",  # required string for text messages
       "type": "email / sms", # required string
-      "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
+      "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure / virus-scan-failed / pending-virus-check", # required string
+      "status_description": "In Transit / Delivered / (Blocked / No such address) / Content or Inbox issue / Tech issue / Virus in attachment" # required string
       "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
       "template": {
         "version": 1
