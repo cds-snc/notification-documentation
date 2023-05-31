@@ -14,7 +14,7 @@ You can only get the status of messages that are 7 days old or newer (by default
 |Pending|GC Notify is waiting for more delivery information.<br>GC Notify received a callback from the provider but the recipient’s device has not yet responded. Another callback from the provider determines the final status of the notification.|
 |Sent|GC Notify has received delivery information from the provider that indicates the message was successfully delivered to the recipient|
 |Delivered|The message was successfully delivered.|
-|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider."<br>You’ll have to try sending your messages again.<br>- `virus-scan-failed` - "GC Notify did not send your message because we detected a virus in the attachments. Check the attachments and try again.
+|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider."<br>You’ll have to try sending your messages again.<br>- `virus-scan-failed` - "GC Notify did not send your message because we detected a virus in the attachments. Check the attachments and try again."|
 
 ## Text message status
 
@@ -61,8 +61,8 @@ If the request is successful, the response body is `json` and the status code is
   "email_address": "sender@something.com",  # required string for emails
   "phone_number": "+447900900123",  # required string for text messages
   "type": "email / sms", # required string
-  "status": "created / sending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
-  "status_description": "In transit / In transit / Delivered / [Blocked | No such number | No such address] / [Content or inbox issue | Carrier issue] / Tech issue / In transit / Attachment has virus", # required string
+  "status": "created / sending / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
+  "status_description": "In transit / In transit / In transit / Delivered / [Blocked | No such number | No such address] / [Content or inbox issue | Carrier issue] / Tech issue / In transit / Attachment has virus", # required string
   "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
   "template": {
     "Version": 1
@@ -168,7 +168,7 @@ If the request is successful, the response body is `json` and the status code is
       "email_address": "sender@something.com",  # required string for emails
       "phone_number": "+447900900123",  # required string for text messages
       "type": "email / sms", # required string
-      "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
+      "status": "created / sending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
       "status_description": "In Transit / Delivered / [Blocked | No such number | No such address] / [Content or inbox issue | Carrier issue] / Tech issue / In transit / Attachment has virus", # required string
       "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
       "template": {
