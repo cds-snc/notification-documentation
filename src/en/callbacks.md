@@ -39,7 +39,8 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 |`id` | GC Notify’s id for the status receipts | UUID|
 |`reference` | The reference sent by the service | 12345678|
 |`to` | The email address or phone number of the recipient | hello@canada.ca or 01234567890|
-|`status` | The status of the notification | `delivered`, `permanent-failure`, `temporary-failure` or `technical-failure`|
+|`status` | The status of the notification | `created`, `sending`, `pending`, `sent`, `delivered`, `permanent-failure`, `temporary-failure`, `technical-failure`, `pending-virus-check` or `virus-scan-failed`|
+|`status_description` | The descriptive form of `status` | `In transit`, `In transit`, `In transit`, `Delivered`, `[Blocked | No such number | No such address]`, `[Content or inbox issue | Carrier issue]`, `Tech issue`, `In transit`, `Attachment has virus`|
 |`provider_response` | The detailed response from the provider. This will only be not null in a case of a technical failure | `Blocked as spam by phone carrier` (or any other message) or nil|
 |`created_at` | The time the service sent the request | `2017-05-14T12:15:30.000000Z`|
 |`completed_at` | The last time the status was updated | `2017-05-14T12:15:30.000000Z` or nil|
