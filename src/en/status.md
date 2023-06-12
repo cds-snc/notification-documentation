@@ -7,13 +7,14 @@ Message status depends on the type of message you have sent.
 You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
 
 ## Email status
-
 |Status|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
 |Sending|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
+|Pending|GC Notify is waiting for more delivery information.<br>GC Notify received a callback from the provider but the recipient’s device has not yet responded. Another callback from the provider determines the final status of the notification.|
+|Sent|GC Notify has received delivery information from the provider that indicates the message was successfully delivered to the recipient|
 |Delivered|The message was successfully delivered.|
-|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider.<br>You’ll have to try sending your messages again."|
+|Failed|This covers all failure statuses:<br>- `permanent-failure` - "The provider could not deliver the message because the email address was wrong. You should remove these email addresses from your database."<br>- `temporary-failure` - "The provider could not deliver the message. This can happen when the recipient’s inbox is full. You can try to send the message again."<br>- `technical-failure` - "Your message was not sent because there was a problem between GC Notify and the provider."<br>You’ll have to try sending your messages again.<br>- `virus-scan-failed` - "GC Notify did not send your message because we detected a virus in the attachments. Check the attachments and try again."|
 
 ## Text message status
 
@@ -60,7 +61,8 @@ If the request is successful, the response body is `json` and the status code is
   "email_address": "sender@something.com",  # required string for emails
   "phone_number": "+447900900123",  # required string for text messages
   "type": "email / sms", # required string
-  "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
+  "status": "created / sending / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
+  "status_description": "In transit / In transit / In transit / Delivered / [Blocked | No such number | No such address] / [Content or inbox issue | Carrier issue] / Tech issue / In transit / Attachment has virus", # required string
   "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
   "template": {
     "Version": 1
@@ -68,7 +70,7 @@ If the request is successful, the response body is `json` and the status code is
     "uri": "/v2/template/{id}/{version}", # required
   },
   "body": "STRING", # required string - body of notification
-  "subject": "STRING" # required string for email - subject of email
+  "subject": "STRING", # required string for email - subject of email
   "created_at": "STRING", # required string - date and time notification created
   "created_by_name": "STRING", # optional string - name of the person who sent the notification if sent manually
   "sent_at": "STRING", # optional string - date and time notification sent to provider
@@ -166,7 +168,8 @@ If the request is successful, the response body is `json` and the status code is
       "email_address": "sender@something.com",  # required string for emails
       "phone_number": "+447900900123",  # required string for text messages
       "type": "email / sms", # required string
-      "status": "sending / delivered / permanent-failure / temporary-failure / technical-failure", # required string
+      "status": "created / sending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # required string
+      "status_description": "In Transit / Delivered / [Blocked | No such number | No such address] / [Content or inbox issue | Carrier issue] / Tech issue / In transit / Attachment has virus", # required string
       "provider_response": "STRING", # optional string - will not be null only when the status is a technical failure
       "template": {
         "version": 1
@@ -174,7 +177,7 @@ If the request is successful, the response body is `json` and the status code is
         "uri": "/v2/template/{id}/{version}", # required
       },
       "body": "STRING", # required string - body of notification
-      "subject": "STRING" # required string for email - subject of email
+      "subject": "STRING", # required string for email - subject of email
       "created_at": "STRING", # required string - date and time notification created
       "created_by_name": "STRING", # optional string - name of the person who sent the notification if sent manually
       "sent_at": " STRING", # optional string - date and time notification sent to provider
