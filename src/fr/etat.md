@@ -12,8 +12,9 @@ Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant 
 |:---|:---|
 |Créé|Notification GC a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
 |Envoi en cours|Notification GC a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. Notification GC attend les renseignements de livraison.|
+|En attente|Notification GC attend plus de renseignements sur la livraison.<br>Notification GC a reçu un rappel du fournisseur, mais l’appareil du destinataire n’a pas encore répondu. Un autre rappel du fournisseur détermine l’état final de la notification.|
 |Livraison réussie|Le message a été livré avec succès.|
-|Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message, car l’adresse de courriel était inexacte. Vous devez supprimer ces adresses de courriel de votre base de données."<br>- `temporary-failure` - "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire lorsque la boîte de réception du destinataire est pleine. Vous pouvez essayer de renvoyer le message."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre Notification GC et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages."|
+|Échec|Ce champ couvre tous les états d’échec : <br>- `permanent-failure` – "Le fournisseur n’a pas pu envoyer le message, car l’adresse de courriel était inexacte. Vous devez supprimer ces adresses de courriel de votre base de données."<br>- `temporary-failure` - "Le fournisseur n’a pas pu envoyer le message. Cela peut se produire lorsque la boîte de réception du destinataire est pleine. Vous pouvez essayer de renvoyer le message."<br>- `technical-failure` - "Votre message n’a pas été envoyé, car il y a un problème entre Notification GC et le fournisseur.<br>Vous devrez essayer de renvoyer vos messages."<br> `virus-scan-failed` "Notification GC n’a pas envoyé votre message, car un virus a été détecté dans vos pièces jointes. Veuillez vérifier ces dernières et réessayer."|
 
 ## État du message texte
 
@@ -60,7 +61,8 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
   "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
   "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
   "type" : "email / sms", # chaîne obligatoire
-  "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
+  "status" : "created / sending / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # chaîne obligatoire
+  "status_description": "Envoi en cours / Envoi en cours  / Envoi en cours / Livraison réussie / [Message bloqué | Numéro inexistante | Adresse inexistant] / [Problème de contenu ou de boîte de réception | Problème du fournisseur] / Problème technique / Envoi en cours / Virus dans la pièce jointe", # chaîne obligatoire
   "provider_response": "STRING", # chaîne facultative - ne sera pas nulle si seulement le statut est une erreur technique
   "template": {
     "Version": 1
@@ -101,7 +103,7 @@ GET /v2/notifications
 
 #### Tous les messages
 
-Cela retournera tous vos messages avec des états. Chaque page contiendra jusqu’à 250 messages.
+Cela retournera vos messages avec des états. Le type de clé API que vous utilisez pour effectuer des requêtes vers ce point de terminaison de l'API est important (c'est-à-dire Équipe, Test ou Active). Ce type sera assorti au type de clé API qui a créé vos messages. Si vous effectuez une requête avec une clé API Active, seuls les messages créés par des clés API Active seront renvoyés. Chaque page contiendra jusqu’à 250 messages.
 
 Vous pouvez filtrer les messages retournés en incluant les arguments facultatifs suivants dans l’adresse URL :
 
@@ -165,7 +167,8 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
       "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
       "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
       "type" : "email / sms", # chaîne obligatoire
-      "status" : "sending / delivered / permanent-failure / temporary-failure / technical-failure", # chaîne obligatoire
+      "status" : "created / sending / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # chaîne obligatoire
+      "status_description": "Envoi en cours / Envoi en cours / Envoi en cours / Livraison réussie / [Message bloqué | Numéro inexistante | Adresse inexistant] / Problème de contenu ou de boîte de réception / Problème technique / Envoi en cours / Virus dans la pièce jointe", # chaîne obligatoire
       "provider_response": "STRING", # chaîne facultative - ne sera pas nulle si seulement le statut est une erreur technique
       "template": {
         "version": 1
