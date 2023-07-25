@@ -220,7 +220,28 @@ Si la demande au client est acceptée, le client renvoie un `dict` :
 
 ### Codes d’erreur
 
-Si la demande a été refusée, le corps de la réponse est `json`. Consultez le tableau ci-dessous pour plus de détails.
+Si la requête échoue, le corps de la réponse est au format `json` avec les clés suivantes:
+
+- `status_code` avec le code de statut sous forme d'entier,
+- `errors` avec un tableau d'objets. Chaque objet possède 2 clés supplémentaires, l'une étiquetée `error` et l'autre étiquetée `message`.
+
+```json
+{
+  "errors": [
+    {
+      "error": "BadRequestError",
+      "message": "Le message d'erreur."
+    },
+    {
+      "error": "ValidationError",
+      "message": "Le message d'erreur."
+    },
+  ],
+  "status_code": 400
+}
+```
+
+Le tableau ci-dessous présente les codes de statut et des exemples d'objets d'erreur.
 
 |status_code|message|Comment réparer|
 |:---|:---|:---|
