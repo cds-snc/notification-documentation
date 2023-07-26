@@ -228,7 +228,28 @@ If the request to the client is successful, the client returns a `dict`:
 
 ### Error codes
 
-If the request is not successful, the response body is `json`. Refer to the table below for details.
+If the request fails, the response body is `json` with the following keys:
+
+- `status_code` with the integer status code,
+- `errors` with an array of objects. Each object has 2 more keys, one  labeled `error` and the other labeled `message`.
+
+```json
+{
+  "errors": [
+    {
+      "error": "BadRequestError",
+      "message": "The error message."
+    },
+    {
+      "error": "ValidationError",
+      "message": "The error message."
+    },
+  ],
+  "status_code": 400
+}
+```
+
+The table below gives status codes and example error objects.
 
 |status_code|message|How to fix|
 |:---|:---|:---|
