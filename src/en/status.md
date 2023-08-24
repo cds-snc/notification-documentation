@@ -10,7 +10,7 @@ You can only get the status of messages that are 7 days old or newer (by default
 |Status|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
-|Sending|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
+|In transit|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
 |Pending|GC Notify is waiting for more delivery information.<br>GC Notify received a callback from the provider but the recipient’s device has not yet responded. Another callback from the provider determines the final status of the notification.|
 |Sent|GC Notify has received delivery information from the provider that indicates the message was successfully delivered to the recipient|
 |Delivered|The message was successfully delivered.|
@@ -21,7 +21,7 @@ You can only get the status of messages that are 7 days old or newer (by default
 |Status|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
-|Sending|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
+|In transit|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
 |Pending|GC Notify is waiting for more delivery information.<br>GC Notify received a callback from the provider but the recipient’s device has not yet responded. Another callback from the provider determines the final status of the notification.|
 |Sent / Sent internationally|The message was sent to an international number. The mobile networks in some countries do not provide any more delivery information. The GC Notify client API returns this status as `sent`. The GC Notify client app returns this status as `Sent to an international number`.|
 |Delivered|The message was successfully delivered.|

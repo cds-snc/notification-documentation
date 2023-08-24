@@ -39,7 +39,7 @@ Le message de la fonction de rappel est formaté en JSON. Toutes les valeurs son
 |`id` | ID de Notification GC pour les accusés d’état  | UUID|
 |`reference` | Référence envoyée par le service | 12345678|
 |`to` | L’adresse de courriel ou numéro de téléphone du destinataire | hello@canada.ca ou 01234567890|
-|`status` | État de la notification | `delivered`, `permanent-failure`, `temporary-failure` ou `technical-failure`|
+|`status` | État de la notification | `created`, `in transit`, `pending`, `sent`, `delivered`, `permanent-failure`, `temporary-failure`, `technical-failure`, `pending-virus-check` ou `virus-scan-failed`|
 |`status_description` | (placeholder) Libellé de l'état de livraison de la notification | `Envoi en cours`, `Envoi en cours`, `Envoi en cours`, `Livraison réussie`, `[Message bloqué | Numéro inexistante | Adresse inexistant]`, `[Problème de contenu ou de boîte de réception | Problème du fournisseur]`, `Problème technique`, `Envoi en cours`, `Virus dans la pièce jointe`|
 |`provider_response` | La réponse détaillée venant du fournisseur. Ceci sera renseigné uniquement lorsque l’état de la notification est une erreur technique | `Blocked as spam by phone carrier` (ou tout autre message) ou nul|
 |`created_at` | Heure à laquelle le service a envoyé la demande | `2017-05-14T12:15:30.000000Z`|
