@@ -167,7 +167,7 @@ Si la demande est acceptée, le corps de la réponse est `json` et le code d’�
       "email_address" : "expéditeur@quelquechose.com", # chaîne obligatoire pour les courriels
       "phone_number": "+447900900123",  # chaîne obligatoire pour les messages texte
       "type" : "email / sms", # chaîne obligatoire
-      "status" : "created / sending / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # chaîne obligatoire
+      "status" : "created / in transit / pending / delivered / permanent-failure / temporary-failure / technical-failure / pending-virus-check / virus-scan-failed", # chaîne obligatoire
       "status_description": "Envoi en cours / Envoi en cours / Envoi en cours / Livraison réussie / [Message bloqué | Numéro inexistante | Adresse inexistant] / Problème de contenu ou de boîte de réception / Problème technique / Envoi en cours / Virus dans la pièce jointe", # chaîne obligatoire
       "provider_response": "STRING", # chaîne facultative - ne sera pas nulle si seulement le statut est une erreur technique
       "template": {
