@@ -8,7 +8,7 @@ Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant 
 
 ## État du courriel
 
-|État|Renseignements|
+|Description de l'état|Renseignements|
 |:---|:---|
 |Créé|Notification GC a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
 |Envoi en cours|Notification GC a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. Notification GC attend les renseignements de livraison.|
@@ -18,7 +18,7 @@ Vous ne pouvez obtenir que l’état des messages qui ont été envoyés durant 
 
 ## État du message texte
 
-|État|Renseignements|
+|Description de l'état|Renseignements|
 |:---|:---|
 |Créé|Notification GC a placé le message dans une file d’attente, prêt à être envoyé au fournisseur. Il ne doit rester dans cet état que quelques secondes.|
 |Envoi en cours|Notification GC a envoyé le message au fournisseur. Le fournisseur essaiera d’envoyer le message au destinataire pendant une période maximale de 72 heures. Notification GC attend les renseignements de livraison.|

@@ -7,7 +7,7 @@ Message status depends on the type of message you have sent.
 You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
 
 ## Email status
-|Status|Information|
+|Status Description|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
 |In transit|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
@@ -18,7 +18,7 @@ You can only get the status of messages that are 7 days old or newer (by default
 
 ## Text message status
 
-|Status|Information|
+|Status Description|Information|
 |:---|:---|
 |Created|GC Notify has placed the message in a queue, ready to be sent to the provider. It should only remain in this state for a few seconds.|
 |In transit|GC Notify has sent the message to the provider. The provider will try to deliver the message to the recipient for up to 72 hours. GC Notify is waiting for delivery information.|
