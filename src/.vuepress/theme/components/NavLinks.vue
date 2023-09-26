@@ -52,7 +52,24 @@ export default {
 
   computed: {
     userNav () {
-      return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
+      const mappings = [
+        {"en": "/en/", "fr": "/fr/",},
+        {"en": "/en/start", "fr": "/fr/commencer"},
+        {"en": "/en/send", "fr": "/fr/envoyer"},
+        {"en": "/en/status", "fr": "/fr/etat"},
+        {"en": "/en/testing", "fr": "/fr/essai"},
+        {"en": "/en/keys", "fr": "/fr/cles"},
+        {"en": "/en/limits", "fr": "/fr/limites"},
+        {"en": "/en/callbacks", "fr": "/fr/rappel"},
+        {"en": "/en/architecture", "fr": "/fr/architecture"},
+        {"en": "/en/clients", "fr": "/fr/clients"},
+      ]
+      const currentUrl = this.$page.path.split(".html")[0]
+      const lang = currentUrl.split('/')[1]
+      const otherLang = {"en": "fr", "fr": "en"}[lang]
+      const url = mappings.find(url => url[lang] == currentUrl)
+
+      return [{"text": lang == 'fr' ? "English" : "Français", "link": url[otherLang], "type": "link", "items": []}]
     },
 
     nav () {
