@@ -52,11 +52,37 @@ export default {
 
   computed: {
     userNav () {
-      return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
+      const mappings = [
+        {"en": "/", "fr": "/"},
+        {"en": "/en/", "fr": "/fr/"},
+        {"en": "/en/start", "fr": "/fr/commencer"},
+        {"en": "/en/send", "fr": "/fr/envoyer"},
+        {"en": "/en/status", "fr": "/fr/etat"},
+        {"en": "/en/testing", "fr": "/fr/essai"},
+        {"en": "/en/keys", "fr": "/fr/cles"},
+        {"en": "/en/limits", "fr": "/fr/limites"},
+        {"en": "/en/callbacks", "fr": "/fr/rappel"},
+        {"en": "/en/architecture", "fr": "/fr/architecture"},
+        {"en": "/en/clients", "fr": "/fr/clients"},
+        {"en": "/en/_api_endpoints", "fr": "/fr/clients"},
+        {"en": "/en/_arg_template_id", "fr": "/fr/_arg_template_id"},
+      ]
+      const currentUrl = this.$page.path.split(".html")[0]
+      const lang = currentUrl.split('/')[1]
+      // Workaround: During building, VuePress checks NavLinks against known routes
+      // In this method we depend on /en/ or /fr/ to exist in the url. This is not the case
+      // for the root "/". Once the app is running, "/" redirects to either '/en/' or '/fr/'
+      // this "context" isn't available during the build process, similar to how the window object
+      // is not available during a build and hence will fail if we used it here to get the current url.
+      if (lang == '') return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
+      const otherLang = {"en": "fr", "fr": "en"}[lang]
+      const url = mappings.find(url => url[lang] == currentUrl)
+      const txt = lang == 'fr' ? "English" : "Français"
+      const link = url[otherLang]
+      return [{"text": txt, "link": link, "type": "link", "items": []}]
     },
 
     nav () {
-      const { locales } = this.$site
       return this.userNav
     },
 
