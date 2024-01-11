@@ -4,7 +4,7 @@ You can use the GC Notify API to retrieve the status of one or more messages.
 
 Message status depends on the type of message you have sent.
 
-You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
+You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 7 days at either the service or notification level.
 
 ## Email status
 |Status Description|Information|
@@ -96,7 +96,7 @@ You can use the GC Notify API to find the status of multiple messages at the sam
 
 This API call returns one page of up to 250 messages and statuses. You can get either the most recent messages, or get older messages by specifying a particular notification ID in the `older_than` argument.
 
-You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 90 days at either the service or notification level.
+You can only get the status of messages that are 7 days old or newer (by default). Data retention can be configured to be anywhere between 3 and 7 days at either the service or notification level.
 
 ```
 GET /v2/notifications
