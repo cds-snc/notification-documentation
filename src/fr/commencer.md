@@ -20,7 +20,7 @@ L’en-tête comprend :
 Cette [clé API](cles.md) suit le format `{préfixe}-{nom_clé}-{iss-uuid}-{clé-secrète-uuid}`.
 
 Par exemple, si votre clé API est
-`gcntfy-ma_clé_test-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e84 7b4f122b0`:
+`gcntfy-ma_clé_test-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e847b4f122b0`:
 
 * votre préfixe de clé API est `gcntfy`
 * votre nom de clé API est `ma_clé_test`
@@ -30,7 +30,7 @@ Par exemple, si votre clé API est
 Vous devez fournir la clé entière dans l’en-tête HTTP lorsque vous appelez l'API :
 
 ```json
-"Authorization": "ApiKey-v1 gcntfy-ma_clé_test-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e84 7b4f122b0"
+"Authorization": "ApiKey-v1 gcntfy-ma_clé_test-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e847b4f122b0"
 ```
 
 **En-tête de contenu**
