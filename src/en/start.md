@@ -20,9 +20,9 @@ The header consists of:
 Your [API key](keys.md) follows the format `{prefix}-{key_name}-{iss-uuid}-{secret-key-uuid}`.
 
 For example, if your API key is
-`gcntfy-my_test_key-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e847b4f122b0`:
+`ApiKey-v1 gcntfy-my_test_key-26785a09-ab16-4eb0-8407-a37497a57506-3d844edf-8d35-48ac-975b-e847b4f122b0`:
 
-* your API key prefix is `gcntfy`
+* your API key prefix is `ApiKey-v1 gcntfy`
 * your API key name is `my_test_key`
 * your iss (your service ID) is `26785a09-ab16-4eb0-8407-a37497a57506`
 * your secret key is `3d844edf-8d35-48ac-975b-e847b4f122b0`
