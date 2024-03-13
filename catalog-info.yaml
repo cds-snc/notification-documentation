@@ -1,11 +1,17 @@
+# Metadata for the backstage catalog accessible at this link:
+# https://backstage.cdssandbox.xyz/
+---
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: notification-documentation
   description: Documentation website for GC Notify | Documentation de GC Notification
+  annotations:
+    github.com/project-slug: cds-snc/notification-documentation
   labels:
     license: MIT
 spec:
   type: website
-  lifecycle: experimental
-  owner: cds-snc
+  lifecycle: production
+  owner: group:cds-snc/notify-dev
+  system: gc-notification
