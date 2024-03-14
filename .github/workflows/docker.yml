@@ -8,6 +8,7 @@ env:
   AWS_REGION: ca-central-1
   DOCKER_ORG: public.ecr.aws/cds-snc
   DOCKER_SLUG: public.ecr.aws/cds-snc/notify-documentation
+  WORKFLOW_PAT: ${{ secrets.WORKFLOW_GITHUB_PAT }}
 
 permissions:
   id-token: write   # This is required for requesting the OIDC JWT
