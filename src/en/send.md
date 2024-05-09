@@ -516,3 +516,19 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You only have 50 remaining messages before you reach your daily limit. You've tried to send 75 messages."`<br>`}]`|Remove rows in excess, try again tomorrow or request a limit increase|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Some rows have errors. Row 1 - name: Missing. Row 2 - email address: invalid recipient. Row 3 - name: Missing. Row 4 - name: Missing."`<br>`}]`|Make sure rows don't have missing values|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request. Re-send your notification.|
+
+## CURL Example
+
+Example to send a single notification
+
+```
+curl --request POST \
+  --url https://notification.canada.ca/v2/notifications/email \
+  --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
+  --header 'Content-Type: application/json' \
+  --header 'base_url: https:///notification.canada.ca' \
+  --data '{
+        "email_address": "EMAIL_ADDRESS_TO_SEND_NOTIFICAITION",
+        "template_id": "TEMPLATE_ID"
+}
+```
