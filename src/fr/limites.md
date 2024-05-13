@@ -6,12 +6,6 @@ Votre service Notification GC peut envoyer 1 000 requêtes HTTP par minute.
 
 Cette limite est calculée sur une base continue, par type de clé API. Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitError`.
 
-::: tip Ajuster la limite d’appels à l’API
-
-Cette limite peut être modifiée en fonction de vos besoins. Pour demander une augmentation de la limite, [communiquez avec nous](https://notification.canada.ca/contact?lang=fr).
-
-:::
-
 ## Limites quotidiennes
 
 Il y a une limite au nombre de messages que vous pouvez envoyer chaque jour :

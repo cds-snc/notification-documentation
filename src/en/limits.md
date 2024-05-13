@@ -6,12 +6,6 @@ Your GC Notify service is limited to doing 1,000 API requests per minute.
 
 This limit is calculated on a rolling average basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
 
-::: tip Adjusting the API rate limit
-
-This rate limit can be changed if you need. To request an API rate limit increase, [contact us](https://notification.canada.ca/contact).
-
-:::
-
 ## Daily limits
 
 There’s a limit to the number of messages you can send each day:
