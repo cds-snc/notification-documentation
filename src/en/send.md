@@ -530,5 +530,5 @@ curl --request POST \
   --data '{
         "email_address": "EMAIL_ADDRESS_TO_SEND_NOTIFICAITION",
         "template_id": "TEMPLATE_ID"
-}
+}'
 ```
