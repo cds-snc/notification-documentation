@@ -523,7 +523,7 @@ Example to send a single notification
 
 ```
 curl --request POST \
-  --url https://notification.canada.ca/v2/notifications/email \
+  --url https://api.notification.canada.ca/v2/notifications/email \
   --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
   --header 'Content-Type: application/json' \
   --header 'base_url: https:///notification.canada.ca' \
