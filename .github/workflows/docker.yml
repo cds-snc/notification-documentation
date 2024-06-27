@@ -9,6 +9,7 @@ env:
   DOCKER_ORG: public.ecr.aws/cds-snc
   DOCKER_SLUG: public.ecr.aws/cds-snc/notify-documentation
   WORKFLOW_PAT: ${{ secrets.WORKFLOW_GITHUB_PAT }}
+  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}  
 
 permissions:
   id-token: write   # This is required for requesting the OIDC JWT
@@ -51,10 +52,42 @@ jobs:
       run: |
         docker push $DOCKER_SLUG:latest && docker push $DOCKER_SLUG:${GITHUB_SHA::7}
 
-    - name: Rollout in Kubernetes
+ - name: Configure credentials to Notify account using OIDC
+      uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
+      with:
+        role-to-assume: arn:aws:iam::239043911459:role/notification-document-download-api-apply
+        role-session-name: NotifyDocumentDownloadApiGitHubActions
+        aws-region: "ca-central-1"
+
+    - name: Install OpenVPN
       run: |
-        ./scripts/callManifestsRollout.sh ${GITHUB_SHA::7}
-   
+        sudo apt update
+        sudo apt install -y openvpn openvpn-systemd-resolved
+
+    - name: Install 1Pass CLI
+      run: |
+        curl -o 1pass.deb https://downloads.1password.com/linux/debian/amd64/stable/1password-cli-amd64-latest.deb
+        sudo dpkg -i 1pass.deb
+
+    - name: One Password Fetch
+      run: |
+        op read op://4eyyuwddp6w4vxlabrr2i2duxm/"Staging Github Actions VPN"/notesPlain > /var/tmp/staging.ovpn
+
+    - name: Connect to VPN
+      uses: "kota65535/github-openvpn-connect-action@cd2ed8a90cc7b060dc4e001143e811b5f7ea0af5"
+      with:
+        config_file: /var/tmp/staging.ovpn
+        client_key: ${{ secrets.STAGING_OVPN_CLIENT_KEY }}
+        echo_config: false       
+        
+    - name: Get Kubernetes configuration
+      run: |
+        aws eks --region $AWS_REGION update-kubeconfig --name notification-canada-ca-staging-eks-cluster --kubeconfig $HOME/.kube/config
+
+    - name: Update image in staging
+      run: |
+        kubectl set image deployment.apps/documentation documentation=$DOCKER_SLUG:${GITHUB_SHA::7} -n=notification-canada-ca --kubeconfig=$HOME/.kube/config
+
     - name: my-app-install token
       id: notify-pr-bot
       uses: getsentry/action-github-app-token@38a3ce582e170ddfe8789f509597c6944f2292a9 # v1.0.6
