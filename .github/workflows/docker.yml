@@ -52,7 +52,7 @@ jobs:
       run: |
         docker push $DOCKER_SLUG:latest && docker push $DOCKER_SLUG:${GITHUB_SHA::7}
 
- - name: Configure credentials to Notify account using OIDC
+    - name: Configure credentials to Notify account using OIDC
       uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
       with:
         role-to-assume: arn:aws:iam::239043911459:role/notification-document-download-api-apply
