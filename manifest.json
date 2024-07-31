@@ -51,11 +51,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "15dfecde691cea3ecc0992d689a801133d0175f0",
-        "updatedAt": "2024-07-30T14:00:29.080Z",
-        "href": "repo-sync/site-reliability-engineering/default/review-apps/15dfec",
+        "headCommitId": "4f6e326a5d8f4c1fb6c46d6cac26c01c82b34344",
+        "updatedAt": "2024-07-31T13:59:51.419Z",
+        "href": "repo-sync/site-reliability-engineering/default/review-apps/4f6e32",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/158",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/repo-sync/site-reliability-engineering/default/review-apps/15dfec"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/repo-sync/site-reliability-engineering/default/review-apps/4f6e32"
       }
     ]
   }
