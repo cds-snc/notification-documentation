@@ -26,6 +26,38 @@ When creating a `Bearer` token, you should:
 - Make sure that callbacks you receive from GC Notify contain your bearer token in the `Authorization` header
 - Use a hashed value so that GC Notify doesn't hold the true token
 
+::: warning Health check requests
+
+GC Notify sends health check requests to the URL you provided, to verify that we can reach and receive a response from your API.
+
+```json
+{
+    "health_check": "true"
+}
+```
+
+:::
+
+We send these health checks when you:
+
+- Set up callbacks.
+- Update a callback configuration.
+- Test your service's response time via the callbacks page.
+
+## Maintaining your callbacks
+
+When you set up API callbacks for your GCNotify service, make sure that your API **has consistent uptime** and **can respond within 1 second.**
+
+
+If GC Notify has **periodic** problems delivering callbacks to your API, we will send you an email to let you know of any performance degradations.
+
+::: warning Temporary suspensions
+
+If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily suspend callback deliveries for your service** and send you an email with steps to resolve the suspension.
+
+:::
+
+
 ## Message delivery receipts
 
 When you send an email or text message, GC Notify will send a receipt to your callback URL to tell you if it was delivered or not. This is an automated method to get the status of messages.
