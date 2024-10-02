@@ -44,16 +44,27 @@ We send these health checks when you:
 - Update a callback configuration.
 - Test your service's response time via the callbacks page.
 
+:::tip GC Notify offers API response time testing
+
+You can access it directly from our website. From your service dashboard, visit `API Integration > Callbacks`.
+:::
+
 ## Maintaining your callbacks
 
-When you set up API callbacks for your GCNotify service, make sure that your API **has consistent uptime** and **can respond within 1 second.**
+When you set up API callbacks for your GCNotify service, make sure that your API has **consistent uptime** and can respond within **1 second.** It is important to:
+
+- Maintain adequate API logging to help you diagnose issues.
+- Identify and address bottlenecks in your code and infrastructure.
+- Monitor and test your API's response times.
 
 
-If GC Notify has **periodic** problems delivering callbacks to your API, we will send you an email to let you know of any performance degradations.
+### Delivery retries and suspensions
+
+GC Notify continues trying to deliver until a callback fails 25 times in 5 minutes. After that, we'll email to inform you there's a problem with your API.
 
 ::: warning Temporary suspensions
 
-If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily suspend callback deliveries for your service** and send you an email with steps to resolve the suspension.
+If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily suspend callback deliveries for your service and send you an email with steps to resolve the suspension.
 
 :::
 
