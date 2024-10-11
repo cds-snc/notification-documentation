@@ -10,5 +10,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/nginx-alpine/review-apps/8c075e"
       }
     ]
+  },
+  "renovate/all-patch": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "e8b4b56a3d3c91b5da4423f8bebb72d53b75c456",
+        "updatedAt": "2024-10-11T19:07:21.682Z",
+        "href": "renovate/all-patch/review-apps/e8b4b5",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/132",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-patch/review-apps/e8b4b5"
+      }
+    ]
   }
 }
