@@ -34,5 +34,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/lock-file-maintenance/review-apps/83c711"
       }
     ]
+  },
+  "renovate/nginx-alpine": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "03562dc05d4db05b4b94759d1cf0839f3ea93c2a",
+        "updatedAt": "2024-12-03T07:23:19.494Z",
+        "href": "renovate/nginx-alpine/review-apps/03562d",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/153",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/nginx-alpine/review-apps/03562d"
+      }
+    ]
   }
 }
