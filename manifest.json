@@ -11,18 +11,6 @@
       }
     ]
   },
-  "renovate/all-patch": {
-    "apps": [
-      {
-        "name": "review-apps",
-        "headCommitId": "7d080b247f53cba0d221d6bde8ffd44fdb6b97c1",
-        "updatedAt": "2024-11-28T16:33:04.072Z",
-        "href": "renovate/all-patch/review-apps/7d080b",
-        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/132",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-patch/review-apps/7d080b"
-      }
-    ]
-  },
   "renovate/lock-file-maintenance": {
     "apps": [
       {
