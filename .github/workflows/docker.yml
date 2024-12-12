@@ -92,7 +92,7 @@ jobs:
 
     - name: Update image in staging
       run: |
-        kubectl set image deployment.apps/documentation documentation=$DOCKER_SLUG:${GITHUB_SHA::7} -n=notification-canada-ca --kubeconfig=$HOME/.kube/config
+        kubectl set image deployment.apps/notify-documentation notify-documentation=$DOCKER_SLUG:${GITHUB_SHA::7} -n=notification-canada-ca --kubeconfig=$HOME/.kube/config
 
     - name: my-app-install token
       id: notify-pr-bot
