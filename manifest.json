@@ -1,0 +1,14 @@
+{
+  "renovate/nginx-alpine": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "d8391c94f6399b642a8186dfae835099143816b6",
+        "updatedAt": "2024-12-12T19:44:21.511Z",
+        "href": "renovate/nginx-alpine/review-apps/d8391c",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/153",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/nginx-alpine/review-apps/d8391c"
+      }
+    ]
+  }
+}
