@@ -8,7 +8,6 @@ env:
   AWS_REGION: ca-central-1
   DOCKER_ORG: public.ecr.aws/cds-snc
   DOCKER_SLUG: public.ecr.aws/cds-snc/notify-documentation
-  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN_STAGING }}  
 
 permissions:
   id-token: write   # This is required for requesting the OIDC JWT
@@ -56,15 +55,7 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::239043911459:role/notification-documentation-apply
         role-session-name: NotifyDocumentationGitHubActions
-        aws-region: "ca-central-1"
-        
-    - name: Setup Terraform tools
-      uses: cds-snc/terraform-tools-setup@v1
-      env: # In case you want to override default versions
-        CONFTEST_VERSION: 0.30.0 
-        TERRAFORM_VERSION: 1.9.5
-        TERRAGRUNT_VERSION: 0.66.9
-        TF_SUMMARIZE_VERSION: 0.2.3                           
+        aws-region: "ca-central-1"                       
 
     - name: Set Docker Tag
       run: echo "DOCKER_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
