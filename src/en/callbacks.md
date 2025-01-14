@@ -35,7 +35,6 @@ GC Notify sends health check requests to the URL you provided, to verify that we
     "health_check": "true"
 }
 ```
-
 :::
 
 We send these health checks when you:

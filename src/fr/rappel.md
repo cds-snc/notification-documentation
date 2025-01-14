@@ -26,6 +26,48 @@ Lors de la création d’un jeton `Bearer`, vous devez :
 - Assurez-vous que les fonctions de rappel que vous recevez de Notification GC contiennent votre jeton `Bearer` dans l’en-tête `Authorization`
 - utiliser une valeur hachée pour que Notification GC ne contienne pas le vrai jeton
 
+::: warning Demandes de bilan de santé
+
+Notification GC envoie des demandes de bilan de santé à l’URL que vous avez fournie afin de vérifier que nous pouvons joindre votre API et recevoir une réponse de sa part.
+
+```json
+{
+    "health_check": "true"
+}
+```
+
+:::
+
+Nous vous envoyons ces bilans de santé lorsque vous :
+
+- configurez des rappels;
+- mettez à jour une configuration de rappel; et
+- testez le temps de réponse de votre service via la page des rappels.
+
+:::tip Notification GC vous permet de tester le temps de réponse de votre API
+
+Vous pouvez accéder à cette fonctionnalité directement depuis notre site Web. À partir du tableau de bord de votre service, rendez-vous dans la section « Intégration API » puis dans « Fonctions de rappel ».
+
+:::
+
+## Maintenance de vos fonctions de rappel
+
+Lorsque vous configurez les rappels d’API pour votre service Notification GC, vérifiez que votre API offre un temps de fonctionnement constant et peut répondre dans un délai d’une seconde. Il est important de :
+
+- maintenir des journaux d’activité adéquats concernant votre API pour vous aider à diagnostiquer les problèmes;
+- reconnaître les goulots d'étranglement au sein de votre code et de votre infrastructure et d’y remédier; et de
+- surveiller et tester les temps de réponse de votre API.
+
+## Tentatives d’envoi et suspensions
+
+Notification GC continuera ses tentatives d’envoi jusqu’à ce qu’une fonction de rappel échoue 25 fois en 5 minutes. Après quoi, nous vous informerons par courriel qu’il y a un problème avec votre API.
+
+::: warning Suspensions temporaires
+
+Si Notification GC rencontre fréquemment des problèmes concernant l’envoi de rappels à votre API, nous pouvons suspendre temporairement ces envois pour votre service et vous envoyer un courriel détaillant les étapes à suivre pour mettre fin à la suspension.
+
+:::
+
 ## Accusés de réception de message
 
 Lorsque vous envoyez un courriel ou un message texte, Notification GC envoie un accusé de réception à votre adresse URL de rappel pour vous dire s’il a été livré ou non. Il s’agit d’une méthode automatisée pour obtenir l’état des messages.
