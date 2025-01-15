@@ -26,7 +26,7 @@ Lors de la création d’un jeton `Bearer`, vous devez :
 - Assurez-vous que les fonctions de rappel que vous recevez de Notification GC contiennent votre jeton `Bearer` dans l’en-tête `Authorization`
 - utiliser une valeur hachée pour que Notification GC ne contienne pas le vrai jeton
 
-::: warning Demandes de bilan de santé
+## Demandes de bilan de santé
 
 Notification GC envoie des demandes de bilan de santé à l’URL que vous avez fournie afin de vérifier que nous pouvons joindre votre API et recevoir une réponse de sa part.
 
@@ -36,17 +36,16 @@ Notification GC envoie des demandes de bilan de santé à l’URL que vous avez 
 }
 ```
 
-:::
-
 Nous vous envoyons ces bilans de santé lorsque vous :
 
 - configurez des rappels;
 - mettez à jour une configuration de rappel; et
 - testez le temps de réponse de votre service via la page des rappels.
 
+
 :::tip Notification GC vous permet de tester le temps de réponse de votre API
 
-Vous pouvez accéder à cette fonctionnalité directement depuis notre site Web. À partir du tableau de bord de votre service, rendez-vous dans la section « Intégration API » puis dans « Fonctions de rappel ».
+Vous pouvez accéder à cette fonctionnalité directement depuis notre site Web. À partir du tableau de bord de votre service, rendez-vous dans la section « Intégration API » puis dans <span style="white-space: nowrap;">« Fonctions de rappel ».</span>
 
 :::
 
