@@ -53,6 +53,8 @@ module.exports = {
         siteSubtitle: 'API documentation',
         backToNotifyLink: 'https://notification.canada.ca',
         backToNotifyText: 'Back to GC Notify',
+        backToGuidanceLink: 'https://notification.canada.ca/guidance',
+        backToGuidanceText: 'Visit Guidance',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last updated',
         serviceWorker: {
@@ -88,6 +90,8 @@ module.exports = {
         siteSubtitle: 'Documentation API',
         backToNotifyLink: 'https://notification.canada.ca?lang=fr',
         backToNotifyText: 'Retour à Notification GC',
+        backToGuidanceLink: 'https://notification.canada.ca/guidance?lang=fr',
+        backToGuidanceText: 'Guides de référence',
         editLinkText: 'Modifier cette page sur GitHub',
         lastUpdated: 'Dernière mise à jour ',
         serviceWorker: {
