@@ -62,7 +62,7 @@ GC Notify continues trying to deliver until a callback fails 25 times in 5 minut
 
 ::: warning Temporary suspensions
 
-If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily suspend callback deliveries for your service and send you an email with steps to resolve the suspension.
+If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily** suspend callback deliveries for your service and send you an email with steps to resolve the suspension.
 
 :::
 
