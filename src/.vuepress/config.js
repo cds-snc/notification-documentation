@@ -90,7 +90,7 @@ module.exports = {
         siteSubtitle: 'Documentation API',
         backToNotifyLink: 'https://notification.canada.ca?lang=fr',
         backToNotifyText: 'Retour à Notification GC',
-        backToGuidanceLink: 'https://notification.canada.ca/guidance?lang=fr',
+        backToGuidanceLink: 'https://notification.canada.ca/guides-reference',
         backToGuidanceText: 'Guides de référence',
         editLinkText: 'Modifier cette page sur GitHub',
         lastUpdated: 'Dernière mise à jour ',
