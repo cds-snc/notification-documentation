@@ -27,8 +27,9 @@ If your HTTP requests receive a:
 1. 4xx class error for an invalid request.
 1. 5xx class error for server failure.
 
-GC Notify treats these errors as unprocessed requests. Requests must receive 2xx class success in order for GC Notify to retry until sending is done.
-Restrict requests to GC Notify’s API to 1000 per minute. You’ll get a 429 error if you exceed this number.
+GC Notify treats these errors as unprocessed requests. You must resend these requests for Notify to process them.
+
+Requests must receive 2xx class success in order for GC Notify to retry until sending is done. Restrict requests to GC Notify’s API to 1000 per minute. You’ll get a 429 error if you exceed this number.
 
 ## Sending an email
 
