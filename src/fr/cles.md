@@ -1,5 +1,18 @@
 # Clés API
 
+## Sécurité
+
+Suivez toujours les étapes suivantes :
+* Utilisez un navigateur Web moderne et sécurisé.
+* Appliquez des correctifs de sécurité dans les 30 jours suivant le lancement.
+* Conservez les clés API dans un fichier chiffré dont l’accès est limité au personnel autorisé. Ne les communiquez pas par courriel ni par ticket de soutien et ne les mettez pas en texte clair dans un référentiel de code source.
+* Veillez à la rotation des clés dès qu’une personne ayant accès aux clés quitte votre équipe.
+* Donnez aux utilisateurs tiers et utilisatrices tierces une clé API unique.
+
+Nous recommandons l’utilisation d’un service de gestion de clés offert par un fournisseur de services infonuagiques pour garantir la sécurité des clés API.
+
+## Types de clés
+
 Il existe trois types de clés API différents :
 
 - test
