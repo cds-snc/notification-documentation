@@ -1,5 +1,18 @@
 # API keys
 
+## Security
+
+Always follow these steps:
+1. Use a modern, secure web browser.
+1. Apply security patches within 30 days of release.
+1. Keep API keys in an encrypted file that’s only for authorized staff. Do not share by email, support tickets or put in plain text in a source code repository.
+1. Rotate keys whenever anyone with key access leaves your team.
+1. Give third-party users a unique API key.
+
+We recommend using a cloud service provider’s key management service to keep API keys secure.
+
+## Key types
+
 There are three different types of API keys:
 
 - test
