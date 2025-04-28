@@ -166,6 +166,31 @@ Vous trouverez votre demande en pièce jointe.
 }
 ```
 
+Voici un exemple d’envoi de plusieurs fichiers :
+
+**Paramètres HTTP**
+```json
+"personalisation": {
+  "nom": "Amala",
+  "date": "2018-01-01",
+  "fichier": {
+    "file": "fichier encodé en base64",
+    "filename": "votre_nom_de_fichier_personnalisé.txt",
+    "sending_method": "attacher"
+  },
+  "fichier2": {
+    "file": "autre fichier encodé en base64",
+    "filename": "fichier2.txt",
+    "sending_method": "attacher"
+  },
+  "fichier3": {
+    "file": "fichier3 encodé en base64",
+    "filename": "fichier3.txt",
+    "sending_method": "attacher"
+    }
+}
+```
+
 #### Si vous envoyez des fichiers en tant que liens uniques
 
 1. Ajouter un espace réservé dans votre gabarit
