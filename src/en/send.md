@@ -165,6 +165,29 @@ You will find your application attached.
 }
 ```
 
+Below is an example of sending multiple files:
+
+**HTTP parameters**
+```json
+"personalisation": {        
+  "application_file": {
+    "file": "file as base64 encoded string",
+    "filename": "your_custom_filename.txt",
+    "sending_method": "attach"
+  },
+ "other_file": {
+    "file": "other file as base64 encoded string",
+    "filename": "file2.txt",
+    "sending_method": "attach"
+  },
+  "file_3": {
+    "file": "file3 as base64 encoded string",
+    "filename": "file3.txt",
+    "sending_method": "attach"
+  },
+}
+```
+
 #### If you’re sending files as unique links
 
 1. Add a placeholder to the email template
