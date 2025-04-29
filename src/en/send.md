@@ -175,7 +175,7 @@ Below is an example of sending multiple files:
     "filename": "your_custom_filename.txt",
     "sending_method": "attach"
   },
- "other_file": {
+  "other_file": {
     "file": "other file as base64 encoded string",
     "filename": "file2.txt",
     "sending_method": "attach"

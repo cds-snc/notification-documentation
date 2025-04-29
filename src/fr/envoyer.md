@@ -176,17 +176,17 @@ Voici un exemple d’envoi de plusieurs fichiers :
   "fichier": {
     "file": "fichier encodé en base64",
     "filename": "votre_nom_de_fichier_personnalisé.txt",
-    "sending_method": "attacher"
+    "sending_method": "attach"
   },
   "fichier2": {
     "file": "autre fichier encodé en base64",
     "filename": "fichier2.txt",
-    "sending_method": "attacher"
+    "sending_method": "attach"
   },
   "fichier3": {
     "file": "fichier3 encodé en base64",
     "filename": "fichier3.txt",
-    "sending_method": "attacher"
+    "sending_method": "attach"
     }
 }
 ```
