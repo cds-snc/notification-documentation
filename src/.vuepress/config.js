@@ -140,5 +140,47 @@ module.exports = {
         'ga': 'UA-102484926-14'
       }
     ],
-  ]
+  ],
+  chainWebpack: (config, isServer) => {
+    const jsRule = config.module.rule('js');
+
+    // Clear the existing exclude condition(s)
+    jsRule.exclude.clear();
+
+    // Add a new exclude function
+    jsRule.exclude.add(filepath => {
+      // Transpile .vue.js files (standard VuePress behavior)
+      if (/\.vue\.js$/.test(filepath)) {
+        return false;
+      }
+
+      // Transpile 'swagger-ui-dist' from node_modules
+      if (/[\\/]node_modules[\\/]swagger-ui-dist/.test(filepath)) {
+        return false; // Do not exclude: transpile this
+      }
+
+      // If you were also transpiling swagger-editor, you'd keep its rule:
+      // if (/[\\/]node_modules[\\/]swagger-editor/.test(filepath)) {
+      //   return false;
+      // }
+
+      // Exclude other node_modules
+      if (/[\\/]node_modules/.test(filepath)) {
+        return true; // Exclude these
+      }
+
+      // Do not exclude project source files (or other files not in node_modules)
+      return false;
+    });
+
+    // If you still need the 'global' definition (e.g., if swagger-ui-dist or another dep needs it)
+    // keep this part. If not, you might be able to remove it.
+    if (config.plugins.has('vuepress-defines')) {
+      config.plugin('vuepress-defines').tap(args => {
+        args[0] = typeof args[0] === 'object' && args[0] !== null ? args[0] : {};
+        args[0]['global'] = 'window';
+        return args;
+      });
+    }
+  }
 }
