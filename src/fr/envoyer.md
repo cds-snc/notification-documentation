@@ -276,6 +276,11 @@ Si la requête échoue, le corps de la réponse est au format `json` avec les cl
 }
 ```
 
+::: tip Noter
+
+Les messages d'erreur renvoyés par l'API sont uniquement en anglais.
+:::
+
 Le tableau ci-dessous présente les codes de statut et des exemples d'objets d'erreur.
 
 |status_code|message|Comment réparer|

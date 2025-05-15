@@ -252,7 +252,7 @@ If the request to the client is successful, the client returns a `dict`:
 
 ### Error codes
 
-If the request fails, the response body is `json` with the following keys:
+If the request fails, the response body is `json` with the following keys. 
 
 - `status_code` with the integer status code,
 - `errors` with an array of objects. Each object has 2 more keys, one  labeled `error` and the other labeled `message`.
@@ -272,6 +272,10 @@ If the request fails, the response body is `json` with the following keys:
   "status_code": 400
 }
 ```
+::: tip Note
+
+Error messages returned by the API are only in English.
+:::
 
 The table below gives status codes and example error objects.
 
