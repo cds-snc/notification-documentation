@@ -34,5 +34,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-non-major-github-action/review-apps/3a763d"
       }
     ]
+  },
+  "renovate/lock-file-maintenance": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "715ca9bcaff801eff7eb2ea31e2bce76f03c5ad6",
+        "updatedAt": "2025-05-16T18:49:54.976Z",
+        "href": "renovate/lock-file-maintenance/review-apps/715ca9",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/129",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/lock-file-maintenance/review-apps/715ca9"
+      }
+    ]
   }
 }
