@@ -529,7 +529,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You should specify either rows or csv"`<br>`}]`|Pass data through `rows` or `csv`|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "name is a required property"`<br>`}]`|Specify the `name` property|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid [ISO 8601 datetime](https://en.wikipedia.org/wiki/ISO_8601)|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Check that you pass a datetime in the future|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Check that you pass datetime at most 4 days in the future|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Check that you pass a valid [ISO 8601 datetime](https://en.wikipedia.org/wiki/ISO_8601)|
