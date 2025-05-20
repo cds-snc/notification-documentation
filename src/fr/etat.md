@@ -43,13 +43,6 @@ L’ID de la notification. Vous pouvez trouver l’ID de notification dans la r�
 
 Vous pouvez également le trouver en [vous connectant à Notification GC](https://notification.canada.ca/sign-in?lang=fr) et en accédant à la page __Integration API__.
 
-Vous pouvez filtrer les messages retournés en incluant les paramètres facultatifs suivants dans l’adresse URL :
-
-- `template_type`
-- `status`
-- `reference`
-- `older_than`
-
 ### Réponse
 
 Si la demande est acceptée, le corps de la réponse est `json` et le code d’état est `200` :
