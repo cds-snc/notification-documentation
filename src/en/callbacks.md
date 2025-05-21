@@ -88,6 +88,10 @@ The callback message is formatted in JSON. All of the values are strings. The ke
 |`sent_at` | The time the notification was sent | `2017-05-14T12:15:30.000000Z` or nil|
 |`notification_type` | The notification type | `email` or `sms`|
 
+::: tip Note
+
+Statuses and status descriptions returned in the callback are only in English.
+:::
 
 ::: warning Multiple callbacks for a notification
 

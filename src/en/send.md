@@ -272,6 +272,10 @@ If the request fails, the response body is `json` with the following keys:
   "status_code": 400
 }
 ```
+::: tip Note
+
+Error messages returned by the API are only in English.
+:::
 
 The table below gives status codes and example error objects.
 
