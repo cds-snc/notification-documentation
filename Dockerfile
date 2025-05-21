@@ -1,4 +1,4 @@
-FROM nginx:alpine@sha256:455c39afebd4d98ef26dd70284aa86e6810b0485af5f4f222b19b89758cabf1e
+FROM nginx:alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
 
 RUN apk add --no-cache bash nodejs npm && rm -rf /var/cache/apk/*
 
