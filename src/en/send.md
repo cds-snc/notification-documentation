@@ -4,7 +4,7 @@ You can use GC Notify to send emails and text messages. These might be in respon
 
 **What you'll need:**
 
-To send a message with GC Notify, you'll need to set up a template in the user interface. 
+To send a message with GC Notify, you'll need to set up a template in the user interface.
 
 To create a template:
 
@@ -74,7 +74,7 @@ You can leave out this argument if a template does not have any placeholder fiel
 ```
 You can leave out this argument if you do not have a reference.
 
-**email_reply_to_id (optional)** 
+**email_reply_to_id (optional)**
 
 `email_reply_to_id` is an email address specified by you to receive replies from your users.
 
@@ -123,11 +123,16 @@ In contrast, recipients can access attachments indefinitely, if permitted by the
 
 ### In some situations, there may be advantages to link mode
 
-Some email providers and security rules block attachments. For example, government departments may restrict attachments for internal communication.  
+Some email providers and security rules block attachments. For example, government departments may restrict attachments for internal communication.
 
 Before choosing a sending method, perform tests to check what works best for your use case. You can also [contact us](https://notification.canada.ca/contact).
 
 ### Upload your file
+
+::: warning Malware scanning
+
+GC Notify scans file attachments for malware before they are sent. If malware is detected, you will receive an error message and the notification will not be sent.
+:::
 
 To send files, pass a dictionary in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
@@ -169,7 +174,7 @@ Below is an example of sending multiple files:
 
 **HTTP parameters**
 ```json
-"personalisation": {        
+"personalisation": {
   "application_file": {
     "file": "file as base64 encoded string",
     "filename": "your_custom_filename.txt",
