@@ -98,6 +98,11 @@ You can leave out this argument if your service only has one reply-to email addr
 
 To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
 
+::: tip Malware scanning
+
+GC Notify scans file attachments for malware before they are sent. If malware is detected, you will receive an error message and the notification will not be sent.
+:::
+
 ### File types
 
 You can upload .pdf, .csv, .jpeg, .png, .odt, .txt, .rtf, as well as Microsoft Excel and Microsoft Word files. If you need to send other file types, [contact us](https://notification.canada.ca/contact).
@@ -128,11 +133,6 @@ Some email providers and security rules block attachments. For example, governme
 Before choosing a sending method, perform tests to check what works best for your use case. You can also [contact us](https://notification.canada.ca/contact).
 
 ### Upload your file
-
-::: warning Malware scanning
-
-GC Notify scans file attachments for malware before they are sent. If malware is detected, you will receive an error message and the notification will not be sent.
-:::
 
 To send files, pass a dictionary in the `personalisation` argument. Pass this dictionary to the placeholder key if it’s present in your template or use a name of your choice.
 
