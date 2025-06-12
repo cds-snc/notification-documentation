@@ -100,7 +100,8 @@ To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/s
 
 ::: tip Malware scanning
 
-GC Notify scans file attachments for malware before they are sent. If malware is detected, you will receive an error message and the notification will not be sent.
+GC Notify scans file attachments for malware before sending. If malware is detected, GC Notify will not sent the notification and you’ll receive an error message.
+
 :::
 
 ### File types
