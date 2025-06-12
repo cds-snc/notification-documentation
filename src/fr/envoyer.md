@@ -4,7 +4,7 @@ Vous pouvez utiliser Notification GC pour envoyer des courriels et des messages 
 
 **Ce dont vous aurez besoin :**
 
-Pour envoyer un message à l’aide de Notification GC, vous devez configurer un gabarit dans l’interface utilisateur. 
+Pour envoyer un message à l’aide de Notification GC, vous devez configurer un gabarit dans l’interface utilisateur.
 
 Pour créer un gabarit :
 
@@ -85,7 +85,7 @@ Pour ajouter une adresse de courriel de réponse :
 1. Accédez à la page __Paramètres__.
 1. Dans la section __Courriel__, sélectionnez __Configurer__ à la ligne __Adresses courriel de réponse__.
 1. Sélectionnez __Ajouter une adresse courriel de réponse__.
-1. Entrez l’adresse de courriel que vous souhaitez utiliser, puis sélectionnez __Ajouter__. 
+1. Entrez l’adresse de courriel que vous souhaitez utiliser, puis sélectionnez __Ajouter__.
 
 Par exemple :
 
@@ -98,6 +98,12 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 ## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
 
 Pour activer cette fonctionnalité, [connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
+
+::: tip Analyse antivirus
+
+Notification GC analyse les pièces jointes pour détecter d’éventuels logiciels malveillants avant l’envoi. Si un logiciel malveillant est détecté, Notification GC n’envoie pas la notification concernée et vous recevez un message d’erreur.
+
+:::
 
 ### Types de fichiers
 
@@ -124,7 +130,7 @@ Si vous optez pour un envoi sous forme de lien, Notification GC devra chiffrer e
 
 ### Dans certaines situations, l’envoi sous forme de lien peut présenter des avantages
 
-Certains fournisseurs de courriel et certaines règles de sécurité représentent des obstacles à l’envoi de pièces jointes. Il se peut par exemple que les ministères du gouvernement interdisent les pièces jointes dans le cadre de la communication interne.  
+Certains fournisseurs de courriel et certaines règles de sécurité représentent des obstacles à l’envoi de pièces jointes. Il se peut par exemple que les ministères du gouvernement interdisent les pièces jointes dans le cadre de la communication interne.
 
 Avant de choisir votre méthode d’envoi, effectuez des tests afin de vérifier quelle méthode se prête le mieux à votre cas. Vous pouvez également [nous contacter](https://notification.canada.ca/contact?lang=fr).
 
@@ -454,7 +460,7 @@ Les lignes suivantes doivent inclure les informations de vos destinataires et do
 
 **identifiant de l'expéditeur (optionnel)**
 
-`reply_to_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer l'identifiant de l'adresse courriel de réponse. 
+`reply_to_id` peut être renseigné si vous souhaitez utiliser une adresse de courriel pour recevoir les réponses spécifiques, vous pouvez indiquer indiquer l'identifiant de l'adresse courriel de réponse.
 
 Pour trouver l'identifiant de votre addresse courriel de réponse :
 
