@@ -203,34 +203,34 @@
     mounted() {
       if (typeof window === 'undefined') return; // SSR guard
 
-      // Dynamically import Swagger UI only on client
-      Promise.all([
-        import('swagger-ui-dist/swagger-ui-bundle.js'),
-        import('swagger-ui-dist/swagger-ui-standalone-preset.js'),
-        import('swagger-ui-dist/swagger-ui.css')
-      ]).then(([SwaggerUIBundleModule, SwaggerUIStandalonePresetModule]) => {
-        const SwaggerUIBundle = SwaggerUIBundleModule.default;
-        const SwaggerUIStandalonePreset = SwaggerUIStandalonePresetModule.default;
+      this.$nextTick(() => {
+        // Dynamically import Swagger UI only on client
+        Promise.all([
+          import('swagger-ui-dist/swagger-ui-bundle.js'),
+          import('swagger-ui-dist/swagger-ui-standalone-preset.js'),
+          import('swagger-ui-dist/swagger-ui.css')
+        ]).then(([SwaggerUIBundleModule, SwaggerUIStandalonePresetModule]) => {
+          const SwaggerUIBundle = SwaggerUIBundleModule.default;
+          const SwaggerUIStandalonePreset = SwaggerUIStandalonePresetModule.default;
 
-        const config = {
-          dom_id: `#${this.domId}`,
-          deepLinking: true,
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-          ],
-          layout: "StandaloneLayout"
-        };
+          const config = {
+            dom_id: `#${this.domId}`,
+            deepLinking: true,
+            presets: [
+              SwaggerUIBundle.presets.apis,
+              SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
+          };
 
-        if (this.spec) {
-          config.spec = this.spec;
-        } else {
-          config.url = this.url;
-        }
+          if (this.spec) {
+            config.spec = this.spec;
+          } else {
+            config.url = this.url;
+          }
 
-        SwaggerUIBundle(config);
+          SwaggerUIBundle(config);
 
-        this.$nextTick(() => {
           Translate.initialize(this);
         });
       });
