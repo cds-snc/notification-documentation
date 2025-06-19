@@ -79,6 +79,7 @@ module.exports = {
             '/en/callbacks',
             '/en/architecture',
             '/en/clients',
+            '/en/apispec'
           ]
         }
       },
@@ -116,6 +117,7 @@ module.exports = {
             '/fr/rappel',
             '/fr/architecture',
             '/fr/clients',
+            '/fr/apispec'
           ]
         }
       },
