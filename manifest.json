@@ -39,11 +39,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "12df49e93ee79748df28636aece1a800a94a4823",
-        "updatedAt": "2025-06-19T14:51:31.357Z",
-        "href": "feat/add-open-api/review-apps/12df49",
+        "headCommitId": "35db5d9a78a16d61ac204c3bd48a5360ac09b4d5",
+        "updatedAt": "2025-06-19T15:33:12.170Z",
+        "href": "feat/add-open-api/review-apps/35db5d",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/192",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/feat/add-open-api/review-apps/12df49"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/feat/add-open-api/review-apps/35db5d"
       }
     ]
   }
