@@ -4,7 +4,7 @@ You can use GC Notify to send emails and text messages. These might be in respon
 
 **What you'll need:**
 
-To send a message with GC Notify, you'll need to set up a template in the user interface. 
+To send a message with GC Notify, you'll need to set up a template in the user interface.
 
 To create a template:
 
@@ -74,7 +74,7 @@ You can leave out this argument if a template does not have any placeholder fiel
 ```
 You can leave out this argument if you do not have a reference.
 
-**email_reply_to_id (optional)** 
+**email_reply_to_id (optional)**
 
 `email_reply_to_id` is an email address specified by you to receive replies from your users.
 
@@ -97,6 +97,12 @@ You can leave out this argument if your service only has one reply-to email addr
 ## Sending files by email is an API-only feature
 
 To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
+
+::: tip Malware scanning
+
+GC Notify scans file attachments for malware before sending. If malware is detected, GC Notify will not sent the notification and you’ll receive an error message.
+
+:::
 
 ### File types
 
@@ -123,7 +129,7 @@ In contrast, recipients can access attachments indefinitely, if permitted by the
 
 ### In some situations, there may be advantages to link mode
 
-Some email providers and security rules block attachments. For example, government departments may restrict attachments for internal communication.  
+Some email providers and security rules block attachments. For example, government departments may restrict attachments for internal communication.
 
 Before choosing a sending method, perform tests to check what works best for your use case. You can also [contact us](https://notification.canada.ca/contact).
 
@@ -169,7 +175,7 @@ Below is an example of sending multiple files:
 
 **HTTP parameters**
 ```json
-"personalisation": {        
+"personalisation": {
   "application_file": {
     "file": "file as base64 encoded string",
     "filename": "your_custom_filename.txt",
@@ -272,6 +278,10 @@ If the request fails, the response body is `json` with the following keys:
   "status_code": 400
 }
 ```
+::: tip Note
+
+Error messages returned by the API are only in English.
+:::
 
 The table below gives status codes and example error objects.
 
@@ -525,7 +535,7 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "You should specify either rows or csv"`<br>`}]`|Pass data through `rows` or `csv`|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "name is a required property"`<br>`}]`|Specify the `name` property|
-|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid ISO 8601 datetime|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Check that you pass a valid [ISO 8601 datetime](https://en.wikipedia.org/wiki/ISO_8601)|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Check that you pass a datetime in the future|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Check that you pass datetime at most 4 days in the future|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Check that you pass a valid [ISO 8601 datetime](https://en.wikipedia.org/wiki/ISO_8601)|
