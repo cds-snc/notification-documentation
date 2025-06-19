@@ -3,10 +3,6 @@
 </template>
 
 <script>
-  import SwaggerUIBundle from 'swagger-ui-dist/swagger-ui-bundle.js';
-  import SwaggerUIStandalonePreset from 'swagger-ui-dist/swagger-ui-standalone-preset.js'; // Import SwaggerUIStandalonePreset
-  import 'swagger-ui-dist/swagger-ui.css';
-
   const styleId = 'swagger-ui-fr-after-style';
   const Translate = {
     translations: [
@@ -205,27 +201,38 @@
       }
     },
     mounted() {
-      const config = {
-        dom_id: `#${this.domId}`,
-        deepLinking: true,
-        presets: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset // Use the imported preset directly
-        ],
-        layout: "StandaloneLayout"
-      };
+      if (typeof window === 'undefined') return; // SSR guard
 
-      if (this.spec) {
-        config.spec = this.spec;
-      } else {
-        config.url = this.url;
-      }
+      // Dynamically import Swagger UI only on client
+      Promise.all([
+        import('swagger-ui-dist/swagger-ui-bundle.js'),
+        import('swagger-ui-dist/swagger-ui-standalone-preset.js'),
+        import('swagger-ui-dist/swagger-ui.css')
+      ]).then(([SwaggerUIBundleModule, SwaggerUIStandalonePresetModule]) => {
+        const SwaggerUIBundle = SwaggerUIBundleModule.default;
+        const SwaggerUIStandalonePreset = SwaggerUIStandalonePresetModule.default;
 
-      SwaggerUIBundle(config);
+        const config = {
+          dom_id: `#${this.domId}`,
+          deepLinking: true,
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIStandalonePreset
+          ],
+          layout: "StandaloneLayout"
+        };
 
-      this.$nextTick(() => {
-        Translate.initialize(this);
-      });
+        if (this.spec) {
+          config.spec = this.spec;
+        } else {
+          config.url = this.url;
+        }
+
+        SwaggerUIBundle(config);
+
+        this.$nextTick(() => {
+          Translate.initialize(this);
+        });
     },
     beforeDestroy() {
       if (this._swaggerObserver) {
