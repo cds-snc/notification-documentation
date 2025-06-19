@@ -189,22 +189,23 @@
       spec: {
         type: Object,
         required: false
-      },
-      domIdSuffix: { // To allow multiple instances on the same page
-        type: String,
-        default: ''
       }
     },
     computed: {
       domId() {
-        return `swagger-ui-${this.domIdSuffix || Math.random().toString(36).substring(7)}`;
+        return 'swagger-ui';
       }
     },
     mounted() {
       if (typeof window === 'undefined') return; // SSR guard
 
       this.$nextTick(() => {
-        // Dynamically import Swagger UI only on client
+        const el = document.getElementById(this.domId);
+        if (!el) {
+          console.error('SwaggerUI container not found:', this.domId);
+          return;
+        }
+
         Promise.all([
           import('swagger-ui-dist/swagger-ui-bundle.js'),
           import('swagger-ui-dist/swagger-ui-standalone-preset.js'),
@@ -234,7 +235,6 @@
           Translate.initialize(this);
         });
       });
-   
     },
     beforeDestroy() {
       if (this._swaggerObserver) {
