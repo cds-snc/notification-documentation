@@ -233,6 +233,8 @@
         this.$nextTick(() => {
           Translate.initialize(this);
         });
+      });
+   
     },
     beforeDestroy() {
       if (this._swaggerObserver) {
