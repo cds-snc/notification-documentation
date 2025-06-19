@@ -134,47 +134,51 @@
       
     ],
     translateUI: () => {
-      if (window.location.pathname.includes('/fr/')) {
-        Translate.translations.forEach(({ selector, text_orig, text_fr }) => {
-          document.querySelectorAll(selector).forEach(el => {
-            if (el.textContent.trim().includes(text_orig)) {
-              el.innerHTML = text_fr;
-            }
+      if (typeof window !== 'undefined') {
+        if (window.location.pathname.includes('/fr/')) {
+          Translate.translations.forEach(({ selector, text_orig, text_fr }) => {
+            document.querySelectorAll(selector).forEach(el => {
+              if (el.textContent.trim().includes(text_orig)) {
+                el.innerHTML = text_fr;
+              }
+            });
           });
-        });
-      }
-
-      // Handle the ::after translation for French only
-      let styleTag = document.getElementById(styleId);
-      if (window.location.pathname.includes('/fr/')) {
-        if (!styleTag) {
-          styleTag = document.createElement('style');
-          styleTag.id = styleId;
-          styleTag.innerHTML = `
-            h4.required::after {
-              content: "Requis" !important;
-            }
-          `;
-          document.head.appendChild(styleTag);
         }
-      } else {
-        // Remove the style if it exists and we're not in French
-        if (styleTag) {
-          styleTag.remove();
+
+        // Handle the ::after translation for French only
+        let styleTag = document.getElementById(styleId);
+        if (window.location.pathname.includes('/fr/')) {
+          if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.id = styleId;
+            styleTag.innerHTML = `
+              h4.required::after {
+                content: "Requis" !important;
+              }
+            `;
+            document.head.appendChild(styleTag);
+          }
+        } else {
+          // Remove the style if it exists and we're not in French
+          if (styleTag) {
+            styleTag.remove();
+          }
         }
       }
     },
-    initialize: (t) => {      
-      if (window.location.pathname.includes('/fr/')) {
-        setTimeout(Translate.translateUI, 500);
-      }
+    initialize: (t) => {
+      if (typeof window !== 'undefined') {
+        if (window.location.pathname.includes('/fr/')) {
+          setTimeout(Translate.translateUI, 500);
+        }
 
-      // Observe future DOM changes in the whole body (catches modals too)
-      const observer = new MutationObserver(() => {
-        Translate.translateUI();
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-      t._swaggerObserver = observer;      
+        // Observe future DOM changes in the whole body (catches modals too)
+        const observer = new MutationObserver(() => {
+          Translate.translateUI();
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        t._swaggerObserver = observer;
+      }
     }
   }
 
@@ -222,7 +226,6 @@
       this.$nextTick(() => {
         Translate.initialize(this);
       });
-      
     },
     beforeDestroy() {
       if (this._swaggerObserver) {
