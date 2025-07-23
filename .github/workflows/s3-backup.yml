@@ -36,4 +36,4 @@ jobs:
       if: ${{ failure() }}
       run: |
         json='{"text":"S3 backup failed in <https://github.com/${{ github.repository }}>!"}'
-        curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_NOTIFY_WEBHOOK }}
+        curl -X POST -H 'Content-type: application/json' --data "$json"  ${{ secrets.SLACK_WEBHOOK }}
