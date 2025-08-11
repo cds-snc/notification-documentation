@@ -23,12 +23,12 @@ module.exports = {
       })(window,document,'script','dataLayer','GTM-KRKRZQV');
     `],
     // Google Analytics 4
-    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=UA-102484926-14' }],
+    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-R04KFLQCVQ' }],
     ['script', {}, `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-102484926-14', {anonymize_ip: true});
+      gtag('config', 'G-R04KFLQCVQ', {anonymize_ip: true});
     `],
   ],
   title: "GC Notify | Notification GC",
