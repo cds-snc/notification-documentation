@@ -1,14 +1,23 @@
 <template>
-  <ParentLayout>
-    <template #sidebar-top>
-      <div class="back-to-notify">
-        <ParentNavLink :item="{ link: backToLink, text: backToText }" v-if="backToText" />
-      </div>
-      <div class="back-to-notify">
-        <ParentNavLink :item="{ link: anotherLink, text: anotherText }" v-if="anotherText" />
-      </div>
-    </template>
-  </ParentLayout>
+  <div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRKRZQV"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <ParentLayout>
+      <template #sidebar-top>
+        <div class="back-to-notify">
+          <ParentNavLink :item="{ link: backToLink, text: backToText }" v-if="backToText" />
+        </div>
+        <div class="back-to-notify">
+          <ParentNavLink :item="{ link: anotherLink, text: anotherText }" v-if="anotherText" />
+        </div>
+      </template>
+    </ParentLayout>
+  </div>
 </template>
 
 <script>
