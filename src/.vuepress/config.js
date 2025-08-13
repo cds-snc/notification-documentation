@@ -1,5 +1,11 @@
 let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
+console.log('DEBUG: PUBLIC_URL =', publicUrl)
+console.log('DEBUG: NODE_ENV =', process.env.NODE_ENV)
+const isProduction = publicUrl === 'https://documentation.notification.canada.ca' || 
+                     publicUrl === 'https://documentation.notification.canada.ca/' ||
+                     process.env.NODE_ENV === 'production'
+console.log('DEBUG: isProduction =', isProduction)
 if (publicUrl) {
   baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
 }
@@ -23,8 +29,7 @@ module.exports = {
       })(window,document,'script','dataLayer','GTM-KRKRZQV');
     `],
     // Google Analytics 4 - only for production domain
-    ...((publicUrl === 'https://documentation.notification.canada.ca' || 
-         publicUrl === 'https://documentation.notification.canada.ca/') ? [
+    ...(isProduction ? [
       ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-R04KFLQCVQ' }],
       ['script', {}, `
         window.dataLayer = window.dataLayer || [];
