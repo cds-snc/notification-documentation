@@ -22,17 +22,14 @@ module.exports = {
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-KRKRZQV');
     `],
-    // Google Analytics 4 - only for production domain
-    ...((publicUrl === 'https://documentation.notification.canada.ca' || 
-         publicUrl === 'https://documentation.notification.canada.ca/') ? [
-      ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-R04KFLQCVQ' }],
-      ['script', {}, `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-R04KFLQCVQ', {anonymize_ip: true});
-      `]
-    ] : []),
+    // Google Analytics 4
+    ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-R04KFLQCVQ' }],
+    ['script', {}, `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R04KFLQCVQ', {anonymize_ip: true});
+    `],
   ],
   title: "GC Notify | Notification GC",
   base: baseURL || null,
