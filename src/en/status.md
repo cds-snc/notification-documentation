@@ -4,6 +4,8 @@ You can use the GC Notify API to retrieve the status of one or more messages.
 
 Message status depends on the type of message you have sent.
 
+You can only get the status of messages that are 7 days old or newer (by default).
+
 ## Email status
 |Status Description|Information|
 |:---|:---|
@@ -86,6 +88,8 @@ If the request is not successful, the response body is `json`, refer to the tabl
 You can use the GC Notify API to find the status of multiple messages at the same time.
 
 This API call returns one page of up to 250 messages and statuses. You can get either the most recent messages, or get older messages by specifying a particular notification ID in the `older_than` argument.
+
+You can only get the status of messages that are 7 days old or newer (by default).
 
 ```
 GET /v2/notifications
