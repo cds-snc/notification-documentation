@@ -32,3 +32,41 @@ body
 
 .sidebar
     font-size: unset
+
+
+/* Accessibility: clear, high-contrast focus indicator for all focusable elements
+   - Prefer :focus-visible to avoid showing when elements are clicked with a mouse
+   - Provide a :focus fallback for older browsers
+*/
+:focus-visible
+  outline 2px solid #0535d2
+  outline-offset 2px
+  box-shadow none
+
+/* Fallback for browsers that don't support :focus-visible */
+:focus
+  outline 2px solid #0535d2
+  outline-offset 2px
+  box-shadow none
+
+/* Hide focus when an element is focused by mouse in browsers with :focus-visible support */
+:focus:not(:focus-visible)
+  outline none
+  box-shadow none
+
+/* API spec / Swagger content: make focus more prominent inside the generated
+   API docs area (.swagger-container) so form fields and interactive controls
+   have a larger 4px/4px focus ring. */
+.swagger-container :focus-visible
+  outline 4px solid #0535d2 !important
+  outline-offset 4px !important
+  box-shadow none !important
+
+.swagger-container :focus
+  outline 4px solid #0535d2
+  outline-offset 4px
+  box-shadow none
+
+.swagger-container :focus:not(:focus-visible)
+  outline none
+  box-shadow none
