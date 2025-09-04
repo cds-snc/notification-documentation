@@ -56,16 +56,24 @@ body
 
 /* API spec / Swagger content: make focus more prominent inside the generated
    API docs area (.swagger-container) so form fields and interactive controls
-   have a larger 4px/4px focus ring. */
-.swagger-container :focus-visible
-  outline 4px solid #0535d2 !important
-  outline-offset 4px !important
+   have a larger 2px/2px focus ring. */
+.swagger-container :focus-visible,
+.swagger-container a:focus-visible,
+.swagger-container .link:focus-visible,
+.swagger-container button:focus-visible,
+.swagger-container input:focus-visible
+  outline 2px solid #0535d2 !important
+  outline-offset 2px !important
   box-shadow none !important
 
-.swagger-container :focus
-  outline 4px solid #0535d2
-  outline-offset 4px
-  box-shadow none
+.swagger-container :focus,
+.swagger-container a:focus,
+.swagger-container .link:focus,
+.swagger-container button:focus,
+.swagger-container input:focus
+  outline 2px solid #0535d2 !important
+  outline-offset 2px !important
+  box-shadow none !important
 
 .swagger-container :focus:not(:focus-visible)
   outline none
