@@ -71,7 +71,7 @@ module.exports = {
         backToNotifyText: 'Back to GC Notify',
         backToGuidanceLink: 'https://notification.canada.ca/guidance',
         backToGuidanceText: 'Visit Guidance',
-        editLinkText: 'Edit this page on GitHub',
+        editLinkText: 'Edit this page on GitHub (opens in a new tab)',
         lastUpdated: 'Last updated',
         serviceWorker: {
           updatePopup: {
@@ -109,7 +109,7 @@ module.exports = {
         backToNotifyText: 'Retour à Notification GC',
         backToGuidanceLink: 'https://notification.canada.ca/guides-reference',
         backToGuidanceText: 'Guides de référence',
-        editLinkText: 'Modifier cette page sur GitHub',
+        editLinkText: 'Modifier cette page sur GitHub (ouvre dans un nouvel onglet)',
         lastUpdated: 'Dernière mise à jour ',
         serviceWorker: {
           updatePopup: {
