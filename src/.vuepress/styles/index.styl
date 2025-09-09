@@ -71,104 +71,14 @@ body
   outline none
   box-shadow none
 
-/* Fix color contrast issues in Swagger UI for accessibility compliance */
+/* Improve color contrast for URL spans to meet WCAG AA accessibility standards */
+a span.url
+a
+  color #2c5aa0 !important
 
-/* Fix light gray parameter descriptions - improve from #6b6b6b to darker color */
-.swagger-ui .parameter__name,
-.swagger-ui .parameter__type,
-.swagger-ui .parameter__deprecated,
-.swagger-ui .parameter__in,
-.swagger-ui .parameter__extension,
-.swagger-ui .parameter__required,
-.swagger-ui .parameter__description,
-.swagger-ui .prop-type
-  color #333333 !important
-
-/* Fix response status code contrast */
-.swagger-ui .response-col_status
-  color #000000 !important
-  font-weight bold !important
-
-/* Improve contrast for response descriptions and schema information */
-.swagger-ui .response-col_description,
-.swagger-ui .renderedMarkdown p,
-.swagger-ui .model-box .model-title,
-.swagger-ui .model .description,
-.swagger-ui .prop-format,
-.swagger-ui .prop-enum
-  color #2c3e50 !important
-
-/* Fix table header contrast */
-.swagger-ui table thead tr th,
-.swagger-ui table thead tr td,
-.swagger-ui .col_header
-  background-color #f8f9fa !important
-  color #000000 !important
-  font-weight bold !important
-  border-color #333333 !important
-
-/* Improve border visibility for tables */
-.swagger-ui table tbody tr td,
-.swagger-ui .parameters-col_description,
-.swagger-ui .parameters-col_name
-  border-color #666666 !important
-
-/* Fix low contrast links and operation summaries */
-.swagger-ui .opblock-summary-description,
-.swagger-ui .opblock-description,
-.swagger-ui .opblock .opblock-summary-operation-id,
-.swagger-ui .opblock .opblock-summary-path,
-.swagger-ui .tab li
-  color #005ea5 !important
-
-/* Improve contrast for form inputs and placeholders */
-.swagger-ui .parameters input[type="text"],
-.swagger-ui .parameters input[type="password"],
-.swagger-ui .parameters select,
-.swagger-ui .parameters textarea
-  color #000000 !important
-  border-color #666666 !important
-
-.swagger-ui .parameters input::placeholder,
-.swagger-ui .parameters textarea::placeholder
-  color #666666 !important
-
-/* Fix contrast for disabled states */
-.swagger-ui .btn:disabled,
-.swagger-ui .btn[disabled]
-  color #666666 !important
-  background-color #f5f5f5 !important
-  border-color #cccccc !important
-
-/* Improve visibility of required parameter indicators */
-.swagger-ui .parameter__name.required:after,
-.swagger-ui .parameter__name.required span:after
-  color #d73502 !important
-  font-weight bold !important
-
-/* Fix JSON syntax highlighting for better contrast */
-.swagger-ui .highlight-code .hljs-string
-  color #008000 !important
-
-.swagger-ui .highlight-code .hljs-number
-  color #0066cc !important
-
-.swagger-ui .highlight-code .hljs-literal
-  color #d73502 !important
-
-/* Improve contrast for expandable sections and model properties */
-.swagger-ui .model-toggle,
-.swagger-ui .model-hint,
-.swagger-ui .prop-name,
-.swagger-ui .prop-type
-  color #333333 !important
-
-/* Fix authorization button contrast */
-.swagger-ui .btn.authorize
-  background-color #005ea5 !important
-  color #ffffff !important
-  border-color #005ea5 !important
-
-.swagger-ui .btn.authorize:hover
-  background-color #003d75 !important
-  border-color #003d75 !important
+/* Improve color contrast for authorize button to meet WCAG AA accessibility standards */
+button.authorize
+  color #2d7d32 !important
+  
+button.authorize svg
+  fill #2d7d32 !important
