@@ -129,6 +129,19 @@
       }
       
     ],
+    updateIntegerColor: () => {
+      if (typeof window !== 'undefined') {
+        // Find all span elements and check their style attributes
+        document.querySelectorAll('span').forEach(el => {
+          const style = el.getAttribute('style');
+          if (style && style.includes('rgb(211, 99, 99)')) {
+            // Replace the specific RGB color with the new RGB color
+            const updatedStyle = style.replace('rgb(211, 99, 99)', 'rgb(246, 115, 115)');
+            el.setAttribute('style', updatedStyle);
+          }
+        });
+      }
+    },
     translateUI: () => {
       if (typeof window !== 'undefined') {
         if (window.location.pathname.includes('/fr/')) {
@@ -141,6 +154,9 @@
           });
         }
 
+        // Update integer color to meet WCAG color contrast
+        Translate.updateIntegerColor();     
+        
         // Handle the ::after translation for French only
         let styleTag = document.getElementById(styleId);
         if (window.location.pathname.includes('/fr/')) {
