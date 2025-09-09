@@ -70,3 +70,28 @@ body
 .swagger-container :focus:not(:focus-visible)
   outline none
   box-shadow none
+
+/* Improve color contrast for URL spans to meet WCAG AA accessibility standards */
+a span.url
+a
+  color #2c5aa0 !important
+
+/* Improve color contrast for authorize button to meet WCAG AA accessibility standards */
+button.authorize
+  color #2d7d32 !important
+  
+button.authorize svg
+  fill #2d7d32 !important
+
+/* Improve color contrast for operation block summary method to meet WCAG AA accessibility standards */
+div.opblock-get span.opblock-summary-method
+  color #ffffff !important
+  background-color #1976d2 !important
+
+div.opblock-post span.opblock-summary-method
+  color #ffffff !important
+  background-color #2d7d32 !important
+
+/* Improve color contrast for parameter indicators to meet WCAG AA accessibility standards */
+div.parameter__in
+  color #4a4a4a !important
