@@ -51,11 +51,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "a308e7161436e4f764d9ba743164816f2d2c026f",
-        "updatedAt": "2025-10-02T13:50:44.982Z",
-        "href": "copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a308e7",
+        "headCommitId": "a61228e67f1b167657c4aae76a091039864e4881",
+        "updatedAt": "2025-10-02T20:37:10.348Z",
+        "href": "copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a61228",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/208",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a308e7"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a61228"
       }
     ]
   }
