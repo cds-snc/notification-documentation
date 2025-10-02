@@ -162,6 +162,13 @@
               : 'Log out of API endpoints');
           }
         });
+        
+        // Update close modal button aria-labels
+        document.querySelectorAll('button.close-modal').forEach(btn => {
+          btn.setAttribute('aria-label', isFrench 
+            ? 'Fermer la fenêtre modale' 
+            : 'Close modal');
+        });
       }
     },
     translateUI: () => {
