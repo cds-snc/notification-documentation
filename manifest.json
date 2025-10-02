@@ -46,5 +46,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/lock-file-maintenance/review-apps/59e8c8"
       }
     ]
+  },
+  "copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "a308e7161436e4f764d9ba743164816f2d2c026f",
+        "updatedAt": "2025-10-02T13:50:44.982Z",
+        "href": "copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a308e7",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/208",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a308e7"
+      }
+    ]
   }
 }
