@@ -142,6 +142,28 @@
         });
       }
     },
+    updateAriaLabels: () => {
+      if (typeof window !== 'undefined') {
+        const isFrench = window.location.pathname.includes('/fr/');
+        
+        // Update authorization button aria-labels
+        document.querySelectorAll('button.authorization__btn').forEach(btn => {
+          const ariaLabel = btn.getAttribute('aria-label') || '';
+          
+          if (ariaLabel.includes('unlocked')) {
+            // Button is unlocked (not authorized)
+            btn.setAttribute('aria-label', isFrench 
+              ? 'Autoriser les points de terminaison API' 
+              : 'Authorize API endpoints');
+          } else if (ariaLabel.includes('locked')) {
+            // Button is locked (authorized)
+            btn.setAttribute('aria-label', isFrench 
+              ? 'Révoquer l\'autorisation des points de terminaison API' 
+              : 'Log out of API endpoints');
+          }
+        });
+      }
+    },
     translateUI: () => {
       if (typeof window !== 'undefined') {
         if (window.location.pathname.includes('/fr/')) {
@@ -155,7 +177,10 @@
         }
 
         // Update integer color to meet WCAG color contrast
-        Translate.updateIntegerColor();     
+        Translate.updateIntegerColor();
+        
+        // Update aria-labels for better accessibility
+        Translate.updateAriaLabels();
         
         // Handle the ::after translation for French only
         let styleTag = document.getElementById(styleId);
