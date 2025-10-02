@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[43],{453:function(t,n,a){"use strict";a.r(n);var s=a(4),o=Object(s.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("SwaggerUI",{attrs:{url:"https://api.notification.canada.ca/v2/openapi-fr"}})],1)}),[],!1,null,null,null);n.default=o.exports}}]);
