@@ -58,5 +58,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/copilot/fix-703cffe8-8223-46a2-bcd6-3b634359eee7/review-apps/a61228"
       }
     ]
+  },
+  "repo-sync/site-reliability-engineering/default": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "c3f7917d532b38c50d3e8108c8bff2e8ba5b7d7d",
+        "updatedAt": "2025-10-04T14:07:57.144Z",
+        "href": "repo-sync/site-reliability-engineering/default/review-apps/c3f791",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/210",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/repo-sync/site-reliability-engineering/default/review-apps/c3f791"
+      }
+    ]
   }
 }
