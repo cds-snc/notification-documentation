@@ -153,7 +153,7 @@
           if (ariaLabel.includes('unlocked')) {
             // Button is unlocked (not authorized)
             btn.setAttribute('aria-label', isFrench 
-              ? 'Autoriser les points de terminaison API' 
+              ? 'Autoriser les points de terminaison d'API' 
               : 'Authorize API endpoints');
           } else if (ariaLabel.includes('locked')) {
             // Button is locked (authorized)
