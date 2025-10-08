@@ -158,7 +158,7 @@
           } else if (ariaLabel.includes('locked')) {
             // Button is locked (authorized)
             btn.setAttribute('aria-label', isFrench 
-              ? 'Révoquer l\'autorisation des points de terminaison API' 
+              ? 'Se déconnecter des points de terminaison d'API' 
               : 'Log out of API endpoints');
           }
         });
