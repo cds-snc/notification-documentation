@@ -153,12 +153,12 @@
           if (ariaLabel.includes('unlocked')) {
             // Button is unlocked (not authorized)
             btn.setAttribute('aria-label', isFrench 
-              ? 'Autoriser les points de terminaison d'API' 
+              ? "Autoriser les points de terminaison d’API" 
               : 'Authorize API endpoints');
           } else if (ariaLabel.includes('locked')) {
             // Button is locked (authorized)
             btn.setAttribute('aria-label', isFrench 
-              ? 'Se déconnecter des points de terminaison d'API' 
+              ? "Se déconnecter des points de terminaison d’API" 
               : 'Log out of API endpoints');
           }
         });
