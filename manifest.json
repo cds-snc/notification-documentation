@@ -15,11 +15,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "6e0565c2a564fdac746159417fd40064ce0632ba",
-        "updatedAt": "2025-10-08T16:06:40.366Z",
-        "href": "renovate/all-minor/review-apps/6e0565",
+        "headCommitId": "703d666b143ece53d5dea6fb6b6cd76d90f61ffd",
+        "updatedAt": "2025-10-09T11:58:30.085Z",
+        "href": "renovate/all-minor/review-apps/703d66",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/190",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-minor/review-apps/6e0565"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-minor/review-apps/703d66"
       }
     ]
   },
