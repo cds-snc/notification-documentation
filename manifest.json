@@ -39,11 +39,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "b14fcce3e5bc6ff6c111b0965000558a8a59094f",
-        "updatedAt": "2025-11-13T22:31:30.875Z",
-        "href": "renovate/lock-file-maintenance/review-apps/b14fcc",
+        "headCommitId": "1b522e19b0451d47df130133647bc4e80fcd53d5",
+        "updatedAt": "2025-11-18T23:45:24.091Z",
+        "href": "renovate/lock-file-maintenance/review-apps/1b522e",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/129",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/lock-file-maintenance/review-apps/b14fcc"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/lock-file-maintenance/review-apps/1b522e"
       }
     ]
   }
