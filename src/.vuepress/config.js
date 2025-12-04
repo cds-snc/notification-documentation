@@ -1,5 +1,6 @@
 let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
+
 if (publicUrl) {
   baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
 }
@@ -43,6 +44,13 @@ module.exports = {
       lang: 'fr-CA',
       title: 'Notification GC',
       description: 'Intégration directe à l`API Notification GC'
+    }
+  },
+  markdown: {
+    anchor: {
+      permalink: true,
+      permalinkSymbol: '#',
+      permalinkAttrs: (slug, state) => ({ 'aria-hidden': 'true', 'tabindex': -1 })
     }
   },
   /**
@@ -152,6 +160,7 @@ module.exports = {
       },
     ],
     '@vuepress/back-to-top',
+    ''
   ],
   chainWebpack: (config, isServer) => {
     const jsRule = config.module.rule('js');
