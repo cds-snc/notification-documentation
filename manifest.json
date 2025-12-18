@@ -3,11 +3,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "8304a918a1941268e7780e8a14700893861b7487",
-        "updatedAt": "2025-12-14T03:33:08.580Z",
-        "href": "renovate/nginx-alpine/review-apps/8304a9",
+        "headCommitId": "7a0f0f41b2f9869bb7ee8410506ba65681cdce9f",
+        "updatedAt": "2025-12-18T06:42:03.433Z",
+        "href": "renovate/nginx-alpine/review-apps/7a0f0f",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/212",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/nginx-alpine/review-apps/8304a9"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/nginx-alpine/review-apps/7a0f0f"
       }
     ]
   },
