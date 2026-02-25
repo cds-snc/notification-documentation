@@ -1,35 +1,56 @@
+
 <!DOCTYPE html>
-<html lang="en-US">
+
+<html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>GC Notify | Notification GC</title>
-    <meta name="generator" content="VuePress 1.9.10">
-    <link rel="shortcut icon" href="https://notification.canada.ca/static/images/favicon.ico">
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-KRKRZQV');
-    </script>
-    <script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-R04KFLQCVQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R04KFLQCVQ', {anonymize_ip: true});
-    </script>
-    <meta name="description" content="">
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
-    <link rel="preload" href="/notification-documentation/assets/css/0.styles.8b9c1b05.css" as="style"><link rel="preload" href="/notification-documentation/assets/js/app.2809b4fd.js" as="script"><link rel="preload" href="/notification-documentation/assets/js/3.0517c72b.js" as="script"><link rel="preload" href="/notification-documentation/assets/js/1.3e8a0f50.js" as="script"><link rel="prefetch" href="/notification-documentation/assets/js/10.5c516f98.js"><link rel="prefetch" href="/notification-documentation/assets/js/11.b88be014.js"><link rel="prefetch" href="/notification-documentation/assets/js/12.51622a44.js"><link rel="prefetch" href="/notification-documentation/assets/js/13.e17cafe5.js"><link rel="prefetch" href="/notification-documentation/assets/js/14.a665ae92.js"><link rel="prefetch" href="/notification-documentation/assets/js/15.6f375fe4.js"><link rel="prefetch" href="/notification-documentation/assets/js/16.4134d4f4.js"><link rel="prefetch" href="/notification-documentation/assets/js/17.50b38424.js"><link rel="prefetch" href="/notification-documentation/assets/js/18.c6a2e0ef.js"><link rel="prefetch" href="/notification-documentation/assets/js/19.0eb7d8a6.js"><link rel="prefetch" href="/notification-documentation/assets/js/2.095ee38d.js"><link rel="prefetch" href="/notification-documentation/assets/js/20.796eebee.js"><link rel="prefetch" href="/notification-documentation/assets/js/21.814eb95e.js"><link rel="prefetch" href="/notification-documentation/assets/js/22.7e06a963.js"><link rel="prefetch" href="/notification-documentation/assets/js/23.92f48980.js"><link rel="prefetch" href="/notification-documentation/assets/js/24.3edf43ba.js"><link rel="prefetch" href="/notification-documentation/assets/js/25.fba4143b.js"><link rel="prefetch" href="/notification-documentation/assets/js/26.22495b74.js"><link rel="prefetch" href="/notification-documentation/assets/js/27.d3f01dd5.js"><link rel="prefetch" href="/notification-documentation/assets/js/28.6f0899eb.js"><link rel="prefetch" href="/notification-documentation/assets/js/29.f516d927.js"><link rel="prefetch" href="/notification-documentation/assets/js/30.89f7082a.js"><link rel="prefetch" href="/notification-documentation/assets/js/31.937fd8d3.js"><link rel="prefetch" href="/notification-documentation/assets/js/32.1025676e.js"><link rel="prefetch" href="/notification-documentation/assets/js/33.87e5fc4c.js"><link rel="prefetch" href="/notification-documentation/assets/js/34.a5c139ea.js"><link rel="prefetch" href="/notification-documentation/assets/js/35.1e6a95bd.js"><link rel="prefetch" href="/notification-documentation/assets/js/36.6e74b236.js"><link rel="prefetch" href="/notification-documentation/assets/js/37.eb9d22ad.js"><link rel="prefetch" href="/notification-documentation/assets/js/38.72f8dca1.js"><link rel="prefetch" href="/notification-documentation/assets/js/39.b96787d5.js"><link rel="prefetch" href="/notification-documentation/assets/js/4.f614d245.js"><link rel="prefetch" href="/notification-documentation/assets/js/40.a2de1a92.js"><link rel="prefetch" href="/notification-documentation/assets/js/41.82da83fe.js"><link rel="prefetch" href="/notification-documentation/assets/js/42.2d8ae398.js"><link rel="prefetch" href="/notification-documentation/assets/js/43.88e192d4.js"><link rel="prefetch" href="/notification-documentation/assets/js/44.bfe05ba4.js"><link rel="prefetch" href="/notification-documentation/assets/js/45.1d58e2a8.js"><link rel="prefetch" href="/notification-documentation/assets/js/46.b8d27911.js"><link rel="prefetch" href="/notification-documentation/assets/js/47.458e9476.js"><link rel="prefetch" href="/notification-documentation/assets/js/48.3931b625.js"><link rel="prefetch" href="/notification-documentation/assets/js/49.e084a685.js"><link rel="prefetch" href="/notification-documentation/assets/js/5.13ac6dae.js"><link rel="prefetch" href="/notification-documentation/assets/js/50.c8b86765.js"><link rel="prefetch" href="/notification-documentation/assets/js/51.30f87d06.js"><link rel="prefetch" href="/notification-documentation/assets/js/52.7bb1d802.js"><link rel="prefetch" href="/notification-documentation/assets/js/6.95f904da.js"><link rel="prefetch" href="/notification-documentation/assets/js/9.f6c4b3aa.js"><link rel="prefetch" href="/notification-documentation/assets/js/vendors~docsearch.289606e8.js">
-    <link rel="stylesheet" href="/notification-documentation/assets/css/0.styles.8b9c1b05.css">
+    <title>Review apps</title>
+    <meta name="description" content="QA every PR effortlessly">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+      body { font-family: Roboto; }
+    </style>
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRKRZQV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/notification-documentation/" aria-current="page" class="home-link router-link-exact-active router-link-active"><img src="https://assets.notification.canada.ca/static/gov-canada-en.svg" alt="GC Notify | Notification GC" class="logo"> <div class="site-name can-hide">GC Notify | Notification GC</div> <!----></a> <div class="links"><div class="search-box"><input aria-label="Search" type="search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!----> <div class="back-to-notify"><!----></div> <div class="back-to-notify"><!----></div> <!----> </aside> <div></div></div></div><div class="global-ui"><!----></div></div>
-    <script src="/notification-documentation/assets/js/app.2809b4fd.js" defer></script><script src="/notification-documentation/assets/js/3.0517c72b.js" defer></script><script src="/notification-documentation/assets/js/1.3e8a0f50.js" defer></script>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <h1 style="margin-top: 32px; margin-bottom: 16px;">
+            Static review apps collection
+          </h1>
+        </div>
+      </div>
+      
+
+      <div>
+        <div class="row">
+          <div class="col-sm">
+            <h2 style="margin-top: 30px;">
+              renovate&#x2F;nginx-alpine
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          
+
+                            <div class="col-sm">
+                              
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">review-apps</h5>
+              <h6 class="card-subtitle mb-2 text-muted">#da759303caba</h6>
+              <h6 class="card-subtitle mb-2 text-muted">2&#x2F;25&#x2F;2026, 8:10:06 PM</h6>
+              <a href="renovate&#x2F;nginx-alpine&#x2F;review-apps&#x2F;da7593" class="card-link">App</a>
+
+                        <a href="https:&#x2F;&#x2F;github.com&#x2F;cds-snc&#x2F;notification-documentation&#x2F;pull&#x2F;212" class="card-link">Pull Request</a>
+                        </div>
+          </div>
+
+                            </div>
+                            
+                            </div>
+      </div>
+    </div>
   </body>
 </html>
