@@ -105,6 +105,7 @@ You can filter the returned messages by including the following optional argumen
 - `status`
 - `reference`
 - `older_than`
+- `include_jobs`
 
 ### Arguments
 
@@ -145,6 +146,14 @@ Input the ID of a notification into this argument. If you use this `older_than` 
 If you leave out this argument, the method returns the most recent 250 notifications.
 
 The client only returns notifications that are 7 days old or newer. If the notification specified in this argument is older than 7 days, the client returns an empty response.
+
+#### include_jobs (optional)
+
+If you set this argument to `true`, the response will include notifications that were sent as part of a job (bulk send). By default, job notifications are not included.
+
+```
+"include_jobs": "true"
+```
 
 ### Response
 

@@ -104,6 +104,7 @@ Vous pouvez filtrer les messages retournés en incluant les arguments facultatif
 - `status`
 - `reference`
 - `older_than`
+- `include_jobs`
 
 ### Arguments
 
@@ -144,6 +145,14 @@ Si vous spécifiez le filtre `older_than`, la méthode renvoie les 250 notificat
 Si vous ignorez cet argument, la méthode renvoie les 250 notifications les plus récentes.
 
 Le client ne retourne que les notifications envoyées lors des 7 derniers jours. Si la notification indiquée dans cet argument a été envoyée il y a plus de 7 jours, le client renvoie une réponse vide.
+
+#### Inclure les tâches (facultatif)
+
+Si la valeur de l'argument `include_jobs` est `true`, la réponse inclura les notifications envoyées dans le cadre d'une tâche (envoi par lot). Par défaut, les notifications provenant de tâches ne sont pas incluses.
+
+```
+"include_jobs": "true"
+```
 
 ### Réponse
 
