@@ -148,7 +148,7 @@ Le client ne retourne que les notifications envoyées lors des 7 derniers jours.
 
 #### Inclure les tâches (facultatif)
 
-Si vous définissez l'argument `include_jobs` à `true`, la réponse inclura les notifications envoyées dans le cadre d'une tâche (envoi en lot). Par défaut, les notifications provenant de tâches ne sont pas incluses.
+Si la valeur de l'argument `include_jobs` est `true`, la réponse inclura les notifications envoyées dans le cadre d'une tâche (envoi par lot). Par défaut, les notifications provenant de tâches ne sont pas incluses.
 
 ```
 "include_jobs": "true"
