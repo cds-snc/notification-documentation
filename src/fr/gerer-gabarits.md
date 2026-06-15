@@ -28,7 +28,7 @@ Chaque gabarit que vous créez doit inclure `template_category_id`.
 Vous pouvez :
 
 - obtenir les catégories depuis le point de terminaison API documenté dans [Catégories de gabarit](categories-gabarits.md)
-- utiliser la liste actuelle des catégories dans [Catégories de gabarit](categories-gabarits.md#reference-actuelle-des-categories-de-gabarit)
+- utiliser la liste actuelle des catégories dans [Catégories de gabarit](categories-gabarits.md#référence-actuelle-des-catégories-de-gabarit)
 
 ## Créer un gabarit
 
