@@ -2,20 +2,20 @@
 
 Vous pouvez utiliser Notification GC pour créer, lire, mettre à jour et archiver des gabarits à l'aide de l'API.
 
-Cela est utile si votre équipe souhaite automatiser la configuration et la maintenance des gabarits entre les environnements.
+Cela est utile si votre équipe souhaite configurer et maintenir des gabarits automatiquement dans plusieurs environnements.
 
 ## Ce dont vous aurez besoin
 
-Pour utiliser les points de terminaison de gestion des gabarits, vous avez besoin d'une clé API ayant la permission `manage_templates`.
+Les points de terminaison d'API pour gérer les gabarits exigent une clé API avec la permission `manage_templates`.
 
-Pour créer cette clé dans l'application :
+Pour créer une clé avec cette permission :
 
 1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Allez à la page __Intégration API__.
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Créer une clé API__.
 1. Entrez un nom de clé.
-1. Sous les permissions, cliquez sur __Manage templates__.
+1. Sous les permissions, choisissez __Manage templates__.
 1. Sélectionnez __Créer une clé API__.
 1. Copiez la clé et stockez-la de façon sécuritaire.
 
@@ -58,8 +58,8 @@ Le nom du gabarit.
 
 Le type de notification. Valeurs permises :
 
-- `email`
-- `sms`
+- `email` (courriel)
+- `sms` (message texte)
 
 **content (obligatoire)**
 
@@ -301,7 +301,7 @@ Exemple pour créer un gabarit
 ```
 curl --request POST \
   --url https://api.notification.canada.ca/v2/manage-template \
-  --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
+  --header 'Authorization: ApiKey-v1 VOTRE_CLÉ_API' \
   --header 'Content-Type: application/json' \
   --data '{
     "name": "Réinitialisation du mot de passe",
@@ -317,7 +317,7 @@ Exemple pour obtenir un gabarit
 ```
 curl --request GET \
   --url https://api.notification.canada.ca/v2/manage-template/TEMPLATE_ID \
-  --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
+  --header 'Authorization: ApiKey-v1 VOTRE_CLÉ_API' \
   --header 'Content-Type: application/json'
 ```
 
@@ -326,7 +326,7 @@ Exemple pour mettre à jour un gabarit
 ```
 curl --request PATCH \
   --url https://api.notification.canada.ca/v2/manage-template/TEMPLATE_ID \
-  --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
+  --header 'Authorization: ApiKey-v1 VOTRE_CLÉ_API' \
   --header 'Content-Type: application/json' \
   --data '{
     "name": "Réinitialisation du mot de passe v2",
@@ -339,6 +339,6 @@ Exemple pour archiver un gabarit
 ```
 curl --request DELETE \
   --url https://api.notification.canada.ca/v2/manage-template/TEMPLATE_ID \
-  --header 'Authorization: ApiKey-v1 YOUR_API_KEY' \
+  --header 'Authorization: ApiKey-v1 VOTRE_CLÉ_API' \
   --header 'Content-Type: application/json'
 ```

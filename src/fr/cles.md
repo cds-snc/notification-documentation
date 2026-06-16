@@ -30,7 +30,7 @@ Pour créer une clé API :
 
 ## Permission de gestion des gabarits (__NEW__)
 
-Les points de terminaison API de gestion des gabarits exigent une clé API avec la permission `manage_templates`.
+Les points de terminaison d'API pour gérer les gabarits exigent une clé API avec la permission `manage_templates`.
 
 Pour créer une clé avec cette permission :
 
@@ -39,7 +39,7 @@ Pour créer une clé avec cette permission :
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Créer une clé API__.
 1. Entrez un nom de clé.
-1. Sous les permissions, cliquez sur __Manage templates__.
+1. Sous les permissions, choisissez __Manage templates__.
 1. Sélectionnez __Créer une clé API__.
 1. Copiez la clé et stockez-la de façon sécuritaire.
 
