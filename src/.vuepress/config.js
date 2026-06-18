@@ -96,7 +96,7 @@ module.exports = {
             '/en/',
             '/en/start',
             '/en/send',
-            '/en/managetemplate',
+            '/en/manage-template',
             '/en/template-categories',
             '/en/status',
             '/en/testing',
