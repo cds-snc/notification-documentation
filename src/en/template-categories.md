@@ -6,7 +6,7 @@ You can pass a category ID from this response as `template_category_id` when cre
 
 ## What you'll need
 
-You need an API key with the `manage_templates` permission. Refer to [Manage templates](managetemplate.md) and [API keys](keys.md).
+You need an API key with the `manage_templates` permission. Refer to [Manage templates](manage-template.md) and [API keys](keys.md).
 
 ## Current template categories reference
 

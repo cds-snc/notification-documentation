@@ -43,7 +43,7 @@ To create a key with this permission:
 1. Select __Create API key__.
 1. Copy and securely store the key.
 
-For endpoint details, refer to [Manage templates](managetemplate.md).
+For endpoint details, refer to [Manage templates](manage-template.md).
 
 ## Test
 
