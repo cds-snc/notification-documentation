@@ -14,6 +14,8 @@ To create a template:
 
 Once you've got a template ready, find the template ID associated with it. You'll need that ID to specify which template you want to use when you call the API.
 
+If you want to create or update templates through the API, refer to [Manage templates](manage-template.md).
+
 Your API call must also include any fields that have been set up as personalisations. Personalisation allows you to change what shows up in a specific message as it gets sent out. You might use personalisation to:
 
 - Address a user by their name

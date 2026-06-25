@@ -14,6 +14,8 @@ Pour créer un gabarit :
 
 Une fois le gabarit prêt, recherchez l’ID de gabarit associé. Vous aurez besoin de cet ID pour indiquer le gabarit que vous voulez utiliser lorsque vous appelez l’API.
 
+Si vous souhaitez créer ou mettre à jour des gabarits avec l'API, consultez [Gérer les gabarits](gerer-gabarits.md).
+
 Votre appel à l'API doit également inclure tous les champs qui ont été configurés comme des personnalisations. La personnalisation vous permet de modifier ce qui apparaît dans un message précis lors de son envoi. Vous pouvez utiliser la personnalisation pour :
 
 - Vous adresser à un utilisateur par son nom
