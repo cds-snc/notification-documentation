@@ -20,6 +20,7 @@ Pour créer une clé avec cette permission :
 1. Copiez la clé et stockez-la de façon sécuritaire.
 
 Pour les types de clés et leur gestion, consultez [Clés API](cles.md).
+Les trois types de clés - Test, Team, Live - auront la possibilité de gérer des modèles s'ils possèdent les droits d'accès requis.
 
 ## Les catégories de gabarit sont obligatoires
 

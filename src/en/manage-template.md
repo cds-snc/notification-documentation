@@ -20,6 +20,7 @@ To create this key in the application:
 1. Copy and securely store the key.
 
 For key types and key management details, refer to [API keys](keys.md).
+All three key types - Test, Team, Live will be able to manage templates if they have the right permissions.
 
 ## Template categories are required
 
