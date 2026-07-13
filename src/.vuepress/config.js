@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const apiBaseUrl = process.env.API_BASE_URL || 'https://api.notification.canada.ca';
+
 let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
 
@@ -154,6 +158,14 @@ module.exports = {
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
+  devServer: {
+    proxy: {
+      '/v2': {
+        target: apiBaseUrl,
+        changeOrigin: true,
+      }
+    }
+  },
   plugins: [
     [
       '@vuepress/last-updated',

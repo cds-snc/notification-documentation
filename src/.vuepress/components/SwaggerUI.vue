@@ -269,7 +269,16 @@
               SwaggerUIBundle.presets.apis,
               SwaggerUIStandalonePreset
             ],
-            layout: "StandaloneLayout"
+            layout: "StandaloneLayout",
+            requestInterceptor: (request) => {
+              if (window.location.hostname === 'localhost') {
+                request.url = request.url.replace(
+                  /^https:\/\/api\.notification\.canada\.ca/,
+                  ''
+                );
+              }
+              return request;
+            }
           };
 
           if (this.spec) {
