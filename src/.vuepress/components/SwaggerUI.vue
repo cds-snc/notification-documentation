@@ -257,10 +257,15 @@
         Promise.all([
           import('swagger-ui-dist/swagger-ui-bundle.js'),
           import('swagger-ui-dist/swagger-ui-standalone-preset.js'),
-          import('swagger-ui-dist/swagger-ui.css')
-        ]).then(([SwaggerUIBundleModule, SwaggerUIStandalonePresetModule]) => {
+          import('swagger-ui-dist/swagger-ui.css'),
+          import('js-yaml')
+        ]).then(([SwaggerUIBundleModule, SwaggerUIStandalonePresetModule, _, jsYamlModule]) => {
           const SwaggerUIBundle = SwaggerUIBundleModule.default;
           const SwaggerUIStandalonePreset = SwaggerUIStandalonePresetModule.default;
+          const jsYaml = jsYamlModule.default || jsYamlModule;
+
+          const apiBaseUrl = window.__API_BASE_URL__ || 'https://api.notification.canada.ca';
+          const escapedBase = apiBaseUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
           const config = {
             dom_id: `#${this.domId}`,
@@ -272,24 +277,40 @@
             layout: "StandaloneLayout",
             requestInterceptor: (request) => {
               if (window.location.hostname === 'localhost') {
-                request.url = request.url.replace(
-                  /^https:\/\/api\.notification\.canada\.ca/,
-                  ''
-                );
+                request.url = request.url.replace(new RegExp('^' + escapedBase), '');
               }
               return request;
             }
           };
 
+          const initSwagger = (cfg) => {
+            SwaggerUIBundle(cfg);
+            Translate.initialize(this);
+          };
+
           if (this.spec) {
-            config.spec = this.spec;
+            initSwagger({ ...config, spec: this.spec });
+          } else if (window.location.hostname === 'localhost' && this.url) {
+            const specUrl = this.url.startsWith('http')
+              ? this.url.replace(/^https?:\/\/[^/]+/, '')
+              : this.url;
+            fetch(specUrl)
+              .then(r => {
+                if (!r.ok) throw new Error(`Spec fetch failed: ${r.status}`);
+                return r.text();
+              })
+              .then(text => {
+                const spec = jsYaml.load(text);
+                spec.servers = [{ url: apiBaseUrl, description: 'GC Notify API server' }];
+                initSwagger({ ...config, spec });
+              })
+              .catch(err => {
+                console.error('Could not load spec locally, falling back to URL:', err);
+                initSwagger({ ...config, url: this.url });
+              });
           } else {
-            config.url = this.url;
+            initSwagger({ ...config, url: this.url });
           }
-
-          SwaggerUIBundle(config);
-
-          Translate.initialize(this);
         });
       });
     },
