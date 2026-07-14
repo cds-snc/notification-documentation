@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const apiBaseUrl = process.env.API_BASE_URL || 'https://api.notification.canada.ca';
+
 let baseURL = null
 const publicUrl = process.env.PUBLIC_URL
 
@@ -11,6 +15,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['script', {}, `window.__API_BASE_URL__ = ${JSON.stringify(apiBaseUrl)};`],
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
@@ -154,6 +159,14 @@ module.exports = {
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
+  devServer: {
+    proxy: {
+      '/v2': {
+        target: apiBaseUrl,
+        changeOrigin: true,
+      }
+    }
+  },
   plugins: [
     [
       '@vuepress/last-updated',
