@@ -36,13 +36,15 @@ jobs:
 
       - name: Build and deploy review app
         uses: sauloxd/review-apps@2564cf8a5e834c2813ace9af70dd7411f81433e4 # v2.0.0
+        env:
+          API_BASE_URL: https://api.staging.notification.cdssandbox.xyz
         with:
           branch: "gh-pages"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           apps: |
             {
               "review-apps": {
-                "build": "API_BASE_URL=https://api.staging.notification.cdssandbox.xyz npm run build",
+                "build": "npm run build",
                 "dist": "src/.vuepress/dist"
               }
             }
