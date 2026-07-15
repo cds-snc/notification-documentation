@@ -14,4 +14,7 @@ RUN set -ex && npm run build
 
 RUN mv src/.vuepress/dist/* /usr/share/nginx/html
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+COPY docker-entrypoint.sh /docker-entrypoint-notify.sh
+RUN chmod +x /docker-entrypoint-notify.sh
+
+ENTRYPOINT ["/docker-entrypoint-notify.sh"]
