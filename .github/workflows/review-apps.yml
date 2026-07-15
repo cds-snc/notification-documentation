@@ -42,7 +42,7 @@ jobs:
           apps: |
             {
               "review-apps": {
-                "build": "npm run build",
+                "build": "API_BASE_URL=https://api.staging.notification.cdssandbox.xyz npm run build",
                 "dist": "src/.vuepress/dist"
               }
             }
