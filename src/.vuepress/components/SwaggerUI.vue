@@ -309,7 +309,23 @@
                 initSwagger({ ...config, url: this.url });
               });
           } else {
-            initSwagger({ ...config, url: this.url });
+            // Point the spec fetch at the configured API base URL so that the
+            // deployed docs (staging vs production) load the matching API spec.
+            const specUrl = this.url.replace(/^https?:\/\/[^/]+/, apiBaseUrl);
+            fetch(specUrl)
+              .then(r => {
+                if (!r.ok) throw new Error(`Spec fetch failed: ${r.status}`);
+                return r.text();
+              })
+              .then(text => {
+                const spec = jsYaml.load(text);
+                spec.servers = [{ url: apiBaseUrl, description: 'GC Notify API server' }];
+                initSwagger({ ...config, spec });
+              })
+              .catch(err => {
+                console.error('Could not load spec, falling back to URL:', err);
+                initSwagger({ ...config, url: specUrl });
+              });
           }
         });
       });

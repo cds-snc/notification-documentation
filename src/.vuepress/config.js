@@ -15,7 +15,13 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    // Build-time default. Preserved for static builds (GitHub Pages) and local
+    // development where the value comes from process.env.API_BASE_URL / .env.
     ['script', {}, `window.__API_BASE_URL__ = ${JSON.stringify(apiBaseUrl)};`],
+    // Runtime override. In containerised deployments this file is regenerated at
+    // container startup from the API_BASE_URL env var (see docker-entrypoint.sh),
+    // which lets a single image serve staging and production against the correct API.
+    ['script', { src: `${baseURL || '/'}env-config.js` }],
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
