@@ -97,6 +97,14 @@ Par exemple :
 
 Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse de courriel de réponse ou si vous voulez utiliser l’adresse de courriel par défaut.
 
+**Envoi programmé (facultatif)**
+
+`scheduled_for` peut être renseigné si vous souhaitez envoyer des notifications dans le futur, vous pouvez spécifier une date et une heure jusqu'à 4 jours dans le futur au [format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601). Par exemple : `2021-06-08T15:15:00` (heure UTC).
+
+```json
+"scheduled_for": "2021-06-08T15:15:00"
+```
+
 ## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
 
 Pour activer cette fonctionnalité, [connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
@@ -305,6 +313,10 @@ Le tableau ci-dessous présente les codes de statut et des exemples d'objets d'e
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is too long"`<br>`}]`|Le nom du fichier doit comporter moins de 250 caractères|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Vérifiez que vous passez une date future|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Vérifiez que votre date est au plus 4 jours dans le futur|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande, renvoyez votre notification.|
@@ -376,6 +388,14 @@ Ensuite, vous pouvez soit :
 
 Vous pouvez ignorer cet argument si votre service n’a qu’un seul expéditeur de message texte, ou si vous voulez utiliser l’expéditeur par défaut.
 
+**Envoi programmé (facultatif)**
+
+`scheduled_for` peut être renseigné si vous souhaitez envoyer des notifications dans le futur, vous pouvez spécifier une date et une heure jusqu'à 4 jours dans le futur au [format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601). Par exemple : `2021-06-08T15:15:00` (heure UTC).
+
+```json
+"scheduled_for": "2021-06-08T15:15:00"
+```
+
 ### Réponse
 
 Si la demande est acceptée, le corps de la réponse est `json` avec un code de statut de `201` :
@@ -411,6 +431,10 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode"`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai. Activez votre service dans les paramètres.|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez votre horloge système|
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Jeton non valide : Clé API introuvable"`<br>`}]`|Utilisez la bonne [clé API](cles.md).|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for 42 is not of type string, null"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime cannot be in the past"`<br>`}]`|Vérifiez que vous passez une date future|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime can only be up to 96 hours in the future"`<br>`}]`|Vérifiez que votre date est au plus 4 jours dans le futur|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "scheduled_for datetime format is invalid. It must be a valid ISO8601 date time format, https://en.wikipedia.org/wiki/ISO_8601"`<br>`}]`|Vérifiez que vous passez une [date au format ISO 8601](https://fr.wikipedia.org/wiki/ISO_8601)|
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande, renvoyez votre notification.|
