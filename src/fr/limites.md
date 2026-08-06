@@ -6,6 +6,12 @@ Votre service Notification GC peut envoyer 1 000 requêtes HTTP par minute.
 
 Cette limite est calculée sur une base continue, par type de clé API. Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitError`.
 
+## Limites de demande de rapports
+
+Vous pouvez demander un maximum de 10 rapports par heure, par service. Cette limite s'applique au point de terminaison `POST /v2/reports` utilisé pour [demander un rapport](rapports.md).
+
+Si vous dépassez la limite, vous obtiendrez une erreur `429` `RateLimitExceeded` avec le message `Maximum 10 report requests per hour`.
+
 ## Limites quotidiennes
 
 Il y a une limite au nombre de messages que vous pouvez envoyer chaque jour :
