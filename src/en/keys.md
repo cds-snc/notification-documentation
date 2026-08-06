@@ -45,6 +45,23 @@ To create a key with this permission:
 
 For endpoint details, refer to [Manage templates](manage-template.md).
 
+## Manage reports permission (__NEW__)
+
+Report API endpoints require an API key with the `manage_reports` permission.
+
+To create a key with this permission:
+
+1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
+1. Go to the __API integration__ page.
+1. Select __API keys__.
+1. Select __Create an API key__.
+1. Enter a key name.
+1. Under permissions, click __Manage reports__.
+1. Select __Create API key__.
+1. Copy and securely store the key.
+
+For endpoint details, refer to [Reports](reports.md).
+
 ## Test
 
 Use a test key to test the performance of your service and its integration with GC Notify.
