@@ -60,7 +60,7 @@ La langue du rapport. Valeurs permises :
 
 **job_id (obligatoire lorsque `report_type` est `job`)**
 
-L'ID de l'envoi en masse pour lequel générer un rapport.
+L'ID de l'envoi en masse pour lequel générer un rapport. Vous trouverez le `job_id` dans la réponse que vous recevez lorsque vous appelez le point de terminaison d'envoi en masse (bulk).
 
 ### Réponse
 

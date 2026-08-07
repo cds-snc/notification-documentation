@@ -60,7 +60,7 @@ The language of the report. Allowed values:
 
 **job_id (required when `report_type` is `job`)**
 
-The ID of the bulk job to generate a report for.
+The ID of the bulk job to generate a report for. You can find the `job_id` in the response you get back when you call the bulk endpoint.
 
 ### Response
 
