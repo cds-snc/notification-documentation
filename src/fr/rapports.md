@@ -8,7 +8,7 @@ Les rapports sont générés de façon asynchrone. Après avoir demandé un rapp
 
 Les points de terminaison d'API pour les rapports exigent une clé API avec la permission `manage_reports`.
 
-Pour les types de clés et leur gestion, consultez [Clés API](cles.md#types-de-clés).
+Pour les types de clés et leur gestion, consultez [Clés API](cles.md#types-de-cles).
 
 ## Limite d'appels
 
