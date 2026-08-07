@@ -187,6 +187,37 @@ The ID of the report to download.
 
 If the request is successful, the response is a CSV file with a status code of `200`. The `Content-Type` is `text/csv` and the file is returned as an attachment.
 
+### CSV columns
+
+The columns depend on the type of report. Times are in the `America/Toronto` time zone.
+
+The column headers are shown in the language you requested with the `language` argument. The columns below use the English headers.
+
+For `email` and `sms` reports, the columns are:
+
+|Column|Description|
+|:---|:---|
+|Recipient|The email address or phone number the message was sent to|
+|Template|The name of the template used|
+|Type|The notification type: `email` or `sms`|
+|Sent by|The name of the user who sent the message, if sent by a person|
+|Sent by email|The email address of the user who sent the message, if sent by a person|
+|Job|The file name of the bulk send the message came from, if applicable|
+|Status|The delivery status of the message|
+|Sent Time|The date and time the message was sent|
+
+For `job` reports, the columns are:
+
+|Column|Description|
+|:---|:---|
+|Row number|The row number of the recipient in the original bulk send file|
+|Recipient|The email address or phone number the message was sent to|
+|Template|The name of the template used|
+|Type|The notification type: `email` or `sms`|
+|Job|The file name of the bulk send the message came from|
+|Status|The delivery status of the message|
+|Sent Time|The date and time the message was sent|
+
 ### Error codes
 
 |status_code|message|How to fix|

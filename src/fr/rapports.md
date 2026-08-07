@@ -187,6 +187,37 @@ L'ID du rapport à télécharger.
 
 Si la requête réussit, la réponse est un fichier CSV avec un code de statut `200`. Le `Content-Type` est `text/csv` et le fichier est retourné en pièce jointe.
 
+### Colonnes du CSV
+
+Les colonnes dépendent du type de rapport. Les heures sont exprimées dans le fuseau horaire `America/Toronto`.
+
+Les en-têtes de colonnes sont affichés dans la langue demandée avec le paramètre `language`. Les colonnes ci-dessous utilisent les en-têtes en français.
+
+Pour les rapports `email` et `sms`, les colonnes sont :
+
+|Colonne|Description|
+|:---|:---|
+|Destinataire|L'adresse courriel ou le numéro de téléphone auquel le message a été envoyé|
+|Gabarit|Le nom du gabarit utilisé|
+|Type|Le type de notification : `courriel` ou `sms`|
+|Envoyé par|Le nom de l'utilisateur qui a envoyé le message, s'il a été envoyé par une personne|
+|Envoyé par courriel|L'adresse courriel de l'utilisateur qui a envoyé le message, s'il a été envoyé par une personne|
+|Tâche|Le nom du fichier d'envoi en masse dont provient le message, le cas échéant|
+|État|Le statut de livraison du message|
+|Heure d’envoi|La date et l'heure d'envoi du message|
+
+Pour les rapports `job`, les colonnes sont :
+
+|Colonne|Description|
+|:---|:---|
+|Numéro de ligne|Le numéro de ligne du destinataire dans le fichier d'envoi en masse original|
+|Destinataire|L'adresse courriel ou le numéro de téléphone auquel le message a été envoyé|
+|Gabarit|Le nom du gabarit utilisé|
+|Type|Le type de notification : `courriel` ou `sms`|
+|Tâche|Le nom du fichier d'envoi en masse dont provient le message|
+|État|Le statut de livraison du message|
+|Heure d’envoi|La date et l'heure d'envoi du message|
+
 ### Codes d'erreur
 
 |status_code|message|Comment corriger|
