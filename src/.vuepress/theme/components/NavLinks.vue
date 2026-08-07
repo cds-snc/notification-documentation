@@ -69,6 +69,7 @@ export default {
         {"en": "/en/_api_endpoints", "fr": "/fr/clients"},
         {"en": "/en/_arg_template_id", "fr": "/fr/_arg_template_id"},
         {"en": "/en/apispec", "fr": "/fr/apispec"},
+        {"en": "/en/reports", "fr": "/fr/rapports"},
       ]
       const currentUrl = this.$page.path.split(".html")[0]
       const lang = currentUrl.split('/')[1]
