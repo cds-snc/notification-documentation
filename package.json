@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "lint-links": "remark --frail --use remark-validate-links src/**/*.md"
+    "lint-links": "remark --frail --use ./remark-vuepress-slug.js --use remark-validate-links src/**/*.md"
   },
   "license": "MIT",
   "devDependencies": {
