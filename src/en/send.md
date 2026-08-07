@@ -53,7 +53,7 @@ POST /v2/notifications/email
 
 The `email_address` of the recipient.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 **personalisation (optional)**
 
@@ -338,7 +338,7 @@ POST /v2/notifications/sms
 
 The `phone_number` of the recipient of the text message.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 **personalisation (optional)**
 
@@ -466,7 +466,7 @@ Send notifications in bulk, up to 50,000 recipients at a time, for a single temp
 
 The `name` of your bulk sending job. Used to identify this bulk of notifications later on.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 **rows (required)**
 

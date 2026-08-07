@@ -6,7 +6,7 @@
 
 Vous devrez modifier votre point de terminaison :
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_api_endpoints.md').key"/>
+<!-- @include: ../en/_api_endpoints.md -->
 
 ::: warning Différences de fonctionnalités à considérer
 

@@ -11,19 +11,26 @@
   "scripts": {
     "dev": "vuepress dev src",
     "build": "vuepress build src",
-    "lint-links": "remark --frail --use ./remark-vuepress-slug.js --use remark-validate-links src/**/*.md"
+    "lint-links": "remark --frail --use ./remark-vuepress-slug.cjs --use remark-validate-links src/**/*.md"
   },
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.7.1",
-    "@vuepress/plugin-google-analytics": "^1.8.0",
+    "@vuepress/bundler-vite": "2.0.0-rc.30",
+    "@vuepress/plugin-markdown-include": "2.0.0-rc.132",
+    "@vuepress/plugin-register-components": "2.0.0-rc.132",
+    "@vuepress/plugin-search": "2.0.0-rc.131",
+    "@vuepress/theme-default": "2.0.0-rc.132",
     "dotenv": "^17.4.2",
     "remark": "^13.0.0",
     "remark-cli": "^9.0.0",
     "remark-validate-links": "^10.0.2",
-    "vuepress": "^1.9.10"
+    "sass": "^1.80.0",
+    "vue": "^3.5.0",
+    "vuepress": "2.0.0-rc.30"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "swagger-ui-dist": "^5.21.0"
   }
 }

@@ -330,20 +330,10 @@
         });
       });
     },
-    beforeDestroy() {
+    beforeUnmount() {
       if (this._swaggerObserver) {
         this._swaggerObserver.disconnect();
       }
     }
   };
 </script>
-
-<style>
-  .swagger-ui .topbar {
-    display: none;
-  }
-
-  .theme-default-content {
-    max-width: 1200px !important
-  }
-</style>

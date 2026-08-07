@@ -1,19 +1,30 @@
-require('dotenv').config();
+import process from 'node:process'
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from '@vuepress/theme-default'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { searchPlugin } from '@vuepress/plugin-search'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { markdownIncludePlugin } from '@vuepress/plugin-markdown-include'
+import { getDirname, path } from 'vuepress/utils'
+import dotenv from 'dotenv'
 
-const apiBaseUrl = process.env.API_BASE_URL || 'https://api.notification.canada.ca';
+dotenv.config()
 
-let baseURL = null
+const __dirname = getDirname(import.meta.url)
+
+const apiBaseUrl = process.env.API_BASE_URL || 'https://api.notification.canada.ca'
+
+let base = '/'
 const publicUrl = process.env.PUBLIC_URL
-
 if (publicUrl) {
-  baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
+  base = publicUrl.endsWith('/') ? publicUrl : publicUrl + '/'
 }
-module.exports = {
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
+
+export default defineUserConfig({
+  base,
+  lang: 'en-CA',
+  title: 'GC Notify | Notification GC',
+
   head: [
     // Build-time default. Preserved for static builds (GitHub Pages) and local
     // development where the value comes from process.env.API_BASE_URL / .env.
@@ -21,11 +32,11 @@ module.exports = {
     // Runtime override. In containerised deployments this file is regenerated at
     // container startup from the API_BASE_URL env var (see docker-entrypoint.sh),
     // which lets a single image serve staging and production against the correct API.
-    ['script', { src: `${baseURL || '/'}env-config.js` }],
+    ['script', { src: `${base}env-config.js` }],
     ['meta', { charset: 'utf-8' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: "shortcut icon", href: "https://notification.canada.ca/static/images/favicon.ico" }],
+    ['link', { rel: 'shortcut icon', href: 'https://notification.canada.ca/static/images/favicon.ico' }],
     // Google Tag Manager
     ['script', {}, `
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -43,188 +54,120 @@ module.exports = {
       gtag('config', 'G-R04KFLQCVQ', {anonymize_ip: true});
     `],
   ],
-  title: "GC Notify | Notification GC",
-  base: baseURL || null,
+
   locales: {
     '/en/': {
       lang: 'en-CA',
-      title: "GC Notify",
-      description: 'Integrate directly with the GC Notify API'
+      title: 'GC Notify',
+      description: 'Integrate directly with the GC Notify API',
     },
     '/fr/': {
       lang: 'fr-CA',
       title: 'Notification GC',
-      description: 'Intégration directe à l`API Notification GC'
-    }
+      description: 'Intégration directe à l`API Notification GC',
+    },
   },
-  markdown: {
-    anchor: {
-      permalink: true,
-      permalinkSymbol: '#',
-      permalinkAttrs: (slug, state) => ({ 'aria-hidden': 'true', 'tabindex': -1 })
-    }
+
+  // Underscore-prefixed markdown files are partials injected into other pages via
+  // `@include`, so they must not be rendered as standalone pages.
+  pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!**/_*.md'],
+
+  // Override default-theme internals:
+  // - VPNavbarBrand: renders the localized site subtitle beside the site name.
+  // - useNavbarSelectLanguage: disables the built-in language dropdown because the
+  //   English and French pages use different slugs; the EN/FR toggle is provided
+  //   by the custom LanguageLink component instead.
+  alias: {
+    '@theme/VPNavbarBrand.vue': path.resolve(__dirname, 'theme/components/VPNavbarBrand.vue'),
+    '@theme/useNavbarSelectLanguage': path.resolve(__dirname, 'theme/composables/useNavbarSelectLanguage.js'),
   },
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
+
+  theme: defaultTheme({
     logo: 'https://assets.notification.canada.ca/static/gov-canada-en.svg',
-    editLinks: true,
-    lastUpdated: true,
-    nextLinks: true,
-    prevLinks: true,
+    editLink: true,
     docsRepo: 'cds-snc/notification-documentation',
     docsDir: 'src',
     docsBranch: 'main',
-    smoothScroll: true,
+    lastUpdated: true,
+    contributors: false,
     locales: {
       '/en/': {
         logo: 'https://assets.notification.canada.ca/static/gov-canada-en.svg',
-        selectText: 'Languages',
-        label: 'English',
-        ariaLabel: 'Languages',
         siteSubtitle: 'API documentation',
         backToNotifyLink: 'https://notification.canada.ca',
         backToNotifyText: 'Back to GC Notify',
         backToGuidanceLink: 'https://notification.canada.ca/guidance',
         backToGuidanceText: 'Visit Guidance',
         editLinkText: 'Edit this page on GitHub (opens in a new tab)',
-        lastUpdated: 'Last updated',
-        serviceWorker: {
-          updatePopup: {
-            message: "New content is available.",
-            buttonText: "Refresh"
-          }
-        },
-        nav: [
-          { text: "Français", link: '/fr/' },
-        ],
+        lastUpdatedText: 'Last updated',
+        navbar: [],
         sidebarDepth: 1,
-        sidebar: {
-          '/en/': [
-            '/en/',
-            '/en/start',
-            '/en/send',
-            '/en/manage-template',
-            '/en/template-categories',
-            '/en/status',
-            '/en/testing',
-            '/en/keys',
-            '/en/limits',
-            '/en/callbacks',
-            '/en/architecture',
-            '/en/clients',
-            '/en/apispec'
-          ]
-        }
+        sidebar: [
+          '/en/',
+          '/en/start.md',
+          '/en/send.md',
+          '/en/manage-template.md',
+          '/en/template-categories.md',
+          '/en/status.md',
+          '/en/testing.md',
+          '/en/keys.md',
+          '/en/limits.md',
+          '/en/callbacks.md',
+          '/en/architecture.md',
+          '/en/clients.md',
+          '/en/apispec.md',
+        ],
       },
       '/fr/': {
         logo: 'https://assets.notification.canada.ca/static/gov-canada-fr.svg',
-        selectText: 'Langues',
-        label: 'Français',
-        ariaLabel: 'Langues',
         siteSubtitle: 'Documentation API',
         backToNotifyLink: 'https://notification.canada.ca?lang=fr',
         backToNotifyText: 'Retour à Notification GC',
         backToGuidanceLink: 'https://notification.canada.ca/guides-reference',
         backToGuidanceText: 'Guides de référence',
         editLinkText: 'Modifier cette page sur GitHub (ouvre dans un nouvel onglet)',
-        lastUpdated: 'Dernière mise à jour ',
-        serviceWorker: {
-          updatePopup: {
-            message: "Du nouveau contenu est disponible.",
-            buttonText: "Actualiser"
-          }
-        },
-        nav: [
-          { text: "English", link: '/en/' },
-        ],
+        lastUpdatedText: 'Dernière mise à jour',
+        navbar: [],
         sidebarDepth: 1,
-        sidebar: {
-          '/fr/': [
-            '/fr/',
-            '/fr/commencer',
-            '/fr/envoyer',
-            '/fr/gerer-gabarits',
-            '/fr/categories-gabarits',
-            '/fr/etat',
-            '/fr/essai',
-            '/fr/cles',
-            '/fr/limites',
-            '/fr/rappel',
-            '/fr/architecture',
-            '/fr/clients',
-            '/fr/apispec'
-          ]
-        }
+        sidebar: [
+          '/fr/',
+          '/fr/commencer.md',
+          '/fr/envoyer.md',
+          '/fr/gerer-gabarits.md',
+          '/fr/categories-gabarits.md',
+          '/fr/etat.md',
+          '/fr/essai.md',
+          '/fr/cles.md',
+          '/fr/limites.md',
+          '/fr/rappel.md',
+          '/fr/architecture.md',
+          '/fr/clients.md',
+          '/fr/apispec.md',
+        ],
       },
     },
-  },
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
-  devServer: {
-    proxy: {
-      '/v2': {
-        target: apiBaseUrl,
-        changeOrigin: true,
-      }
-    }
-  },
+  }),
+
   plugins: [
-    [
-      '@vuepress/last-updated',
-      {
-        transformer: (timestamp, lang) => {
-          return new Date(timestamp).toLocaleDateString(lang)
-        }
-      },
-    ],
-    '@vuepress/back-to-top',
-    ''
+    searchPlugin({
+      maxSuggestions: 10,
+    }),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, 'components'),
+    }),
+    markdownIncludePlugin(),
   ],
-  chainWebpack: (config, isServer) => {
-    const jsRule = config.module.rule('js');
 
-    // Clear the existing exclude condition(s)
-    jsRule.exclude.clear();
-
-    // Add a new exclude function
-    jsRule.exclude.add(filepath => {
-      // Transpile .vue.js files (standard VuePress behavior)
-      if (/\.vue\.js$/.test(filepath)) {
-        return false;
-      }
-
-      // Transpile 'swagger-ui-dist' from node_modules
-      if (/[\\/]node_modules[\\/]swagger-ui-dist/.test(filepath)) {
-        return false; // Do not exclude: transpile this
-      }
-
-      // If you were also transpiling swagger-editor, you'd keep its rule:
-      // if (/[\\/]node_modules[\\/]swagger-editor/.test(filepath)) {
-      //   return false;
-      // }
-
-      // Exclude other node_modules
-      if (/[\\/]node_modules/.test(filepath)) {
-        return true; // Exclude these
-      }
-
-      // Do not exclude project source files (or other files not in node_modules)
-      return false;
-    });
-
-    // If you still need the 'global' definition (e.g., if swagger-ui-dist or another dep needs it)
-    // keep this part. If not, you might be able to remove it.
-    if (config.plugins.has('vuepress-defines')) {
-      config.plugin('vuepress-defines').tap(args => {
-        args[0] = typeof args[0] === 'object' && args[0] !== null ? args[0] : {};
-        args[0]['global'] = 'window';
-        return args;
-      });
-    }
-  }
-}
+  bundler: viteBundler({
+    viteOptions: {
+      server: {
+        proxy: {
+          '/v2': {
+            target: apiBaseUrl,
+            changeOrigin: true,
+          },
+        },
+      },
+    },
+  }),
+})

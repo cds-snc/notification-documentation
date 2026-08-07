@@ -7,7 +7,7 @@
 
 You will need to change the API endpoint when creating a client.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'en/_api_endpoints.md').key"/>
+<!-- @include: ./_api_endpoints.md -->
 
 ::: warning Feature differences to keep in mind
 

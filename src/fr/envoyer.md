@@ -53,7 +53,7 @@ POST /v2/notifications/email
 
 `email_address` est l'adresse de courriel du destinataire.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 
 **Personnalisation (facultatif)**
@@ -342,7 +342,7 @@ POST /v2/notifications/sms
 
 `phone_number` est le numéro de téléphone du destinataire du message texte.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 **Personnalisation (facultatif)**
 
@@ -470,7 +470,7 @@ Envoyer des notifications de masse, jusqu'à 50 000 destinataires à la fois, po
 
 `name` est le nom de votre envoi de masse. Il est utilisé pour identifier votre envoi.
 
-<Content :page-key="$site.pages.find(p => p.relativePath === 'fr/_arg_template_id.md').key"/>
+<!-- @include: ./_arg_template_id.md -->
 
 **lignes (obligatoire)**
 

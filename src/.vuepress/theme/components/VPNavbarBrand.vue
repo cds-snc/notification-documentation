@@ -1,0 +1,105 @@
+<script setup lang="ts">
+import type { FunctionalComponent } from 'vue'
+import { computed, h } from 'vue'
+import { ClientOnly, RouteLink, withBase } from 'vuepress/client'
+
+import { useDarkMode } from '@theme/useDarkMode'
+import { useData } from '@theme/useData'
+
+const { routeLocale, siteLocale, themeLocale } = useData()
+const isDarkMode = useDarkMode()
+
+const navbarBrandLink = computed(
+  () => themeLocale.value.home || routeLocale.value,
+)
+const navbarBrandTitle = computed(() => siteLocale.value.title)
+// Custom addition: localized subtitle rendered beneath the site name.
+const navbarBrandSubtitle = computed(() => themeLocale.value.siteSubtitle)
+const navbarBrandLogo = computed(() => {
+  if (isDarkMode.value && themeLocale.value.logoDark !== undefined)
+    return themeLocale.value.logoDark
+
+  return themeLocale.value.logo
+})
+const navbarBrandLogoAlt = computed(
+  () => themeLocale.value.logoAlt ?? navbarBrandTitle.value,
+)
+const navBarLogoAltMatchesTitle = computed(
+  () =>
+    navbarBrandTitle.value.toLocaleUpperCase().trim() ===
+    navbarBrandLogoAlt.value.toLocaleUpperCase().trim(),
+)
+const NavbarBrandLogo: FunctionalComponent = () => {
+  if (!navbarBrandLogo.value) return null
+  const img = h('img', {
+    class: 'vp-site-logo',
+    src: withBase(navbarBrandLogo.value),
+    alt: navbarBrandLogoAlt.value,
+  })
+  if (themeLocale.value.logoDark === undefined) return img
+
+  // wrap brand logo with <ClientOnly> to avoid ssr-mismatch
+  // when using a different brand logo in dark mode
+  return h(ClientOnly, () => img)
+}
+</script>
+
+<template>
+  <RouteLink :to="navbarBrandLink">
+    <NavbarBrandLogo />
+
+    <span
+      v-if="navbarBrandTitle"
+      class="vp-site-name"
+      :class="{ 'vp-hide-mobile': navbarBrandLogo }"
+      :aria-hidden="navBarLogoAltMatchesTitle"
+    >
+      {{ navbarBrandTitle }}
+    </span>
+
+    <span
+      v-if="navbarBrandSubtitle"
+      class="vp-site-subtitle"
+      :class="{ 'vp-hide-mobile': navbarBrandLogo }"
+    >
+      {{ navbarBrandSubtitle }}
+    </span>
+  </RouteLink>
+</template>
+
+<style lang="scss">
+.vp-site-logo {
+  vertical-align: top;
+  height: var(--navbar-line-height);
+  margin-inline-end: var(--navbar-padding-v);
+}
+
+.vp-site-name {
+  position: relative;
+  color: var(--vp-c-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+
+  @media screen and (max-width: 719px) {
+    display: block;
+
+    overflow: hidden;
+
+    // 5.5rem for navbar padding-inline
+    // 4.5rem for ColorModeSwitch and SearchBox
+    // 1rem for gap
+    width: calc(100vw - 11rem);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.vp-site-subtitle {
+  display: block;
+  color: var(--vp-c-text);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+</style>

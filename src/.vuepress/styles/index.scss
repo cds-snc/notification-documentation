@@ -1,0 +1,73 @@
+/**
+ * Custom styles and brand palette.
+ *
+ * The default theme is themed through CSS custom properties, so the VuePress 1
+ * Stylus palette variables are reproduced here as `:root` overrides.
+ */
+
+:root {
+  // Brand accent (formerly $accentColor)
+  --vp-c-accent: #005ea5;
+  --vp-c-accent-bg: #005ea5;
+  --vp-c-accent-hover: #1a72b5;
+  --vp-c-accent-text: #fff;
+
+  // Text and borders (formerly $textColor / $borderColor)
+  --vp-c-text: #2c3e50;
+  --vp-c-divider: #eaecef;
+
+  // Taller navbar to fit the logo, site name and subtitle (formerly $navbarHeight)
+  --navbar-height: 6.5rem;
+
+  // Wider content area to accommodate the API reference (Swagger UI)
+  --content-width: 1200px;
+}
+
+.vp-site-logo {
+  height: 1.3rem !important;
+  vertical-align: middle !important;
+}
+
+.vp-sidebar-item.active {
+  background: #eee;
+}
+
+table tr {
+  line-height: 1.7;
+}
+
+/**
+ * For accessibility reasons and to respect the user's custom font size
+ * configuration, the font-size properties are unset from the theme defaults.
+ *
+ * Visually impaired users with custom font sizes will then see the website at
+ * their browser's configured size.
+ */
+body {
+  font-size: unset;
+}
+
+.vp-sidebar {
+  font-size: unset;
+}
+
+/* Accessibility: clear, high-contrast focus indicator for all focusable elements.
+   - Prefer :focus-visible to avoid showing when elements are clicked with a mouse.
+   - Provide a :focus fallback for older browsers. */
+:focus-visible {
+  outline: 2px solid #0535d2;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Fallback for browsers that don't support :focus-visible */
+:focus {
+  outline: 2px solid #0535d2;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Swagger UI: hide the top bar (matches the API spec component). */
+.swagger-ui .topbar {
+  display: none;
+}

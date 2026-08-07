@@ -11,30 +11,30 @@ This repository holds documentation in various Markdown files:
 - in French in [`src/fr`](src/fr)
 
 ## VuePress theme
-The VuePress configuration is in [`src/.vuepress/config.js`](src/.vuepress/config.js). We use the default theme and the associated documentation [can be seen online](https://vuepress.vuejs.org/theme/default-theme-config.html).
+The VuePress configuration is in [`src/.vuepress/config.js`](src/.vuepress/config.js). We use the default theme and the associated documentation [can be seen online](https://ecosystem.vuepress.vuejs.org/themes/default/).
 
 ## Sidebar
 The sidebar is defined in [`src/.vuepress/config.js`](src/.vuepress/config.js). It's different in English and in French.
 
 If you want to add pages or groups of pages, you should tweak the `sidebar` object.
 
-This example sidebar defines a menu for 3 pages: `callbacks.md`, `limits.md` and then `api.md` in the `en` folder. If you created a new Markdown file and want to see it in the menu, it should be added in this object.
+This example sidebar defines a menu for 3 pages: `callbacks.md`, `limits.md` and then `apispec.md` in the `en` folder. If you created a new Markdown file and want to see it in the menu, it should be added in this object.
 
-This example code also defines a group of pages, under the name "Clients" that is collapsable. The order of pages and their name works the same way.
+This example code also defines a group of pages, under the name "Clients" that is collapsible. The order of pages and their name works the same way.
 
 ```js
 sidebar: {
   '/en/': [
     '/en/',
-    '/en/callbacks',
-    '/en/limits',
-    '/en/api',
+    '/en/callbacks.md',
+    '/en/limits.md',
+    '/en/apispec.md',
     {
-     title: 'Clients',
-     collapsable: true,
+     text: 'Clients',
+     collapsible: true,
      children: [
-      '/en/python',
-      '/en/java',
+      '/en/python.md',
+      '/en/java.md',
      ]
    }
   ]

@@ -1,59 +1,16 @@
-<template>
-  <div>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRKRZQV"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    <ParentLayout>
-      <template #sidebar-top>
-        <div class="back-to-notify">
-          <ParentNavLink :item="{ link: backToLink, text: backToText }" v-if="backToText" />
-        </div>
-        <div class="back-to-notify">
-          <ParentNavLink :item="{ link: anotherLink, text: anotherText }" v-if="anotherText" />
-        </div>
-      </template>
-    </ParentLayout>
-  </div>
-</template>
-
-<script>
-import ParentLayout from '@parent-theme/layouts/Layout.vue'
-import ParentNavLink from '@parent-theme/components/NavLink.vue'
-
-export default {
-  name: 'Layout',
-  components: {
-    ParentLayout,
-    ParentNavLink,
-  },
-  computed: {
-    backToLink() {
-      return this.$themeLocaleConfig.backToNotifyLink
-    },
-    backToText() {
-      return this.$themeLocaleConfig.backToNotifyText
-    },
-    anotherLink() {
-      return this.$themeLocaleConfig.backToGuidanceLink
-    },
-    anotherText() {
-      return this.$themeLocaleConfig.backToGuidanceText
-    }
-  }
-}
+<script setup>
+import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
+import BackLinks from '../components/BackLinks.vue'
+import LanguageLink from '../components/LanguageLink.vue'
 </script>
-<style lang="stylus">
-.back-to-notify
-  margin-top 1rem
-  padding 1em 0 1em 1.5em
-  border-bottom 1px solid $borderColor
-  a
-    color $textColor
-@media (max-width: $MQMobile)
-  .back-to-notify
-    margin-top 0
-</style>
+
+<template>
+  <ParentLayout>
+    <template #sidebar-top>
+      <BackLinks />
+    </template>
+    <template #navbar-after>
+      <LanguageLink />
+    </template>
+  </ParentLayout>
+</template>
