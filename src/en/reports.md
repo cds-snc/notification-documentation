@@ -8,7 +8,7 @@ Reports are generated asynchronously. After you request a report, poll the repor
 
 To use the report endpoints, you need an API key with the `manage_reports` permission.
 
-For key types and key management details, refer to [API keys](keys.md).
+For key types and key management details, refer to [API keys](keys.md#key-types).
 
 ## Rate limit
 
