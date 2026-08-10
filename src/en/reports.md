@@ -49,7 +49,7 @@ The type of report to generate. Allowed values:
 
 - `sms`
 - `email`
-- `job`
+- `job` (bulk send)
 
 **language (required)**
 
