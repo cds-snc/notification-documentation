@@ -49,7 +49,7 @@ Le type de rapport à générer. Valeurs permises :
 
 - `sms` (message texte)
 - `email` (courriel)
-- `job` (envoi en masse)
+- `job` (envoi de masse)
 
 **language (obligatoire)**
 
