@@ -31,7 +31,7 @@ POST /v2/reports
 }
 ```
 
-Pour demander un rapport pour un envoi en masse (bulk job), incluez `job_id` :
+Pour demander un rapport pour un envoi de masse (bulk job), incluez `job_id` :
 
 ```json
 {
