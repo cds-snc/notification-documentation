@@ -30,7 +30,7 @@ Pour créer une clé API :
 
 ## Permissions (__NEW__)
 
-Certains points de terminaison d'API exigent une clé API avec une permission particulière :
+Certains points de terminaison d'API exigent une clé API avec une permission spécifique :
 
 - Les points de terminaison [Gérer les gabarits](gerer-gabarits.md) exigent la permission `manage_templates`.
 - Les points de terminaison [Rapports](rapports.md) exigent la permission `manage_reports`.
