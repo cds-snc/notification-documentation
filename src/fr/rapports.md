@@ -202,7 +202,7 @@ Pour les rapports `email` et `sms`, les colonnes sont :
 |Type|Le type de notification : `courriel` ou `sms`|
 |Envoyé par|Le nom de l'utilisateur qui a envoyé le message, s'il a été envoyé par une personne|
 |Envoyé par courriel|L'adresse courriel de l'utilisateur qui a envoyé le message, s'il a été envoyé par une personne|
-|Tâche|Le nom du fichier d'envoi en masse dont provient le message, le cas échéant|
+|Tâche|Le nom du fichier d'envoi de masse dont provient le message, le cas échéant|
 |État|Le statut de livraison du message|
 |Heure d’envoi|La date et l'heure d'envoi du message|
 
