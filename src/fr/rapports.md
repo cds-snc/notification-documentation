@@ -1,6 +1,6 @@
 # Rapports
 
-Vous pouvez utiliser Notification GC pour demander, lister et télécharger des rapports de vos notifications à l'aide de l'API.
+Vous pouvez utiliser Notification GC pour demander, obtenir la liste et télécharger des rapports de vos notifications à l'aide de l'API.
 
 Les rapports sont générés de façon asynchrone. Après avoir demandé un rapport, interrogez-le via son ID jusqu'à ce que son statut soit `ready`, puis téléchargez son contenu.
 
