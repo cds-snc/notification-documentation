@@ -210,7 +210,7 @@ Pour les rapports `job`, les colonnes sont :
 
 |Colonne|Description|
 |:---|:---|
-|Numéro de ligne|Le numéro de ligne du destinataire dans le fichier d'envoi en masse original|
+|Numéro de ligne|Le numéro de ligne du destinataire dans le fichier d'envoi de masse original|
 |Destinataire|L'adresse courriel ou le numéro de téléphone auquel le message a été envoyé|
 |Gabarit|Le nom du gabarit utilisé|
 |Type|Le type de notification : `courriel` ou `sms`|
