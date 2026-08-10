@@ -214,7 +214,7 @@ Pour les rapports `job`, les colonnes sont :
 |Destinataire|L'adresse courriel ou le numéro de téléphone auquel le message a été envoyé|
 |Gabarit|Le nom du gabarit utilisé|
 |Type|Le type de notification : `courriel` ou `sms`|
-|Tâche|Le nom du fichier d'envoi en masse dont provient le message|
+|Tâche|Le nom du fichier d'envoi de masse dont provient le message|
 |État|Le statut de livraison du message|
 |Heure d’envoi|La date et l'heure d'envoi du message|
 
