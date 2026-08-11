@@ -28,22 +28,23 @@ Pour créer une clé API :
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Créer une clé API__.
 
-## Permission de gestion des gabarits (__NEW__)
+## Permissions (__NEW__)
 
-Les points de terminaison d'API pour gérer les gabarits exigent une clé API avec la permission `manage_templates`.
+Certains points de terminaison d'API exigent une clé API avec une permission spécifique :
 
-Pour créer une clé avec cette permission :
+- Les points de terminaison [Gérer les gabarits](gerer-gabarits.md) exigent la permission `manage_templates`.
+- Les points de terminaison [Rapports](rapports.md) exigent la permission `manage_reports`.
+
+Pour créer une clé avec une permission :
 
 1. [Connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr).
 1. Allez à la page __Intégration API__.
 1. Sélectionnez __Clés API__.
 1. Sélectionnez __Créer une clé API__.
 1. Entrez un nom de clé.
-1. Sous les permissions, choisissez __Manage templates__.
+1. Sous les permissions, choisissez la permission dont vous avez besoin (__Manage templates__ ou __Manage reports__).
 1. Sélectionnez __Créer une clé API__.
 1. Copiez la clé et stockez-la de façon sécuritaire.
-
-Pour les détails des points de terminaison, consultez [Gérer les gabarits](gerer-gabarits.md).
 
 ## Test
 

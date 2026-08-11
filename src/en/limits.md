@@ -6,6 +6,12 @@ Your GC Notify service is limited to doing 1,000 API requests per minute.
 
 This limit is calculated on a rolling average basis, per API key type. If you exceed the limit, you will get a `429` error `RateLimitError`.
 
+## Report request limits
+
+You can request a maximum of 10 reports per hour, per service. This limit applies to the `POST /v2/reports` endpoint used to [request a report](reports.md).
+
+If you exceed the limit, you will get a `429` error `RateLimitExceeded` with the message `Maximum 10 report requests per hour`.
+
 ## Daily limits
 
 There’s a limit to the number of messages you can send each day:

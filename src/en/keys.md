@@ -28,22 +28,23 @@ To create an API key:
 1. Select __API keys__.
 1. Select __Create an API key__.
 
-## Manage templates permission (__NEW__)
+## Permissions (__NEW__)
 
-Manage template API endpoints require an API key with the `manage_templates` permission.
+Some API endpoints require an API key with a specific permission:
 
-To create a key with this permission:
+- The [Manage templates](manage-template.md) endpoints require the `manage_templates` permission.
+- The [Reports](reports.md) endpoints require the `manage_reports` permission.
+
+To create a key with a permission:
 
 1. [Sign in to GC Notify](https://notification.canada.ca/sign-in).
 1. Go to the __API integration__ page.
 1. Select __API keys__.
 1. Select __Create an API key__.
 1. Enter a key name.
-1. Under permissions, click __Manage templates__.
+1. Under permissions, select the permission you need (__Manage templates__ or __Manage reports__).
 1. Select __Create API key__.
 1. Copy and securely store the key.
-
-For endpoint details, refer to [Manage templates](manage-template.md).
 
 ## Test
 
