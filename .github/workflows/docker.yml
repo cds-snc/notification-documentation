@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and push
     steps:
-    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
     - name: Install AWS CLI
       run: |
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -34,7 +34,7 @@ jobs:
         aws-region: "us-east-1"
     - name: Login to ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@261a7de32bda11ba01f4d75c4ed6caf3739e54be # v1.5.3
+      uses: aws-actions/amazon-ecr-login@5a88a04c91d5c6f97aae0d9be790e64d9b1d47b7 # v1.7.1
       with:
         registry-type: public
 
@@ -79,12 +79,12 @@ jobs:
         app_id: ${{ secrets.NOTIFY_PR_BOT_APP_ID }}
         private_key: ${{ secrets.NOTIFY_PR_BOT_PRIVATE_KEY }}
 
-    - uses: cds-snc/notification-pr-bot@main
+    - uses: cds-snc/notification-pr-bot@b70dc73610a8e72a7af40e5ccc320e14ce773988 # main
       env:
         TOKEN: ${{ steps.notify-pr-bot.outputs.token }} 
 
     - name: Generate docker SBOM
-      uses: cds-snc/security-tools/.github/actions/generate-sbom@12a0cdea1c5a515dfcbe353693db804a1793c0ed #v4.0.1
+      uses: cds-snc/security-tools/.github/actions/generate-sbom@d123fa2b895f7ef5b400fad333d2101b103b2e64 # v4.0.4
       env:
         TRIVY_DB_REPOSITORY: ${{ vars.TRIVY_DB_REPOSITORY }}
       with:
