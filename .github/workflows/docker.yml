@@ -10,8 +10,9 @@ env:
   DOCKER_SLUG: public.ecr.aws/cds-snc/notify-documentation
 
 permissions:
-  id-token: write   # This is required for requesting the OIDC JWT
-  contents: read    # This is required for actions/checkout
+  id-token: write        # This is required for requesting the OIDC JWT
+  contents: read         # This is required for actions/checkout
+  security-events: write # This is required for uploading SBOM to the dependency graph
 
 jobs:
   deploy:
