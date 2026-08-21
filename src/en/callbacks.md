@@ -60,9 +60,9 @@ When you set up API callbacks for your GCNotify service, make sure that your API
 
 GC Notify continues trying to deliver until a callback fails 25 times in 5 minutes. After that, we'll email to inform you there's a problem with your API.
 
-::: warning Temporary suspensions
+::: warning Suspensions
 
-If GC Notify has **frequent** problems delivering callbacks to your API, we may **temporarily** suspend callback deliveries for your service and send you an email with steps to resolve the suspension.
+If GC Notify has **frequent** problems delivering callbacks to your API, we may suspend callback deliveries for your service and send you an email with steps to resolve the suspension. Contact us for unsuspending your callbacks.
 
 :::
 
