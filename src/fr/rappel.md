@@ -63,7 +63,7 @@ Notification GC continuera ses tentatives d’envoi jusqu’à ce qu’une fonct
 
 ::: warning Suspensions
 
-Si Notification GC rencontre fréquemment des problèmes concernant l’envoi de rappels à votre API, nous pouvons suspendre ces envois pour votre service et vous envoyer un courriel détaillant les étapes à suivre pour mettre fin à la suspension. Communiquez avec nous pour réactiver vos fonctions de rappel.
+Si Notification GC reçoit fréquemment des erreurs de la part de votre URL de rappel, nous suspendrons les rappels pour votre service et vous enverrons par courriel des instructions pour régler le problème. Votre service ne recevra aucun rappel pendant la suspension. Après avoir suivi ces instructions, communiquez avec nous pour demander la réactivation des fonctions de rappels pour votre service.
 
 :::
 
