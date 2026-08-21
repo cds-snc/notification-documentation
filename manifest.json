@@ -1,0 +1,14 @@
+{
+  "renovate/all-minor": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "b7e901b0038d2cfb455b2947c8b6de9b40cdc45d",
+        "updatedAt": "2026-08-21T17:59:29.702Z",
+        "href": "renovate/all-minor/review-apps/b7e901",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/190",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-minor/review-apps/b7e901"
+      }
+    ]
+  }
+}
