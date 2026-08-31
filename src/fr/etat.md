@@ -106,7 +106,7 @@ Utilisez l’identifiant d’un envoi de masse de la page précédente pour obte
 
 ### Réponse
 
-Si la demande est acceptée, le corps de la réponse est `json` et le code d’état est `200` :
+Si la demande est acceptée, le corps de la réponse est en format `json` et le code d’état est `200` :
 
 ```json
 {
