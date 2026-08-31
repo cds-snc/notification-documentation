@@ -60,6 +60,7 @@ export default {
         {"en": "/en/manage-template", "fr": "/fr/gerer-gabarits"},
         {"en": "/en/template-categories", "fr": "/fr/categories-gabarits"},
         {"en": "/en/status", "fr": "/fr/etat"},
+        {"en": "/en/bulk-status", "fr": "/fr/etat-envois-masse"},
         {"en": "/en/testing", "fr": "/fr/essai"},
         {"en": "/en/keys", "fr": "/fr/cles"},
         {"en": "/en/limits", "fr": "/fr/limites"},
