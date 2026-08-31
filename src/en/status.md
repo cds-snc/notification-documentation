@@ -82,7 +82,6 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API key](keys.md)|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Check the notification ID|
 
-
 ## Get the status of multiple messages
 
 You can use the GC Notify API to find the status of multiple messages at the same time.
