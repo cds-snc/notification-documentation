@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config';
 
 const apiBaseUrl = process.env.API_BASE_URL || 'https://api.notification.canada.ca';
 
@@ -8,7 +8,7 @@ const publicUrl = process.env.PUBLIC_URL
 if (publicUrl) {
   baseURL = publicUrl.endsWith("/") ? publicUrl : publicUrl + "/"
 }
-module.exports = {
+export default {
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
