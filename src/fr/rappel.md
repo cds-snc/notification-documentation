@@ -59,7 +59,7 @@ Lorsque vous configurez les rappels d’API pour votre service Notification GC, 
 
 ## Tentatives d’envoi et suspensions
 
-Notification GC continuera ses tentatives d’envoi jusqu’à ce qu’une fonction de rappel échoue 25 fois en 5 minutes. Après quoi, nous vous informerons par courriel qu’il y a un problème avec votre API.
+GC Notify continue de tenter la livraison jusqu’à ce que le rappel (callback) échoue après 6 tentatives sur une période de 25 minutes. Après quoi, nous vous informerons par courriel qu’il y a un problème avec votre API.
 
 ::: warning Suspensions
 
