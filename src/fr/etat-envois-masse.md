@@ -86,7 +86,11 @@ L’identifiant de l’envoi de masse. Vous le trouverez dans la réponse de `PO
 DELETE /v2/notifications/bulk/{job_id}
 ```
 
-Utilisez ce point de terminaison pour annuler un envoi de masse planifié dont l’envoi n’a pas encore commencé. Vous ne pouvez pas annuler un envoi dont l’envoi a déjà commencé, dont l’envoi est terminé, ou qui a déjà été annulé.
+Utilisez ce point de terminaison pour annuler un envoi de masse planifié dont l’envoi n’a pas encore commencé. Vous ne pouvez pas annuler un envoi si :
+
+1. l’envoi a déjà commencé
+2. l’envoi est déjà terminé
+3. l’envoi a déjà été annulé
 
 ### job_id (obligatoire)
 

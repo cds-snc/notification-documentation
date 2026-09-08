@@ -86,7 +86,11 @@ The ID of the bulk job. You can find it in the response from `POST /v2/notificat
 DELETE /v2/notifications/bulk/{job_id}
 ```
 
-Use this endpoint to cancel a bulk job that is scheduled to send in the future but has not started sending yet. You cannot cancel a job that has already started sending, has already finished sending, or has already been cancelled.
+Use this endpoint to cancel a bulk job that is scheduled to send in the future but has not started sending yet. You cannot cancel a job if it:
+
+1. has already started sending
+2. has already finished sending
+3. has already been cancelled
 
 ### job_id (required)
 
