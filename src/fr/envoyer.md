@@ -480,9 +480,6 @@ Si la demande échoue, le corps de la réponse est en format `json`; référez-v
 |`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "Notification not found in database"`<br>`}]`|Vérifiez l'identifiant de la notification|
 
-::: tip
-Ce point de terminaison n'annule qu'un seul courriel ou message texte planifié. Si vous avez planifié un envoi en masse dans le futur, vous pouvez plutôt l'annuler à partir de l'interface Web de GC Notify.
-:::
 ## Envoyer des notifications de masse
 
 ```
