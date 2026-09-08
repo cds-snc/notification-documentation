@@ -435,6 +435,51 @@ If the request is not successful, the response body is `json`, refer to the tabl
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Refer to [service limits](limits.md) for the limit number|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request, resend your notification.|
 
+## Cancel a scheduled notification
+
+If you sent a single email or text message using `scheduled_for`, you can cancel it with the API before it's due to be sent.
+
+You can only cancel a notification that:
+
+- was scheduled using `scheduled_for`, and
+- has not yet been sent to the provider
+
+```
+DELETE /v2/notifications/{notification_id}
+```
+
+### Arguments
+
+#### notification_id (required)
+
+The ID of the notification you want to cancel. You can find the notification ID in the response to the original notification method call, or by [signing in to GC Notify](https://notification.canada.ca/sign-in) and going to the __API integration__ page.
+
+### Response
+
+If the request is successful, the response body is `json` and the status code is `200`:
+
+```json
+{
+  "result": "success"
+}
+```
+
+### Error codes
+
+If the request is not successful, the response body is `json`, refer to the table below for details.
+
+|status_code|message|How to fix|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "notification_id is not a valid UUID"`<br>`}]`|Check the notification ID|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Notification is not scheduled and cannot be deleted"`<br>`}]`|You can only cancel a notification that was sent using `scheduled_for`|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Notification has already been sent and cannot be deleted"`<br>`}]`|The notification has already been sent to the provider and can no longer be cancelled|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Check your system clock|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Use the correct [API key](keys.md)|
+|`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "Notification not found in database"`<br>`}]`|Check the notification ID|
+
+::: tip
+This endpoint only cancels a single scheduled email or text message. If you scheduled a bulk send in the future, you can cancel it from the GC Notify web interface instead.
+:::
 
 ## Sending notifications in bulk
 

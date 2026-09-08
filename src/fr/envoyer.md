@@ -438,8 +438,51 @@ Si la demande a été refusée, le corps de la réponse est `json`, consultez le
 |`429`|`[{`<br>`"error": "RateLimitError",`<br>`"message": "Exceeded rate limit for key type TEAM/TEST/LIVE of 1000 requests per 60 seconds"`<br>`}]`|Reportez-vous à [Débits maximaux API](limites.md) pour plus de renseignements|
 |`429`|`[{`<br>`"error": "TooManyRequestsError",`<br>`"message": "Exceeded send limits (LIMIT NUMBER) for today"`<br>`}]`|Reportez-vous à [limites du service](limites.md) pour le nombre maximal|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|Notification GC n’a pas pu traiter la demande, renvoyez votre notification.|
+## Annuler une notification planifiée
 
+Si vous avez envoyé un seul courriel ou message texte à l'aide de `scheduled_for`, vous pouvez l'annuler à l'aide de l'API avant qu'il ne soit envoyé.
 
+Vous ne pouvez annuler qu'une notification qui :
+
+- a été planifiée à l'aide de `scheduled_for`, et
+- n'a pas encore été envoyée au fournisseur
+
+```
+DELETE /v2/notifications/{notification_id}
+```
+
+### Paramètres
+
+#### notification_id (obligatoire)
+
+L'identifiant de la notification que vous souhaitez annuler. Vous pouvez trouver l'identifiant de la notification dans la réponse à l'appel de méthode de notification original, ou en [vous connectant à GC Notify](https://notification.canada.ca/connexion) et en accédant à la page __Intégration API__.
+
+### Réponse
+
+Si la demande réussit, le corps de la réponse est en format `json` et le code d'état est `200` :
+
+```json
+{
+  "result": "success"
+}
+```
+
+### Codes d’erreur
+
+Si la demande échoue, le corps de la réponse est en format `json`; référez-vous au tableau ci-dessous pour plus de détails.
+
+|status_code|message|Comment y remédier|
+|:---|:---|:---|
+|`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "notification_id is not a valid UUID"`<br>`}]`|Vérifiez l'identifiant de la notification|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Notification is not scheduled and cannot be deleted"`<br>`}]`|Vous ne pouvez annuler qu'une notification qui a été envoyée à l'aide de `scheduled_for`|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Notification has already been sent and cannot be deleted"`<br>`}]`|La notification a déjà été envoyée au fournisseur et ne peut plus être annulée|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Error: Your system clock must be accurate to within 30 seconds"`<br>`}]`|Vérifiez l'horloge de votre système|
+|`403`|`[{`<br>`"error": "AuthError",`<br>`"message": "Invalid token: API key not found"`<br>`}]`|Utilisez la bonne [clé API](cles.md)|
+|`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "Notification not found in database"`<br>`}]`|Vérifiez l'identifiant de la notification|
+
+::: tip
+Ce point de terminaison n'annule qu'un seul courriel ou message texte planifié. Si vous avez planifié un envoi en masse dans le futur, vous pouvez plutôt l'annuler à partir de l'interface Web de GC Notify.
+:::
 ## Envoyer des notifications de masse
 
 ```
