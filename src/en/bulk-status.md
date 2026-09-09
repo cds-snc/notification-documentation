@@ -80,6 +80,44 @@ Use this endpoint to retrieve one bulk job and its current status. The response 
 
 The ID of the bulk job. You can find it in the response from `POST /v2/notifications/bulk` or in the `bulk_jobs` response from the list endpoint.
 
+## Cancel a bulk job
+
+```
+DELETE /v2/notifications/bulk/{job_id}
+```
+
+Use this endpoint to cancel a bulk job that is scheduled to send in the future but has not started sending yet. You cannot cancel a job if it:
+
+1. has already started sending
+2. has already finished sending
+3. has already been cancelled
+
+### job_id (required)
+
+The ID of the bulk job you want to cancel.
+
+### Response
+
+If the request is successful, the response body is `json` and the status code is `200`. The job is returned with the same fields as [Get a bulk job by ID](#get-a-bulk-job-by-id), wrapped in a `data` object, with `job_status` set to `cancelled`:
+
+```json
+{
+  "data": {
+    "id": "684fca45-42d9-4cae-bf84-22a9f5fc9e6f",
+    "original_file_name": "Bulk send name",
+    "notification_count": 3,
+    "template": "055d4e5c-27c2-4ea6-8736-d4c328279acf",
+    "template_version": 4,
+    "template_type": "email",
+    "job_status": "cancelled",
+    "scheduled_for": "2021-06-10T18:00:00.000000+00:00",
+    "created_at": "2021-06-10T17:14:15.341308+00:00",
+    "updated_at": "2021-06-10T17:20:00.000000+00:00",
+    "statistics": []
+  }
+}
+```
+
 ## Error codes
 
 |status_code|message|How to fix|
@@ -87,3 +125,5 @@ The ID of the bulk job. You can find it in the response from `POST /v2/notificat
 |`400`|Invalid job ID or `older_than` value|Check that the value is a valid UUID. The `older_than` job must belong to your service.|
 |`403`|`AuthError`|Use the correct [API key](keys.md).|
 |`404`|`JobNotFoundError`|Check the bulk job ID.|
+|`409`|`JobAlreadyCancelledError`|The job has already been cancelled. You can't cancel it again.|
+|`409`|`JobCancellationNotAllowedError`|The job can no longer be cancelled because it has already started sending, has finished sending, or its scheduled time has passed. Only jobs that are still scheduled can be cancelled.|
