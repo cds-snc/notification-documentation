@@ -80,6 +80,44 @@ Utilisez ce point de terminaison pour récupérer un envoi de masse et son état
 
 L’identifiant de l’envoi de masse. Vous le trouverez dans la réponse de `POST /v2/notifications/bulk` ou dans la réponse `bulk_jobs` du point de terminaison de la liste.
 
+## Annuler un envoi de masse
+
+```
+DELETE /v2/notifications/bulk/{job_id}
+```
+
+Utilisez ce point de terminaison pour annuler un envoi de masse planifié dont l’envoi n’a pas encore commencé. Vous ne pouvez pas annuler un envoi si :
+
+1. l’envoi a déjà commencé
+2. l’envoi est déjà terminé
+3. l’envoi a déjà été annulé
+
+### job_id (obligatoire)
+
+L’identifiant de l’envoi de masse que vous souhaitez annuler.
+
+### Réponse
+
+Si la demande est acceptée, le corps de la réponse est en format `json` et le code d’état est `200`. L’envoi de masse est retourné avec les mêmes champs que ceux d’[Obtenir un envoi de masse par son identifiant](#obtenir-un-envoi-de-masse-par-son-identifiant), enveloppé dans un objet `data`, avec `job_status` à `cancelled` :
+
+```json
+{
+  "data": {
+    "id": "684fca45-42d9-4cae-bf84-22a9f5fc9e6f",
+    "original_file_name": "Nom de l’envoi de masse",
+    "notification_count": 3,
+    "template": "055d4e5c-27c2-4ea6-8736-d4c328279acf",
+    "template_version": 4,
+    "template_type": "email",
+    "job_status": "cancelled",
+    "scheduled_for": "2021-06-10T18:00:00.000000+00:00",
+    "created_at": "2021-06-10T17:14:15.341308+00:00",
+    "updated_at": "2021-06-10T17:20:00.000000+00:00",
+    "statistics": []
+  }
+}
+```
+
 ## Codes d’erreur
 
 |status_code|message|Comment réparer|
@@ -87,3 +125,5 @@ L’identifiant de l’envoi de masse. Vous le trouverez dans la réponse de `PO
 |`400`|Identifiant ou valeur `older_than` invalide|Vérifiez que la valeur est un UUID valide. L’envoi de masse indiqué par `older_than` doit appartenir à votre service.|
 |`403`|`AuthError`|Utilisez la bonne [clé API](cles.md).|
 |`404`|`JobNotFoundError`|Vérifiez l’identifiant de l’envoi de masse.|
+|`409`|`JobAlreadyCancelledError`|L’envoi de masse a déjà été annulé. Vous ne pouvez pas l’annuler de nouveau.|
+|`409`|`JobCancellationNotAllowedError`|L’envoi de masse ne peut plus être annulé, car son envoi a déjà commencé, est terminé, ou son heure planifiée est dépassée. Seuls les envois encore planifiés peuvent être annulés.|
