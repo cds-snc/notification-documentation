@@ -116,7 +116,7 @@ GC Notify scans file attachments for malware before sending. If malware is detec
 
 ### File types
 
-You can upload .pdf, .csv, .jpeg, .png, .odt, .txt, .rtf, as well as Microsoft Excel and Microsoft Word files. If you need to send other file types, [contact us](https://notification.canada.ca/contact).
+You can upload `.pdf`, `.csv`, `.txt`, `.jpg`, `.jpeg`, `.png`, `.docx`, and `.xlsx` files. The file's content type must match its filename extension. Files with unsupported or unsafe filenames, including filenames containing path separators or NUL characters, are rejected. If you need to send other file types, [contact us](https://notification.canada.ca/contact).
 
 ### File quantity and size
 
@@ -299,7 +299,7 @@ The table below gives status codes and example error objects.
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Use the correct type of [API key](keys.md)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Your service cannot send this notification in trial mode. You can request to go live in settings.|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type. You can only upload .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf or .odt files|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Wrong file type or filename extension. You can only upload `.pdf`, `.csv`, `.txt`, `.jpg`, `.jpeg`, `.png`, `.docx`, or `.xlsx` files|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|The file contains a virus|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Specify either `attach` or `link` as a sending method|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Specify a filename for the file you are sending|
