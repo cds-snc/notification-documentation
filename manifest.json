@@ -46,5 +46,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/fix/update-docs-file-validation/review-apps/2b9a1f"
       }
     ]
+  },
+  "repo-sync/site-reliability-engineering/default": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "af65c8e342481006eb4beb963a21229984cd3d35",
+        "updatedAt": "2026-09-15T14:06:26.208Z",
+        "href": "repo-sync/site-reliability-engineering/default/review-apps/af65c8",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/244",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/repo-sync/site-reliability-engineering/default/review-apps/af65c8"
+      }
+    ]
   }
 }
