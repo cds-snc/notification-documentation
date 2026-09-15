@@ -58,5 +58,17 @@
         "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/repo-sync/site-reliability-engineering/default/review-apps/af65c8"
       }
     ]
+  },
+  "security/migrate-mutable-image-consumers": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "4ae442c9051ee40161aa9f631a463e90a12ef2a1",
+        "updatedAt": "2026-09-15T18:34:36.782Z",
+        "href": "security/migrate-mutable-image-consumers/review-apps/4ae442",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/245",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/security/migrate-mutable-image-consumers/review-apps/4ae442"
+      }
+    ]
   }
 }
