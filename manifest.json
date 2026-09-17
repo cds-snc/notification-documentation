@@ -63,11 +63,11 @@
     "apps": [
       {
         "name": "review-apps",
-        "headCommitId": "256a84c542a2cde4837be5e4b622a8ffb975a6a1",
-        "updatedAt": "2026-09-17T15:50:35.135Z",
-        "href": "security/migrate-mutable-image-consumers/review-apps/256a84",
+        "headCommitId": "2609e01e9920b39e32b8ea12c51b2d652f249b17",
+        "updatedAt": "2026-09-17T18:43:41.291Z",
+        "href": "security/migrate-mutable-image-consumers/review-apps/2609e0",
         "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/245",
-        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/security/migrate-mutable-image-consumers/review-apps/256a84"
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/security/migrate-mutable-image-consumers/review-apps/2609e0"
       }
     ]
   }
