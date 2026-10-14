@@ -76,7 +76,7 @@ L'ID de catégorie de ce gabarit. Consultez [Catégories de gabarit](categories-
 
 **parent_folder_id (facultatif)**
 
-L'ID du dossier où le gabarit doit être stocké.
+L'ID du dossier où le gabarit doit être stocké. Pour gérer les dossiers à l'aide de l'API, consultez [Gérer les dossiers de gabarits](gerer-dossiers-gabarits.md).
 
 ### Réponse
 

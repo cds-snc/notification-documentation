@@ -246,7 +246,7 @@ If the request is successful, the response body is `json` with a status code of 
 DELETE /v2/manage-template-folder/{template_folder_id}
 ```
 
-This endpoint permanently deletes a folder. You can only delete a folder that has no templates and no subfolders. Move or archive the templates and delete the subfolders first.
+This endpoint permanently deletes a folder. You can only delete a folder that has no templates and no subfolders. Move the templates to another folder (or remove them from the folder) and delete the subfolders first. Archived templates still count as being in the folder.
 
 ### Arguments
 
@@ -275,7 +275,7 @@ If the request is successful, the response body is `json` with a status code of 
 |status_code|message|How to fix|
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "id is not a valid UUID"`<br>`}]`|Use a valid UUID for `template_folder_id`|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Folder is not empty"`<br>`}]`|Move or archive the templates in the folder and delete its subfolders, then try again|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Folder is not empty"`<br>`}]`|Move the templates out of the folder and delete its subfolders, then try again|
 |`403`|`[{`<br>`"error": "ForbiddenError",`<br>`"message": "This API key does not have permission to manage templates."`<br>`}]`|Create or use an API key with `manage_templates` permission|
 |`404`|`[{`<br>`"error": "NoResultFound",`<br>`"message": "No result found"`<br>`}]`|Confirm the folder ID exists in your service|
 |`500`|`[{`<br>`"error": "Exception",`<br>`"message": "Internal server error"`<br>`}]`|GC Notify was unable to process the request, resend your request|

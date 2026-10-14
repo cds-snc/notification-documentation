@@ -58,6 +58,7 @@ export default {
         {"en": "/en/start", "fr": "/fr/commencer"},
         {"en": "/en/send", "fr": "/fr/envoyer"},
         {"en": "/en/manage-template", "fr": "/fr/gerer-gabarits"},
+        {"en": "/en/manage-template-folder", "fr": "/fr/gerer-dossiers-gabarits"},
         {"en": "/en/template-categories", "fr": "/fr/categories-gabarits"},
         {"en": "/en/status", "fr": "/fr/etat"},
         {"en": "/en/bulk-status", "fr": "/fr/etat-envois-masse"},

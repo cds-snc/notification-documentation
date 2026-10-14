@@ -76,7 +76,7 @@ The category ID for this template. Refer to [Template categories](template-categ
 
 **parent_folder_id (optional)**
 
-The folder ID where the template should be stored.
+The folder ID where the template should be stored. To manage folders using the API, refer to [Manage template folders](manage-template-folder.md).
 
 ### Response
 
