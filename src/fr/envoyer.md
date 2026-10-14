@@ -117,7 +117,7 @@ Notification GC analyse les pièces jointes pour détecter d’éventuels logici
 
 ### Types de fichiers
 
-Vous pouvez téléverser des fichiers aux formats .pdf, .csv, .jpeg, .png, .odt, .txt, .rtf, Microsoft Excel et Microsoft Word. Si vous avez besoin d’envoyer des fichiers de formats différents, veuillez nous contacter.
+Vous pouvez téléverser des fichiers aux formats `.pdf`, `.csv`, `.txt`, `.jpg`, `.jpeg`, `.png`, `.docx` et `.xlsx`. Le type de contenu du fichier doit correspondre à l’extension de son nom. Les fichiers dont le nom n’est pas pris en charge ou n’est pas sécuritaire, notamment les noms contenant des séparateurs de chemin ou des caractères NUL, sont refusés. Si vous avez besoin d’envoyer des fichiers de formats différents, veuillez nous contacter.
 
 ### Nombre de fichiers et volume des fichiers
 
@@ -303,7 +303,7 @@ Le tableau ci-dessous présente les codes de statut et des exemples d'objets d'e
 |:---|:---|:---|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient using a team-only API key"`<br>`}]`|Utiliser le bon type de [clé API](cles.md)|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Can't send to this recipient when service is in trial mode`<br>`}]`|Votre service ne peut pas envoyer cette notification en mode d’essai. Activez votre service dans les paramètres.|
-|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Mauvais type de fichier. Vous ne pouvez télécharger que des fichiers .pdf, .csv, .txt, .jpeg, .png, .doc, .docx, .xls, .xlsx, .rtf ou .odt|
+|`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "Unsupported file type '(FILE TYPE)'. Supported types are: '(ALLOWED TYPES)"`<br>`}]`|Type de fichier ou extension du nom non pris en charge. Vous pouvez téléverser uniquement des fichiers `.pdf`, `.csv`, `.txt`, `.jpg`, `.jpeg`, `.png`, `.docx` ou `.xlsx`|
 |`400`|`[{`<br>`"error": "BadRequestError",`<br>`"message": "File did not pass the virus scan"`<br>`}]`|Le fichier contient un virus|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "sending_method is a required property"`<br>`}]`|Indiquer soit `attach` pour une pièce jointe ou `link` pour un lien unique comme méthode d'envoi|
 |`400`|`[{`<br>`"error": "ValidationError",`<br>`"message": "filename is a required property"`<br>`}]`|Précisez le nom du fichier que vous envoyez|
