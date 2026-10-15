@@ -36,7 +36,7 @@ Tous les points de terminaison retournent les dossiers dans ce format :
 
 ### Accès aux dossiers
 
-- Un dossier de premier niveau est partagé avec tous les membres actifs de l'équipe de votre service.
+- Un dossier de premier niveau est partagé avec tous les membres de l'équipe de votre service.
 - Un sous-dossier hérite de l'accès de son dossier parent.
 - Lorsque vous déplacez un dossier dans un autre dossier, les membres de l'équipe qui n'ont pas accès au nouveau dossier parent perdent l'accès au dossier déplacé et à ses sous-dossiers.
 
@@ -180,7 +180,7 @@ Si la requête réussit, le corps de la réponse est en `json` avec un code d'é
 PATCH /v2/manage-template-folder/{template_folder_id}
 ```
 
-Utilisez ce point de terminaison pour renommer un dossier, le déplacer, ou les deux.
+Utilisez ce point de terminaison pour renommer un dossier et/ou le déplacer.
 
 ### Corps de la requête
 
@@ -205,9 +205,9 @@ Le nouveau nom du dossier. Il ne peut pas être vide. Les espaces au début et �
 
 **parent_folder_id (facultatif)**
 
-L'ID du dossier dans lequel déplacer ce dossier. Pour déplacer le dossier au premier niveau, définissez `parent_folder_id` à `null`.
+L'ID du dossier dans lequel déplacer ce dossier. Pour déplacer le dossier au premier niveau, attribuez la valeur `null` à `parent_folder_id`.
 
-Vous ne pouvez pas déplacer un dossier dans lui-même ni dans l'un de ses propres sous-dossiers.
+Vous ne pouvez pas déplacer un dossier dans celui-ci, ni dans l'un de ses sous-dossiers.
 
 ### Réponse
 
@@ -246,7 +246,7 @@ Si la requête réussit, le corps de la réponse est en `json` avec un code d'é
 DELETE /v2/manage-template-folder/{template_folder_id}
 ```
 
-Ce point de terminaison supprime définitivement un dossier. Vous ne pouvez supprimer qu'un dossier qui ne contient aucun gabarit ni sous-dossier. Déplacez les gabarits vers un autre dossier (ou retirez-les du dossier) et supprimez d'abord les sous-dossiers. Les gabarits archivés sont toujours considérés comme faisant partie du dossier.
+Ce point de terminaison supprime définitivement un dossier. Vous ne pouvez supprimer que les dossiers qui ne contiennent aucun gabarit ni sous-dossier. Déplacez les gabarits vers un autre dossier (ou retirez-les du dossier) et supprimez d'abord les sous-dossiers. Les gabarits archivés sont toujours considérés comme faisant partie du dossier.
 
 ### Paramètres
 
