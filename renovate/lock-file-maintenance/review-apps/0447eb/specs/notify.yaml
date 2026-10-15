@@ -1,0 +1,346 @@
+openapi: 3.0.3
+info:
+  title: Notification API
+  version: "1.0"
+paths:
+  /v2/notifications/{notification_type}:
+    post:
+      tags:
+        - Send notifications
+      summary: Send a single notification (email, sms, or letter)
+      parameters:
+        - in: path
+          name: notification_type
+          required: true
+          schema:
+            type: string
+            enum: [email, sms, letter]
+          description: Type of notification to send
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/PostEmailRequest'
+                - $ref: '#/components/schemas/PostSMSRequest'
+                - $ref: '#/components/schemas/PostLetterRequest'
+      responses:
+        '201':
+          description: Notification created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostNotificationResponse'
+        '400':
+          description: Bad request
+        '415':
+          description: Unsupported media type
+
+  /v2/notifications/bulk:
+    post:
+      tags:
+        - Send notifications
+      summary: Send bulk notifications (email or sms)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBulkRequest'
+      responses:
+        '201':
+          description: Bulk job created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostBulkResponse'
+        '400':
+          description: Bad request
+        '415':
+          description: Unsupported media type
+
+  /v2/notifications/{notification_id}:
+    get:
+      tags: [Notification status]
+      summary: Get a notification by ID
+      parameters:
+        - in: path
+          name: notification_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The notification ID
+      responses:
+        '200':
+          description: Notification found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: Notification not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                  message:
+                    type: string
+
+  /v2/notifications/{notification_id}/pdf:
+    get:
+      tags: [Notification status]
+      summary: Get PDF for a letter notification
+      parameters:
+        - in: path
+          name: notification_id
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The notification ID
+      responses:
+        '200':
+          description: PDF file
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request (not a letter, virus scan failed, or technical failure)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '404':
+          description: Notification not found
+
+  /v2/notifications:
+    get:
+      tags: [Notification status]
+      summary: Get notifications for a service
+      parameters:
+        - in: query
+          name: older_than
+          schema:
+            type: string
+            format: uuid
+          description: Return notifications older than this ID
+        - in: query
+          name: reference
+          schema:
+            type: string
+          description: Filter by client reference
+        - in: query
+          name: include_jobs
+          schema:
+            type: boolean
+          description: Include job notifications
+      responses:
+        '200':
+          description: List of notifications
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notifications:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Notification'
+                  links:
+                    type: object
+                    properties:
+                      current:
+                        type: string
+                        format: uri
+                      next:
+                        type: string
+                        format: uri
+
+components:
+  schemas:
+    PostEmailRequest:
+      type: object
+      required: [email_address, template_id]
+      properties:
+        reference:
+          type: string
+        email_address:
+          type: string
+          format: email
+        template_id:
+          type: string
+          format: uuid
+        personalisation:
+          type: object
+          additionalProperties: true
+        scheduled_for:
+          type: string
+          format: date-time
+        email_reply_to_id:
+          type: string
+          format: uuid
+
+    PostSMSRequest:
+      type: object
+      required: [phone_number, template_id]
+      properties:
+        reference:
+          type: string
+        phone_number:
+          type: string
+        template_id:
+          type: string
+          format: uuid
+        personalisation:
+          type: object
+          additionalProperties: true
+        scheduled_for:
+          type: string
+          format: date-time
+        sms_sender_id:
+          type: string
+          format: uuid
+
+    PostLetterRequest:
+      type: object
+      required: [template_id, personalisation]
+      properties:
+        reference:
+          type: string
+        template_id:
+          type: string
+          format: uuid
+        personalisation:
+          type: object
+          additionalProperties: true
+
+    PostBulkRequest:
+      type: object
+      required: [template_id, name]
+      properties:
+        template_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        reference:
+          type: string
+        scheduled_for:
+          type: string
+          format: date-time
+        reply_to_id:
+          type: string
+          format: uuid
+        csv:
+          type: string
+          description: CSV data as a string (one of csv or rows required)
+        rows:
+          type: array
+          description: Array of arrays representing CSV rows (one of csv or rows required)
+          items:
+            type: array
+            items:
+              type: string
+
+    PostNotificationResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            reference:
+              type: string
+            content:
+              type: object
+              additionalProperties: true
+            uri:
+              type: string
+              format: uri
+            template:
+              type: object
+              additionalProperties: true
+            scheduled_for:
+              type: string
+              format: date-time
+
+    PostBulkResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            service:
+              type: string
+              format: uuid
+            template:
+              type: string
+              format: uuid
+            notification_count:
+              type: integer
+            template_version:
+              type: integer
+            job_status:
+              type: string
+            original_file_name:
+              type: string
+            created_by:
+              type: string
+            api_key:
+              type: string
+              format: uuid
+            sender_id:
+              type: string
+              format: uuid
+            scheduled_for:
+              type: string
+              format: date-time
+
+    Notification:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        template_id:
+          type: string
+          format: uuid
+        template_version:
+          type: integer
+        status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        sent_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+        notification_type:
+          type: string
+        to:
+          type: string
+        personalisation:
+          type: object
+          additionalProperties: true
+        reference:
+          type: string
+        client_reference:
+          type: string
