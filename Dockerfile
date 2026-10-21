@@ -4,8 +4,9 @@ FROM nginx:alpine@sha256:42a516af16b852e33b7682d5ef8acbd5d13fe08fecadc7ed98605ba
 RUN apk add --no-cache ca-certificates && \
     sed -i \
       -e 's|^mozilla/emSign_ECC_Root_CA_-_G3.crt|!&|' \
+      -e 's|^mozilla/Comodo_AAA_Services_root.crt|!&|' \
       /etc/ca-certificates.conf && \
-    update-ca-certificates
+    update-ca-certificates --fresh
 
 RUN apk add --no-cache bash nodejs npm && rm -rf /var/cache/apk/*
 
