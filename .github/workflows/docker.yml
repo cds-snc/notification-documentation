@@ -41,12 +41,11 @@ jobs:
     - name: Build
       run: |
         docker build \
-          -t $DOCKER_SLUG:latest \
           -t $DOCKER_SLUG:${GITHUB_SHA::7} \
           -f Dockerfile .
     - name: Publish
       run: |
-        docker push $DOCKER_SLUG:latest && docker push $DOCKER_SLUG:${GITHUB_SHA::7}
+        docker push $DOCKER_SLUG:${GITHUB_SHA::7}
 
     - name: Configure credentials to Notify account using OIDC
       uses: aws-actions/configure-aws-credentials@5fd3084fc36e372ff1fff382a39b10d03659f355 # v2.2.0
