@@ -104,7 +104,7 @@ If you want to send notifications in the future, you can specify a datetime up t
 "scheduled_for": "2021-06-08T15:15:00"
 ```
 
-## Sending files by email is an API-only feature
+## Sending files by email
 
 To turn on this feature, [sign in to GC Notify](https://notification.canada.ca/sign-in) and go to the __Settings__ page.
 

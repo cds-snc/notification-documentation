@@ -105,7 +105,7 @@ Vous pouvez ignorer cet argument si votre service n’a qu’une seule adresse d
 "scheduled_for": "2021-06-08T15:15:00"
 ```
 
-## L’envoi de fichiers par courriel est une fonctionnalité unique à l’API
+## L’envoi de fichiers par courriel
 
 Pour activer cette fonctionnalité, [connectez-vous à Notification GC](https://notification.canada.ca/sign-in?lang=fr) et accédez à la section __Paramètres__.
 
