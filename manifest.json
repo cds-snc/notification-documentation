@@ -1,0 +1,14 @@
+{
+  "renovate/all-non-major-github-action": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "f4557adf568ccb8745e9950682c0a955b56c45f6",
+        "updatedAt": "2026-10-29T17:47:50.594Z",
+        "href": "renovate/all-non-major-github-action/review-apps/f4557a",
+        "pullRequestUrl": "https://github.com/cds-snc/notification-documentation/pull/236",
+        "githubPagesUrl": "https://cds-snc.github.io/notification-documentation/renovate/all-non-major-github-action/review-apps/f4557a"
+      }
+    ]
+  }
+}
