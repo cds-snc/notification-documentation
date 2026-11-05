@@ -9,7 +9,6 @@ metadata:
   description: Documentation website for GC Notify | Documentation de GC Notification.
   annotations:
     github.com/project-slug: cds-snc/notification-documentation
-    backstage.io/source-location: url:https://github.com/cds-snc/notification-documentation/tree/main/
   labels:
     license: MIT
 spec:
