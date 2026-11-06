@@ -5,6 +5,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: notification-documentation
+  title: GC Notify Documentation | Documentation GC Notification
   description: Documentation website for GC Notify | Documentation de GC Notification
   annotations:
     github.com/project-slug: cds-snc/notification-documentation
